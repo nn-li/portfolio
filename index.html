@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nina Li — Product & UX Designer</title>
+<meta name="description" content="Product & UX designer crafting calm, considered digital experiences. Portfolio of selected work." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --paper: #f4f1ea;
+    --paper-2: #efeae0;
+    --ink: #1c1a17;
+    --ink-soft: #55504a;
+    --ink-faint: #8a847b;
+    --line: #d8d2c6;
+    --accent: #b5432a;      /* terracotta */
+    --accent-deep: #8f3320;
+    --max: 1180px;
+    --ease: cubic-bezier(.19,1,.22,1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Hanken Grotesk", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  /* subtle paper grain */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: .035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  ::selection { background: var(--accent); color: var(--paper); }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
+
+  .display {
+    font-family: "Fraunces", Georgia, serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    line-height: .98;
+    letter-spacing: -.015em;
+  }
+
+  .eyebrow {
+    font-size: 12.5px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 600;
+  }
+
+  /* ---------- NAV ---------- */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    transition: background .4s var(--ease), border-color .4s var(--ease), backdrop-filter .4s;
+    border-bottom: 1px solid transparent;
+  }
+  header.scrolled {
+    background: rgba(244,241,234,.82);
+    backdrop-filter: blur(12px) saturate(1.4);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+  }
+  .brand {
+    font-family: "Fraunces", serif;
+    font-size: 21px;
+    font-weight: 500;
+    letter-spacing: -.01em;
+  }
+  .brand span { color: var(--accent); }
+  .nav-links { display: flex; gap: 34px; align-items: center; }
+  .nav-links a {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    position: relative;
+    transition: color .3s;
+  }
+  .nav-links a::after {
+    content: "";
+    position: absolute; left: 0; bottom: -5px;
+    width: 0; height: 1.5px; background: var(--accent);
+    transition: width .35s var(--ease);
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta {
+    border: 1px solid var(--ink);
+    border-radius: 100px;
+    padding: 8px 18px !important;
+    color: var(--ink) !important;
+    transition: background .3s, color .3s;
+  }
+  .nav-cta::after { display: none; }
+  .nav-cta:hover { background: var(--ink); color: var(--paper) !important; }
+  .nav-toggle { display: none; }
+
+  /* ---------- HERO ---------- */
+  .hero { padding: 190px 0 90px; position: relative; z-index: 2; }
+  .hero .status {
+    display: inline-flex; align-items: center; gap: 9px;
+    margin-bottom: 34px;
+    font-size: 13.5px; color: var(--ink-soft);
+  }
+  .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #3d9a52; position: relative;
+  }
+  .dot::after {
+    content:""; position:absolute; inset:-4px; border-radius:50%;
+    border:1px solid #3d9a52; animation: pulse 2.4s var(--ease) infinite;
+  }
+  @keyframes pulse { 0%{transform:scale(.6);opacity:1} 100%{transform:scale(1.8);opacity:0} }
+
+  .hero h1 {
+    font-size: clamp(52px, 9.5vw, 138px);
+    max-width: 14ch;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 300;
+  }
+  .hero-lower {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    margin-top: 52px;
+    flex-wrap: wrap;
+  }
+  .hero-lower p {
+    max-width: 46ch;
+    color: var(--ink-soft);
+    font-size: 19px;
+  }
+  .hero-meta { text-align: right; font-size: 14px; color: var(--ink-faint); line-height: 1.9; }
+  .hero-meta strong { color: var(--ink); font-weight: 600; display: block; font-size: 15px; }
+
+  /* reveal on load */
+  .reveal { opacity: 0; transform: translateY(26px); }
+  .in { animation: rise .95s var(--ease) forwards; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 22px 0;
+    position: relative; z-index: 2;
+    background: var(--paper-2);
+  }
+  .marquee-track {
+    display: inline-flex; gap: 48px;
+    animation: slide 32s linear infinite;
+    will-change: transform;
+  }
+  .marquee-track span {
+    font-family: "Fraunces", serif;
+    font-size: 26px; font-style: italic;
+    color: var(--ink-soft);
+  }
+  .marquee-track span::before { content: "✦"; color: var(--accent); margin-right: 48px; font-style: normal; font-size: 15px; vertical-align: middle; }
+  @keyframes slide { to { transform: translateX(-50%); } }
+
+  /* ---------- SECTIONS ---------- */
+  section { position: relative; z-index: 2; }
+  .sec-head {
+    display: flex; align-items: baseline; gap: 18px;
+    margin-bottom: 56px;
+  }
+  .sec-head .num { font-family:"Fraunces",serif; font-size: 15px; color: var(--accent); }
+  .sec-head h2 { font-size: clamp(32px, 5vw, 58px); }
+
+  /* WORK */
+  .work { padding: 110px 0; }
+  .project {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: 32px;
+    align-items: center;
+    padding: 38px 0;
+    border-top: 1px solid var(--line);
+    transition: padding-left .5s var(--ease);
+    position: relative;
+  }
+  .project:last-child { border-bottom: 1px solid var(--line); }
+  .project::before {
+    content: ""; position: absolute; left: -32px; right: -32px; top: 0; bottom: 0;
+    background: var(--ink); opacity: 0; transition: opacity .45s var(--ease);
+    z-index: -1; border-radius: 4px;
+  }
+  .project:hover { padding-left: 24px; }
+  .project:hover::before { opacity: .04; }
+  .project .p-num { font-family:"Fraunces",serif; font-size: 18px; color: var(--ink-faint); }
+  .project h3 {
+    font-family: "Fraunces", serif; font-weight: 400;
+    font-size: clamp(26px, 3.4vw, 40px); line-height: 1.05;
+    letter-spacing: -.01em;
+  }
+  .project .tags { margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .project .tags span {
+    font-size: 12.5px; color: var(--ink-soft);
+    border: 1px solid var(--line); border-radius: 100px; padding: 4px 12px;
+  }
+  .project .p-right { text-align: right; display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
+  .project .year { font-family:"Fraunces",serif; font-size: 22px; }
+  .project .arrow {
+    width: 46px; height: 46px; border-radius: 50%;
+    border: 1px solid var(--line);
+    display: grid; place-items: center;
+    transition: transform .45s var(--ease), background .35s, border-color .35s, color .35s;
+    font-size: 18px;
+  }
+  .project:hover .arrow { background: var(--accent); border-color: var(--accent); color: var(--paper); transform: rotate(-45deg); }
+
+  /* ABOUT */
+  .about { padding: 110px 0; border-top: 1px solid var(--line); }
+  .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px; }
+  .about-lead {
+    font-family: "Fraunces", serif;
+    font-size: clamp(24px, 3vw, 34px);
+    line-height: 1.4; font-weight: 300;
+    letter-spacing: -.01em;
+  }
+  .about-lead b { color: var(--accent); font-weight: 400; font-style: italic; }
+  .about-body { color: var(--ink-soft); margin-top: 28px; max-width: 52ch; }
+  .about-body p + p { margin-top: 18px; }
+
+  .facts { border-top: 2px solid var(--ink); }
+  .fact { padding: 20px 0; border-bottom: 1px solid var(--line); }
+  .fact dt { font-size: 12.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 6px; }
+  .fact dd { font-size: 16px; }
+  .fact dd .li { display: block; }
+
+  /* EXPERIENCE / CAPABILITIES */
+  .caps { padding: 110px 0; border-top: 1px solid var(--line); }
+  .caps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--line); border: 1px solid var(--line); }
+  .cap { background: var(--paper); padding: 40px 34px; transition: background .4s; }
+  .cap:hover { background: var(--paper-2); }
+  .cap .c-num { font-family:"Fraunces",serif; color: var(--accent); font-size: 15px; }
+  .cap h4 { font-family:"Fraunces",serif; font-weight: 500; font-size: 23px; margin: 14px 0 12px; }
+  .cap p { font-size: 15px; color: var(--ink-soft); }
+
+  /* CONTACT */
+  .contact { padding: 130px 0 90px; border-top: 1px solid var(--line); text-align: center; }
+  .contact .eyebrow { display: block; margin-bottom: 26px; }
+  .contact h2 {
+    font-size: clamp(44px, 8vw, 118px);
+    margin-bottom: 18px;
+  }
+  .contact a.mail {
+    display: inline-block;
+    font-family: "Fraunces", serif; font-style: italic;
+    font-size: clamp(24px, 4vw, 40px);
+    color: var(--accent);
+    border-bottom: 1.5px solid transparent;
+    transition: border-color .4s var(--ease);
+  }
+  .contact a.mail:hover { border-color: var(--accent); }
+  .socials { margin-top: 48px; display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; }
+  .socials a { font-size: 15px; color: var(--ink-soft); position: relative; }
+  .socials a:hover { color: var(--ink); }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 34px 0;
+    position: relative; z-index: 2;
+  }
+  .foot { display: flex; justify-content: space-between; align-items: center; font-size: 13.5px; color: var(--ink-faint); flex-wrap: wrap; gap: 12px; }
+
+  /* scroll reveal for sections */
+  .obs { opacity: 0; transform: translateY(34px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+  .obs.show { opacity: 1; transform: none; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 860px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 22px; }
+    .nav-links { display: none; }
+    .hero { padding: 150px 0 70px; }
+    .hero-lower { flex-direction: column; align-items: flex-start; }
+    .hero-meta { text-align: left; }
+    .about-grid { grid-template-columns: 1fr; gap: 46px; }
+    .caps-grid { grid-template-columns: 1fr; }
+    .project { grid-template-columns: 36px 1fr; }
+    .project .p-right { grid-column: 2; flex-direction: row; align-items: center; justify-content: space-between; text-align: left; margin-top: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<header id="hd">
+  <div class="wrap nav">
+    <a href="#top" class="brand">Nina<span>.</span>Li</a>
+    <nav class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#caps">Approach</a>
+      <a href="#contact" class="nav-cta">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="status reveal in" style="animation-delay:.05s">
+        <span class="dot"></span> Available for select projects — 2026
+      </div>
+      <h1 class="display">
+        <span class="reveal in" style="display:inline-block;animation-delay:.12s">Designing</span>
+        <span class="reveal in" style="display:inline-block;animation-delay:.22s"><em>calm</em>, considered</span>
+        <span class="reveal in" style="display:inline-block;animation-delay:.32s">digital products.</span>
+      </h1>
+      <div class="hero-lower reveal in" style="animation-delay:.5s">
+        <p>I'm a product &amp; UX designer helping teams turn messy problems into clear, humane interfaces — from first research to shipped pixels.</p>
+        <div class="hero-meta">
+          <strong>Nina Li</strong>
+          Product &amp; UX Designer<br />
+          Based in Taipei · Working worldwide
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>Product Design</span><span>UX Research</span><span>Design Systems</span>
+      <span>Prototyping</span><span>Interaction Design</span><span>Accessibility</span>
+      <span>Product Design</span><span>UX Research</span><span>Design Systems</span>
+      <span>Prototyping</span><span>Interaction Design</span><span>Accessibility</span>
+    </div>
+  </div>
+
+  <!-- WORK -->
+  <section class="work" id="work">
+    <div class="wrap">
+      <div class="sec-head obs">
+        <span class="num">01</span>
+        <h2 class="display">Selected&nbsp;Work</h2>
+      </div>
+
+      <a class="project obs" href="#">
+        <span class="p-num">01</span>
+        <div>
+          <h3>Ledger — rethinking personal finance for anxious spenders</h3>
+          <div class="tags"><span>Product Design</span><span>0→1</span><span>iOS · Android</span></div>
+        </div>
+        <div class="p-right"><span class="year">2025</span><span class="arrow">→</span></div>
+      </a>
+
+      <a class="project obs" href="#">
+        <span class="p-num">02</span>
+        <div>
+          <h3>Atlas Health — a booking flow that cut drop-off by 38%</h3>
+          <div class="tags"><span>UX Research</span><span>Service Design</span><span>Web</span></div>
+        </div>
+        <div class="p-right"><span class="year">2024</span><span class="arrow">→</span></div>
+      </a>
+
+      <a class="project obs" href="#">
+        <span class="p-num">03</span>
+        <div>
+          <h3>Northwind Design System — one language across 40 teams</h3>
+          <div class="tags"><span>Design Systems</span><span>Tokens</span><span>Docs</span></div>
+        </div>
+        <div class="p-right"><span class="year">2024</span><span class="arrow">→</span></div>
+      </a>
+
+      <a class="project obs" href="#">
+        <span class="p-num">04</span>
+        <div>
+          <h3>Foglight — an AI writing tool people actually trust</h3>
+          <div class="tags"><span>AI UX</span><span>Prototyping</span><span>Desktop</span></div>
+        </div>
+        <div class="p-right"><span class="year">2023</span><span class="arrow">→</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="sec-head obs">
+        <span class="num">02</span>
+        <h2 class="display">About</h2>
+      </div>
+      <div class="about-grid">
+        <div class="obs">
+          <p class="about-lead">I believe the best interfaces <b>disappear</b> — leaving people feeling capable, not clever software feeling impressive.</p>
+          <div class="about-body">
+            <p>Over the last eight years I've worked across fintech, healthcare and developer tools, sitting comfortably between research and craft. I like the unglamorous middle of a project: the edge cases, the empty states, the error someone hits at 2am.</p>
+            <p>When I'm not designing, I'm usually restoring film cameras, over-brewing coffee, or getting lost on long bike rides around the island.</p>
+          </div>
+        </div>
+        <dl class="facts obs">
+          <div class="fact"><dt>Experience</dt><dd>8+ years · product &amp; UX</dd></div>
+          <div class="fact"><dt>Previously</dt><dd>
+            <span class="li">Senior Designer — Meridian</span>
+            <span class="li">Product Designer — Cove</span>
+            <span class="li">UX Designer — Studio Kite</span>
+          </dd></div>
+          <div class="fact"><dt>Tools</dt><dd>Figma · Framer · Origami · a bit of code</dd></div>
+          <div class="fact"><dt>Speaks</dt><dd>English · 中文 · 日本語 (少し)</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES -->
+  <section class="caps" id="caps">
+    <div class="wrap">
+      <div class="sec-head obs">
+        <span class="num">03</span>
+        <h2 class="display">How&nbsp;I&nbsp;Work</h2>
+      </div>
+      <div class="caps-grid obs">
+        <div class="cap">
+          <span class="c-num">/01</span>
+          <h4>Listen first</h4>
+          <p>Interviews, journey maps and honest usability tests. I design from evidence, not assumptions — and I bring the team along for it.</p>
+        </div>
+        <div class="cap">
+          <span class="c-num">/02</span>
+          <h4>Make it real</h4>
+          <p>Fast, high-fidelity prototypes you can actually tap. Ideas argue better when you can hold them, so I get to interactive quickly.</p>
+        </div>
+        <div class="cap">
+          <span class="c-num">/03</span>
+          <h4>Sweat the system</h4>
+          <p>Tokens, components and documentation that let a design scale to dozens of teams without losing its voice or its rigor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <span class="eyebrow obs">Let's build something</span>
+      <h2 class="display obs">Say hello.</h2>
+      <div class="obs"><a class="mail" href="mailto:hello@ninali.design">hello@ninali.design</a></div>
+      <div class="socials obs">
+        <a href="#">LinkedIn ↗</a>
+        <a href="#">Dribbble ↗</a>
+        <a href="#">Read.cv ↗</a>
+        <a href="#">GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Nina Li — Placeholder content</span>
+    <span>Designed &amp; built with care · Taipei</span>
+  </div>
+</footer>
+
+<script>
+  // sticky nav background
+  const hd = document.getElementById('hd');
+  const onScroll = () => hd.classList.toggle('scrolled', window.scrollY > 40);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.obs').forEach((el) => io.observe(el));
+</script>
+
+</body>
+</html>
