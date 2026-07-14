@@ -278,6 +278,12 @@
   }
   .about-lead b { color: var(--clay); font-weight: 400; font-style: italic; }
   .about-body { color: var(--ink-soft); margin-top: 28px; max-width: 576px; }
+  .about-more {
+    display: inline-block; margin-top: 26px; font-size: 15.5px; color: var(--ink);
+    border-bottom: 1.5px solid var(--clay); padding-bottom: 3px;
+    transition: color .3s, border-color .3s;
+  }
+  .about-more:hover, .about-more:focus-visible { color: var(--clay); }
   .about-body p + p { margin-top: 18px; }
 
   .about-photo { width: 100%; display: block; border-radius: 14px; margin-bottom: 26px; }
@@ -364,10 +370,11 @@
   <div class="wrap nav">
     <a href="#top" class="brand">Brynn<span>.</span>Li</a>
     <nav class="nav-links">
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#caps">Approach</a>
-      <a href="assets/files/brynn-cv.pdf" class="nav-cta" download>resume</a>
+      <a href="#work">作品</a>
+      <a href="about.html">關於我</a>
+      <a href="#caps">工作方式</a>
+      <a href="assets/files/brynn-cv.pdf" download>履歷</a>
+      <a href="#contact" class="nav-cta">聯絡我</a>
     </nav>
   </div>
 </header>
@@ -463,33 +470,12 @@
         <span class="num">02</span>
         <h2 class="display">About</h2>
       </div>
-      <div class="about-grid">
-        <div class="obs">
-          <p class="about-lead">品質不是做得更多，而是知道在限制下該<b>保留什麼、拿掉什麼</b>。</p>
-          <div class="about-body">
-            <p>我的背景橫跨視覺傳達設計、品牌零售與 UX 顧問專案。近年的工作涵蓋政府數位服務、App 與網站優化，從使用者訪談、易用性測試、資訊架構、User Flow、Prototype 到介面規格，也與工程師及機關窗口釐清功能邏輯與實作限制。四年的品牌專櫃經驗，則讓我熟悉使用者在資訊不足、比較與猶豫中的決策過程。</p>
-            <p>在「震時秒判」中，訪談顯示地震發生時，使用者的注意力與操作能力都十分有限。我因此沒有繼續增加更多震時功能，而是重新分配震前準備、震時判斷與震後支持的產品重心，讓震時介面只保留當下能理解、能執行的資訊。這個專案獲得金點概念設計獎與金點新秀設計獎，也形成了我對設計品質的判準，不是功能越多越完整，而是取捨是否符合真實情境。</p>
-          </div>
+      <div class="obs">
+        <p class="about-lead">品質不是做得更多，而是知道在限制下該<b>保留什麼、拿掉什麼</b>。</p>
+        <div class="about-body">
+          <p>我的背景橫跨視覺傳達設計、品牌零售與 UX 顧問專案。這些經驗讓我同時關注資訊如何被理解、使用者如何做決定，以及設計如何銜接實作。</p>
         </div>
-        <div class="obs">
-          <img class="about-photo" src="assets/images/photo/portrait.jpg" alt="Brynn Li 個人照" loading="lazy" />
-          <dl class="facts">
-            <div class="fact"><dt>Background</dt><dd>視覺傳達設計</dd></div>
-            <div class="fact"><dt>Experience</dt><dd>
-              <span class="li">UX 顧問專案</span>
-              <span class="li">政府數位服務・App・Web</span>
-              <span class="li" style="margin-top:8px">品牌專櫃銷售・4 年</span>
-            </dd></div>
-            <div class="fact"><dt>Recognition</dt><dd>
-              <span class="li">金點概念設計獎</span>
-              <span class="li">金點新秀設計獎</span>
-            </dd></div>
-            <div class="fact"><dt>Tools &amp; Technical</dt><dd>
-              <span class="li">Figma・FigJam</span>
-              <span class="li">HTML・CSS</span>
-            </dd></div>
-          </dl>
-        </div>
+        <a class="about-more" href="about.html">了解我的背景與經驗 →</a>
       </div>
     </div>
   </section>

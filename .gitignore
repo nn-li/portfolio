@@ -18,10 +18,5 @@ suggest/
 assets/images/photo/*
 !assets/images/photo/portrait.jpg
 
-# 內部工作文件不上傳
-HANDOFF.md
-README.md
-uiux-career-coach-prompt.md
-assets/files/README.txt
-work/_template.html
+# 內部參考（Nelly 檔案）不上傳
 作品集參考/

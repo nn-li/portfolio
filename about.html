@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>關於我 — Brynn Li · UI/UX Designer</title>
+<meta name="description" content="Brynn Li 的背景橫跨視覺傳達設計、品牌零售與 UX 顧問專案，工作經驗涵蓋政府數位服務、App 與網站優化。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper: #faf9f6;
+    --paper-2: #f1f0ea;
+    --ink: #1c1a17;
+    --ink-soft: #55504a;
+    --ink-faint: #8a847b;
+    --line: #e4e2da;
+    --accent: #494a4e;
+    --accent-deep: #2b2c2f;
+    --clay: #a5654f;
+    --max: 1180px;
+    --ease: cubic-bezier(.19,1,.22,1);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Hanken Grotesk", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--accent); color: var(--paper); }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
+  .display {
+    font-family: "Fraunces", Georgia, serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    line-height: 1.06;
+    letter-spacing: -.015em;
+  }
+  .eyebrow {
+    font-size: 12.5px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--ink-faint); font-weight: 600;
+  }
+
+  /* NAV（與首頁一致） */
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    transition: background .4s var(--ease), border-color .4s var(--ease), backdrop-filter .4s;
+    border-bottom: 1px solid transparent;
+  }
+  header.scrolled {
+    background: rgba(250,249,246,.82);
+    backdrop-filter: blur(12px) saturate(1.4);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+  .brand { font-family: "Fraunces", serif; font-size: 21px; font-weight: 500; letter-spacing: -.01em; }
+  .brand span { color: var(--accent); }
+  .nav-links { display: flex; gap: 34px; align-items: center; }
+  .nav-links a { font-size: 14.5px; color: var(--ink-soft); position: relative; transition: color .3s; }
+  .nav-links a::after {
+    content: ""; position: absolute; left: 0; bottom: -5px;
+    width: 0; height: 1.5px; background: var(--accent);
+    transition: width .35s var(--ease);
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a:hover::after, .nav-links a:focus-visible::after { width: 100%; }
+  .nav-links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  .nav-links a.active { color: var(--ink); font-weight: 600; }
+  .nav-links a.active::after { width: 100%; background: var(--clay); }
+  .nav-cta {
+    border: 1px solid var(--ink); border-radius: 100px;
+    padding: 8px 18px !important; color: var(--ink) !important;
+    transition: background .3s, color .3s;
+  }
+  .nav-cta::after { display: none; }
+  .nav-cta:hover { background: var(--ink); color: var(--paper) !important; }
+
+  /* 進場 */
+  .reveal { opacity: 0; transform: translateY(26px); }
+  .in { animation: rise .55s var(--ease) forwards; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  .obs { opacity: 0; transform: translateY(34px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+  .obs.show { opacity: 1; transform: none; }
+
+  section { position: relative; z-index: 2; }
+  .sec { padding: 120px 0 0; }
+  .sec-head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 44px; }
+  .sec-head .num { font-family: "Fraunces", serif; font-size: 15px; color: var(--clay); white-space: nowrap; }
+  .sec-head h2 { font-size: clamp(28px, 4vw, 44px); }
+  .sec-fore { color: var(--ink-soft); max-width: 36em; margin-bottom: 44px; }
+
+  /* 01 Hero */
+  .ahero { padding: 170px 0 0; }
+  .ahero-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 72px; align-items: start; }
+  .ahero .eyebrow { display: block; margin-bottom: 22px; }
+  .ahero h1 { font-size: clamp(40px, 5.6vw, 76px); }
+  .ahero h1 span { white-space: nowrap; }
+  .ahero-body { margin-top: 30px; color: var(--ink-soft); max-width: 36em; }
+  .ahero-body p + p { margin-top: 16px; }
+  .ahero-side { padding-top: 6px; }
+  .ahero-photo {
+    width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+    border-radius: 16px; display: block; border: 1px solid var(--line);
+  }
+  .ahero-meta { margin-top: 20px; line-height: 1.9; }
+  .ahero-meta strong { display: block; font-size: 16px; }
+  .ahero-meta span { display: block; font-size: 14px; color: var(--ink-faint); }
+  .ahero-cta { margin-top: 18px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; font-size: 14.5px;
+    border: 1px solid var(--ink); border-radius: 100px; padding: 9px 20px;
+    transition: background .3s, color .3s;
+  }
+  .btn:hover, .btn:focus-visible { background: var(--ink); color: var(--paper); }
+  .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .btn.ghost { border-color: var(--line); color: var(--ink-soft); }
+  .btn.ghost:hover, .btn.ghost:focus-visible { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+
+  /* 02 職涯路徑 / 03 負責範圍 */
+  .cards3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--line); border: 1px solid var(--line); }
+  .card { background: var(--paper); padding: 36px 30px; transition: background .4s; }
+  .card:hover { background: var(--paper-2); }
+  .card .k { font-family: "Fraunces", serif; color: var(--clay); font-size: 14px; }
+  .card h3 { font-family: "Fraunces", serif; font-weight: 500; font-size: 21px; margin: 12px 0 12px; }
+  .card p { font-size: 15px; color: var(--ink-soft); }
+  .card p + p { margin-top: 10px; }
+  .card .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .card .tags span {
+    font-size: 12px; color: var(--ink-soft);
+    border: 1px solid var(--line); border-radius: 100px; padding: 3px 11px;
+  }
+  .path-arrow { text-align: center; color: var(--ink-faint); font-size: 13px; margin-top: 14px; }
+
+  /* 04 團隊合作 */
+  .collab { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--line); border: 1px solid var(--line); }
+  .collab .card h3 { font-size: 19px; }
+
+  /* 05 經歷與背景 */
+  .facts-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 56px; }
+  .fcol h3 { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); font-weight: 600; border-top: 2px solid var(--ink); padding-top: 16px; margin-bottom: 18px; }
+  .fitem { padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .fitem:last-child { border-bottom: 0; }
+  .fitem h4 { font-family: "Fraunces", serif; font-weight: 500; font-size: 18px; }
+  .fitem .meta { font-size: 13.5px; color: var(--ink-faint); margin: 3px 0 8px; }
+  .fitem p { font-size: 14.5px; color: var(--ink-soft); }
+  .cv-cta { margin-top: 40px; }
+
+  /* 06 工作之外 */
+  .aside-note { max-width: 36em; }
+  .aside-note p { font-size: 15px; color: var(--ink-soft); }
+
+  /* 07 Contact */
+  .acontact { padding: 130px 0 110px; border-top: 1px solid var(--line); margin-top: 130px; text-align: center; }
+  .acontact h2 { font-size: clamp(30px, 5vw, 56px); margin-bottom: 14px; }
+  .acontact p { color: var(--ink-soft); margin-bottom: 30px; }
+  .acontact .ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .mailrow { margin-top: 30px; display: inline-flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .mailrow a { font-family: "Fraunces", serif; font-style: italic; font-size: 20px; color: var(--accent); border-bottom: 1.5px solid transparent; transition: border-color .3s; }
+  .mailrow a:hover, .mailrow a:focus-visible { border-color: var(--accent); }
+  .copybtn {
+    font-size: 13px; color: var(--ink-soft); background: none;
+    border: 1px solid var(--line); border-radius: 100px; padding: 6px 14px;
+    cursor: pointer; font-family: inherit; transition: border-color .3s, color .3s;
+  }
+  .copybtn:hover, .copybtn:focus-visible { border-color: var(--ink); color: var(--ink); }
+  .copybtn.done { border-color: var(--clay); color: var(--clay); }
+
+  footer { border-top: 1px solid var(--line); padding: 34px 0; }
+  .foot { display: flex; justify-content: space-between; align-items: center; font-size: 13.5px; color: var(--ink-faint); flex-wrap: wrap; gap: 12px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .obs { opacity: 1 !important; transform: none !important; animation: none !important; transition: none !important; }
+    html { scroll-behavior: auto; }
+  }
+
+  @media (max-width: 1020px) {
+    .ahero-grid { grid-template-columns: 1fr 1fr; gap: 44px; }
+    .cards3 { grid-template-columns: 1fr; }
+    .facts-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 720px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 22px; }
+    .nav-links { display: none; }
+    .sec { padding: 84px 0 0; }
+    .ahero { padding: 130px 0 0; }
+    .ahero h1 { font-size: clamp(30px, 8.6vw, 40px); }
+    .ahero-grid { grid-template-columns: 1fr; gap: 36px; }
+    .ahero-grid > div:first-child { order: 0; }
+    .ahero-side { order: 1; }
+    .collab { grid-template-columns: 1fr; }
+    .facts-grid { grid-template-columns: 1fr; gap: 40px; }
+    .acontact { padding: 96px 0 84px; margin-top: 96px; }
+  }
+</style>
+</head>
+<body>
+
+<header id="hd">
+  <div class="wrap nav">
+    <a href="index.html" class="brand">Brynn<span>.</span>Li</a>
+    <nav class="nav-links">
+      <a href="index.html#work">作品</a>
+      <a href="about.html" class="active" aria-current="page">關於我</a>
+      <a href="index.html#caps">工作方式</a>
+      <a href="assets/files/brynn-cv.pdf" download>履歷</a>
+      <a href="mailto:brynn06191@gmail.com" class="nav-cta">聯絡我</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- 01 About Hero -->
+  <section class="ahero">
+    <div class="wrap">
+      <div class="ahero-grid">
+        <div>
+          <span class="eyebrow reveal in" style="animation-delay:.05s">01｜關於我</span>
+          <h1 class="display">
+            <span class="reveal in" style="display:block;animation-delay:.1s">我是 Brynn，</span>
+            <span class="reveal in" style="display:block;animation-delay:.18s">一名 UI/UX 設計師。</span>
+          </h1>
+          <div class="ahero-body reveal in" style="animation-delay:.28s">
+            <p>我的背景橫跨視覺傳達設計、品牌零售與 UX 顧問專案，工作經驗涵蓋政府數位服務、App 與網站優化。</p>
+            <p>從使用者研究、資訊架構與 User Flow，到 Prototype、介面設計與規格整理，我會將模糊需求整理成團隊能確認、測試並推進開發的設計內容。</p>
+          </div>
+        </div>
+        <div class="ahero-side reveal in" style="animation-delay:.2s">
+          <img class="ahero-photo" src="assets/images/photo/portrait.jpg" alt="Brynn Li 的個人照片" />
+          <div class="ahero-meta">
+            <strong>Brynn Li</strong>
+            <span>UI/UX Designer</span>
+            <span>Taipei, Taiwan</span>
+          </div>
+          <div class="ahero-cta">
+            <a class="btn" href="mailto:brynn06191@gmail.com">Email ↗</a>
+            <a class="btn ghost" href="assets/files/brynn-cv.pdf" download>下載履歷 ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 職涯路徑 -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head obs">
+        <span class="num">02</span>
+        <h2 class="display">我的職涯路徑</h2>
+      </div>
+      <p class="sec-fore obs">我的職涯不是從視覺直接跳到 UX，而是逐步把三件事連在一起：資訊如何被看見、人如何做決定，以及數位服務如何被完成。</p>
+      <div class="cards3 obs">
+        <div class="card">
+          <span class="k">起點</span>
+          <h3>視覺傳達設計</h3>
+          <p>建立資訊層級、版面、視覺敘事與細節控制的基礎，也讓我習慣檢查重要訊息是否能被快速看見、理解，並形成清楚的閱讀順序。</p>
+        </div>
+        <div class="card">
+          <span class="k">轉折</span>
+          <h3>品牌專櫃銷售｜4 年</h3>
+          <p>長期直接面對顧客如何描述需求、比較選項、提出疑慮並做出決定。我也看見，人們很少在資訊完整、情緒穩定的狀態下做選擇，因此會特別在意資訊是否足以支持判斷與下一步行動。</p>
+        </div>
+        <div class="card">
+          <span class="k">現在</span>
+          <h3>UX 顧問專案</h3>
+          <p>將前述對資訊與決策的觀察帶入政府數位服務、App 與網站優化。專案經常同時涉及模糊目標、多方需求、既有系統與技術限制，我負責將研究發現整理成資訊架構、流程、原型與介面規格。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 我實際負責什麼 -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head obs">
+        <span class="num">03</span>
+        <h2 class="display">我實際負責什麼</h2>
+      </div>
+      <p class="sec-fore obs">不同專案中的參與深度不盡相同，但我實際負責與投入的工作主要分為以下三個範圍。</p>
+      <div class="cards3 obs">
+        <div class="card">
+          <span class="k">Research &amp; Synthesis</span>
+          <h3>研究與整理</h3>
+          <p>規劃或執行使用者訪談、易用性測試、認知走查與既有資料整理，歸納使用情境、理解落差、操作問題及設計調整方向。</p>
+          <p>研究結果不只整理成報告，也會進一步連到後續的流程、資訊層級與介面決策。</p>
+          <div class="tags"><span>User Interview</span><span>Usability Testing</span><span>Cognitive Walkthrough</span><span>Research Synthesis</span></div>
+        </div>
+        <div class="card">
+          <span class="k">Product Structure</span>
+          <h3>結構與原型</h3>
+          <p>將需求與研究發現整理為資訊架構、User Flow、Wireframe 與 Prototype，讓不同方案可以被比較，並在進入開發前提早檢查流程缺口、資訊順序與主要操作。</p>
+          <div class="tags"><span>Information Architecture</span><span>User Flow</span><span>Wireframe</span><span>Prototype</span></div>
+        </div>
+        <div class="card">
+          <span class="k">UI &amp; Delivery</span>
+          <h3>介面與交付</h3>
+          <p>整理畫面狀態、互動規則、資料條件、元件使用方式與介面規格，並與工程師釐清實作限制，降低設計稿與實際開發之間的理解落差。</p>
+          <div class="tags"><span>UI Design</span><span>Interaction States</span><span>Components</span><span>Design Specification</span><span>Engineering Collaboration</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 我如何和團隊合作 -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head obs">
+        <span class="num">04</span>
+        <h2 class="display">我如何和團隊合作</h2>
+      </div>
+      <p class="sec-fore obs">我不把協作理解成增加會議，而是降低資訊落差，讓每一輪討論都有清楚的下一步。</p>
+      <div class="collab obs">
+        <div class="card">
+          <h3>把口頭需求變成可確認的內容</h3>
+          <p>面對尚未收斂的討論，我會將內容整理成 User Flow、畫面狀態、方案差異或待確認問題，讓工程師、機關窗口與專案成員能針對同一份內容繼續討論。</p>
+        </div>
+        <div class="card">
+          <h3>提早把限制帶進設計</h3>
+          <p>在設計過程中確認資料來源、更新方式、權限、例外情境與技術限制，避免等到設計完成後，才發現流程或介面無法依原方案實作。</p>
+        </div>
+        <div class="card">
+          <h3>分清楚證據、判斷與假設</h3>
+          <p>在提案與設計說明中，區分哪些結論來自使用者證據、哪些是基於專案限制的設計判斷，以及哪些內容仍需要驗證，避免將個人偏好包裝成使用者需求。</p>
+        </div>
+        <div class="card">
+          <h3>保留未決問題與取捨</h3>
+          <p>當方案無法同時滿足所有條件時，我會說明不同選項各自換到什麼、犧牲什麼，並保留尚未確認的問題，讓團隊清楚知道下一輪需要決定或驗證的內容。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 經歷與背景 -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head obs">
+        <span class="num">05</span>
+        <h2 class="display">經歷與背景</h2>
+      </div>
+      <div class="facts-grid obs">
+        <div class="fcol">
+          <h3>Experience</h3>
+          <div class="fitem">
+            <h4>使用者體驗研究員（UI/UX Design）</h4>
+            <div class="meta">UX 顧問公司｜2025.06－至今</div>
+            <p>參與政府數位服務、App 與網站優化，工作涵蓋使用者研究、資訊架構、User Flow、Prototype、介面與規格整理，以及工程協作。</p>
+          </div>
+          <div class="fitem">
+            <h4>品牌專櫃銷售</h4>
+            <div class="meta">4 年</div>
+            <p>第一線理解顧客需求、選擇與異議處理，並與團隊共同執行銷售策略及達成年度目標。</p>
+          </div>
+        </div>
+        <div class="fcol">
+          <h3>Education</h3>
+          <div class="fitem">
+            <h4>視覺傳達設計</h4>
+            <div class="meta">［學校名稱］｜［畢業年份］</div>
+          </div>
+          <h3 style="margin-top:34px">Tools &amp; Technical</h3>
+          <div class="fitem">
+            <h4 style="font-size:15.5px">Design</h4>
+            <p>Figma・FigJam</p>
+          </div>
+          <div class="fitem">
+            <h4 style="font-size:15.5px">Technical foundation</h4>
+            <p>HTML・CSS</p>
+          </div>
+        </div>
+        <div class="fcol">
+          <h3>Recognition</h3>
+          <div class="fitem">
+            <h4>金點概念設計獎</h4>
+            <p>防災 App「震時秒判」</p>
+          </div>
+          <div class="fitem">
+            <h4>金點新秀設計獎</h4>
+            <p>防災 App「震時秒判」</p>
+          </div>
+        </div>
+      </div>
+      <div class="cv-cta obs"><a class="btn" href="assets/files/brynn-cv.pdf" download>查看完整履歷 ↗</a></div>
+    </div>
+  </section>
+
+  <!-- 06 工作之外 -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head obs">
+        <span class="num">06</span>
+        <h2 class="display">工作之外</h2>
+      </div>
+      <div class="aside-note obs">
+        <p>工作之外，我會做互動音像與陶藝，也喜歡看展。這些活動讓我暫時離開專案脈絡，重新整理觀察、感受與想法。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 Contact -->
+  <section class="acontact">
+    <div class="wrap">
+      <span class="eyebrow obs">07｜Contact</span>
+      <h2 class="display obs" style="margin-top:14px">進一步了解我的工作</h2>
+      <p class="obs">查看完整案例、下載履歷，或透過 Email 與我聯絡。</p>
+      <div class="ctas obs">
+        <a class="btn" href="index.html#work">查看作品 →</a>
+        <a class="btn ghost" href="assets/files/brynn-cv.pdf" download>下載履歷 ↗</a>
+        <a class="btn ghost" href="mailto:brynn06191@gmail.com">Email ↗</a>
+      </div>
+      <div class="mailrow obs">
+        <a href="mailto:brynn06191@gmail.com">brynn06191@gmail.com</a>
+        <button class="copybtn" id="copymail" type="button" aria-label="複製 Email 地址">複製 Email</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Brynn Li</span>
+    <span>Designed &amp; built in Taipei</span>
+  </div>
+</footer>
+
+<script>
+  // sticky nav background
+  const hd = document.getElementById('hd');
+  const onScroll = () => hd.classList.toggle('scrolled', window.scrollY > 40);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.obs').forEach((el) => io.observe(el));
+
+  // email copy with feedback
+  const cb = document.getElementById('copymail');
+  cb.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText('brynn06191@gmail.com');
+      cb.textContent = '已複製 ✓';
+      cb.classList.add('done');
+      setTimeout(() => { cb.textContent = '複製 Email'; cb.classList.remove('done'); }, 2000);
+    } catch (e) {
+      cb.textContent = '請手動複製';
+    }
+  });
+</script>
+
+</body>
+</html>
