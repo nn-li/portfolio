@@ -13,3 +13,7 @@ assets/images/project/UIUX/*
 
 # suggest/ 整個資料夾都是內部參考資料，不上傳 GitHub
 suggest/
+
+# 個人照片原始檔不上傳（網站只用轉檔後的 portrait.jpg）
+assets/images/photo/*
+!assets/images/photo/portrait.jpg
