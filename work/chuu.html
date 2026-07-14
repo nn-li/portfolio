@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>chuu Redesign — 女裝電商網站 · Case Study</title>
-<meta name="description" content="chuu Redesign — 女裝電商網站的 UI/UX 重設計概念稿。" />
+<title>chuu — 服飾電商官網 Redesign · Case Study</title>
+<meta name="description" content="chuu — 韓國服飾品牌官網的購物體驗重設計練習。從四位使用者的訪談與原型測試出發，重整商品瀏覽、商品詳情與購物車的層級與流程。" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -20,68 +20,233 @@
 </div>
 
 <main>
-  <section class="case-hero">
-    <div class="wrap">
-      <span class="eyebrow">UI/UX · E-commerce Redesign · 2023</span>
-      <h1 class="display">chuu Redesign</h1>
-      <p class="lead">女裝電商 chuu 的網站重設計概念稿 —— 依功能需求重新規劃 Catalog、Product、Cart 等頁面，統整視覺語言與購物流程。此為設計概念，素材僅供練習用途。</p>
+  <!-- 滿版 hero -->
+  <div class="cx-herobanner">
+    <img src="../assets/images/project/UIUX/web/chuu/cover.jpg" alt="chuu 官網 Redesign 主視覺" />
+  </div>
+
+  <!-- 標題 -->
+  <div class="cx-title">
+    <span class="eyebrow">UI/UX · Web Redesign Practice · 2022</span>
+    <h1 class="display">chuu</h1>
+    <p class="lead">韓國服飾品牌 chuu 官網的購物體驗重設計練習，聚焦商品瀏覽、商品詳情與購物車三類頁面。</p>
+  </div>
+
+  <!-- meta -->
+  <dl class="cx-metarow">
+    <div><dt>專案時程</dt><dd>2022</dd></div>
+    <div><dt>主要負責項目</dt><dd>UX 研究、UI 設計、Prototype</dd></div>
+    <div><dt>使用工具</dt><dd>Figma</dd></div>
+    <div><dt>類型</dt><dd>Web Redesign · 電商</dd></div>
+  </dl>
+
+  <!-- 左導覽 + 敘事 -->
+  <div class="cx">
+    <aside class="cx-nav">
+      <ul>
+        <li><a href="#s1" class="active">背景與目標</a></li>
+        <li><a href="#s2">挑戰與洞察</a></li>
+        <li><a href="#s3">設計決策</a></li>
+        <li><a href="#s4">介面設計</a></li>
+      </ul>
+    </aside>
+
+    <div class="cx-main">
+
+      <!-- 01 背景與目標 -->
+      <section class="cx-sec" id="s1" data-sec>
+        <span class="secnum">01</span>
+        <h2 class="lbl">背景與目標</h2>
+        <p class="intro">chuu 是銷售全球的韓國服飾品牌，官網的商品資訊詳細，但分類方式與視覺風格偏複雜，瀏覽時不容易找到重點。本案是一個重設計練習，目標是梳理頁面層級與排版，讓商品瀏覽、商品詳情到購物車的路徑清晰簡潔。素材取自 chuu 官方網站，僅作練習用途。</p>
+        <div class="sub">
+          <h3>三種裝置的購物體驗</h3>
+          <p>設計涵蓋桌機、平板與手機三種尺寸，維持同一套視覺與操作邏輯。</p>
+          <div class="fig"><img src="../assets/images/project/UIUX/web/chuu/rwd.jpg" alt="桌機、平板、手機三裝置的首頁設計" loading="lazy" /></div>
+        </div>
+        <div class="sub">
+          <h3>初始構思</h3>
+          <p>以心智圖展開優化構想，涵蓋功能列、商品分類、活動呈現到結帳流程，作為後續規劃的起點。</p>
+          <div class="fig"><img src="../assets/images/project/UIUX/web/chuu/mindmap.jpg" alt="專案動機與心智圖" loading="lazy" /></div>
+        </div>
+      </section>
+
+      <!-- 02 挑戰與洞察 -->
+      <section class="cx-sec" id="s2" data-sec>
+        <span class="secnum">02</span>
+        <h2 class="lbl">挑戰與洞察</h2>
+        <p class="intro">研究從三個方向進行。先用競品定位找出 chuu 在市場上的位置，再透過四位使用者的訪談找出行為與痛點，最後以低保真原型做一輪測試回饋。</p>
+        <div class="phases">
+          <div class="ph"><span class="pht">競品分析</span><span class="phw">五個服飾品牌的定位與異同</span></div>
+          <div class="ph"><span class="pht">Persona · 4 位</span><span class="phw">含購物頻率與花費的訪談資料</span></div>
+          <div class="ph"><span class="pht">原型測試</span><span class="phw">四象限回饋，測試後修正設計</span></div>
+        </div>
+
+        <div class="sub">
+          <h3>競品定位</h3>
+          <p>以分類清晰度與介面簡約度兩軸比較五個品牌，chuu 落在分類不清且介面複雜的象限。Uniqlo 的分類與活動標示、Zara 的極簡陳列，成為重整方向的參考。</p>
+          <div class="fig"><img src="../assets/images/project/UIUX/web/chuu/competitive.jpg" alt="五品牌競品定位與異同分析" loading="lazy" /><div class="cap">五個品牌的定位比較，與類同點、類異點分析</div></div>
+        </div>
+
+        <div class="sub">
+          <h3>四位使用者的共同訊號</h3>
+          <p>四位受訪者的購物頻率落在每月 2 到 4 次，花費約兩三千元。訪談中出現幾個明確的共同訊號。全員依賴評價與收藏功能做購買決定，三位反感自動輪播的商品展示，免運資訊不明是結帳時最常見的困擾。其中對輪播的意見並不一致，RON 覺得輪播能把商品看清楚，這個分歧成為後面的設計判斷。</p>
+          <div class="fig"><img src="../assets/images/project/UIUX/web/chuu/persona.jpg" alt="四位 Persona 的行為、動機與痛點" loading="lazy" /><div class="cap">Persona · JAN、RON、NI、YU，含每月購物頻率、花費與搜尋習慣</div></div>
+        </div>
+
+        <div class="sub">
+          <h3>旅程斷點</h3>
+          <p>旅程地圖的低谷集中在三件事。商品分類不清難以找到目標、排列方式難以瀏覽、客服回覆流程複雜。</p>
+          <div class="fig"><img src="../assets/images/project/UIUX/web/chuu/journey.jpg" alt="顧客旅程地圖" loading="lazy" /><div class="cap">Journey Map · 從尋找商品到評論的歷程，痛點沉在曲線最低處</div></div>
+        </div>
+        <div class="sub">
+          <h3>設計觀點</h3>
+          <p>據此建立設計觀點，展開五個功能假設，包括推薦商品、廣告資訊、分類清晰、評價回饋與客服諮詢。</p>
+          <div class="fig"><img src="../assets/images/project/UIUX/web/chuu/pov.jpg" alt="Point of View 與五個功能假設" loading="lazy" /></div>
+        </div>
+      </section>
+
+      <!-- 03 設計決策 -->
+      <section class="cx-sec" id="s3" data-sec>
+        <span class="secnum">03</span>
+        <h2 class="lbl">設計決策</h2>
+        <p class="intro">訪談裡對輪播的意見三比一分歧，多數人覺得像廣告、還沒看完就跳走，也有人覺得輪播能把商品看清楚。我的判斷是輪播本身沒有錯，錯的是用在商品展示上。</p>
+        <div class="versus">
+          <div class="vopt lose">
+            <span class="vtag">放棄</span>
+            <div class="vt">全站輪播</div>
+            <p>現狀。活動與商品都以輪播呈現，瀏覽節奏被打斷</p>
+          </div>
+          <div class="vs">vs</div>
+          <div class="vopt win">
+            <span class="vtag">我的選擇</span>
+            <div class="vt">輪播只留給活動</div>
+            <p>banner 保留輪播統一視覺，商品改為靜態網格自主瀏覽</p>
+          </div>
+        </div>
+
+        <div class="sub">
+          <h3>四個決策</h3>
+          <div class="dcards">
+            <div class="dcard">
+              <span class="dph">瀏覽</span>
+              <span class="dnum">決策 01</span>
+              <h4>輪播分場景使用</h4>
+              <span class="dsrc">依據 · NI「還沒看完就自動跳走」、YU「像廣告很煩」，RON 則認為輪播利於瀏覽；原型測試也回饋 banner 適合輪播。</span>
+              <div class="dline dwin"><span class="k">選擇</span><span>活動 banner 保留輪播並統一視覺，商品展示改為靜態網格</span></div>
+              <div class="dline dlose"><span class="k">放棄</span><span>單一規則的簡潔，同一個元件要維護兩種行為</span></div>
+            </div>
+            <div class="dcard">
+              <span class="dph">結帳</span>
+              <span class="dnum">決策 02</span>
+              <h4>免運價差提醒前置</h4>
+              <span class="dsrc">依據 · RON「結帳流程沒有免運或差多少錢免運的標示，覺得很困擾」。</span>
+              <div class="dline dwin"><span class="k">選擇</span><span>購物車即時顯示「還差多少金額免運」，不必走到結帳才發現</span></div>
+              <div class="dline dlose"><span class="k">放棄</span><span>購物車頁面的極簡，多一行提示換少一次折返</span></div>
+            </div>
+            <div class="dcard">
+              <span class="dph">評價</span>
+              <span class="dnum">決策 03</span>
+              <h4>評價加上回饋機制</h4>
+              <span class="dsrc">依據 · 全員表示評價是購買前的必看資訊；原型測試提出「對評價給予回饋能更了解商品實際資訊」。</span>
+              <div class="dline dwin"><span class="k">選擇</span><span>每則評價附購買者身形資料與「對您有幫助嗎」回饋</span></div>
+              <div class="dline dlose"><span class="k">放棄</span><span>評論區的輕量，資訊密度提高需要更嚴謹的排版</span></div>
+            </div>
+            <div class="dcard">
+              <span class="dph">推薦</span>
+              <span class="dnum">決策 04</span>
+              <h4>真人穿搭策展取代大量推薦</h4>
+              <span class="dsrc">依據 · YU「搭得好是加分，不好就像廣告」、NI「推薦不要太多」。</span>
+              <div class="dline dwin"><span class="k">選擇</span><span>以真人穿搭為單位策展，單品可直接加入購物車</span></div>
+              <div class="dline dlose"><span class="k">放棄</span><span>演算法式的大量推薦位，曝光量換信任感</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sub">
+          <h3>原型測試與修正</h3>
+          <p>以低保真原型做一輪測試，回饋整理成喜歡、可改善、疑問與新點子四象限。測試後修正了三件事。banner 改回輪播呈現、評價加入回饋機制、推薦商品的數量收斂，避免強迫推銷的感覺。</p>
+          <div class="fig"><img src="../assets/images/project/UIUX/web/chuu/prototype.jpg" alt="原型測試四象限回饋" loading="lazy" /><div class="cap">原型測試的四象限回饋，右側為受測的低保真頁面</div></div>
+        </div>
+
+        <div class="sub">
+          <h3>架構、流程與線框</h3>
+          <p>功能架構依訪談需求整理成五大分支。User Flow 涵蓋會員登入註冊與瀏覽到購買兩條主線，收藏作為「還在考慮」的出口。線框以桌面版為主，排定首頁、列表、詳情、評價、購物車與客服的骨架。</p>
+          <div class="fig"><img src="../assets/images/project/UIUX/web/chuu/functional-map.jpg" alt="Functional Map 功能架構" loading="lazy" /><div class="cap">Functional Map · 搜尋、結帳、輔助功能、所有商品與會員功能五大分支</div></div>
+          <div class="fig"><img src="../assets/images/project/UIUX/web/chuu/userflow.jpg" alt="User Flow 會員與購物主流程" loading="lazy" /><div class="cap">User Flow · 登入註冊與瀏覽購買主線，收藏是猶豫時的出口</div></div>
+          <div class="fig"><img src="../assets/images/project/UIUX/web/chuu/wireframe.jpg" alt="Wireframe 桌面版線框" loading="lazy" /></div>
+        </div>
+      </section>
+
     </div>
+  </div>
+
+  <!-- 04 介面設計（淺色展示區） -->
+  <section class="uilight" id="s4" data-sec>
+    <div class="uhead">
+      <span class="k">04</span>
+      <h2>介面設計</h2>
+      <p>視覺沿用 chuu 的粉色識別，把複雜資訊收進乾淨的白底版面。以下七組介面對應前面的決策。</p>
+    </div>
+
+    <div class="ui-sub">
+      <span class="k">Design System</span>
+      <h3>Style Guide</h3>
+      <p>色彩、雙語字體階層、標籤與按鈕三態的元件規格。</p>
+    </div>
+    <div class="wide">
+      <div class="sgbox"><img src="../assets/images/project/UIUX/web/chuu/styleguide.jpg" alt="Style Guide 設計系統" loading="lazy" /></div>
+      <div class="boxhint">↕ 框內可捲動查看完整設計系統</div>
+    </div>
+
+    <div class="ui-sub">
+      <span class="k">介面 01</span>
+      <h3>首頁</h3>
+      <p>banner 輪播統一視覺，新品與穿搭推薦以靜態網格陳列，對應決策 01。</p>
+    </div>
+    <div class="wide"><img src="../assets/images/project/UIUX/web/chuu/ui-1.jpg" alt="首頁設計" loading="lazy" /></div>
+
+    <div class="ui-sub">
+      <span class="k">介面 02</span>
+      <h3>Banner 視覺系統</h3>
+      <p>四款活動 banner 共用同一套版式與色彩，瀏覽時的視覺節奏穩定。</p>
+    </div>
+    <div class="wide"><img src="../assets/images/project/UIUX/web/chuu/ui-2.jpg" alt="Banner 視覺系統" loading="lazy" /></div>
+
+    <div class="ui-sub">
+      <span class="k">介面 03</span>
+      <h3>商品列表</h3>
+      <p>熱銷與新品以標籤區分活動，折扣顯示原價與折後價，靜態網格取代輪播。</p>
+    </div>
+    <div class="wide"><img src="../assets/images/project/UIUX/web/chuu/ui-3.jpg" alt="商品列表頁" loading="lazy" /></div>
+
+    <div class="ui-sub">
+      <span class="k">介面 04</span>
+      <h3>商品評價</h3>
+      <p>評價附購買者身形資料與「對您有幫助嗎」回饋，對應決策 03。</p>
+    </div>
+    <div class="wide"><img src="../assets/images/project/UIUX/web/chuu/ui-4.jpg" alt="商品詳情與評價" loading="lazy" /></div>
+
+    <div class="ui-sub">
+      <span class="k">介面 05</span>
+      <h3>購物車</h3>
+      <p>合計金額旁即時顯示免運價差，對應決策 02。</p>
+    </div>
+    <div class="wide"><img src="../assets/images/project/UIUX/web/chuu/ui-5.jpg" alt="購物車頁" loading="lazy" /></div>
+
+    <div class="ui-sub">
+      <span class="k">介面 06</span>
+      <h3>穿搭推薦</h3>
+      <p>以真人穿搭為單位策展，標籤篩選，單品可直接購買，對應決策 04。</p>
+    </div>
+    <div class="wide"><img src="../assets/images/project/UIUX/web/chuu/ui-6.jpg" alt="穿搭推薦頁" loading="lazy" /></div>
+
+    <div class="ui-sub">
+      <span class="k">介面 07</span>
+      <h3>客服中心</h3>
+      <p>常見問題可搜尋、公告分類清楚，並提供線上客服視窗，回應旅程中「客服流程複雜」的痛點。</p>
+    </div>
+    <div class="wide"><img src="../assets/images/project/UIUX/web/chuu/ui-7.jpg" alt="客服中心頁" loading="lazy" /></div>
   </section>
-
-  <div class="wrap">
-    <dl class="case-meta">
-      <div><dt>Role</dt><dd>UI/UX Designer</dd></div>
-      <div><dt>Type</dt><dd>Web · E-commerce</dd></div>
-      <div><dt>Tools</dt><dd>Figma</dd></div>
-      <div><dt>Year</dt><dd>2023</dd></div>
-    </dl>
-  </div>
-
-  <div class="wrap">
-    <section class="block">
-      <h2>Overview 專案概述</h2>
-      <p>這是一份依 chuu 官方網站功能需求所做的重設計練習，涵蓋從研究、人物誌、資訊架構、風格指南到最終 UI 的完整流程（見下方長圖）。我重新規劃了 Catalog、Product、Cart 三個核心頁面的資訊層級與購物動線。圖片素材取自 chuu 官方網站，僅供練習用途。</p>
-    </section>
-  </div>
-
-  <div class="board-label">
-    <span class="n">01</span>
-    <h2>背景與目標</h2>
-  </div>
-  <div class="wrap">
-    <section class="block" style="margin-top: 8px;">
-      <p>chuu 是以年輕族群為主的韓系女裝品牌，商品照片本身就是最強的銷售語言。本案依官方網站的功能需求進行重設計練習，範圍涵蓋 Catalog、Product、Cart 三個核心頁面，目標是建立一套「讓商品照說話」的瀏覽與購物動線。</p>
-    </section>
-  </div>
-
-  <div class="board-label">
-    <span class="n">02</span>
-    <h2>挑戰與洞察</h2>
-  </div>
-  <div class="wrap">
-    <section class="block" style="margin-top: 8px;">
-      <p>快時尚電商的三個典型張力：目錄頁要在大量商品中維持可掃視的節奏，不能變成擁擠的圖牆；商品頁要同時承載情境穿搭照與尺寸、材質等理性資訊；購物車則是猶豫最多的一站，資訊過載或步驟過長都會直接流失訂單。</p>
-    </section>
-  </div>
-
-  <div class="board-label">
-    <span class="n">03</span>
-    <h2>設計決策</h2>
-  </div>
-  <div class="wrap">
-    <section class="block" style="margin-top: 8px;">
-      <p>以大面積留白與規律的格狀目錄襯托商品照，讓視線落在衣服而不是介面上；品牌粉色只作為促購與強調的點綴色，維持整體的輕盈感。商品頁採「大圖優先、資訊隨側」的層級，穿搭照與規格互不干擾；購物車則把數量、金額與結帳動作收在同一視野內，縮短從「想要」到「下單」的距離。</p>
-    </section>
-  </div>
-
-  <div class="board-label">
-    <span class="n">04</span>
-    <h2>介面設計</h2>
-    <p>從研究、資訊架構、風格指南到最終 UI 的完整案例長圖。</p>
-  </div>
-  <div class="longshot">
-    <img src="../assets/images/project/UIUX/chuu-redesign.jpg" alt="chuu 女裝電商網站 redesign 完整案例" />
-  </div>
 
   <section class="next">
     <div class="wrap">
@@ -97,6 +262,22 @@
     <span>UI/UX Case Study</span>
   </div>
 </footer>
+
+<script>
+  // 左側章節錨點：捲動高亮
+  const links = [...document.querySelectorAll('.cx-nav a')];
+  const map = {}; links.forEach(a => map[a.getAttribute('href')] = a);
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const a = map['#' + e.target.id];
+        if (a) a.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-25% 0px -65% 0px' });
+  document.querySelectorAll('[data-sec]').forEach(s => io.observe(s));
+</script>
 
 </body>
 </html>
