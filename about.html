@@ -185,6 +185,39 @@
   footer { border-top: 1px solid var(--line); padding: 34px 0; }
   .foot { display: flex; justify-content: space-between; align-items: center; font-size: 13.5px; color: var(--ink-faint); flex-wrap: wrap; gap: 12px; }
 
+  .nav-toggle {
+    display: none; background: none; border: 0; cursor: pointer;
+    width: 44px; height: 44px; padding: 0; position: relative; z-index: 60;
+  }
+  .nav-toggle span {
+    display: block; width: 22px; height: 1.5px; background: var(--ink);
+    margin: 5px auto; transition: transform .3s var(--ease), opacity .3s;
+  }
+  .nav-toggle[aria-expanded="true"] span:first-child { transform: translateY(3.2px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:last-child { transform: translateY(-3.3px) rotate(-45deg); }
+  header.menu-open {
+    background: rgba(250,249,246,.92);
+    backdrop-filter: blur(12px) saturate(1.4);
+    border-bottom: 1px solid var(--line);
+  }
+  @media (max-width: 860px) {
+    .nav-toggle { display: block; }
+    .nav-links {
+      display: flex; position: fixed; top: 76px; left: 0; right: 0;
+      flex-direction: column; gap: 0; padding: 6px 22px 20px;
+      background: rgba(250,249,246,.97);
+      backdrop-filter: blur(14px) saturate(1.4);
+      border-bottom: 1px solid var(--line);
+      opacity: 0; transform: translateY(-8px); visibility: hidden; pointer-events: none;
+      transition: opacity .3s var(--ease), transform .3s var(--ease), visibility .3s;
+    }
+    .nav-links.open { opacity: 1; transform: none; visibility: visible; pointer-events: auto; }
+    .nav-links a { padding: 14px 0; font-size: 16px; border-bottom: 1px solid var(--line); width: 100%; }
+    .nav-links a::after { display: none; }
+    .nav-links .nav-cta, .nav-links a:last-child { border-bottom: 0; }
+    .nav-links .nav-cta { margin-top: 14px; text-align: center; padding: 12px 18px !important; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .reveal, .obs { opacity: 1 !important; transform: none !important; animation: none !important; transition: none !important; }
     html { scroll-behavior: auto; }
@@ -198,7 +231,6 @@
   @media (max-width: 720px) {
     body { font-size: 16px; }
     .wrap { padding: 0 22px; }
-    .nav-links { display: none; }
     .sec { padding: 84px 0 0; }
     .ahero { padding: 130px 0 0; }
     .ahero h1 { font-size: clamp(30px, 8.6vw, 40px); }
@@ -216,7 +248,8 @@
 <header id="hd">
   <div class="wrap nav">
     <a href="index.html" class="brand">Brynn<span>.</span></a>
-    <nav class="nav-links">
+    <button class="nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false" aria-controls="siteNav"><span></span><span></span></button>
+    <nav class="nav-links" id="siteNav">
       <a href="index.html#work">作品</a>
       <a href="about.html" class="active" aria-current="page">關於我</a>
       <a href="mailto:brynn06191@gmail.com" class="nav-cta">聯絡我</a>
@@ -448,6 +481,22 @@
   const onScroll = () => hd.classList.toggle('scrolled', window.scrollY > 40);
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
+
+  // mobile hamburger
+  const tog = document.getElementById('navToggle');
+  const links = document.getElementById('siteNav');
+  if (tog && links) {
+    const setOpen = (o) => {
+      links.classList.toggle('open', o);
+      tog.setAttribute('aria-expanded', o);
+      tog.setAttribute('aria-label', o ? '關閉選單' : '開啟選單');
+      hd.classList.toggle('menu-open', o);
+    };
+    tog.addEventListener('click', () => setOpen(!links.classList.contains('open')));
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+  }
+
 
   // scroll reveal
   const io = new IntersectionObserver((entries) => {
