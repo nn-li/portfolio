@@ -54,7 +54,7 @@
   .nav-links a { font-size: 14.5px; color: var(--ink-soft); position: relative; transition: color .3s; }
   .nav-links a::after {
     content: ""; position: absolute; left: 0; bottom: -5px;
-    width: 0; height: 1.5px; background: var(--accent);
+    width: 0; height: 1.5px; background: var(--clay);
     transition: width .35s var(--ease);
   }
   .nav-links a:hover { color: var(--ink); }
@@ -177,22 +177,24 @@
   .copybtn:hover, .copybtn:focus-visible { border-color: var(--dark-ink); color: var(--dark-ink); }
   .copybtn.done { border-color: var(--clay); color: var(--clay); }
 
-  footer { background: var(--dark); color: var(--dark-ink); padding: 40px 0 26px; }
+  footer { background: var(--dark); color: var(--dark-ink); padding: 40px 0 0; overflow: hidden; }
   .foot-cols { display: flex; gap: 110px; flex-wrap: wrap; margin-bottom: 8px; }
   .fcol-links { display: flex; flex-direction: column; gap: 4px; font-size: 14px; }
   .fcol-links .fk { color: var(--dark-soft); margin-bottom: 8px; }
   .fcol-links a { color: var(--dark-ink); width: fit-content; border-bottom: 1px solid transparent; transition: border-color .3s; }
   .fcol-links a:hover, .fcol-links a:focus-visible { border-color: var(--dark-ink); }
+  /* giant name bleeding off the bottom edge (top half visible) */
   .foot-mark {
     font-family: "Fraunces", Georgia, serif;
     font-weight: 500;
-    font-size: clamp(88px, 17vw, 260px);
-    line-height: .95;
+    font-size: clamp(90px, 24vw, 400px);
+    line-height: .8;
     letter-spacing: -.02em;
     text-align: center;
+    white-space: nowrap;
     color: var(--dark-ink);
     user-select: none;
-    margin: 26px 0 18px;
+    margin: 44px 0 -.38em;
   }
   .foot {
     display: flex; justify-content: space-between; align-items: center;
@@ -254,7 +256,7 @@
     .facts-grid { grid-template-columns: 1fr; gap: 40px; }
     .acontact { padding: 96px 0 84px; margin-top: 96px; }
     .foot-cols { gap: 40px; justify-content: space-between; }
-    .foot-mark { font-size: clamp(72px, 21vw, 120px); }
+    .foot-mark { font-size: 28vw; }
   }
 </style>
 </head>
@@ -497,11 +499,11 @@
       <a href="assets/files/brynn-cv.pdf" download>CV</a>
     </div>
   </div>
-  <div class="wrap"><div class="foot-mark" aria-hidden="true">Brynn.</div></div>
   <div class="wrap foot">
     <span>© 2026 Brynn Li</span>
     <span>Designed &amp; built in Taipei</span>
   </div>
+  <div class="foot-mark" aria-hidden="true">Brynn.</div>
 </footer>
 
 <script>
