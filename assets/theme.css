@@ -1,0 +1,19 @@
+/* Shared design tokens — adcker-inspired two-tone palette.
+   Loaded before per-page styles; pages may override (e.g. case.css --max). */
+:root {
+  --paper: #e9e7e1;      /* warm bone / greige */
+  --paper-2: #dfdcd5;
+  --ink: #161513;
+  --ink-soft: #4c4a45;
+  --ink-faint: #8a877f;
+  --line: #cfccc4;
+  --accent: #161513;     /* monochrome: accent = ink */
+  --accent-deep: #000;
+  --clay: #161513;       /* legacy terracotta slot, now ink */
+  --dark: #1a1917;       /* inverted sections (contact / footer) */
+  --dark-ink: #e5e2da;
+  --dark-soft: #a5a29a;
+  --dark-line: #35332e;
+  --max: 1180px;
+  --ease: cubic-bezier(.19,1,.22,1);
+}
