@@ -398,15 +398,10 @@
     position: relative; z-index: 2;
     overflow: hidden;
   }
-  .foot-cols { display: flex; gap: 110px; flex-wrap: wrap; margin-bottom: 8px; }
-  .fcol-links { display: flex; flex-direction: column; gap: 4px; font-size: 14px; }
-  .fcol-links .fk { color: var(--dark-soft); margin-bottom: 8px; }
-  .fcol-links a { color: var(--dark-ink); width: fit-content; border-bottom: 1px solid transparent; transition: border-color .3s; }
-  .fcol-links a:hover, .fcol-links a:focus-visible { border-color: var(--dark-ink); }
   /* giant name bleeding off the bottom edge (top half visible) */
   .foot-mark {
-    font-family: "Fraunces", Georgia, serif;
-    font-weight: 500;
+    font-family: "Hanken Grotesk", system-ui, sans-serif;
+    font-weight: 600;
     font-size: clamp(90px, 24vw, 400px);
     line-height: .8;
     letter-spacing: -.02em;
@@ -414,7 +409,7 @@
     white-space: nowrap;
     color: var(--dark-ink);
     user-select: none;
-    margin: 44px 0 -.38em;
+    margin: 44px 0 -.22em;
   }
   .foot {
     display: flex; justify-content: space-between; align-items: center;
@@ -474,7 +469,6 @@
     .hero-photo { width: min(240px, 66vw); margin-top: 20px; }
     .hero-scroll { margin-top: 24px; }
     br.mbr { display: inline; }
-    .foot-cols { gap: 40px; justify-content: space-between; }
     .foot-mark { font-size: 28vw; }
     .about-grid { grid-template-columns: 1fr; gap: 46px; }
     .caps-grid { grid-template-columns: 1fr; }
@@ -623,7 +617,7 @@
         <div class="cap">
           <span class="c-num">/02</span>
           <h4>每個決策都說得出取捨</h4>
-          <p>選了一個方案，就同時選了它的代價。台鐵案多加一步確認，換取資訊清楚、結果可預期；Soul Map 以循序解鎖幫助新手入門，代價是限制了有經驗使用者的自由。</p>
+          <p>設計不是只選步驟最少的方案，而是說清楚換到什麼、犧牲什麼。台鐵案例接受增加部分操作步驟，以換取資訊清楚與結果可預期；Soul Map 的循序解鎖提升新手引導，也限制了熟悉使用者的操作自由。</p>
         </div>
         <div class="cap">
           <span class="c-num">/03</span>
@@ -649,22 +643,9 @@
 </main>
 
 <footer>
-  <div class="wrap foot-cols">
-    <div class="fcol-links">
-      <span class="fk">( Menu )</span>
-      <a href="#work">作品</a>
-      <a href="about.html">關於我</a>
-      <a href="#contact">聯絡我</a>
-    </div>
-    <div class="fcol-links">
-      <span class="fk">( Reach out )</span>
-      <a href="mailto:brynn06191@gmail.com">Email</a>
-      <a href="assets/files/brynn-cv.pdf" download>CV</a>
-    </div>
-  </div>
   <div class="wrap foot">
-    <span>© 2026 Brynn</span>
-    <span>Designed &amp; built in Taipei</span>
+    <span>© Copyright 2026 </span>
+    <span>Made by Brynn</span>
   </div>
   <div class="foot-mark" aria-hidden="true">Brynn.</div>
 </footer>

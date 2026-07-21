@@ -105,6 +105,12 @@ a { color: inherit; text-decoration: none; }
 .next a:hover { border-color: var(--ink); }
 
 footer { border-top: 1px solid var(--line); padding: 30px 0; }
+.foot-cols { display: flex; gap: 110px; flex-wrap: wrap; padding-bottom: 26px; }
+.fcol-links { display: flex; flex-direction: column; gap: 4px; font-size: 14px; }
+.fcol-links .fk { color: var(--ink-faint); margin-bottom: 8px; }
+.fcol-links a { color: var(--ink); width: fit-content; border-bottom: 1px solid transparent; transition: border-color .3s; }
+.fcol-links a:hover, .fcol-links a:focus-visible { border-color: var(--ink); }
+@media (max-width: 720px) { .foot-cols { gap: 40px; justify-content: space-between; } }
 .foot { display: flex; justify-content: space-between; font-size: 13.5px; color: var(--ink-faint); flex-wrap: wrap; gap: 12px; }
 
 /* ---- design-board showcase (image-led case studies) ---- */

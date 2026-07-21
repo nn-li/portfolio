@@ -178,15 +178,10 @@
   .copybtn.done { border-color: var(--clay); color: var(--clay); }
 
   footer { background: var(--dark); color: var(--dark-ink); padding: 40px 0 0; overflow: hidden; }
-  .foot-cols { display: flex; gap: 110px; flex-wrap: wrap; margin-bottom: 8px; }
-  .fcol-links { display: flex; flex-direction: column; gap: 4px; font-size: 14px; }
-  .fcol-links .fk { color: var(--dark-soft); margin-bottom: 8px; }
-  .fcol-links a { color: var(--dark-ink); width: fit-content; border-bottom: 1px solid transparent; transition: border-color .3s; }
-  .fcol-links a:hover, .fcol-links a:focus-visible { border-color: var(--dark-ink); }
   /* giant name bleeding off the bottom edge (top half visible) */
   .foot-mark {
-    font-family: "Fraunces", Georgia, serif;
-    font-weight: 500;
+    font-family: "Hanken Grotesk", system-ui, sans-serif;
+    font-weight: 600;
     font-size: clamp(90px, 24vw, 400px);
     line-height: .8;
     letter-spacing: -.02em;
@@ -194,7 +189,7 @@
     white-space: nowrap;
     color: var(--dark-ink);
     user-select: none;
-    margin: 44px 0 -.38em;
+    margin: 44px 0 -.22em;
   }
   .foot {
     display: flex; justify-content: space-between; align-items: center;
@@ -255,7 +250,6 @@
     .collab { grid-template-columns: 1fr; }
     .facts-grid { grid-template-columns: 1fr; gap: 40px; }
     .acontact { padding: 96px 0 84px; margin-top: 96px; }
-    .foot-cols { gap: 40px; justify-content: space-between; }
     .foot-mark { font-size: 28vw; }
   }
 </style>
@@ -485,19 +479,6 @@
 </main>
 
 <footer>
-  <div class="wrap foot-cols">
-    <div class="fcol-links">
-      <span class="fk">( Menu )</span>
-      <a href="index.html#work">作品</a>
-      <a href="about.html">關於我</a>
-      <a href="mailto:brynn06191@gmail.com">聯絡我</a>
-    </div>
-    <div class="fcol-links">
-      <span class="fk">( Reach out )</span>
-      <a href="mailto:brynn06191@gmail.com">Email</a>
-      <a href="assets/files/brynn-cv.pdf" download>CV</a>
-    </div>
-  </div>
   <div class="wrap foot">
     <span>© 2026 Brynn Li</span>
     <span>Designed &amp; built in Taipei</span>
