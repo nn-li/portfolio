@@ -111,10 +111,15 @@
   .nav-cta:hover { background: var(--ink); color: var(--paper) !important; }
 
   /* ---------- HERO ---------- */
-  .hero { padding: 170px 0 84px; position: relative; z-index: 2; text-align: center; }
+  .hero {
+    padding: 150px 0 80px;
+    position: relative; z-index: 2;
+    text-align: center;
+    overflow: hidden;
+  }
   .hero .status {
     display: inline-flex; align-items: center; gap: 6px;
-    margin-bottom: 30px;
+    margin-bottom: 18px;
     font-size: 13.5px; color: var(--ink-soft);
     letter-spacing: .04em;
   }
@@ -123,30 +128,60 @@
   .dot { display: none; }
 
   .hero h1 {
-    font-size: clamp(38px, 5.6vw, 76px);
-    line-height: 1.08;
+    font-size: clamp(36px, 4.6vw, 60px);
+    line-height: 1.1;
+    position: relative; z-index: 3;
   }
   br.mbr { display: none; }
   .hero h1 em {
     font-style: italic;
     color: var(--clay);
-    font-weight: 300;
+    font-weight: 340;
   }
-  .hero-lower {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 26px;
-    margin-top: 48px;
+
+  /* giant backdrop name running behind the photo */
+  .hero-bigtext {
+    position: absolute;
+    left: 50%; bottom: 130px;
+    transform: translateX(-50%);
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(140px, 24vw, 350px);
+    line-height: .82;
+    letter-spacing: -.02em;
+    color: var(--ink);
+    white-space: nowrap;
+    pointer-events: none; user-select: none;
+    z-index: 1;
   }
-  .hero-lower p {
-    max-width: 620px;
-    color: var(--ink-soft);
-    font-size: 18px;
-    text-align: center;
+
+  .hero-photo {
+    position: relative; z-index: 2;
+    width: min(320px, 68vw);
+    aspect-ratio: 4 / 5;
+    margin: 34px auto 0;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 34px 80px -30px rgba(22,21,19,.45);
   }
-  .hero-meta { text-align: center; font-size: 13.5px; color: var(--ink-faint); line-height: 1.9; }
-  .hero-meta strong { color: var(--ink); font-weight: 600; display: block; font-size: 15px; }
+  .hero-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+
+  .hero-scroll {
+    position: relative; z-index: 3;
+    display: inline-block;
+    margin-top: 38px;
+    font-size: 15px;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+    border-radius: 100px;
+    padding: 10px 24px;
+    background: var(--paper);
+    transition: background .3s, color .3s;
+  }
+  .hero-scroll:hover, .hero-scroll:focus-visible { background: var(--ink); color: var(--paper); }
 
   /* reveal on load */
   .reveal { opacity: 0; transform: translateY(26px); }
@@ -390,8 +425,11 @@
   @media (max-width: 860px) {
     body { font-size: 16px; }
     .wrap { padding: 0 22px; }
-    .hero { padding: 140px 0 64px; }
-    .hero h1 { font-size: clamp(30px, 8.6vw, 52px); }
+    .hero { padding: 130px 0 60px; }
+    .hero h1 { font-size: clamp(30px, 8vw, 42px); }
+    .hero-bigtext { bottom: 110px; font-size: clamp(110px, 30vw, 180px); }
+    .hero-photo { width: min(260px, 72vw); margin-top: 26px; }
+    .hero-scroll { margin-top: 30px; }
     br.mbr { display: inline; }
     .foot-cols { gap: 40px; justify-content: space-between; }
     .foot-mark { font-size: clamp(72px, 21vw, 120px); }
@@ -422,25 +460,23 @@
 
   <!-- HERO -->
   <section class="hero">
+    <div class="hero-bigtext" aria-hidden="true">Brynn</div>
     <div class="wrap">
       <div class="status reveal in" style="animation-delay:.05s">
         <span class="dot"></span> UI/UX Designer · Based in Taipei
       </div>
-      <h1 class="display">
-        <span class="reveal in" style="display:block;animation-delay:.06s">把複雜需求</span>
-        <span class="reveal in" style="display:block;animation-delay:.14s">轉化為清楚、<br class="mbr" /></span>
-        <span class="reveal in" style="display:block;animation-delay:.22s">可實作的產品體驗</span>
-      </h1>
-      <div class="hero-lower reveal in" style="animation-delay:.32s">
-        <p>UI/UX 設計師，具政府數位服務、App 與網站優化經驗。我從研究與流程規劃切入，將發現轉化為資訊架構、User Flow、Prototype 與介面規格，並與工程師釐清功能邏輯及實作限制。</p>
-        <div class="hero-meta">
-          <strong>Brynn</strong>
-          UI/UX Designer<br />
-          Taipei, Taiwan
-        </div>
-      </div>
+      <h1 class="display reveal in" style="animation-delay:.12s">Hi, I'm <em>Brynn</em>!</h1>
+      <figure class="hero-photo reveal in" style="animation-delay:.2s">
+        <img src="assets/images/photo/portrait.jpg" alt="Brynn 的個人照片" />
+      </figure>
+      <a class="hero-scroll reveal in" style="animation-delay:.3s" href="#work">查看作品 ↓</a>
     </div>
   </section>
+  <!-- 原 hero 文案，暫存待「關於我」改版時使用：
+    h1：把複雜需求／轉化為清楚、／可實作的產品體驗
+    p：UI/UX 設計師，具政府數位服務、App 與網站優化經驗。我從研究與流程規劃切入，將發現轉化為資訊架構、User Flow、Prototype 與介面規格，並與工程師釐清功能邏輯及實作限制。
+  -->
+
 
   <!-- MARQUEE -->
   <div class="marquee">
