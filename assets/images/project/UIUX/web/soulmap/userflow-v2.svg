@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="860" viewBox="0 0 1560 860" font-family="Noto Sans TC, PingFang TC, Hanken Grotesk, sans-serif">
+<defs><marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M1,1 L8,4.5 L1,8" fill="none" stroke="#7B8CE4" stroke-width="1.4"/></marker></defs>
+<rect width="1560" height="860" rx="26" fill="#f1f3fb"/>
+<rect x="40" y="40" width="1480" height="780" rx="18" fill="#ffffff"/>
+<text x="70" y="96" font-size="26" font-weight="700" fill="#2b3252">User Flow</text>
+<rect x="70" y="108" width="1250" height="224" rx="14" fill="#f4f6fd" stroke="#d8def7" stroke-width="1.2"/>
+<text x="92" y="135" font-size="14" font-weight="700" letter-spacing="2" fill="#7B8CE4">首次體驗與練習</text>
+<rect x="70" y="340" width="1250" height="272" rx="14" fill="#f4f6fd" stroke="#d8def7" stroke-width="1.2"/>
+<text x="92" y="367" font-size="14" font-weight="700" letter-spacing="2" fill="#7B8CE4">心情與進度</text>
+<rect x="70" y="624" width="1250" height="172" rx="14" fill="#f4f6fd" stroke="#d8def7" stroke-width="1.2"/>
+<text x="92" y="651" font-size="14" font-weight="700" letter-spacing="2" fill="#7B8CE4">保存紀錄</text>
+<rect x="90" y="150" width="130" height="48" rx="10" fill="#7B8CE4" stroke="#7B8CE4" stroke-width="1.6"/>
+<text x="155.0" y="179.04" text-anchor="middle" font-size="14" fill="#ffffff">Welcome</text>
+<path d="M 220 174 H 245" fill="none" stroke="#7B8CE4" stroke-width="1.6" marker-end="url(#ar)"/>
+<polygon points="330,134.0 415.0,174 330,214.0 245.0,174" fill="#e7eafa" stroke="#7B8CE4" stroke-width="1.6"/>
+<text x="330" y="178.68" text-anchor="middle" font-size="13" fill="#2b3252">先開始體驗或登入</text>
+<text x="388" y="156" font-size="12.5" fill="#7B8CE4">先開始體驗</text>
+<path d="M 415 174 H 455" fill="none" stroke="#7B8CE4" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="455" y="142" width="250" height="64" rx="10" fill="#ffffff" stroke="#7B8CE4" stroke-width="1.6"/>
+<text x="580.0" y="169.54" text-anchor="middle" font-size="14" fill="#2b3252">查看目前可用的練習</text>
+<text x="580.0" y="188.54" text-anchor="middle" font-size="12.5" fill="#2b3252">可用／鎖定／已完成</text>
+<path d="M 705 174 H 745" fill="none" stroke="#7B8CE4" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="745" y="150" width="130" height="48" rx="10" fill="#ffffff" stroke="#7B8CE4" stroke-width="1.6"/>
+<text x="810.0" y="179.04" text-anchor="middle" font-size="14" fill="#2b3252">開始練習</text>
+<path d="M 875 174 H 915" fill="none" stroke="#7B8CE4" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="915" y="150" width="170" height="48" rx="10" fill="#ffffff" stroke="#7B8CE4" stroke-width="1.6"/>
+<text x="1000.0" y="179.04" text-anchor="middle" font-size="14" fill="#2b3252">暫停／繼續／離開</text>
+<path d="M 1085 174 H 1125" fill="none" stroke="#7B8CE4" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="1125" y="150" width="130" height="48" rx="10" fill="#e7eafa" stroke="#7B8CE4" stroke-width="1.6"/>
+<text x="1190.0" y="179.04" text-anchor="middle" font-size="14" fill="#2b3252">完成練習</text>
+<text x="338" y="248" font-size="12.5" fill="#7B8CE4">登入</text>
+<path d="M 330 214 V 270" fill="none" stroke="#7B8CE4" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="255" y="270" width="150" height="48" rx="10" fill="#ffffff" stroke="#7B8CE4" stroke-width="1.6"/>
+<text x="330.0" y="299.04" text-anchor="middle" font-size="14" fill="#2b3252">登入／註冊</text>
+<path d="M 405 294 H 500 V 206" fill="none" stroke="#7B8CE4" stroke-width="1.6" marker-end="url(#ar)"/>
+<path d="M 1190 198 V 350" fill="none" stroke="#7B8CE4" stroke-width="1.6" marker-end="url(#ar)"/>
+<polygon points="1190,350.0 1270.0,390 1190,430.0 1110.0,390" fill="#e7eafa" stroke="#7B8CE4" stroke-width="1.6"/>
+<text x="1190" y="394.68" text-anchor="middle" font-size="13" fill="#2b3252">是否記錄心情</text>
+<text x="1086" y="368" font-size="12.5" fill="#7B8CE4">保存</text>
+<path d="M 1110 390 H 1080" fill="none" stroke="#7B8CE4" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="910" y="366" width="170" height="48" rx="10" fill="#ffffff" stroke="#7B8CE4" stroke-width="1.6"/>
+<text x="995.0" y="395.04" text-anchor="middle" font-size="14" fill="#2b3252">選擇心情並保存</text>
+<text x="1200" y="452" font-size="12.5" fill="#7B8CE4">略過</text>
+<path d="M 1190 430 V 470 H 760 V 414" fill="none" stroke="#7B8CE4" stroke-width="1.6" marker-end="url(#ar)"/>
+<path d="M 910 390 H 860" fill="none" stroke="#7B8CE4" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="660" y="366" width="200" height="48" rx="10" fill="#ffffff" stroke="#7B8CE4" stroke-width="1.6"/>
+<text x="760.0" y="395.04" text-anchor="middle" font-size="14" fill="#2b3252">更新已完成次數</text>
+<path d="M 660 390 H 620" fill="none" stroke="#7B8CE4" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="410" y="366" width="210" height="48" rx="10" fill="#ffffff" stroke="#7B8CE4" stroke-width="1.6"/>
+<text x="515.0" y="394.86" text-anchor="middle" font-size="13.5" fill="#2b3252">更新本週練習目標完成率</text>
+<path d="M 410 390 H 380" fill="none" stroke="#7B8CE4" stroke-width="1.6" marker-end="url(#ar)"/>
+<polygon points="290,348.0 380.0,390 290,432.0 200.0,390" fill="#e7eafa" stroke="#7B8CE4" stroke-width="1.6"/>
+<text x="290" y="394.68" text-anchor="middle" font-size="13" fill="#2b3252">是否開放下一組內容</text>
+<text x="300" y="458" font-size="12.5" fill="#7B8CE4">是</text>
+<path d="M 290 432 V 480" fill="none" stroke="#7B8CE4" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="215" y="480" width="150" height="48" rx="10" fill="#ffffff" stroke="#7B8CE4" stroke-width="1.6"/>
+<text x="290.0" y="509.04" text-anchor="middle" font-size="14" fill="#2b3252">開放下一組練習</text>
+<text x="150" y="380" font-size="12.5" fill="#7B8CE4">否</text>
+<path d="M 200 390 H 140 V 560" fill="none" stroke="#7B8CE4" stroke-width="1.6" marker-end="url(#ar)"/>
+<path d="M 290 528 V 584 H 260" fill="none" stroke="#7B8CE4" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="90" y="560" width="170" height="48" rx="10" fill="#ffffff" stroke="#7B8CE4" stroke-width="1.6"/>
+<text x="175.0" y="589.04" text-anchor="middle" font-size="14" fill="#2b3252">回首頁／查看紀錄</text>
+<path d="M 175 608 V 680 H 370" fill="none" stroke="#7B8CE4" stroke-width="1.6" marker-end="url(#ar)"/>
+<polygon points="470,638.0 570.0,680 470,722.0 370.0,680" fill="#e7eafa" stroke="#7B8CE4" stroke-width="1.6"/>
+<text x="470" y="684.5" text-anchor="middle" font-size="12.5" fill="#2b3252">未登入時是否保存紀錄</text>
+<text x="580" y="668" font-size="12.5" fill="#7B8CE4">是</text>
+<path d="M 570 680 H 610" fill="none" stroke="#7B8CE4" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="610" y="656" width="150" height="48" rx="10" fill="#ffffff" stroke="#7B8CE4" stroke-width="1.6"/>
+<text x="685.0" y="685.04" text-anchor="middle" font-size="14" fill="#2b3252">登入／註冊</text>
+<path d="M 760 680 H 800" fill="none" stroke="#7B8CE4" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="800" y="656" width="280" height="48" rx="10" fill="#7B8CE4" stroke="#7B8CE4" stroke-width="1.6"/>
+<text x="940.0" y="685.04" text-anchor="middle" font-size="14" fill="#ffffff">保存本週目標、完成紀錄與心情</text>
+<text x="480" y="742" font-size="12.5" fill="#7B8CE4">否</text>
+<path d="M 470 722 V 754 H 610" fill="none" stroke="#7B8CE4" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="610" y="730" width="240" height="48" rx="10" fill="#ffffff" stroke="#7B8CE4" stroke-width="1.6"/>
+<text x="730.0" y="759.04" text-anchor="middle" font-size="14" fill="#2b3252">維持未登入，僅本次瀏覽</text>
+</svg>

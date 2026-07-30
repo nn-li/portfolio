@@ -20,3 +20,6 @@ assets/images/photo/*
 
 # 內部參考（Nelly 檔案）不上傳
 作品集參考/
+
+# 修改前備份（本機安全網，不上傳）
+_backup/

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="880" viewBox="0 0 1560 880" font-family="Noto Sans TC, PingFang TC, Hanken Grotesk, sans-serif">
+<defs><marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M1,1 L8,4.5 L1,8" fill="none" stroke="#4a9bd8" stroke-width="1.4"/></marker></defs>
+<rect width="1560" height="880" rx="26" fill="#ddeefa"/>
+<rect x="40" y="40" width="1480" height="800" rx="18" fill="#ffffff"/>
+<text x="70" y="96" font-size="26" font-weight="700" fill="#1d3a5f">User Flow</text>
+<text x="70" y="122" font-size="14" font-weight="700" letter-spacing="2" fill="#2f8bd0">訂票</text>
+<rect x="90" y="140" width="170" height="48" rx="9" fill="#ffffff" stroke="#4a9bd8" stroke-width="1.6"/>
+<text x="175.0" y="169.04" text-anchor="middle" font-size="14" fill="#1d3a5f">訂票頁面</text>
+<rect x="300" y="140" width="170" height="48" rx="9" fill="#ffffff" stroke="#4a9bd8" stroke-width="1.6"/>
+<text x="385.0" y="169.04" text-anchor="middle" font-size="14" fill="#1d3a5f">填寫訂票資訊</text>
+<rect x="510" y="140" width="170" height="48" rx="9" fill="#ffffff" stroke="#4a9bd8" stroke-width="1.6"/>
+<text x="595.0" y="169.04" text-anchor="middle" font-size="14" fill="#1d3a5f">選擇車次</text>
+<rect x="720" y="140" width="170" height="48" rx="9" fill="#ffffff" stroke="#4a9bd8" stroke-width="1.6"/>
+<text x="805.0" y="169.04" text-anchor="middle" font-size="14" fill="#1d3a5f">確認訂票資訊</text>
+<rect x="930" y="140" width="170" height="48" rx="9" fill="#ffffff" stroke="#4a9bd8" stroke-width="1.6"/>
+<text x="1015.0" y="169.04" text-anchor="middle" font-size="14" fill="#1d3a5f">人機驗證</text>
+<rect x="1140" y="132" width="280" height="64" rx="9" fill="#ffffff" stroke="#4a9bd8" stroke-width="1.6"/>
+<text x="1280.0" y="159.54" text-anchor="middle" font-size="14" fill="#1d3a5f">訂票成功</text>
+<text x="1280.0" y="178.54" text-anchor="middle" font-size="12.5" fill="#1d3a5f">顯示訂單結果、付款期限與付款選擇</text>
+<path d="M 260 164 H 300" fill="none" stroke="#4a9bd8" stroke-width="1.6" marker-end="url(#ar)"/>
+<path d="M 470 164 H 510" fill="none" stroke="#4a9bd8" stroke-width="1.6" marker-end="url(#ar)"/>
+<path d="M 680 164 H 720" fill="none" stroke="#4a9bd8" stroke-width="1.6" marker-end="url(#ar)"/>
+<path d="M 890 164 H 930" fill="none" stroke="#4a9bd8" stroke-width="1.6" marker-end="url(#ar)"/>
+<path d="M 1100 164 H 1140" fill="none" stroke="#4a9bd8" stroke-width="1.6" marker-end="url(#ar)"/>
+<text x="70" y="326" font-size="14" font-weight="700" letter-spacing="2" fill="#2f8bd0">付款</text>
+<path d="M 1280 196 V 282" fill="none" stroke="#4a9bd8" stroke-width="1.6" marker-end="url(#ar)"/>
+<polygon points="1280,282.0 1355.0,320 1280,358.0 1205.0,320" fill="#eaf5fd" stroke="#4a9bd8" stroke-width="1.6"/>
+<text x="1280" y="324.86" text-anchor="middle" font-size="13.5" fill="#1d3a5f">是否立即付款</text>
+<text x="1150" y="308" font-size="12.5" fill="#2f8bd0">是</text>
+<path d="M 1205 320 H 1120" fill="none" stroke="#4a9bd8" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="950" y="296" width="170" height="48" rx="9" fill="#ffffff" stroke="#4a9bd8" stroke-width="1.6"/>
+<text x="1035.0" y="325.04" text-anchor="middle" font-size="14" fill="#1d3a5f">選擇付款方式</text>
+<path d="M 950 320 H 860" fill="none" stroke="#4a9bd8" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="710" y="296" width="150" height="48" rx="9" fill="#ffffff" stroke="#4a9bd8" stroke-width="1.6"/>
+<text x="785.0" y="325.04" text-anchor="middle" font-size="14" fill="#1d3a5f">完成付款</text>
+<text x="1290" y="396" font-size="12.5" fill="#2f8bd0">否</text>
+<path d="M 1280 358 V 420" fill="none" stroke="#4a9bd8" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="1150" y="420" width="280" height="64" rx="9" fill="#ffffff" stroke="#4a9bd8" stroke-width="1.6"/>
+<text x="1290.0" y="447.54" text-anchor="middle" font-size="14" fill="#1d3a5f">進入我的車票「未付款」</text>
+<text x="1290.0" y="466.54" text-anchor="middle" font-size="12.5" fill="#1d3a5f">顯示付款期限與返回付款入口</text>
+<text x="1030" y="442" font-size="12.5" fill="#2f8bd0">返回付款</text>
+<path d="M 1150 452 H 1035 V 344" fill="none" stroke="#4a9bd8" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#ar)"/>
+<text x="70" y="500" font-size="14" font-weight="700" letter-spacing="2" fill="#2f8bd0">取票與分票</text>
+<path d="M 785 344 V 520" fill="none" stroke="#4a9bd8" stroke-width="1.6" marker-end="url(#ar)"/>
+<polygon points="785,520.0 865.0,560 785,600.0 705.0,560" fill="#eaf5fd" stroke="#4a9bd8" stroke-width="1.6"/>
+<text x="785" y="564.86" text-anchor="middle" font-size="13.5" fill="#1d3a5f">是否立即取票</text>
+<text x="682" y="548" font-size="12.5" fill="#2f8bd0">是</text>
+<path d="M 705 560 H 670" fill="none" stroke="#4a9bd8" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="500" y="536" width="170" height="48" rx="9" fill="#ffffff" stroke="#4a9bd8" stroke-width="1.6"/>
+<text x="585.0" y="565.04" text-anchor="middle" font-size="14" fill="#1d3a5f">選擇取票方式</text>
+<path d="M 500 560 H 470" fill="none" stroke="#4a9bd8" stroke-width="1.6" marker-end="url(#ar)"/>
+<polygon points="400,522.0 470.0,560 400,598.0 330.0,560" fill="#eaf5fd" stroke="#4a9bd8" stroke-width="1.6"/>
+<text x="400" y="564.86" text-anchor="middle" font-size="13.5" fill="#1d3a5f">是否分票</text>
+<text x="410" y="620" font-size="12.5" fill="#2f8bd0">是</text>
+<path d="M 400 598 V 622 H 355 V 646" fill="none" stroke="#4a9bd8" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="280" y="646" width="150" height="48" rx="9" fill="#ffffff" stroke="#4a9bd8" stroke-width="1.6"/>
+<text x="355.0" y="675.04" text-anchor="middle" font-size="14" fill="#1d3a5f">取得驗證碼</text>
+<path d="M 430 670 H 470" fill="none" stroke="#4a9bd8" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="470" y="646" width="210" height="48" rx="9" fill="#ffffff" stroke="#4a9bd8" stroke-width="1.6"/>
+<text x="575.0" y="675.04" text-anchor="middle" font-size="14" fill="#1d3a5f">分享驗證碼給同行者</text>
+<path d="M 680 670 H 720" fill="none" stroke="#4a9bd8" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="720" y="646" width="170" height="48" rx="9" fill="#2f8bd0" stroke="#4a9bd8" stroke-width="1.6"/>
+<text x="805.0" y="675.04" text-anchor="middle" font-size="14" fill="#ffffff">分票完成回饋</text>
+<text x="290" y="546" font-size="12.5" fill="#2f8bd0">否</text>
+<path d="M 330 560 H 175 V 646" fill="none" stroke="#4a9bd8" stroke-width="1.6" marker-end="url(#ar)"/>
+<rect x="90" y="646" width="170" height="48" rx="9" fill="#2f8bd0" stroke="#4a9bd8" stroke-width="1.6"/>
+<text x="175.0" y="675.04" text-anchor="middle" font-size="14" fill="#ffffff">取票完成回饋</text>
+<rect x="1080" y="580" width="360" height="230" rx="12" fill="#eaf5fd" stroke="#4a9bd8" stroke-width="1.4"/>
+<text x="1260" y="612" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1d3a5f">我的車票（票券狀態）</text>
+<rect x="1110" y="630" width="140" height="40" rx="9" fill="#ffffff" stroke="#4a9bd8" stroke-width="1.6"/>
+<text x="1180.0" y="654.68" text-anchor="middle" font-size="13" fill="#1d3a5f">未付款</text>
+<rect x="1270" y="630" width="140" height="40" rx="9" fill="#ffffff" stroke="#4a9bd8" stroke-width="1.6"/>
+<text x="1340.0" y="654.68" text-anchor="middle" font-size="13" fill="#1d3a5f">待取票</text>
+<rect x="1110" y="700" width="140" height="40" rx="9" fill="#ffffff" stroke="#4a9bd8" stroke-width="1.6"/>
+<text x="1180.0" y="724.68" text-anchor="middle" font-size="13" fill="#1d3a5f">已分票</text>
+<rect x="1270" y="700" width="140" height="40" rx="9" fill="#ffffff" stroke="#4a9bd8" stroke-width="1.6"/>
+<text x="1340.0" y="724.68" text-anchor="middle" font-size="13" fill="#1d3a5f">已取票</text>
+<text x="880" y="548" font-size="12.5" fill="#2f8bd0">否</text>
+<path d="M 865 560 H 1340 V 630" fill="none" stroke="#4a9bd8" stroke-width="1.6" marker-end="url(#ar)"/>
+<path d="M 1200 484 V 630" fill="none" stroke="#4a9bd8" stroke-width="1.6" marker-end="url(#ar)"/>
+<path d="M 805 694 V 760 H 1180 V 740" fill="none" stroke="#4a9bd8" stroke-width="1.6" marker-end="url(#ar)"/>
+<path d="M 175 694 V 788 H 1340 V 740" fill="none" stroke="#4a9bd8" stroke-width="1.6" marker-end="url(#ar)"/>
+</svg>

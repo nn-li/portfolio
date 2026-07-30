@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>台鐵 e訂通 — 訂票 App Redesign · Case Study</title>
-<meta name="description" content="台鐵 e訂通 — 台鐵官方訂票 App 的 UI/UX 重新設計。從近九千則評論與任務實測找出使用者迷失的環節，重整資訊層級、流程與回饋。" />
+<title>台鐵 e訂通｜訂票流程與票券狀態 App Redesign</title>
+<meta name="description" content="台鐵 e訂通 App redesign case study。透過公開評論盤點與 4 位使用者操作原 App 的相同任務，找出功能入口、任務銜接與票券狀態中的理解斷點，重新規劃 Functional Map、User Flow 與介面。" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -30,15 +30,15 @@
   <div class="cx-title">
     <span class="eyebrow">UI/UX · App Redesign · 2023</span>
     <h1 class="display">台鐵 e訂通</h1>
-    <p class="lead">台鐵官方訂票 App 的重新設計：讓使用者找得到功能、走得完流程、領得到票。</p>
+    <p class="lead">重新整理查詢、訂票、付款與票券管理流程，讓功能入口、目前狀態與下一步更清楚。</p>
   </div>
 
   <!-- meta -->
   <dl class="cx-metarow">
     <div><dt>專案時程</dt><dd>2023</dd></div>
-    <div><dt>主要負責項目</dt><dd>UX 研究、UI 設計、Prototype</dd></div>
+    <div><dt>主要負責項目</dt><dd>公開評論盤點、使用者操作觀察、資訊架構、User Flow、Wireframe、UI Design、Prototype</dd></div>
     <div><dt>使用工具</dt><dd>Figma</dd></div>
-    <div><dt>類型</dt><dd>App Redesign · 交通</dd></div>
+    <div><dt>類型</dt><dd>App Redesign · Transportation</dd></div>
   </dl>
 
   <!-- 左導覽 + 敘事 -->
@@ -58,37 +58,38 @@
       <section class="cx-sec" id="s1" data-sec>
         <span class="secnum">01</span>
         <h2 class="lbl">背景與目標</h2>
-        <p class="intro">台鐵 e訂通是台鐵官方的訂票 App，但 App Store 評分只有 2.3、Google Play 只有 2.0。問題不是功能不夠，而是<b>功能都在，使用者卻找不到、走不完</b>：層級混亂、缺乏回饋，每一步操作都要靠猜。</p>
+        <p class="intro">台鐵 e訂通涵蓋查詢、訂票、付款、取票、分票與列車動態等功能，但主要任務分散在不同入口，操作完成後的狀態與下一步也不夠清楚。本次 redesign 聚焦於重整主要入口、訂票流程與票券狀態。</p>
         <div class="sub">
-          <h3>評分現況</h3>
+          <h3>產品現況與研究範圍</h3>
           <div class="fig" style="margin-top:14px">
             <div class="metrics four">
-              <div class="metric"><div class="big">2.3</div><div class="lbl">App Store 評分（滿分 5 分）</div></div>
-              <div class="metric"><div class="big">2.0</div><div class="lbl">Google Play 評分（滿分 5 分）</div></div>
-              <div class="metric"><div class="big">8,900+</div><div class="lbl">兩大商店累計評分與評論數</div></div>
-              <div class="metric"><div class="big">5</div><div class="lbl">評論收斂出的痛點類別</div></div>
+              <div class="metric"><div class="big">2.3</div><div class="lbl">App Store 評分<br>2023 年研究時</div></div>
+              <div class="metric"><div class="big">2.0</div><div class="lbl">Google Play 評分<br>2023 年研究時</div></div>
+              <div class="metric"><div class="big">5</div><div class="lbl">公開評論整理出的<br>常見問題類型</div></div>
+              <div class="metric"><div class="big">4 位</div><div class="lbl">實際操作原 App<br>相同訂票任務</div></div>
             </div>
           </div>
         </div>
         <div class="sub">
-          <h3>使用者在抱怨什麼</h3>
-          <p>分析兩大商店的評論後，抱怨集中成五類：</p>
+          <h3>公開評論反映的主要問題</h3>
+          <p>我盤點 2023 年研究期間可見的公開評論，將反覆出現的內容整理為五類。這是問題範圍的初步整理，不代表我逐則分析所有商店評分。</p>
           <div class="consensus">
-            <div class="citem"><span>1. 交易流程複雜，要點選、滑動非常多次</span></div>
-            <div class="citem"><span>2. 無法即時得知列車資訊與動態</span></div>
-            <div class="citem"><span>3. 訂票流程繁複，要先查車次才能訂票</span></div>
-            <div class="citem"><span>4. 分票流程難懂，容易出錯</span></div>
-            <div class="citem"><span>5. 取票困擾，部分票種必須到櫃檯處理</span></div>
+            <div class="citem"><span>1. 查詢、訂票與付款之間缺乏連貫</span></div>
+            <div class="citem"><span>2. 列車資訊與目前狀態不容易掌握</span></div>
+            <div class="citem"><span>3. 訂票入口與查詢方式不夠清楚</span></div>
+            <div class="citem"><span>4. 取票與分票的關係容易混淆</span></div>
+            <div class="citem"><span>5. 部分票務情境仍需轉往臨櫃處理</span></div>
           </div>
-          <p><b>五類抱怨指向同一件事：不是缺功能，是流程讓人迷失。</b></p>
-          <div class="fig"><img class="raw" src="../assets/images/project/UIUX/web/tra/research.jpg" alt="使用者研究：商店評分與五類評論統整" loading="lazy" /><div class="cap">商店評分與評論統整 · 五類痛點的原始證據</div></div>
+          <p>這些問題集中在功能入口、任務銜接與操作結果三個層次，成為後續 redesign 的範圍。</p>
+          <p>其中一部分問題涉及票務規則與系統限制，無法只靠介面處理。本案聚焦在能透過資訊架構、流程與狀態回饋改善的部分。</p>
+          <div class="fig"><img class="raw" src="../assets/images/project/UIUX/web/tra/research.jpg" alt="公開評論盤點：商店評分與五類常見問題統整" loading="lazy" /><div class="cap">商店評分與評論統整 · 五類常見問題的原始出處</div></div>
         </div>
         <div class="sub">
           <h3>專案目標</h3>
           <ul class="facts">
-            <li>重整功能配置與資訊層級，讓使用者直覺找到所需功能</li>
-            <li>重新設計訂票流程，減少等待時間與操作步驟</li>
-            <li>提供即時班次資訊，不錯過合適的班次</li>
+            <li>讓查詢、訂票與票券管理的主要入口更容易辨識</li>
+            <li>串接查詢、訂票、付款、取票與分票，減少跨入口尋找</li>
+            <li>補足操作結果、票券狀態與下一步提示</li>
           </ul>
         </div>
       </section>
@@ -97,32 +98,42 @@
       <section class="cx-sec" id="s2" data-sec>
         <span class="secnum">02</span>
         <h2 class="lbl">挑戰與洞察</h2>
-        <p class="intro">Redesign 的挑戰和從零設計不同：問題人人都知道，評分就擺在那裡。<b>難的是找出使用者到底在哪一步迷失</b>。</p>
+        <p class="intro">我先盤點公開評論中的常見問題，再邀請 4 位搭乘頻率與 App 熟悉度不同的使用者，操作原 App 的相同訂票任務，觀察問題實際發生在哪個步驟，以及使用者如何理解操作結果。</p>
         <div class="phases">
-          <div class="ph"><span class="pht">評論分析</span><span class="phw">兩大商店近 9,000 則評分與評論</span></div>
-          <div class="ph"><span class="pht">Persona · 4 位</span><span class="phw">沿「搭乘頻率 × App 熟悉度」取樣</span></div>
-          <div class="ph"><span class="pht">任務實測</span><span class="phw">以真實訂票任務走完全程</span></div>
+          <div class="ph"><span class="pht">公開評論盤點</span><span class="phw">整理研究期間可見的常見問題與代表性情境</span></div>
+          <div class="ph"><span class="pht">使用者操作觀察</span><span class="phw">4 位真實參與者，操作原 App 的相同訂票任務</span></div>
+          <div class="ph"><span class="pht">Journey Map</span><span class="phw">整理停頓、誤解與折返位置</span></div>
         </div>
 
         <div class="sub">
-          <h3>四位使用者：從「每天搭」到「半年搭一次」</h3>
-          <p>台鐵的使用者頻譜極寬，因此 persona 沿<b>「搭乘頻率 × App 熟悉度」</b>取樣：每月搭 1 至 2 次而不熟流程的 Alston、半年才搭一次的 Wendy、每月 4 次以上的跨城常客 Sally、每天通勤卻不用這個 App 的 Cathy。<b>連每天搭車的人都放棄用官方 App 查時刻表，這件事本身就是研究發現。</b></p>
-          <div class="fig"><img class="raw" src="../assets/images/project/UIUX/web/tra/persona-1.jpg" alt="Persona — Alston" loading="lazy" /><div class="cap">Persona 01 · Alston：每月 1–2 次，操作不熟，有時會搭錯車</div></div>
-          <div class="fig"><img class="raw" src="../assets/images/project/UIUX/web/tra/persona-2.jpg" alt="Persona — Wendy" loading="lazy" /><div class="cap">Persona 02 · Wendy：半年搭一次，對訂票與搭乘程序最生疏</div></div>
-          <div class="fig"><img class="raw" src="../assets/images/project/UIUX/web/tra/persona-3.jpg" alt="Persona — Sally" loading="lazy" /><div class="cap">Persona 03 · Sally：每月 4 次以上的跨城常客，最在意退票與分票</div></div>
-          <div class="fig"><img class="raw" src="../assets/images/project/UIUX/web/tra/persona-4.jpg" alt="Persona — Cathy" loading="lazy" /><div class="cap">Persona 04 · Cathy：每天通勤，卻寧可用別的 App 查時刻表</div></div>
+          <h3>三個理解斷點</h3>
+          <div class="consensus">
+            <div class="citem"><span><b>入口</b>｜不確定查詢、訂票與票券管理應從哪裡開始</span></div>
+            <div class="citem"><span><b>流程</b>｜查詢、訂票、付款與取票之間缺少清楚銜接</span></div>
+            <div class="citem"><span><b>狀態</b>｜完成操作後，不容易判斷目前結果與下一步</span></div>
+          </div>
         </div>
 
         <div class="sub">
-          <h3>任務實測：四個人在同樣的地方迷失</h3>
-          <p>四位受訪者各自完成真實訂票任務並繪製旅程圖。<b>情緒低谷全部落在「購票中」，並收斂於三個環節</b>：找車次的查詢方式、選完車種後找不到購票入口，以及人機驗證後突然訂票成功、卻找不到付款入口。此處以 Alston 的詳圖為代表；Sally 的旅程在取票分票再度下跌，成為決策 03 的直接依據。</p>
-          <p>以 Alston 為例：訂一張台北到板橋的票，他在四個環節卡住：不知道該從哪個功能開始、要輸入車次卻無法查詢、區間車沒有購票選項、訂票成功後找不到付款入口。<b>他不是不會用 App，是每一步都缺乏指引與回饋，把操作變成猜測。</b></p>
+          <h3>四位使用者的搭乘與操作情境</h3>
+          <p>四位使用者都實際操作原 App 的相同訂票任務，但搭乘頻率、訂票經驗與 App 熟悉度不同。這讓我能比較偶爾搭乘者、跨城常客與每日通勤者在同一流程中的理解差異。</p>
+          <p>每天通勤的 Cathy 並未將官方 App 作為主要時刻查詢工具。這顯示搭乘頻率與官方 App 的使用習慣不一定一致；她在訪談中提到，改用其他工具是因為時刻表查詢不易查找與使用。</p>
+          <div class="fig"><img class="raw" src="../assets/images/project/UIUX/web/tra/persona-1.jpg" alt="使用者 Alston 的搭乘與 App 操作情境" loading="lazy" /><div class="cap">使用者 01 · Alston：每月 1–2 次，操作不熟，有時會搭錯車</div></div>
+          <div class="fig"><img class="raw" src="../assets/images/project/UIUX/web/tra/persona-2.jpg" alt="使用者 Wendy 的搭乘與 App 操作情境" loading="lazy" /><div class="cap">使用者 02 · Wendy：半年搭一次，對訂票與搭乘程序較不熟悉</div></div>
+          <div class="fig"><img class="raw" src="../assets/images/project/UIUX/web/tra/persona-3.jpg" alt="使用者 Sally 的搭乘與 App 操作情境" loading="lazy" /><div class="cap">使用者 03 · Sally：每月 4 次以上的跨城常客，在意退票與分票</div></div>
+          <div class="fig"><img class="raw" src="../assets/images/project/UIUX/web/tra/persona-4.jpg" alt="使用者 Cathy 的搭乘與 App 操作情境" loading="lazy" /><div class="cap">使用者 04 · Cathy：每天通勤，但不以官方 App 作為主要查詢工具</div></div>
+        </div>
+
+        <div class="sub">
+          <h3>相同任務中的停頓與誤解</h3>
+          <p>4 位使用者都操作原 App 的相同訂票任務。我根據操作紀錄與回饋整理 Journey Map，標出停頓、誤解與折返位置。</p>
+          <p>以 Alston 為例，他在台北到板橋的訂票任務中，先後卡在起始入口、車次查詢、區間車購票與付款位置。區間車沒有購票入口時，介面也缺少票種限制與替代方式的說明；訂票完成後，付款入口與下一步同樣不清楚。</p>
           <div class="fig"><img class="raw" src="../assets/images/project/UIUX/web/tra/journey-alston.jpg" alt="Journey Map — Alston 訂票任務實測" loading="lazy" /><div class="cap">Journey Map · Alston 的訂票任務：低谷集中在「開始訂票」與「完成後找不到付款」</div></div>
         </div>
 
         <div class="sub">
           <h3>收斂：三個問題，三個方向</h3>
-          <p>評論、persona 與實測收斂成三個問題方向：<b>資訊層級梳理</b>（找得到）、<b>改善流程</b>（走得完）、<b>優化介面</b>（不出錯）。這三個方向就是設計決策的骨架。</p>
+          <p>評論與任務操作最後收斂成三個方向：整理主要入口、串接任務流程、補足狀態回饋。後續設計決策沿這三個方向展開。</p>
           <div class="fig"><img class="raw" src="../assets/images/project/UIUX/web/tra/problem-solution.jpg" alt="定義問題與解決：痛點、需求與三個方向" loading="lazy" /></div>
         </div>
       </section>
@@ -131,25 +142,25 @@
       <section class="cx-sec" id="s3" data-sec>
         <span class="secnum">03</span>
         <h2 class="lbl">設計決策</h2>
-        <p class="intro">重新設計最容易掉進「把步驟砍到最少」的陷阱，但實測顯示使用者的挫折不是步驟多，而是<b>每一步都不確定</b>。</p>
+        <p class="intro">設計重點放在每個關鍵節點的狀態與回饋：目前在哪裡、剛才完成了什麼、下一步可以做什麼。</p>
         <div class="versus">
           <div class="vopt lose">
-            <span class="vtag">放棄</span>
-            <div class="vt">最短流程</div>
-            <p>把步驟數壓到最低</p>
+            <span class="vtag">方案 A</span>
+            <div class="vt">追求最少步驟</div>
+            <p>刪減確認與說明，流程較短，但可能增加誤操作與狀態不確定</p>
           </div>
           <div class="vs">vs</div>
           <div class="vopt win">
-            <span class="vtag">我的選擇</span>
-            <div class="vt">每一步都確定</div>
-            <p>訂票前多一次確認、付款前後都有回饋，寧可多一步，不讓使用者猜</p>
+            <span class="vtag">最終選擇</span>
+            <div class="vt">保留關鍵確認與狀態提示</div>
+            <p>只在會影響訂單、付款或票券的節點保留確認，並提示結果與下一步</p>
           </div>
         </div>
         <div class="sub">
           <h3>功能架構與流程</h3>
-          <p>底部四大分類（車票、訂票、列車動態、旅遊資訊）取代原本的側欄；訂票到取票的主流程重新串接，每個決策點（立即或稍後付款、是否立即取票、是否分票）都有明確出口。</p>
-          <div class="fig"><img class="raw" src="../assets/images/project/UIUX/web/tra/functional-map.jpg" alt="Functional Map 功能架構" loading="lazy" /><div class="cap">Functional Map · 首頁五大分支與功能層級</div></div>
-          <div class="fig"><img class="raw" src="../assets/images/project/UIUX/web/tra/userflow-full.png" alt="User Flow · 訂票到取票的完整流程" loading="lazy" /><div class="cap">User Flow · 從訂票、付款、取票到分票的完整路徑，含每個決策點的出口與未付款的補付款迴圈</div></div>
+          <p>我將首頁功能整理為五個主要區域：我的車票、訂票、列車動態、旅遊資訊與會員中心。其中前四項作為底部導覽，會員中心則從獨立入口進入。</p>
+          <div class="fig"><img class="raw" src="../assets/images/project/UIUX/web/tra/functional-map.jpg" alt="Functional Map 首頁功能架構" loading="lazy" /><div class="cap">Functional Map · 首頁功能架構：我的車票、訂票、列車動態、旅遊資訊與會員中心</div></div>
+          <div class="fig"><img class="raw" src="../assets/images/project/UIUX/web/tra/userflow-full-v2.svg" alt="User Flow 訂票到分票的主要流程" loading="lazy" /><div class="cap">User Flow · 從訂票、付款、取票到分票的主要流程與票券狀態</div></div>
         </div>
         <div class="sub">
           <h3>四個決策</h3>
@@ -157,46 +168,47 @@
             <div class="dcard">
               <span class="dph">導覽</span>
               <span class="dnum">決策 01</span>
-              <h4>側欄改為底部分類</h4>
-              <span class="dsrc">依據 · 評論「不夠直覺方便，要點選、滑動非常多次」，功能藏在側欄裡找不到。</span>
-              <div class="dline dwin"><span class="k">選擇</span><span>車票、訂票、列車動態、旅遊資訊四大分類放進底部導覽，一眼可及</span></div>
-              <div class="dline dlose"><span class="k">放棄</span><span>舊版資訊架構的慣性：老使用者需要重新學習功能位置</span></div>
+              <h4>重整主要任務入口</h4>
+              <span class="dsrc">依據 · 使用者難以判斷訂票、我的車票與列車動態從哪裡開始。</span>
+              <div class="dline dwin"><span class="k">設計選擇</span><span>底部導覽保留「我的車票、訂票、列車動態、旅遊資訊」四個主要任務；會員中心維持獨立入口</span></div>
+              <div class="dline dlose"><span class="k">取捨</span><span>部分低頻服務需要再進入一層，換取主要任務的辨識度</span></div>
             </div>
             <div class="dcard">
-              <span class="dph">查詢</span>
+              <span class="dph">流程</span>
               <span class="dnum">決策 02</span>
-              <h4>車次與時段查詢整合</h4>
-              <span class="dsrc">依據 · 評論「要輸入車次才能訂，變得還得先去查車次」；實測中 Alston 也卡在同一步。</span>
-              <div class="dline dwin"><span class="k">選擇</span><span>查詢整合進訂票流程，並提供「常用行程偏好」一鍵帶入</span></div>
-              <div class="dline dlose"><span class="k">放棄</span><span>進階查詢的獨立入口，換取主流程的連貫</span></div>
+              <h4>串接查詢、訂票與付款</h4>
+              <span class="dsrc">依據 · 原流程需要在不同入口間查找車次、訂票與付款。</span>
+              <div class="dline dwin"><span class="k">設計選擇</span><span>將訂票資訊、車次選擇、訂票確認、付款選擇與付款狀態串在同一條流程</span></div>
+              <div class="dline dlose"><span class="k">取捨</span><span>主流程需要處理更多狀態與例外分支，換取操作的連續性</span></div>
             </div>
             <div class="dcard">
               <span class="dph">取分票</span>
               <span class="dnum">決策 03</span>
-              <h4>取票與分票拆成獨立選項</h4>
-              <span class="dsrc">依據 · 評論「分票的步驟太複雜難懂，容易出錯，還要到櫃檯處理」。舊版把取票與分票放在同一個按鈕。</span>
-              <div class="dline dwin"><span class="k">選擇</span><span>兩個獨立選項；分票改為驗證碼直接複製或分享給同行者</span></div>
-              <div class="dline dlose"><span class="k">放棄</span><span>單一入口的簡潔，換取不混淆</span></div>
+              <h4>拆開取票與分票</h4>
+              <span class="dsrc">依據 · 取票與分票的目的、對象與必要資料不同，原流程容易混淆。</span>
+              <div class="dline dwin"><span class="k">設計選擇</span><span>將取票與分票拆為清楚的任務節點；分票提供驗證碼複製與分享</span></div>
+              <div class="dline dlose"><span class="k">取捨</span><span>增加一個任務判斷，換取取票與同行者分票的辨識度</span></div>
             </div>
             <div class="dcard">
               <span class="dph">回饋</span>
               <span class="dnum">決策 04</span>
-              <h4>每個關鍵動作都有確認與回饋</h4>
-              <span class="dsrc">依據 · Wendy「不敢點選人機驗證，點完又突然訂票成功」，成功了卻不知道下一步在哪。</span>
-              <div class="dline dwin"><span class="k">選擇</span><span>訂票前加入確認步驟、付款前後都有明確的狀態回饋</span></div>
-              <div class="dline dlose"><span class="k">放棄</span><span>最短步驟數：寧可多一步確認，不讓使用者猜</span></div>
+              <h4>補足確認、結果與票券狀態</h4>
+              <span class="dsrc">依據 · Wendy 對人機驗證感到不確定，完成訂票後也不清楚付款入口與下一步。</span>
+              <div class="dline dwin"><span class="k">設計選擇</span><span>在訂票確認、人機驗證、訂票成功、付款選擇與取票完成等節點提供明確回饋；「我的車票」依未付款、待取票、已取票與已分票呈現狀態與可執行操作</span></div>
+              <div class="dline dlose"><span class="k">取捨</span><span>增加必要的確認與狀態畫面，換取操作結果的可預期性</span></div>
             </div>
           </div>
         </div>
         <div class="sub">
           <h3>Wireframe：全流程串接</h3>
-          <p>進入視覺設計前，以線框把訂票、付款、取票、分票到列車動態的主流程完整串接一次，驗證每個決策點的出口都有著落。</p>
+          <p>進入視覺設計前，我先以 Wireframe 串接訂票、付款、取票、分票與列車動態，檢查每個判斷節點是否有出口，以及不同票券狀態是否有對應畫面。</p>
           <div class="sgbox"><img src="../assets/images/project/UIUX/web/tra/wireframe.jpg" alt="Wireframe 全流程線框牆" loading="lazy" /></div>
           <div class="boxhint">↕ 框內可捲動查看完整線框流程</div>
         </div>
         <div class="sub">
-          <h3>成效與驗證</h3>
-          <p>重設計完成後做了一輪簡單的易用性測試：請兩三位常搭台鐵的同學實際走完訂票到取票，回饋是比現行版本簡潔、好懂。這不是嚴謹的量化驗證，但對一個以「減少迷失」為目標的 redesign，<b>最常用的人覺得變好懂，是最直接的訊號</b>。</p>
+          <h3>原型操作檢查</h3>
+          <p>完成新版 Prototype 後，我邀請 2 位經常搭乘台鐵的使用者，依序完成查詢指定車次、訂票、選擇稍後付款與取票。兩位皆順利完成任務，過程中未觀察到明顯停頓或誤解，因此這一輪沒有再調整流程。</p>
+          <p>兩位使用者皆表示新版比現行版本容易理解與操作。這屬於小樣本的任務觀察與主觀回饋；本次沒有在相同條件下比較新舊版的完成時間、錯誤率或成功率，因此不宣稱效率提升或產品成效。</p>
         </div>
       </section>
 
@@ -208,74 +220,80 @@
     <div class="uhead">
       <span class="k">04</span>
       <h2>介面設計</h2>
-      <p>沿用台鐵識別的藍色系建立設計系統，讓多流程的畫面維持一致；以下八組介面對應前面的決策與三個問題方向。</p>
+      <p>介面以台鐵既有藍色識別為基礎，重新整理字級、色彩、按鈕、表單與票券狀態。以下畫面分別對應主要入口、訂票流程與狀態回饋。</p>
     </div>
 
     <div class="ui-sub">
-      <span class="k">Design System</span>
-      <h3>Style Guide</h3>
-      <p>色彩、字級、按鈕與元件狀態的完整規格，支撐訂票到取票多流程畫面的一致性。</p>
+      <span class="k">UI Guidelines</span>
+      <h3>介面規範</h3>
+      <p>整理主要色彩、字級、按鈕、輸入欄位與狀態元件，作為訂票、付款與票券管理畫面的共用規則。</p>
     </div>
     <div class="wide">
-      <div class="sgbox"><img src="../assets/images/project/UIUX/web/tra/styleguide.jpg" alt="Style Guide 設計系統" loading="lazy" /></div>
-      <div class="boxhint">↕ 框內可捲動查看完整設計系統</div>
+      <div class="sgbox"><img src="../assets/images/project/UIUX/web/tra/styleguide.jpg" alt="介面規範：色彩、字級與元件狀態" loading="lazy" /></div>
+      <div class="boxhint">↕ 框內可捲動查看完整介面規範</div>
     </div>
 
     <div class="ui-sub">
       <span class="k">介面 01</span>
       <h3>首頁與訂票</h3>
-      <p>底部四分類導覽與「常用行程偏好」一鍵帶入：決策 01、02 的落地。</p>
+      <p>底部導覽保留我的車票、訂票、列車動態與旅遊資訊四個主要任務；會員中心維持獨立入口。常用行程可以快速帶入訂票資訊。</p>
     </div>
     <div class="wide"><img class="raw" src="../assets/images/project/UIUX/web/tra/ui-1.jpg" alt="首頁與訂票功能" loading="lazy" /></div>
 
     <div class="ui-sub">
       <span class="k">介面 02</span>
       <h3>訂票流程</h3>
-      <p>車次列表、時刻表、確認訂票到完成回饋：查詢整合與確認步驟的完整路徑。</p>
+      <p>在同一流程完成訂票資訊、車次選擇、確認與訂票結果，並在成功後提示付款期限與下一步。</p>
     </div>
     <div class="wide"><img class="raw" src="../assets/images/project/UIUX/web/tra/ui-2.jpg" alt="訂票功能操作流程" loading="lazy" /></div>
 
     <div class="ui-sub">
       <span class="k">介面 03</span>
       <h3>票證資訊</h3>
-      <p>票證資訊依層級分類，付款期限、提醒與退票入口都在同一頁：「資訊層級梳理」的落地。</p>
+      <p>依票券狀態優先顯示付款期限、乘車資訊與目前可執行的操作。</p>
     </div>
     <div class="wide"><img class="raw" src="../assets/images/project/UIUX/web/tra/ui-3.jpg" alt="票證資訊頁" loading="lazy" /></div>
 
     <div class="ui-sub">
       <span class="k">介面 04</span>
       <h3>取票與分票</h3>
-      <p>取票與分票拆成獨立選項，分票改用驗證碼分享：決策 03 的落地。</p>
+      <p>將取票與分票拆為清楚的任務節點；分票提供驗證碼複製與分享，並在完成後顯示結果。</p>
     </div>
     <div class="wide"><img class="raw" src="../assets/images/project/UIUX/web/tra/ui-4.jpg" alt="取票與分票流程" loading="lazy" /></div>
 
     <div class="ui-sub">
       <span class="k">介面 05</span>
       <h3>付款</h3>
-      <p>稍後付款與立即付款並列，付款前後都有狀態回饋：決策 04 的落地。</p>
+      <p>區分立即付款與稍後付款，清楚顯示訂單狀態、付款期限與返回付款的入口。</p>
     </div>
     <div class="wide"><img class="raw" src="../assets/images/project/UIUX/web/tra/ui-5.jpg" alt="付款功能" loading="lazy" /></div>
 
     <div class="ui-sub">
       <span class="k">介面 06</span>
-      <h3>車票管理</h3>
-      <p>未付款、未取票、已取票、分票四種狀態分頁，每張票的關鍵資訊一眼可讀。</p>
+      <h3>我的車票</h3>
+      <p>依未付款、待取票、已取票與已分票整理票券，讓目前狀態與下一步操作容易辨識。</p>
     </div>
     <div class="wide"><img class="raw" src="../assets/images/project/UIUX/web/tra/ui-6.jpg" alt="車票管理" loading="lazy" /></div>
 
     <div class="ui-sub">
       <span class="k">介面 07</span>
       <h3>列車動態</h3>
-      <p>始發與終點置頂、車種篩選、列車位置即時更新：回應「無法即時得知資訊」的痛點。</p>
+      <p>以方向、車種、列車位置與更新時間呈現動態資訊。本案未串接真實列車資料，畫面為資訊呈現概念。</p>
     </div>
     <div class="wide"><img class="raw" src="../assets/images/project/UIUX/web/tra/ui-7.jpg" alt="列車動態" loading="lazy" /></div>
 
     <div class="ui-sub">
-      <span class="k">介面 08</span>
+      <span class="k">延伸探索</span>
       <h3>旅遊票券</h3>
-      <p>票券與景點分類瀏覽，新增評價與收藏。</p>
+      <p>依旅遊票券與景點分類內容，並提供收藏與評價入口。這是既有服務的延伸探索，不是本次訂票流程改善的核心範圍。</p>
     </div>
     <div class="wide"><img class="raw" src="../assets/images/project/UIUX/web/tra/ui-8.jpg" alt="旅遊票券" loading="lazy" /></div>
+
+    <div class="ui-sub">
+      <span class="k">Scope</span>
+      <h3>專案範圍</h3>
+      <p>本案為自主 redesign，未串接真實票務、付款、會員與列車資料。4 位使用者操作原 App 的相同訂票任務，用來找出流程中的理解斷點；新版 Prototype 則由 2 位經常搭乘台鐵的使用者進行任務操作檢查。小樣本結果不能代表整體使用者，也未驗證票務規則、例外情境與工程可行性。</p>
+    </div>
   </section>
 
   <section class="next">

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="738" viewBox="0 0 980 738" font-family="Noto Sans TC, PingFang TC, Hanken Grotesk, sans-serif">
+<rect width="980" height="738" fill="#f1f3fb"/>
+<rect x="26" y="26" width="928" height="686" rx="18" fill="#ffffff"/>
+<text x="70" y="84" font-size="28" font-weight="700" fill="#2b3252">Functional Map</text>
+<rect x="400.0" y="104" width="180" height="36" rx="9" fill="#7B8CE4"/>
+<text x="490.0" y="127.0" text-anchor="middle" font-size="14.5" font-weight="700" fill="#fff">Soul Map</text>
+<path d="M 490.0 140 V 164" stroke="#a5b1e8" fill="none" stroke-width="1.4"/>
+<path d="M 160.0 164 H 820.0" stroke="#a5b1e8" fill="none" stroke-width="1.4"/>
+<path d="M 160.0 164 V 200" stroke="#a5b1e8" fill="none" stroke-width="1.4"/>
+<path d="M 490.0 164 V 200" stroke="#a5b1e8" fill="none" stroke-width="1.4"/>
+<path d="M 820.0 164 V 200" stroke="#a5b1e8" fill="none" stroke-width="1.4"/>
+<path d="M 84 236 V 266.0 H 98" fill="none" stroke="#a5b1e8" stroke-width="1.2"/>
+<path d="M 112 284 V 314.0 H 126" fill="none" stroke="#a5b1e8" stroke-width="1.2"/>
+<path d="M 112 284 V 362.0 H 126" fill="none" stroke="#a5b1e8" stroke-width="1.2"/>
+<path d="M 112 284 V 410.0 H 126" fill="none" stroke="#a5b1e8" stroke-width="1.2"/>
+<path d="M 84 236 V 458.0 H 98" fill="none" stroke="#a5b1e8" stroke-width="1.2"/>
+<path d="M 84 236 V 506.0 H 98" fill="none" stroke="#a5b1e8" stroke-width="1.2"/>
+<path d="M 84 236 V 554.0 H 98" fill="none" stroke="#a5b1e8" stroke-width="1.2"/>
+<path d="M 84 236 V 602.0 H 98" fill="none" stroke="#a5b1e8" stroke-width="1.2"/>
+<path d="M 84 236 V 650.0 H 98" fill="none" stroke="#a5b1e8" stroke-width="1.2"/>
+<path d="M 414 236 V 266.0 H 428" fill="none" stroke="#a5b1e8" stroke-width="1.2"/>
+<path d="M 414 236 V 314.0 H 428" fill="none" stroke="#a5b1e8" stroke-width="1.2"/>
+<path d="M 414 236 V 362.0 H 428" fill="none" stroke="#a5b1e8" stroke-width="1.2"/>
+<path d="M 414 236 V 410.0 H 428" fill="none" stroke="#a5b1e8" stroke-width="1.2"/>
+<path d="M 414 236 V 458.0 H 428" fill="none" stroke="#a5b1e8" stroke-width="1.2"/>
+<path d="M 744 236 V 266.0 H 758" fill="none" stroke="#a5b1e8" stroke-width="1.2"/>
+<path d="M 744 236 V 314.0 H 758" fill="none" stroke="#a5b1e8" stroke-width="1.2"/>
+<path d="M 744 236 V 362.0 H 758" fill="none" stroke="#a5b1e8" stroke-width="1.2"/>
+<rect x="70" y="200" width="180" height="36" rx="9" fill="#d3daf6" stroke="#b3bfee"/><text x="160.0" y="223.0" text-anchor="middle" font-size="14.5" fill="#2b3252" font-weight="600">核心練習</text>
+<rect x="98" y="248" width="180" height="36" rx="9" fill="#e7eafa" stroke="#b3bfee"/><text x="188.0" y="271.0" text-anchor="middle" font-size="13.5" fill="#2b3252" font-weight="400">內容路徑</text>
+<rect x="126" y="296" width="180" height="36" rx="9" fill="#e7eafa" stroke="#b3bfee"/><text x="216.0" y="319.0" text-anchor="middle" font-size="13.5" fill="#2b3252" font-weight="400">呼吸覺察</text>
+<rect x="126" y="344" width="180" height="36" rx="9" fill="#e7eafa" stroke="#b3bfee"/><text x="216.0" y="367.0" text-anchor="middle" font-size="13.5" fill="#2b3252" font-weight="400">身體放鬆</text>
+<rect x="126" y="392" width="180" height="36" rx="9" fill="#e7eafa" stroke="#b3bfee"/><text x="216.0" y="415.0" text-anchor="middle" font-size="13.5" fill="#2b3252" font-weight="400">內在觀察</text>
+<rect x="98" y="440" width="180" height="36" rx="9" fill="#e7eafa" stroke="#b3bfee"/><text x="188.0" y="463.0" text-anchor="middle" font-size="13.5" fill="#2b3252" font-weight="400">練習播放</text>
+<rect x="98" y="488" width="180" height="36" rx="9" fill="#e7eafa" stroke="#b3bfee"/><text x="188.0" y="511.0" text-anchor="middle" font-size="13.5" fill="#2b3252" font-weight="400">完成進度</text>
+<rect x="98" y="536" width="180" height="36" rx="9" fill="#e7eafa" stroke="#b3bfee"/><text x="188.0" y="559.0" text-anchor="middle" font-size="13.5" fill="#2b3252" font-weight="400">本週練習目標</text>
+<rect x="98" y="584" width="180" height="36" rx="9" fill="#e7eafa" stroke="#b3bfee"/><text x="188.0" y="607.0" text-anchor="middle" font-size="13.5" fill="#2b3252" font-weight="400">心情紀錄</text>
+<rect x="98" y="632" width="180" height="36" rx="9" fill="#e7eafa" stroke="#b3bfee"/><text x="188.0" y="655.0" text-anchor="middle" font-size="13.5" fill="#2b3252" font-weight="400">日曆回顧</text>
+<rect x="400" y="200" width="180" height="36" rx="9" fill="#d3daf6" stroke="#b3bfee"/><text x="490.0" y="223.0" text-anchor="middle" font-size="14.5" fill="#2b3252" font-weight="600">帳號與設定</text>
+<rect x="428" y="248" width="180" height="36" rx="9" fill="#e7eafa" stroke="#b3bfee"/><text x="518.0" y="271.0" text-anchor="middle" font-size="13.5" fill="#2b3252" font-weight="400">先體驗</text>
+<rect x="428" y="296" width="180" height="36" rx="9" fill="#e7eafa" stroke="#b3bfee"/><text x="518.0" y="319.0" text-anchor="middle" font-size="13.5" fill="#2b3252" font-weight="400">登入／註冊</text>
+<rect x="428" y="344" width="180" height="36" rx="9" fill="#e7eafa" stroke="#b3bfee"/><text x="518.0" y="367.0" text-anchor="middle" font-size="13.5" fill="#2b3252" font-weight="400">每週目標設定</text>
+<rect x="428" y="392" width="180" height="36" rx="9" fill="#e7eafa" stroke="#b3bfee"/><text x="518.0" y="415.0" text-anchor="middle" font-size="13.5" fill="#2b3252" font-weight="400">個人資料</text>
+<rect x="428" y="440" width="180" height="36" rx="9" fill="#e7eafa" stroke="#b3bfee"/><text x="518.0" y="463.0" text-anchor="middle" font-size="13.5" fill="#2b3252" font-weight="400">通知設定</text>
+<rect x="730" y="200" width="180" height="36" rx="9" fill="#d3daf6" stroke="#b3bfee"/><text x="820.0" y="223.0" text-anchor="middle" font-size="14.5" fill="#2b3252" font-weight="600">延伸探索</text>
+<rect x="758" y="248" width="180" height="36" rx="9" fill="#e7eafa" stroke="#b3bfee"/><text x="848.0" y="271.0" text-anchor="middle" font-size="13.5" fill="#2b3252" font-weight="400">好友邀請</text>
+<rect x="758" y="296" width="180" height="36" rx="9" fill="#e7eafa" stroke="#b3bfee"/><text x="848.0" y="319.0" text-anchor="middle" font-size="13.5" fill="#2b3252" font-weight="400">練習分享</text>
+<rect x="758" y="344" width="180" height="36" rx="9" fill="#e7eafa" stroke="#b3bfee"/><text x="848.0" y="367.0" text-anchor="middle" font-size="13.5" fill="#2b3252" font-weight="400">聊天</text>
+</svg>
