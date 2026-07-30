@@ -30,7 +30,7 @@
   <div class="cx-title">
     <span class="eyebrow">UI/UX · Disaster Preparedness App · 2025</span>
     <h1 class="display">震時秒判</h1>
-    <p class="lead">將震前準備、震時應變與震後支援整理成一套清楚流程，依使用者所在情境安排指令、狀態與下一步。</p>
+    <p class="lead">將防災資訊依震前準備、震時應變與震後復原三個階段重新組織，並根據使用者所處情境，提供當下最必要的指引與下一步行動。</p>
     <div class="awards">
       <img class="award-img" src="../assets/images/awards/golden-pin-concept-2025.png" alt="金點概念設計獎 2025 標章 Golden Pin Concept Design Award" />
       <span class="award">金點概念設計獎 <span class="en">Golden Pin Concept Design Award</span></span>
@@ -63,35 +63,33 @@
       <section class="cx-sec" id="s1" data-sec>
         <span class="secnum">01</span>
         <h2 class="lbl">背景與目標</h2>
-        <p class="intro">台灣地震頻繁。警報能通知地震發生，但使用者在不同位置與情境下，仍要判斷下一步：先保護自己、搖晃停止後如何移動、怎麼確認家人狀態，以及震後從哪裡取得支援資訊。震時秒判將這些需求整理成震前準備、震時應變與震後支援三個階段。</p>
+        <p class="intro">台灣地震頻繁，警報能快速通知地震發生，但使用者仍需在有限時間內判斷如何保護自己、搖晃停止後是否移動、如何確認家人狀態，以及震後從哪裡取得支援。「震時秒判」因此將地震相關需求整理為震前準備、震時應變與震後支援三個階段，依不同情境提供相對應的資訊與行動入口。</p>
         <div class="sub">
           <h3>專案目標</h3>
           <ul class="facts">
-            <li>整理震前、震時與震後的功能範圍，避免所有資訊集中在警報當下</li>
-            <li>依使用者情境安排指令、狀態與下一步，降低高壓下的閱讀與操作負擔</li>
-            <li>建立從警報、自我保護、避難、報平安到震後支援的完整流程</li>
+            <li>梳理震前準備、震時應變與震後支援的核心需求與功能範圍</li>
+            <li>定義各階段的資訊優先順序、系統狀態與主要行動</li>
+            <li>建立從警報、自我保護、避難、報平安到震後支援的核心流程，並透過原型測試檢查流程理解與操作銜接</li>
           </ul>
         </div>
         <div class="sub">
           <h3>警報響起後，使用者仍需要判斷下一步</h3>
-          <p>地震發生時，使用者可能同時面對搖晃程度、所在樓層、周遭掉落物、家人狀態與避難路線等問題。若所有資訊同時出現，反而增加閱讀與判斷負擔；但如果只顯示震度，也不足以銜接後續行動。這成為本案最核心的設計問題：不同階段該提供多少資訊，以及資訊應以什麼順序出現。</p>
+          <p>地震發生時，使用者不只需要理解警報資訊，也要依所在位置、周遭風險與自身狀態判斷如何保護自己，並在搖晃停止後決定是否避難、如何確認家人狀態。若將這些資訊集中在警報畫面，會增加高壓情境下的閱讀與判斷負擔；但若只提供震度等地震資訊，又不足以支持後續行動。因此，本案的核心設計問題是：<b style="color:var(--clay)">如何依震前、震時與震後的不同需求安排資訊優先順序，讓使用者在每個階段都能清楚知道當下該做什麼</b>。</p>
           <div class="fig"><img src="../assets/images/project/UIUX/web/quake/bg-problem.jpg" alt="地震當下使用者的判斷與資訊需求" loading="lazy" /><div class="cap">地震發生時，使用者同時面對的判斷與資訊需求</div></div>
         </div>
         <div class="sub">
           <h3>使用者研究分析</h3>
-          <p>我先透過量化問卷調查掌握使用者現有的應對方式與功能偏好，再以 5 位深度訪談理解不同居住環境、行動條件與地震經驗下的需求。</p>
+          <p>先訪談 5 位在居住環境、行動條件與地震經驗上具有差異的使用者，探索不同情境如何影響地震當下的判斷與需求；再透過問卷調查，檢視這些發現是否也出現在較大樣本中。</p>
           <div class="fig"><img src="../assets/images/project/UIUX/web/quake/research-overview.jpg" alt="研究方法概覽：量化問卷調查與深度訪談" loading="lazy" /></div>
-          <p>量化問卷調查共回收 56 份，排除 1 份明顯無效回覆後，有效樣本為 55 份。以下以描述性統計呈現本次樣本中的行為與功能偏好。</p>
           <div class="fig" style="margin-top:14px">
-            <div class="metrics four">
-              <div class="metric"><div class="big">96%</div><div class="lbl">希望 App 提供地震即時警報</div></div>
-              <div class="metric"><div class="big">85%</div><div class="lbl">認為聲音警報是有效的通知方式</div></div>
-              <div class="metric"><div class="big">75%</div><div class="lbl">希望提供緊急避難路線導航</div></div>
-              <div class="metric"><div class="big">73%</div><div class="lbl">希望提供家庭位置共享與聯絡功能</div></div>
+            <div class="metrics four" style="margin:0 0 16px">
+              <div class="metric" style="padding:24px 22px"><div class="big">96%</div><div class="lbl">希望 App 提供地震即時警報</div></div>
+              <div class="metric" style="padding:24px 22px"><div class="big">85%</div><div class="lbl">認為聲音警報是有效的通知方式</div></div>
+              <div class="metric" style="padding:24px 22px"><div class="big">75%</div><div class="lbl">希望提供緊急避難路線導航</div></div>
+              <div class="metric" style="padding:24px 22px"><div class="big">73%</div><div class="lbl">希望提供家庭位置共享與聯絡功能</div></div>
             </div>
+            <p>訪談顯示，使用者在地震應對中的判斷困難，不只來自資訊不足，也受到所在環境、行動條件與照顧責任影響。依據訪談發現設計的問卷進一步顯示，警報通知、聲音提示、避難資訊與家人聯繫，是本次樣本中最受重視的四類需求。</p>
           </div>
-          <p class="note">有效樣本 N＝55；百分比四捨五入至整數，題目為複選。</p>
-          <p>問卷顯示，使用者最重視警報、聲音通知、避難資訊與家人聯繫。但這些數字只能告訴我「哪些功能被重視」，無法解釋使用者為什麼在地震當下仍會猶豫。因此，我再透過深度訪談追查不同情境下的行動限制與判斷過程。</p>
         </div>
       </section>
 
@@ -99,7 +97,7 @@
       <section class="cx-sec" id="s2" data-sec>
         <span class="secnum">02</span>
         <h2 class="lbl">挑戰與洞察</h2>
-        <p class="intro">專案最重要的轉折，是研究改變了我對震時介面的假設。我原本希望在地震當下提供完整資訊；受訪者的描述顯示，震時可分配給閱讀、判斷與操作的餘裕有限，因此完整內容需要分散到震前準備與震後支援。</p>
+        <p class="intro">研究改變了我原先將完整資訊集中在震時介面的假設。訪談顯示，地震當下的限制不只來自資訊不足，也包括注意力被占用、行動能力受限，以及網路與道路中斷。因此，設計重點從「提供更多資訊」，轉為依不同階段與情境決定資訊的呈現時機與優先順序。</p>
         <div class="phases">
           <div class="ph"><span class="pht">4 個月</span><span class="phw">研究、流程設計、介面與多輪原型測試</span></div>
           <div class="ph"><span class="pht">量化問卷調查 · N＝55</span><span class="phw">掌握應對行為與功能偏好</span></div>
