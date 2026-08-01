@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1240" viewBox="0 0 1920 1240" font-family="Noto Sans TC, PingFang TC, Hanken Grotesk, sans-serif">
+<defs><marker id="ar" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto"><path d="M0,0 L10,5.5 L0,11 Z" fill="#d3f04b"/></marker></defs>
+<rect width="1920" height="1240" fill="#141414"/>
+<rect x="90" y="52" width="96" height="46" rx="23" fill="#d3f04b"/>
+<text x="138" y="84" text-anchor="middle" font-size="24" font-weight="700" fill="#20220f">震後</text>
+<text x="212" y="90" text-anchor="start" font-size="42" font-weight="700" fill="#ecede4">災後支援整合</text>
+<text x="90" y="165" text-anchor="start" font-size="24" font-weight="400" fill="#a0a196">震後由使用者主動發起。透過 AI 建築風險檢測記錄可見損傷並取得初步風險提示，再把「災損記錄 → 找補助 → 申請」</text>
+<text x="90" y="203" text-anchor="start" font-size="24" font-weight="400" fill="#a0a196">串成一條路，取代原本要在多個政府網站間自行搜尋的流程。</text>
+<rect x="90" y="238" width="1740" height="74" rx="16" fill="none" stroke="#3c3e33" stroke-width="1.5"/>
+<rect x="122" y="264" width="22" height="22" rx="6" fill="#d3f04b"/>
+<text x="160" y="283" text-anchor="start" font-size="22" font-weight="400" fill="#a0a196">進入點</text>
+<rect x="286" y="264" width="22" height="22" rx="6" fill="none" stroke="#a0a196" stroke-width="2"/>
+<text x="324" y="283" text-anchor="start" font-size="22" font-weight="400" fill="#a0a196">App 畫面</text>
+<polygon points="475,264 488,275 475,286 462,275" fill="none" stroke="#d3f04b" stroke-width="2"/>
+<text x="506" y="283" text-anchor="start" font-size="22" font-weight="400" fill="#a0a196">系統判斷</text>
+<rect x="668" y="264" width="22" height="22" rx="6" fill="#3c3e33"/>
+<text x="706" y="283" text-anchor="start" font-size="22" font-weight="400" fill="#a0a196">流程終點</text>
+<rect x="852" y="258" width="72" height="34" rx="17" fill="#d3f04b"/>
+<text x="888" y="282" text-anchor="middle" font-size="20" font-weight="700" fill="#20220f">條件</text>
+<text x="944" y="283" text-anchor="start" font-size="22" font-weight="400" fill="#a0a196">分支條件</text>
+<rect x="90" y="370" width="520" height="180" rx="24" fill="#d3f04b"/>
+<text x="350.0" y="428" text-anchor="middle" font-size="30" font-weight="700" fill="#20220f">震後返家前</text>
+<text x="350.0" y="474" text-anchor="middle" font-size="22" font-weight="400" fill="#3a3d1e">從首頁「災後支援」進入</text>
+<text x="350.0" y="510" text-anchor="middle" font-size="22" font-weight="400" fill="#3a3d1e">確認自身安全後開始</text>
+<text x="675" y="443" text-anchor="middle" font-size="20" font-weight="400" fill="#ecede4">開啟相機掃描</text>
+<path d="M 618 460 H 732" fill="none" stroke="#6b6d5e" stroke-width="2.5" marker-end="url(#ar)"/>
+<rect x="740" y="370" width="520" height="180" rx="24" fill="#1e1f1a" stroke="#3c3e33" stroke-width="1.5"/>
+<text x="1000.0" y="428" text-anchor="middle" font-size="30" font-weight="700" fill="#ecede4">AI 建築風險檢測</text>
+<text x="1000.0" y="474" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">掃描牆面裂縫・樑柱損傷</text>
+<text x="1000.0" y="510" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">與建築傾斜狀況</text>
+<text x="1325" y="443" text-anchor="middle" font-size="20" font-weight="400" fill="#ecede4">即時分析</text>
+<path d="M 1268 460 H 1382" fill="none" stroke="#6b6d5e" stroke-width="2.5" marker-end="url(#ar)"/>
+<rect x="1390" y="370" width="440" height="180" rx="24" fill="#1e1f1a" stroke="#d3f04b" stroke-width="2.5"/>
+<text x="1610.0" y="428" text-anchor="middle" font-size="30" font-weight="700" fill="#d3f04b">AI 初步風險提示</text>
+<text x="1610.0" y="474" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">依損傷程度</text>
+<text x="1610.0" y="510" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">分級給出結果</text>
+<path d="M 1000 550 V 600 M 500 600 H 1410 M 500 600 V 616 M 1410 600 V 616" fill="none" stroke="#6b6d5e" stroke-width="2.5"/>
+<rect x="285.0" y="622" width="430" height="48" rx="24" fill="#141414" stroke="#d3f04b" stroke-width="2"/>
+<text x="500" y="654" text-anchor="middle" font-size="22" font-weight="600" fill="#d3f04b">未發現明顯異常・仍需持續留意</text>
+<rect x="1235.0" y="622" width="350" height="48" rx="24" fill="#141414" stroke="#d3f04b" stroke-width="2"/>
+<text x="1410" y="654" text-anchor="middle" font-size="22" font-weight="600" fill="#d3f04b">發現疑似風險・暫勿進入</text>
+<path d="M 500 670 V 726" fill="none" stroke="#6b6d5e" stroke-width="2.5" marker-end="url(#ar)"/>
+<path d="M 1410 670 V 726" fill="none" stroke="#6b6d5e" stroke-width="2.5" marker-end="url(#ar)"/>
+<rect x="90" y="730" width="860" height="170" rx="24" fill="#1e1f1a" stroke="#3c3e33" stroke-width="1.5"/>
+<text x="520.0" y="788" text-anchor="middle" font-size="30" font-weight="700" fill="#ecede4">災損盤點</text>
+<text x="520.0" y="834" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">逐項拍照記錄損失</text>
+<text x="520.0" y="870" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">作為申請補助的依據</text>
+<rect x="1000" y="730" width="830" height="170" rx="24" fill="#1e1f1a" stroke="#3c3e33" stroke-width="1.5"/>
+<text x="1415.0" y="788" text-anchor="middle" font-size="30" font-weight="700" fill="#ecede4">暫勿進入</text>
+<text x="1415.0" y="834" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">引導通報主管機關</text>
+<text x="1415.0" y="870" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">並導向就近避難所</text>
+<text x="1830" y="944" text-anchor="end" font-size="20" font-weight="400" fill="#a0a196">待專業人員檢查後再回到此流程</text>
+<text x="545" y="972" text-anchor="start" font-size="20" font-weight="400" fill="#ecede4">依災損紀錄自動比對</text>
+<path d="M 520 900 V 1002" fill="none" stroke="#6b6d5e" stroke-width="2.5" marker-end="url(#ar)"/>
+<rect x="90" y="1010" width="520" height="170" rx="24" fill="#1e1f1a" stroke="#3c3e33" stroke-width="1.5"/>
+<text x="350.0" y="1068" text-anchor="middle" font-size="30" font-weight="700" fill="#ecede4">補助種類比對</text>
+<text x="350.0" y="1114" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">依災損類型自動判別出</text>
+<text x="350.0" y="1150" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">可申請的補助項目</text>
+<text x="675" y="1078" text-anchor="middle" font-size="20" font-weight="400" fill="#ecede4">選擇補助項目</text>
+<path d="M 618 1095 H 732" fill="none" stroke="#6b6d5e" stroke-width="2.5" marker-end="url(#ar)"/>
+<rect x="740" y="1010" width="520" height="170" rx="24" fill="#1e1f1a" stroke="#3c3e33" stroke-width="1.5"/>
+<text x="1000.0" y="1068" text-anchor="middle" font-size="30" font-weight="700" fill="#ecede4">申請流程指引</text>
+<text x="1000.0" y="1114" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">所需文件、辦理步驟</text>
+<text x="1000.0" y="1150" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">與申請進度追蹤</text>
+<text x="1325" y="1078" text-anchor="middle" font-size="20" font-weight="400" fill="#ecede4">申請送出後</text>
+<path d="M 1268 1095 H 1382" fill="none" stroke="#6b6d5e" stroke-width="2.5" marker-end="url(#ar)"/>
+<rect x="1390" y="1010" width="440" height="170" rx="24" fill="#1e1f1a" stroke="#3c3e33" stroke-width="1.5"/>
+<text x="1610.0" y="1068" text-anchor="middle" font-size="30" font-weight="700" fill="#ecede4">社群互助</text>
+<text x="1610.0" y="1114" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">物資分享、求助訊息</text>
+<text x="1610.0" y="1150" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">與平安打卡</text>
+</svg>

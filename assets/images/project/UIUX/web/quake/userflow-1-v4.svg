@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1810" viewBox="0 0 1920 1810" font-family="Noto Sans TC, PingFang TC, Hanken Grotesk, sans-serif">
+<defs><marker id="ar" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto"><path d="M0,0 L10,5.5 L0,11 Z" fill="#d3f04b"/></marker></defs>
+<rect width="1920" height="1810" fill="#141414"/>
+<rect x="90" y="52" width="96" height="46" rx="23" fill="#d3f04b"/>
+<text x="138" y="84" text-anchor="middle" font-size="24" font-weight="700" fill="#20220f">震時</text>
+<text x="212" y="90" text-anchor="start" font-size="42" font-weight="700" fill="#ecede4">即時應變與避難指引</text>
+<text x="90" y="165" text-anchor="start" font-size="24" font-weight="400" fill="#a0a196">由氣象署地震速報自動觸發。系統比對「震度 × 使用者預先設定的情境」給出不同層級的應變指引，一路帶到避難完成</text>
+<text x="90" y="203" text-anchor="start" font-size="24" font-weight="400" fill="#a0a196">與親友回報，過程中不需要使用者自行判讀資訊。</text>
+<rect x="90" y="238" width="1740" height="74" rx="16" fill="none" stroke="#3c3e33" stroke-width="1.5"/>
+<rect x="122" y="264" width="22" height="22" rx="6" fill="#d3f04b"/>
+<text x="160" y="283" text-anchor="start" font-size="22" font-weight="400" fill="#a0a196">觸發／進入點</text>
+<rect x="336" y="264" width="22" height="22" rx="6" fill="none" stroke="#a0a196" stroke-width="2"/>
+<text x="374" y="283" text-anchor="start" font-size="22" font-weight="400" fill="#a0a196">App 畫面</text>
+<polygon points="525,264 538,275 525,286 512,275" fill="none" stroke="#d3f04b" stroke-width="2"/>
+<text x="556" y="283" text-anchor="start" font-size="22" font-weight="400" fill="#a0a196">系統判斷</text>
+<rect x="718" y="264" width="22" height="22" rx="6" fill="#3c3e33"/>
+<text x="756" y="283" text-anchor="start" font-size="22" font-weight="400" fill="#a0a196">流程終點</text>
+<rect x="902" y="258" width="72" height="34" rx="17" fill="#d3f04b"/>
+<text x="938" y="282" text-anchor="middle" font-size="20" font-weight="700" fill="#20220f">條件</text>
+<text x="994" y="283" text-anchor="start" font-size="22" font-weight="400" fill="#a0a196">分支條件</text>
+<rect x="90" y="370" width="520" height="180" rx="24" fill="#d3f04b"/>
+<text x="350.0" y="428" text-anchor="middle" font-size="30" font-weight="700" fill="#20220f">地震速報觸發</text>
+<text x="350.0" y="474" text-anchor="middle" font-size="22" font-weight="400" fill="#3a3d1e">接收氣象署地震速報</text>
+<text x="350.0" y="510" text-anchor="middle" font-size="22" font-weight="400" fill="#3a3d1e">App 於背景自動啟動</text>
+<text x="655" y="443" text-anchor="middle" font-size="20" font-weight="400" fill="#ecede4">推播喚醒</text>
+<path d="M 618 460 H 692" fill="none" stroke="#6b6d5e" stroke-width="2.5" marker-end="url(#ar)"/>
+<rect x="700" y="370" width="520" height="180" rx="24" fill="#1e1f1a" stroke="#3c3e33" stroke-width="1.5"/>
+<text x="960.0" y="428" text-anchor="middle" font-size="30" font-weight="700" fill="#ecede4">分級警報聲＋推播</text>
+<text x="960.0" y="474" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">依預估震度播放低／中／高</text>
+<text x="960.0" y="510" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">三段警報音，聲音即資訊</text>
+<text x="1265" y="443" text-anchor="middle" font-size="20" font-weight="400" fill="#ecede4">點擊或自動開啟</text>
+<path d="M 1228 460 H 1302" fill="none" stroke="#6b6d5e" stroke-width="2.5" marker-end="url(#ar)"/>
+<rect x="1310" y="370" width="520" height="180" rx="24" fill="#1e1f1a" stroke="#3c3e33" stroke-width="1.5"/>
+<text x="1570.0" y="428" text-anchor="middle" font-size="30" font-weight="700" fill="#ecede4">震時應變畫面</text>
+<text x="1570.0" y="474" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">全螢幕接管，只顯示</text>
+<text x="1570.0" y="510" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">當下最必要的行動指令</text>
+<text x="985" y="605" text-anchor="start" font-size="20" font-weight="400" fill="#ecede4">系統自動判斷，使用者不需操作</text>
+<path d="M 960 550 V 642" fill="none" stroke="#6b6d5e" stroke-width="2.5" marker-end="url(#ar)"/>
+<rect x="505" y="650" width="910" height="190" rx="24" fill="#1e1f1a" stroke="#d3f04b" stroke-width="2.5"/>
+<text x="960.0" y="708" text-anchor="middle" font-size="30" font-weight="700" fill="#d3f04b">震度 × 個人情境判斷</text>
+<text x="960.0" y="754" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">比對預先設定的資料：所在地區・建築屋齡</text>
+<text x="960.0" y="790" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">樓層高度・當下情境（在家／外出／睡眠）</text>
+<path d="M 960 840 V 880 M 365 880 H 1550 M 365 880 V 898 M 1550 880 V 898" fill="none" stroke="#6b6d5e" stroke-width="2.5"/>
+<rect x="290.0" y="906" width="150" height="48" rx="24" fill="#141414" stroke="#d3f04b" stroke-width="2"/>
+<text x="365" y="938" text-anchor="middle" font-size="22" font-weight="600" fill="#d3f04b">震度低</text>
+<rect x="760.0" y="906" width="400" height="48" rx="24" fill="#141414" stroke="#d3f04b" stroke-width="2"/>
+<text x="960" y="938" text-anchor="middle" font-size="22" font-weight="600" fill="#d3f04b">震度中高・建築相對安全</text>
+<rect x="1335.0" y="906" width="430" height="48" rx="24" fill="#141414" stroke="#d3f04b" stroke-width="2"/>
+<text x="1550" y="938" text-anchor="middle" font-size="22" font-weight="600" fill="#d3f04b">震度高・老舊建築等高風險</text>
+<path d="M 365 954 V 1002" fill="none" stroke="#6b6d5e" stroke-width="2.5" marker-end="url(#ar)"/>
+<path d="M 960 954 V 1002" fill="none" stroke="#6b6d5e" stroke-width="2.5" marker-end="url(#ar)"/>
+<path d="M 1550 954 V 1002" fill="none" stroke="#6b6d5e" stroke-width="2.5" marker-end="url(#ar)"/>
+<rect x="90" y="1010" width="550" height="180" rx="24" fill="#1e1f1a" stroke="#3c3e33" stroke-width="1.5"/>
+<text x="365.0" y="1068" text-anchor="middle" font-size="30" font-weight="700" fill="#ecede4">安全提示</text>
+<text x="365.0" y="1114" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">顯示震度資訊</text>
+<text x="365.0" y="1150" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">與注意事項</text>
+<rect x="685" y="1010" width="550" height="180" rx="24" fill="#1e1f1a" stroke="#3c3e33" stroke-width="1.5"/>
+<text x="960.0" y="1068" text-anchor="middle" font-size="30" font-weight="700" fill="#ecede4">原地掩護指引</text>
+<text x="960.0" y="1114" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">趴下・掩護・穩住</text>
+<text x="960.0" y="1150" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">大字倒數，可單手操作</text>
+<rect x="1280" y="1010" width="550" height="180" rx="24" fill="#1e1f1a" stroke="#3c3e33" stroke-width="1.5"/>
+<text x="1555.0" y="1068" text-anchor="middle" font-size="30" font-weight="700" fill="#ecede4">立即避難指引</text>
+<text x="1555.0" y="1114" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">判定留在原地風險更高</text>
+<text x="1555.0" y="1150" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">引導馬上離開建築</text>
+<path d="M 365 1190 V 1262" fill="none" stroke="#6b6d5e" stroke-width="2.5" marker-end="url(#ar)"/>
+<rect x="90" y="1270" width="550" height="170" rx="24" fill="#1e1f1a" stroke="#3c3e33" stroke-width="1.5"/>
+<text x="365.0" y="1328" text-anchor="middle" font-size="30" font-weight="700" fill="#ecede4">回報平安</text>
+<text x="365.0" y="1374" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">一鍵通知緊急聯絡人</text>
+<text x="365.0" y="1410" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">流程在此結束</text>
+<path d="M 960 1190 V 1240 M 1555 1190 V 1240 M 960 1240 H 1555 M 1257 1240 V 1490 M 1257 1490 H 320" fill="none" stroke="#6b6d5e" stroke-width="2.5"/>
+<text x="350" y="1535" text-anchor="start" font-size="20" font-weight="400" fill="#ecede4">搖晃結束後自動接續</text>
+<path d="M 320 1490 V 1552" fill="none" stroke="#6b6d5e" stroke-width="2.5" marker-end="url(#ar)"/>
+<rect x="90" y="1560" width="520" height="180" rx="24" fill="#1e1f1a" stroke="#3c3e33" stroke-width="1.5"/>
+<text x="350.0" y="1618" text-anchor="middle" font-size="30" font-weight="700" fill="#ecede4">避難路線導航</text>
+<text x="350.0" y="1664" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">規劃最短安全路線</text>
+<text x="350.0" y="1700" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">避開已回報的危險區域</text>
+<text x="675" y="1633" text-anchor="middle" font-size="20" font-weight="400" fill="#ecede4">抵達後自動偵測</text>
+<path d="M 618 1650 H 732" fill="none" stroke="#6b6d5e" stroke-width="2.5" marker-end="url(#ar)"/>
+<rect x="740" y="1560" width="520" height="180" rx="24" fill="#1e1f1a" stroke="#3c3e33" stroke-width="1.5"/>
+<text x="1000.0" y="1618" text-anchor="middle" font-size="30" font-weight="700" fill="#ecede4">避難所報到</text>
+<text x="1000.0" y="1664" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">打卡確認位置</text>
+<text x="1000.0" y="1700" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">顯示避難所注意事項</text>
+<text x="1325" y="1633" text-anchor="middle" font-size="20" font-weight="400" fill="#ecede4">報到同時觸發</text>
+<path d="M 1268 1650 H 1382" fill="none" stroke="#6b6d5e" stroke-width="2.5" marker-end="url(#ar)"/>
+<rect x="1390" y="1560" width="440" height="180" rx="24" fill="#1e1f1a" stroke="#3c3e33" stroke-width="1.5"/>
+<text x="1610.0" y="1618" text-anchor="middle" font-size="30" font-weight="700" fill="#ecede4">親友安全通知</text>
+<text x="1610.0" y="1664" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">安全狀態即時同步</text>
+<text x="1610.0" y="1700" text-anchor="middle" font-size="22" font-weight="400" fill="#a0a196">減少震後互相搜尋的混亂</text>
+</svg>
