@@ -1,3 +1,15 @@
+/* 專案頁配色：維持改版前的原始 palette（首頁與關於我使用 cover.svg 新視覺，
+   本檔僅由四個專案頁載入，故在此覆寫 theme.css 的 token）。 */
+:root {
+  --paper: #FDFDFD;
+  --paper-2: #EFEFEF;
+  --line: #E3E3E3;
+  --accent: #141414;
+  --accent-deep: #000;
+  --clay: #173DFF;
+  --dark-ink: #F8F8F8;
+}
+
 /* Shared styles for case-study pages under /work.
    Design tokens live in theme.css (must be linked before this file). */
 :root {
@@ -32,7 +44,7 @@ a { color: inherit; text-decoration: none; }
 /* top bar */
 .topbar {
   position: sticky; top: 0; z-index: 20;
-  background: rgba(248,248,248,.94);
+  background: rgba(253,253,253,.94);
   border-bottom: 1px solid var(--line);
 }
 .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
@@ -136,6 +148,7 @@ footer { border-top: 1px solid var(--line); padding: 30px 0; }
 .cx-title { max-width: 1180px; margin: 0 auto; padding: 46px 28px 0; }
 .cx-title .eyebrow { display: block; margin-bottom: 16px; }
 .cx-title h1 { font-size: clamp(34px, 6vw, 66px); }
+.cx-title h1::after { content: ""; display: inline-block; width: 14px; height: 14px; margin-left: 18px; margin-bottom: 6px; background: var(--cyan); box-shadow: 10px -10px 0 -2.5px var(--paper), 10px -10px 0 -1px var(--cyan); }
 .cx-title .lead { margin-top: 22px; max-width: 40ch; font-size: 20px; color: var(--ink-soft); }
 .cx-metarow { max-width: 1180px; margin: 34px auto 0; padding: 24px 28px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; gap: 48px; flex-wrap: wrap; }
 .cx-metarow div dt { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 6px; }
@@ -150,19 +163,19 @@ footer { border-top: 1px solid var(--line); padding: 30px 0; }
 .cx-nav a:hover, .cx-nav a.active { color: var(--ink); }
 .cx-nav a.active::before { width: 16px; }
 .cx-main { min-width: 0; }
-.cx-sec { padding: 50px 0; border-top: 1px solid var(--line); }
+.cx-sec { padding: 76px 0; border-top: 1px solid var(--line); }
 .cx-sec:first-child { padding-top: 24px; border-top: none; }
 .cx-sec > .secnum { display: block; font-family: "Fraunces", serif; color: var(--clay); font-size: 14px; letter-spacing: .04em; margin-bottom: 4px; }
 .cx-sec > .lbl { font-family: "Fraunces", serif; font-weight: 400; font-size: clamp(24px, 3vw, 34px); letter-spacing: -.01em; }
-.cx-sec > .intro { color: var(--ink-soft); margin-top: 14px; }
-.sub { margin: 36px 0 0; }
+.cx-sec > .intro { color: var(--ink-soft); margin-top: 18px; }
+.sub { margin: 64px 0 0; }
 .sub h3 { font-family: "Fraunces", serif; font-weight: 500; font-size: 20px; color: var(--accent); display: flex; gap: 9px; align-items: baseline; }
 .sub h3::before { content: "*"; color: var(--clay); font-size: 16px; }
-.sub p { color: var(--ink-soft); margin-top: 8px; }
+.sub p { color: var(--ink-soft); margin-top: 13px; }
 .sub ul.facts { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 6px; }
 .sub ul.facts li { color: var(--ink-soft); padding-left: 16px; position: relative; }
 .sub ul.facts li::before { content: "–"; position: absolute; left: 0; color: var(--ink-faint); }
-.fig { margin: 20px 0 0; }
+.fig { margin: 28px 0 0; }
 .fig img { width: 100%; display: block; border: 1px solid var(--line); border-radius: 2px; background: var(--paper-2); }
 .fig .cap { font-size: 12.5px; color: var(--ink-faint); margin-top: 8px; }
 .fig.two { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
@@ -173,7 +186,7 @@ footer { border-top: 1px solid var(--line); padding: 30px 0; }
 .pull p { color: var(--accent); font-style: italic; font-size: 16px; }
 
 /* sampling map — 3 deep-dive + 2 verification */
-.smap { display: grid; grid-template-columns: 3fr 2fr; gap: 14px; margin-top: 18px; }
+.smap { display: grid; grid-template-columns: 3fr 2fr; gap: 14px; margin-top: 24px; }
 .smap .sgroup { border: 1px solid var(--line); border-radius: 2px; background: var(--paper); padding: 16px 18px 8px; }
 .smap .sgroup.main { border-color: var(--clay); }
 .smap .glabel { font-size: 13.5px; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
@@ -186,7 +199,7 @@ footer { border-top: 1px solid var(--line); padding: 30px 0; }
 @media (max-width: 720px) { .smap { grid-template-columns: 1fr; } }
 
 /* consensus findings (5-person convergence) */
-.consensus { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
+.consensus { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
 .consensus .citem { display: flex; align-items: center; justify-content: space-between; gap: 12px; border: 1.5px solid var(--accent); border-radius: 2px; padding: 10px 15px; font-size: 14px; color: var(--ink); background: var(--paper); }
 .consensus .citem .cs { font-family: "Fraunces", serif; font-size: 13px; color: var(--accent); white-space: nowrap; }
 .consensus .citem.weak { border: 1.5px dashed var(--line); color: var(--ink-soft); background: transparent; }
@@ -194,7 +207,7 @@ footer { border-top: 1px solid var(--line); padding: 30px 0; }
 @media (max-width: 720px) { .consensus { grid-template-columns: 1fr; } }
 
 /* versus block — one core tradeoff, visually decided */
-.versus { display: grid; grid-template-columns: 1fr auto 1fr; gap: 14px; align-items: stretch; margin-top: 20px; }
+.versus { display: grid; grid-template-columns: 1fr auto 1fr; gap: 14px; align-items: stretch; margin-top: 26px; }
 .versus .vopt { border-radius: 2px; padding: 18px 20px; }
 .versus .vopt .vtag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .08em; border-radius: 100px; padding: 2px 11px; }
 .versus .vopt .vt { font-family: "Fraunces", serif; font-size: 21px; margin-top: 10px; letter-spacing: -.01em; }
@@ -209,7 +222,7 @@ footer { border-top: 1px solid var(--line); padding: 30px 0; }
 @media (max-width: 720px) { .versus { grid-template-columns: 1fr; } .versus .vs { text-align: center; } }
 
 /* three-phase weight strip */
-.phases { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 18px; }
+.phases { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 24px; }
 .phases .ph { border: 1px solid var(--line); border-radius: 2px; padding: 12px 15px; background: var(--paper); }
 .phases .ph .pht { display: block; font-family: "Fraunces", serif; font-size: 17px; }
 .phases .ph .phw { display: block; font-size: 12.5px; color: var(--ink-soft); margin-top: 3px; }
@@ -220,7 +233,7 @@ footer { border-top: 1px solid var(--line); padding: 30px 0; }
 @media (max-width: 720px) { .phases { grid-template-columns: 1fr; } }
 
 /* decision cards — evidence → choice → tradeoff */
-.dcards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+.dcards { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 26px; }
 .dcard { border: 1px solid var(--line); border-radius: 2px; background: var(--paper); padding: 18px 20px 16px; }
 .dcard .dnum { font-family: "Fraunces", serif; font-size: 12.5px; color: var(--clay); letter-spacing: .05em; }
 .dcard .dph { float: right; font-size: 11px; font-weight: 600; letter-spacing: .04em; color: var(--ink-soft); border: 1px solid var(--line); border-radius: 100px; padding: 1px 10px; background: var(--paper); }
@@ -240,7 +253,7 @@ footer { border-top: 1px solid var(--line); padding: 30px 0; }
 @media (max-width: 820px) { .dcards, .dcards.three { grid-template-columns: 1fr; } }
 
 /* mechanism table (who / failure / design) */
-.mtable { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 14px; }
+.mtable { width: 100%; border-collapse: collapse; margin-top: 22px; font-size: 14px; }
 .mtable th { text-align: left; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-faint); font-weight: 600; padding: 8px 12px; border-bottom: 1px solid var(--line); }
 .mtable td { padding: 11px 12px; border-bottom: 1px solid var(--line); color: var(--ink-soft); vertical-align: top; }
 .mtable td:first-child { color: var(--ink); font-weight: 600; white-space: nowrap; }
@@ -269,7 +282,7 @@ footer { border-top: 1px solid var(--line); padding: 30px 0; }
 .uidark .k { font-family: "Fraunces", serif; color: var(--dark-soft); font-size: 14px; letter-spacing: .04em; }
 .uidark h2 { font-family: "Fraunces", serif; font-weight: 400; font-size: clamp(28px, 4vw, 46px); color: var(--dark-ink); margin: 6px 0 14px; letter-spacing: -.01em; }
 .uidark .lede { color: var(--dark-soft); }
-.uphase { margin-top: 54px; }
+.uphase { margin-top: 76px; }
 .uphase .pk { font-family: "Fraunces", serif; color: var(--dark-soft); font-size: 13px; letter-spacing: .06em; }
 .uphase h3 { font-family: "Fraunces", serif; font-weight: 500; font-size: 22px; color: var(--dark-ink); margin: 3px 0 4px; }
 .uphase p { color: var(--dark-soft); font-size: 14.5px; }
@@ -322,7 +335,7 @@ footer { border-top: 1px solid var(--line); padding: 30px 0; }
 }
 
 /* ---- light UI showcase section (brand-light projects, e.g. TRA) ---- */
-.uilight { border-top: 1px solid var(--line); margin-top: 8px; padding: 30px 0 50px; }
+.uilight { border-top: 1px solid var(--line); margin-top: 8px; padding: 44px 0 70px; }
 .uilight .uhead { max-width: 1180px; margin: 26px auto 0; padding: 0 24px; }
 .uilight .uhead .k { font-family: "Fraunces", serif; color: var(--clay); font-size: 14px; letter-spacing: .04em; }
 .uilight .uhead h2 { font-family: "Fraunces", serif; font-weight: 400; font-size: clamp(26px, 3.4vw, 40px); margin: 4px 0 10px; letter-spacing: -.01em; }
@@ -336,7 +349,7 @@ footer { border-top: 1px solid var(--line); padding: 30px 0; }
 .fig img.raw, .wide img.raw { border: none; border-radius: 0; background: transparent; box-shadow: none; }
 
 /* ---- UI screen showcase (phone screenshots, masonry) ---- */
-.ui-sub { max-width: 1180px; margin: 46px auto 2px; padding: 0 24px; }
+.ui-sub { max-width: 1180px; margin: 76px auto 2px; padding: 0 24px; }
 .ui-sub .k { font-family: "Fraunces", serif; color: var(--clay); font-size: 13px; letter-spacing: .04em; }
 .ui-sub h3 { font-family: "Fraunces", serif; font-weight: 500; font-size: 21px; margin: 3px 0 4px; letter-spacing: -.01em; }
 .ui-sub p { color: var(--ink-soft); font-size: 14.5px; }
@@ -344,7 +357,7 @@ footer { border-top: 1px solid var(--line); padding: 30px 0; }
 .screens .shot { break-inside: avoid; margin-bottom: 20px; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; background: var(--paper); box-shadow: 0 20px 44px -34px rgba(22,21,19,.5); }
 .screens .shot img { width: 100%; display: block; }
 .screens .shot .cap { font-size: 12.5px; color: var(--ink-faint); padding: 8px 12px; border-top: 1px solid var(--line); }
-.wide { max-width: 1180px; margin: 20px auto 0; padding: 0 24px; }
+.wide { max-width: 1180px; margin: 24px auto 0; padding: 0 24px; }
 .wide img { width: 100%; display: block; border: 1px solid var(--line); border-radius: 2px; }
 .wide .cap { font-size: 12.5px; color: var(--ink-faint); margin-top: 8px; }
 .videobox { max-width: 1180px; margin: 22px auto 0; padding: 0 24px; }

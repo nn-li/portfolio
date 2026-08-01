@@ -44,7 +44,7 @@
     border-bottom: 1px solid transparent;
   }
   header.scrolled {
-    background: rgba(248,248,248,.94);
+    background: rgba(253,253,253,.94);
     border-bottom: 1px solid var(--line);
   }
   .nav { display: flex; align-items: center; justify-content: space-between; height: 76px; }
@@ -54,7 +54,7 @@
   .nav-links a { font-size: 14.5px; color: var(--ink-soft); position: relative; transition: color .3s; }
   .nav-links a::after {
     content: ""; position: absolute; left: 0; bottom: -5px;
-    width: 0; height: 1.5px; background: var(--clay);
+    width: 0; height: 1.5px; background: var(--cyan);
     transition: width .35s var(--ease);
   }
   .nav-links a:hover { color: var(--ink); }
@@ -68,7 +68,7 @@
     transition: background .3s, color .3s;
   }
   .nav-cta::after { display: none; }
-  .nav-cta:hover { background: var(--ink); color: var(--paper) !important; }
+  .nav-cta:hover { background: var(--clay); border-color: var(--clay); color: var(--paper) !important; }
 
   /* 進場 */
   .reveal { opacity: 0; transform: translateY(26px); }
@@ -78,20 +78,48 @@
   .obs.show { opacity: 1; transform: none; }
 
   section { position: relative; z-index: 2; }
-  .sec { padding: 120px 0 0; }
+  .sec { padding: 120px 0 0; position: relative; }
+  /* 背景幾何裝飾：低干擾方塊（奇偶區塊左右交錯） */
+  .sec::before {
+    content: ""; position: absolute; top: 96px; right: 38px;
+    width: 64px; height: 64px; border: 1.5px solid var(--cyan);
+    opacity: .38; z-index: -1; pointer-events: none;
+  }
+  .sec::after {
+    content: ""; position: absolute; top: 142px; right: 82px;
+    width: 18px; height: 18px; background: var(--cyan);
+    opacity: .28; z-index: -1; pointer-events: none;
+  }
+  .sec:nth-of-type(odd)::before { right: auto; left: 38px; top: 118px; }
+  .sec:nth-of-type(odd)::after { right: auto; left: 84px; top: 96px; }
+  /* AI workflow 卡片左上角的方塊記號 */
+  .ai-note { position: relative; }
+  .ai-note::before {
+    content: ""; position: absolute; top: -7px; left: -7px;
+    width: 14px; height: 14px; background: var(--cyan); pointer-events: none;
+  }
+  /* 頁首左側的大面積淡色方塊 */
+  .ahero::after {
+    content: ""; position: absolute; top: 128px; left: 6px;
+    width: 120px; height: 120px; background: var(--cyan-tint);
+    z-index: -1; pointer-events: none;
+  }
   .sec-head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 44px; }
   .sec-head .num { font-size: 13px; color: var(--clay); letter-spacing: .08em; white-space: nowrap; }
   .sec-head .num::before { content: "( "; }
   .sec-head .num::after { content: " )"; }
   .sec-head h2 { font-size: clamp(28px, 4vw, 44px); }
+  .sec-head h2::after { content: ""; display: inline-block; width: 12px; height: 12px; margin-left: 14px; margin-bottom: 3px; background: var(--cyan); box-shadow: 8px -8px 0 -2.5px var(--paper), 8px -8px 0 -1px var(--cyan); }
   .sec-fore { color: var(--ink-soft); margin-bottom: 44px; }
 
   /* 01 Hero */
-  .ahero { padding: 170px 0 0; }
+  .ahero { padding: 170px 0 0; position: relative; }
+  .ahero::before { content: ""; position: absolute; top: 106px; right: 44px; width: 15px; height: 15px; background: var(--cyan); box-shadow: 11px -11px 0 -3px var(--paper), 11px -11px 0 -1px var(--cyan); }
   .ahero-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 72px; align-items: start; }
   .ahero .eyebrow { display: block; margin-bottom: 22px; }
   .ahero h1 { font-size: clamp(40px, 5.6vw, 76px); }
   .ahero h1 span { white-space: nowrap; }
+  .ahero h1 > span:last-child::after { content: ""; display: inline-block; width: 13px; height: 13px; margin-left: 16px; background: var(--cyan); box-shadow: 9px -9px 0 -2.5px var(--paper), 9px -9px 0 -1px var(--cyan); }
   .ahero-body { margin-top: 30px; color: var(--ink-soft); max-width: 36em; }
   .ahero-body p + p { margin-top: 16px; }
   .ahero-side { padding-top: 6px; }
@@ -195,7 +223,7 @@
   .nav-toggle[aria-expanded="true"] span:first-child { transform: translateY(3.2px) rotate(45deg); }
   .nav-toggle[aria-expanded="true"] span:last-child { transform: translateY(-3.3px) rotate(-45deg); }
   header.menu-open {
-    background: rgba(248,248,248,.97);
+    background: rgba(253,253,253,.97);
     border-bottom: 1px solid var(--line);
   }
   @media (max-width: 860px) {
@@ -203,7 +231,7 @@
     .nav-links {
       display: flex; position: fixed; top: 76px; left: 0; right: 0;
       flex-direction: column; gap: 0; padding: 6px 22px 20px;
-      background: rgba(248,248,248,.98);
+      background: rgba(253,253,253,.98);
       border-bottom: 1px solid var(--line);
       opacity: 0; transform: translateY(-8px); visibility: hidden; pointer-events: none;
       transition: opacity .3s var(--ease), transform .3s var(--ease), visibility .3s;
@@ -229,6 +257,11 @@
     body { font-size: 16px; }
     .wrap { padding: 0 22px; }
     .sec { padding: 84px 0 0; }
+    .sec::before { width: 40px; height: 40px; top: 64px; right: 18px; }
+    .sec::after { width: 12px; height: 12px; top: 96px; right: 46px; }
+    .sec:nth-of-type(odd)::before { left: 18px; top: 78px; }
+    .sec:nth-of-type(odd)::after { left: 44px; top: 64px; }
+    .ahero::after { width: 80px; height: 80px; top: 104px; }
     .ahero { padding: 130px 0 0; }
     .ahero h1 { font-size: clamp(30px, 8.6vw, 40px); }
     .ahero-grid { grid-template-columns: 1fr; gap: 36px; }
@@ -262,8 +295,8 @@
       <div class="ahero-grid">
         <div>
           <h1 class="display">
-            <span class="reveal in" style="display:block;animation-delay:.1s">我是 Brynn</span>
-            <span class="reveal in" style="display:block;animation-delay:.18s">UI/UX 設計師</span>
+            <span class="reveal in" style="display:block;animation-delay:.1s">Hello, I'm <span style="color:var(--clay)">Brynn</span>!</span>
+            <span class="reveal in" style="display:block;animation-delay:.18s">UI/UX Designer</span>
           </h1>
           <div class="ahero-body reveal in" style="animation-delay:.28s">
             <p>我參與過政府數位服務、App 與網站優化專案，工作橫跨使用者研究、流程規劃與介面設計。面對尚待釐清的需求、多方意見與既有系統限制，我會先整理問題與優先順序，再依研究結果提出清楚、可執行的設計方案</p>

@@ -1,17 +1,19 @@
-/* Shared design tokens — neutral light palette with electric cyan accent.
+/* Shared design tokens — white canvas, electric-blue identity and cyan block accents (from cover.svg).
    Loaded before per-page styles; pages may override (e.g. case.css --max). */
 :root {
-  --paper: #F8F8F8;      /* near-white neutral */
-  --paper-2: #EFEFEF;
+  --paper: #FDFDFD;      /* near-white canvas (cover.svg base) */
+  --paper-2: #F2FAFC;    /* faint cyan-tinted panel */
   --ink: #141414;
   --ink-soft: #4A4A4A;
   --ink-faint: #8A8A8A;
-  --line: #E3E3E3;
-  --accent: #141414;
-  --accent-deep: #000;
-  --clay: #173DFF;       /* legacy terracotta slot → electric blue accent */
+  --line: #E2E8EB;       /* cool neutral hairline */
+  --accent: #0900FF;     /* electric blue — headings, numbers, brand dot */
+  --accent-deep: #0700C4;
+  --clay: #0900FF;       /* identity blue (cover.svg lettering) */
+  --cyan: #17E8FF;       /* block accent — decorations, hover, tags */
+  --cyan-tint: rgba(23, 232, 255, .12);
   --dark: #161616;       /* inverted sections (contact / footer) */
-  --dark-ink: #F8F8F8;
+  --dark-ink: #FFFFFF;
   --dark-soft: #9C9C9C;
   --dark-line: #333;
   --max: 1180px;

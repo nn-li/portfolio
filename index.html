@@ -69,7 +69,7 @@
     border-bottom: 1px solid transparent;
   }
   header.scrolled {
-    background: rgba(248,248,248,.94);
+    background: rgba(253,253,253,.94);
     border-bottom: 1px solid var(--line);
   }
   .nav {
@@ -95,7 +95,7 @@
   .nav-links a::after {
     content: "";
     position: absolute; left: 0; bottom: -5px;
-    width: 0; height: 1.5px; background: var(--clay);
+    width: 0; height: 1.5px; background: var(--cyan);
     transition: width .35s var(--ease);
   }
   .nav-links a:hover { color: var(--ink); }
@@ -108,7 +108,7 @@
     transition: background .3s, color .3s;
   }
   .nav-cta::after { display: none; }
-  .nav-cta:hover { background: var(--ink); color: var(--paper) !important; }
+  .nav-cta:hover { background: var(--clay); border-color: var(--clay); color: var(--paper) !important; }
 
   /* ---------- HERO ---------- */
   .hero {
@@ -139,20 +139,14 @@
     font-weight: 340;
   }
 
-  /* giant backdrop name running behind the photo */
-  .hero-bigtext {
+  /* cover.svg key visual running behind the photo */
+  .hero-cover {
     position: absolute;
-    left: 50%; bottom: 108px;
-    transform: translateX(-50%);
-    font-family: "Fraunces", Georgia, serif;
-    font-weight: 500;
-    font-size: clamp(130px, 21vw, 310px);
-    line-height: .82;
-    letter-spacing: -.02em;
-    color: var(--ink);
-    white-space: nowrap;
-    pointer-events: none; user-select: none;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -32%);
+    width: min(1560px, 122%);
     z-index: 1;
+    pointer-events: none; user-select: none;
   }
 
   .hero-tag {
@@ -224,7 +218,7 @@
     background: var(--paper);
     transition: background .3s, color .3s;
   }
-  .hero-scroll:hover, .hero-scroll:focus-visible { background: var(--ink); color: var(--paper); }
+  .hero-scroll:hover, .hero-scroll:focus-visible { background: var(--clay); border-color: var(--clay); color: var(--paper); }
 
   /* reveal on load */
   .reveal { opacity: 0; transform: translateY(26px); }
@@ -251,7 +245,7 @@
     font-size: 26px; font-style: italic;
     color: var(--ink-soft);
   }
-  .marquee-track span::before { content: "*"; color: var(--clay); margin-right: 48px; font-style: normal; font-size: 24px; vertical-align: middle; }
+  .marquee-track span::before { content: ""; display: inline-block; width: 11px; height: 11px; background: var(--cyan); margin-right: 48px; vertical-align: middle; }
   @keyframes slide { to { transform: translateX(-50%); } }
 
   /* ---------- SECTIONS ---------- */
@@ -264,6 +258,7 @@
   .sec-head .num::before { content: "( "; }
   .sec-head .num::after { content: " )"; }
   .sec-head h2 { font-size: clamp(32px, 5vw, 58px); }
+  .sec-head h2::after { content: ""; display: inline-block; width: 13px; height: 13px; margin-left: 16px; margin-bottom: 4px; background: var(--cyan); box-shadow: 9px -9px 0 -2.5px var(--paper), 9px -9px 0 -1px var(--cyan); }
 
   /* WORK */
   .work { padding: 110px 0; }
@@ -389,7 +384,7 @@
   .contact a.mail:hover { border-color: var(--dark-ink); }
   .socials { margin-top: 48px; display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; }
   .socials a { font-size: 15px; color: var(--dark-soft); position: relative; transition: color .3s; }
-  .socials a:hover { color: var(--dark-ink); }
+  .socials a:hover { color: var(--cyan); }
 
   footer {
     background: var(--dark);
@@ -419,7 +414,7 @@
   .nav-toggle[aria-expanded="true"] span:first-child { transform: translateY(3.2px) rotate(45deg); }
   .nav-toggle[aria-expanded="true"] span:last-child { transform: translateY(-3.3px) rotate(-45deg); }
   header.menu-open {
-    background: rgba(248,248,248,.97);
+    background: rgba(253,253,253,.97);
     border-bottom: 1px solid var(--line);
   }
   @media (max-width: 860px) {
@@ -427,7 +422,7 @@
     .nav-links {
       display: flex; position: fixed; top: 76px; left: 0; right: 0;
       flex-direction: column; gap: 0; padding: 6px 22px 20px;
-      background: rgba(248,248,248,.98);
+      background: rgba(253,253,253,.98);
       border-bottom: 1px solid var(--line);
       opacity: 0; transform: translateY(-8px); visibility: hidden; pointer-events: none;
       transition: opacity .3s var(--ease), transform .3s var(--ease), visibility .3s;
@@ -451,14 +446,21 @@
     .wrap { padding: 0 22px; }
     .hero { padding: 108px 0 54px; }
     .hero h1 { font-size: clamp(30px, 8vw, 42px); }
-    .hero-bigtext { bottom: 96px; font-size: clamp(105px, 28vw, 170px); }
+    .hero-cover { width: 245%; }
     .hero-photo { width: min(240px, 66vw); margin-top: 20px; }
     .hero-scroll { margin-top: 24px; }
     br.mbr { display: inline; }
     .about-grid { grid-template-columns: 1fr; gap: 46px; }
     .caps-grid { grid-template-columns: 1fr; }
     .project { grid-template-columns: 36px 1fr; }
-    .p-preview { display: none; }
+    .p-preview {
+      display: block; position: static; width: 100%; height: auto;
+      opacity: 1; transform: none; grid-column: 2;
+      margin: 8px 0 2px; box-shadow: 0 14px 30px -18px rgba(22,21,19,.35);
+      transition: none;
+    }
+    .project:hover { padding-left: 0; }
+    .project:hover .p-preview { transform: none; }
     .project .p-right { grid-column: 2; flex-direction: row; align-items: center; justify-content: space-between; text-align: left; margin-top: 4px; }
   }
 </style>
@@ -482,13 +484,13 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-bigtext" aria-hidden="true">Brynn</div>
+    <img class="hero-cover" src="assets/images/cover.svg" alt="" aria-hidden="true" />
     <div class="wrap">
       <div class="status reveal in" style="animation-delay:.05s">
         <span class="dot"></span> UI/UX Designer · Based in Taipei
       </div>
       <h1 class="display reveal in" style="animation-delay:.12s">Hi, I'm <em>Brynn</em>!</h1>
-      <p class="hero-tag reveal in" style="animation-delay:.16s">把複雜需求，整理成清楚、可實作的產品體驗</p>
+      <!-- <p class="hero-tag reveal in" style="animation-delay:.16s">把複雜需求，整理成清楚、可實作的產品體驗</p> -->
       <div class="hero-photo reveal in" style="animation-delay:.2s" id="heroCard" tabindex="0" role="button" aria-label="翻轉卡片">
         <div class="flip-inner">
           <div class="flip-front">
