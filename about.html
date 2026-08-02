@@ -82,26 +82,20 @@
   /* 背景幾何裝飾：低干擾方塊（奇偶區塊左右交錯） */
   .sec::before {
     content: ""; position: absolute; top: 96px; right: 38px;
-    width: 64px; height: 64px; border: 1.5px solid var(--cyan);
+    width: 58px; height: 58px; border: 1.5px solid var(--cyan);
     opacity: .38; z-index: -1; pointer-events: none;
   }
-  .sec::after {
-    content: ""; position: absolute; top: 142px; right: 82px;
-    width: 18px; height: 18px; background: var(--cyan);
-    opacity: .28; z-index: -1; pointer-events: none;
-  }
   .sec:nth-of-type(odd)::before { right: auto; left: 38px; top: 118px; }
-  .sec:nth-of-type(odd)::after { right: auto; left: 84px; top: 96px; }
   /* AI workflow 卡片左上角的方塊記號 */
   .ai-note { position: relative; }
   .ai-note::before {
     content: ""; position: absolute; top: -7px; left: -7px;
     width: 14px; height: 14px; background: var(--cyan); pointer-events: none;
   }
-  /* 頁首左側的大面積淡色方塊 */
+  /* 頁首左下角的實心小方塊 */
   .ahero::after {
-    content: ""; position: absolute; top: 128px; left: 6px;
-    width: 120px; height: 120px; background: var(--cyan-tint);
+    content: ""; position: absolute; bottom: 10px; left: 40px;
+    width: 19px; height: 19px; background: var(--cyan);
     z-index: -1; pointer-events: none;
   }
   .sec-head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 44px; }
@@ -258,10 +252,8 @@
     .wrap { padding: 0 22px; }
     .sec { padding: 84px 0 0; }
     .sec::before { width: 40px; height: 40px; top: 64px; right: 18px; }
-    .sec::after { width: 12px; height: 12px; top: 96px; right: 46px; }
     .sec:nth-of-type(odd)::before { left: 18px; top: 78px; }
-    .sec:nth-of-type(odd)::after { left: 44px; top: 64px; }
-    .ahero::after { width: 80px; height: 80px; top: 104px; }
+    .ahero::after { width: 14px; height: 14px; left: 22px; bottom: 6px; }
     .ahero { padding: 130px 0 0; }
     .ahero h1 { font-size: clamp(30px, 8.6vw, 40px); }
     .ahero-grid { grid-template-columns: 1fr; gap: 36px; }
