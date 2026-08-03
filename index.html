@@ -264,41 +264,26 @@
   .work { padding: 110px 0; }
   .project {
     display: grid;
-    grid-template-columns: 60px 1fr auto;
+    grid-template-columns: 60px 1fr 220px auto;
     gap: 32px;
     align-items: center;
     padding: 38px 0;
     border-top: 1px solid var(--line);
-    transition: padding-left .5s var(--ease);
     position: relative;
   }
   .project:last-child { border-bottom: 1px solid var(--line); }
-  .project::before {
-    content: ""; position: absolute; left: -32px; right: -32px; top: 0; bottom: 0;
-    background: var(--ink); opacity: 0; transition: opacity .45s var(--ease);
-    z-index: -1;
-  }
-  .project:hover { padding-left: 24px; }
-  .project:hover::before { opacity: .05; }
+
   .project .p-num { font-size: 13px; color: var(--ink-faint); letter-spacing: .06em; white-space: nowrap; }
   .project .p-num::after { content: "｜"; }
 
-  /* image that slides in on the right of a project row on hover */
+  /* project thumbnail — always visible; hover animates the arrow only */
   .p-preview {
-    position: absolute;
-    right: 108px; top: 50%;
     width: 220px; height: 142px;
     object-fit: cover;
     border-radius: 10px;
     border: 1px solid var(--line);
-    box-shadow: 0 24px 60px -24px rgba(22,21,19,.4);
-    pointer-events: none;
-    opacity: 0;
-    transform: translateY(-50%) translateX(24px) scale(.94);
-    transition: opacity .45s var(--ease), transform .55s var(--ease);
-    z-index: 5;
+    box-shadow: 0 14px 34px -20px rgba(22,21,19,.35);
   }
-  .project:hover .p-preview { opacity: 1; transform: translateY(-50%) translateX(0) scale(1); }
   .project h3 {
     font-family: "Fraunces", serif; font-weight: 400;
     font-size: clamp(26px, 3.4vw, 40px); line-height: 1.05;
@@ -454,13 +439,9 @@
     .caps-grid { grid-template-columns: 1fr; }
     .project { grid-template-columns: 36px 1fr; }
     .p-preview {
-      display: block; position: static; width: 100%; height: auto;
-      opacity: 1; transform: none; grid-column: 2;
-      margin: 8px 0 2px; box-shadow: 0 14px 30px -18px rgba(22,21,19,.35);
-      transition: none;
+      width: 100%; height: auto; grid-column: 2;
+      margin: 8px 0 2px;
     }
-    .project:hover { padding-left: 0; }
-    .project:hover .p-preview { transform: none; }
     .project .p-right { grid-column: 2; flex-direction: row; align-items: center; justify-content: space-between; text-align: left; margin-top: 4px; }
   }
 </style>
