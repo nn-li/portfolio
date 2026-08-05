@@ -28,3 +28,6 @@ _backup/
 node_modules/
 dist/
 .astro/
+
+# wrangler 本機狀態
+.wrangler/
