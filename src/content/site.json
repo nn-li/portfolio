@@ -1,0 +1,46 @@
+{
+  "nav": {
+    "work": "作品",
+    "about": "關於我",
+    "contact": "聯絡我"
+  },
+  "topbar": {
+    "back": "← All work"
+  },
+  "footerIndex": {
+    "left": "© Copyright 2026 ",
+    "right": "Made by Brynn"
+  },
+  "footerAbout": {
+    "left": "© 2026 Brynn Li",
+    "right": "Designed & built in Taipei"
+  },
+  "footerCase": {
+    "menuLabel": "( Menu )",
+    "menuLinks": [
+      {
+        "label": "作品",
+        "href": "/#work"
+      },
+      {
+        "label": "關於我",
+        "href": "/about.html"
+      },
+      {
+        "label": "聯絡我",
+        "href": "/#contact"
+      }
+    ],
+    "reachLabel": "( Reach out )",
+    "email": {
+      "label": "Email",
+      "href": "mailto:brynn06191@gmail.com"
+    },
+    "cv": {
+      "label": "CV",
+      "href": "/assets/files/brynn-cv.pdf"
+    },
+    "copyright": "© 2026 Brynn Li",
+    "tagline": "UI/UX Case Study"
+  }
+}

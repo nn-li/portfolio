@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "title": "Brynn — portfolio",
+    "description": "Brynn Li — UI/UX 設計師作品集。政府數位服務、App 與網站優化經驗，從研究與流程規劃到介面規格。"
+  },
+  "hero": {
+    "status": "UI/UX Designer · Based in Taipei",
+    "headingHtml": "Hi, I'm <em>Brynn</em>!",
+    "portrait": {
+      "src": "/assets/images/photo/portrait.jpg",
+      "alt": "Brynn 的個人照片"
+    },
+    "flipBackHtml": "Scroll down —<br />get to know<br />me better",
+    "scrollLabel": "查看作品 ↓"
+  },
+  "marquee": {
+    "items": [
+      "UX Research",
+      "Information Architecture",
+      "User Flow",
+      "Prototype",
+      "UI Design",
+      "Usability Testing"
+    ]
+  },
+  "work": {
+    "num": "01",
+    "heading": "Selected Project",
+    "projects": [
+      {
+        "title": "震時秒判",
+        "description": "把複雜的地震資訊，變成當下可執行的行動指引",
+        "tags": [
+          {
+            "label": "金點概念設計獎",
+            "win": true
+          },
+          {
+            "label": "金點新秀設計獎",
+            "win": true
+          },
+          {
+            "label": "UI/UX",
+            "win": false
+          },
+          {
+            "label": "防災",
+            "win": false
+          }
+        ],
+        "cover": {
+          "src": "/assets/images/project/UIUX/covers/quake-cover.jpg",
+          "alt": ""
+        },
+        "year": "2025",
+        "href": "/work/quake.html"
+      },
+      {
+        "title": "台鐵 e訂通",
+        "description": "重整訂票流程，讓每一步都清楚、結果可預期",
+        "tags": [
+          {
+            "label": "UI/UX",
+            "win": false
+          },
+          {
+            "label": "App Redesign",
+            "win": false
+          },
+          {
+            "label": "iOS",
+            "win": false
+          }
+        ],
+        "cover": {
+          "src": "/assets/images/project/UIUX/covers/tra-cover.jpg",
+          "alt": ""
+        },
+        "year": "2023",
+        "href": "/work/tra.html"
+      },
+      {
+        "title": "Soul Map",
+        "description": "以循序解鎖降低開始的門檻，並建立持續練習的習慣",
+        "tags": [
+          {
+            "label": "UI/UX",
+            "win": false
+          },
+          {
+            "label": "App",
+            "win": false
+          },
+          {
+            "label": "Wellness",
+            "win": false
+          }
+        ],
+        "cover": {
+          "src": "/assets/images/project/UIUX/covers/soulmap-cover.jpg",
+          "alt": ""
+        },
+        "year": "2022",
+        "href": "/work/soulmap.html"
+      },
+      {
+        "title": "chuu",
+        "description": "重整商品資訊層級與瀏覽節奏，把重點放回購物流程",
+        "tags": [
+          {
+            "label": "UI/UX",
+            "win": false
+          },
+          {
+            "label": "Web",
+            "win": false
+          },
+          {
+            "label": "E-commerce",
+            "win": false
+          }
+        ],
+        "cover": {
+          "src": "/assets/images/project/UIUX/covers/chuu-cover.jpg",
+          "alt": ""
+        },
+        "year": "2022",
+        "href": "/work/chuu.html"
+      }
+    ]
+  },
+  "about": {
+    "num": "02",
+    "heading": "About",
+    "leadHtml": "從視覺、零售到 UX，我學會用<b>不同的角度</b>理解問題",
+    "body": "我的背景橫跨視覺傳達設計、品牌零售與 UX 顧問專案。視覺設計讓我重視資訊的組織與表達；第一線零售經驗，讓我理解人們如何接收資訊、比較選項與決定；到了 UX 顧問專案，我學會在使用者需求、專案目標與實作限制之間釐清問題，並把研究發現與討論結果整理成可執行的設計方案",
+    "moreLabel": "了解我的背景與經驗 →"
+  },
+  "howIWork": {
+    "num": "03",
+    "heading": "How I Work",
+    "cards": [
+      {
+        "num": "/01",
+        "title": "證據先於假設",
+        "body": "當訪談或測試結果與原先假設不一致時，我會回到使用情境與研究證據，重新檢視問題定義，而不是延續既有方向。在「震時秒判」中，研究發現使用者在地震發生當下能分配給閱讀與操作的注意力有限，因此我重新調整產品在震前、震時與震後的功能比重，將設計重點放在震前準備、警報判讀與震後聯繫，而非持續增加震時操作。"
+      },
+      {
+        "num": "/02",
+        "title": "每個決策都說得出取捨",
+        "body": "評估方案時，我不只比較操作步驟，也會綜合考量資訊理解、操作成本與結果的可預期性，並說明每項選擇帶來的效益與限制。在台鐵案例中，我保留部分必要步驟，以換取更清楚的資訊層級與較可預期的訂票流程；Soul Map 則透過循序解鎖降低新手的理解負擔，但同時也限制了熟悉使用者自由探索的彈性。"
+      },
+      {
+        "num": "/03",
+        "title": "讓測試結果推動設計迭代",
+        "body": "測試不只是確認設計是否可用，更重要的是找出原先未被察覺的理解落差與操作阻礙，並將結果轉化為具體修改。chuu 在原型測試後，重新調整商品輪播方式與評價機制；台鐵案例則邀請經常搭乘火車的使用者執行訂票任務，並依據實際發生停頓與誤解的位置，重新整理流程與資訊順序。"
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Contact.",
+    "email": "brynn06191@gmail.com",
+    "workLinkLabel": "查看作品 →",
+    "cvLinkLabel": "下載履歷 ↗"
+  }
+}

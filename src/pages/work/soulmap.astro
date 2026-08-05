@@ -1,45 +1,46 @@
 ---
 import Base from '../../layouts/Base.astro';
+import content from '../../content/work/soulmap.json';
+import site from '../../content/site.json';
 ---
-<Base title='Soul Map｜冥想初學者的分階段練習 App 概念' description='Soul Map 是一款面向冥想初學者的 App 概念設計。透過桌面研究、競品分析與 3 位訪談參與者的經驗整理，將大量冥想內容安排為分階段練習，並設計主題解鎖、練習目標、心情回顧與角色識別。'>
+<Base title={content.seo.title} description={content.seo.description}>
   <Fragment slot="head"><link rel="stylesheet" href="/assets/case.css" /></Fragment>
 
 <div class="topbar">
   <div class="wrap">
     <a class="brand" href="/">Brynn<span>.</span></a>
-    <a class="back" href="/#work">← All work</a>
+    <a class="back" href="/#work">{site.topbar.back}</a>
   </div>
 </div>
 
 <main>
   <!-- 滿版 hero -->
   <div class="cx-herobanner">
-    <img src="/assets/images/project/UIUX/web/soulmap/cover.jpg" alt="Soul Map 主視覺" />
+    <img src={content.hero.coverSrc} alt={content.hero.coverAlt} />
   </div>
 
   <!-- 標題 -->
   <div class="cx-title">
-    <span class="eyebrow">UI/UX · Meditation App Concept · 2022</span>
-    <h1 class="display">Soul Map</h1>
-    <p class="lead">以分階段內容降低冥想初學者第一次選擇時的負擔，並用角色、練習目標與心情紀錄串起練習與回顧。</p>
+    <span class="eyebrow">{content.hero.eyebrow}</span>
+    <h1 class="display">{content.hero.title}</h1>
+    <p class="lead">{content.hero.lead}</p>
   </div>
 
   <!-- meta -->
   <dl class="cx-metarow">
-    <div><dt>專案年份</dt><dd>2022</dd></div>
-    <div><dt>主要負責項目</dt><dd>桌面研究、競品分析、Persona、資訊架構、User Flow、Wireframe、UI Design、角色與視覺設計</dd></div>
-    <div><dt>使用工具</dt><dd>Figma</dd></div>
-    <div><dt>類型</dt><dd>0→1 App Concept · Meditation &amp; Wellness</dd></div>
+    {content.meta.map(m => (
+      <div><dt>{m.label}</dt><dd>{m.value}</dd></div>
+    ))}
   </dl>
 
   <!-- 左導覽 + 敘事 -->
   <div class="cx">
     <aside class="cx-nav">
       <ul>
-        <li><a href="#s1" class="active">背景與目標</a></li>
-        <li><a href="#s2">挑戰與洞察</a></li>
-        <li><a href="#s3">設計決策</a></li>
-        <li><a href="#s4">介面設計</a></li>
+        <li><a href="#s1" class="active">{content.ch01.label}</a></li>
+        <li><a href="#s2">{content.ch02.label}</a></li>
+        <li><a href="#s3">{content.ch03.label}</a></li>
+        <li><a href="#s4">{content.ch04.label}</a></li>
       </ul>
     </aside>
 
@@ -48,135 +49,119 @@ import Base from '../../layouts/Base.astro';
       <!-- 01 背景與目標 -->
       <section class="cx-sec" id="s1" data-sec>
         <span class="secnum">01</span>
-        <h2 class="lbl">背景與目標</h2>
-        <p class="intro">冥想 App 通常提供大量主題與自由選擇，但第一次接觸冥想的使用者不一定知道適合從哪裡開始，也不容易回顧自己完成過哪些內容。Soul Map 聚焦於入門引導與練習回顧，重新安排內容順序、完成進度與視覺提示。</p>
+        <h2 class="lbl">{content.ch01.label}</h2>
+        <p class="intro">{content.ch01.intro}</p>
         <div class="sub">
-          <h3>專案目標</h3>
+          <h3>{content.ch01.goals.title}</h3>
           <ul class="facts">
-            <li>提供清楚的入門順序，減少第一次選擇內容時的負擔</li>
-            <li>依練習方式安排內容路徑，讓使用者知道目前階段與下一步</li>
-            <li>透過練習目標、完成紀錄與心情回顧，整理個人的使用歷程</li>
-            <li>以角色與代表色區分內容階段，建立一致的視覺辨識</li>
+            {content.ch01.goals.items.map(item => (
+              <li>{item}</li>
+            ))}
           </ul>
-          <p class="note">本案聚焦在產品概念、內容架構、操作流程與介面設計；冥想內容的專業順序、引導文本與效果仍需由相關內容專業人員進一步檢視。</p>
+          <p class="note">{content.ch01.goals.note}</p>
         </div>
       </section>
 
       <!-- 02 挑戰與洞察 -->
       <section class="cx-sec" id="s2" data-sec>
         <span class="secnum">02</span>
-        <h2 class="lbl">挑戰與洞察</h2>
-        <p class="intro">研究以桌面資料與三款冥想 App 的比較為主，並參考 3 位訪談參與者的經驗，整理初學者如何選擇內容、如何回顧練習，以及是否需要社交功能。</p>
+        <h2 class="lbl">{content.ch02.label}</h2>
+        <p class="intro">{content.ch02.intro}</p>
         <div class="phases">
-          <div class="ph"><span class="pht">桌面研究與競品分析</span><span class="phw">Headspace、Calm、10% Happier</span></div>
-          <div class="ph"><span class="pht">使用者訪談 · 3 位</span><span class="phw">補充不同冥想經驗與使用情境</span></div>
-          <div class="ph"><span class="pht">假設型 Persona</span><span class="phw">交叉整理出三類需求方向</span></div>
-          <div class="ph"><span class="pht">Journey Map</span><span class="phw">整理內容選擇、練習回顧與分享需求</span></div>
+          {content.ch02.phases.map(p => (
+            <div class="ph"><span class="pht">{p.title}</span><span class="phw">{p.detail}</span></div>
+          ))}
         </div>
 
         <div class="sub">
-          <h3>競品分析</h3>
-          <p>本次比較聚焦在初次引導、內容選擇、完成進度與練習回顧。比較後，我將「初次進入時如何選擇內容」列為本次設計要進一步處理的問題。</p>
-          <div class="fig"><img src="/assets/images/project/UIUX/web/soulmap/research.jpg" alt="競品比較：三款冥想 App 的初次引導與內容選擇" loading="lazy" /><div class="cap">競品比較 · 初次引導、內容選擇、完成進度與練習回顧</div></div>
+          <h3>{content.ch02.research.title}</h3>
+          <p>{content.ch02.research.body}</p>
+          <div class="fig"><img src={content.ch02.research.image.src} alt={content.ch02.research.image.alt} loading="lazy" /><div class="cap">{content.ch02.research.image.caption}</div></div>
         </div>
 
         <div class="sub">
-          <h3>三類假設型 Persona</h3>
-          <p>我以桌面研究與競品分析為主要基礎，並參考 3 位訪談參與者的經驗，交叉整理出三類需求：不知道如何開始、希望回顧練習，以及希望分享練習經驗。</p>
-          <p class="note">本案以桌面研究與競品分析為主，並參考 3 位訪談參與者的經驗，交叉整理出三類假設型 Persona。這些 Persona 用來協助建立初步設計方向，不代表完整使用者分群，也尚未經更大樣本驗證。</p>
-          <div class="fig"><img src="/assets/images/project/UIUX/web/soulmap/persona.jpg" alt="三類假設型 Persona：Camila、Kevin、Geoff" loading="lazy" /><div class="cap">Persona 01 · Camila｜不知道如何選擇第一個冥想主題　Persona 02 · Kevin｜希望回顧練習並維持規律使用　Persona 03 · Geoff｜希望分享練習經驗</div></div>
+          <h3>{content.ch02.persona.title}</h3>
+          <p>{content.ch02.persona.body}</p>
+          <p class="note">{content.ch02.persona.note}</p>
+          <div class="fig"><img src={content.ch02.persona.image.src} alt={content.ch02.persona.image.alt} loading="lazy" /><div class="cap">{content.ch02.persona.image.caption}</div></div>
         </div>
 
         <div class="sub">
-          <h3>旅程整理：主要問題</h3>
-          <p>我將使用歷程整理為探索內容、開始練習與練習後回顧。主要問題集中在：初次進入時不知道如何選擇內容、完成後缺少可回顧的線索，以及部分使用者希望分享練習經驗。</p>
-          <p>本次核心範圍聚焦在入門引導、練習與回顧；好友分享保留為延伸探索，不列為第一階段的必要功能。</p>
-          <div class="fig"><img src="/assets/images/project/UIUX/web/soulmap/journey.jpg" alt="Journey Map：使用歷程與主要問題" loading="lazy" /><div class="cap">Journey Map · 探索內容、開始練習與練習後回顧的主要問題</div></div>
+          <h3>{content.ch02.journey.title}</h3>
+          <p>{content.ch02.journey.body1}</p>
+          <p>{content.ch02.journey.body2}</p>
+          <div class="fig"><img src={content.ch02.journey.image.src} alt={content.ch02.journey.image.alt} loading="lazy" /><div class="cap">{content.ch02.journey.image.caption}</div></div>
         </div>
 
         <div class="sub">
-          <h3>從研究整理出的設計方向</h3>
-          <p>前期資料整理出四個核心方向：分階段內容、練習播放、完成進度與心情回顧；好友分享則作為延伸探索。</p>
-          <div class="fig"><img src="/assets/images/project/UIUX/web/soulmap/pov.jpg" alt="Point of View 與功能方向整理" loading="lazy" /></div>
+          <h3>{content.ch02.directions.title}</h3>
+          <p>{content.ch02.directions.body}</p>
+          <div class="fig"><img src={content.ch02.directions.image.src} alt={content.ch02.directions.image.alt} loading="lazy" /></div>
         </div>
       </section>
 
       <!-- 03 設計決策 -->
       <section class="cx-sec" id="s3" data-sec>
         <span class="secnum">03</span>
-        <h2 class="lbl">設計決策</h2>
-        <p class="intro">最重要的產品選擇，是內容應全部開放，還是依入門順序逐步解鎖。</p>
+        <h2 class="lbl">{content.ch03.label}</h2>
+        <p class="intro">{content.ch03.intro}</p>
         <div class="versus">
           <div class="vopt lose">
-            <span class="vtag">方案 A</span>
-            <div class="vt">全部開放</div>
-            <p>熟悉使用者能自由選擇，但初學者需自行判斷起點</p>
+            <span class="vtag">{content.ch03.versus.lose.tag}</span>
+            <div class="vt">{content.ch03.versus.lose.title}</div>
+            <p>{content.ch03.versus.lose.body}</p>
           </div>
           <div class="vs">vs</div>
           <div class="vopt win">
-            <span class="vtag">最終選擇</span>
-            <div class="vt">循序解鎖</div>
-            <p>一次聚焦目前內容，完成後再開放下一組練習</p>
+            <span class="vtag">{content.ch03.versus.win.tag}</span>
+            <div class="vt">{content.ch03.versus.win.title}</div>
+            <p>{content.ch03.versus.win.body}</p>
           </div>
         </div>
-        <p class="intro" style="margin-top:16px">我選擇循序解鎖，希望減少初學者同時面對的選項。代價是有經驗的使用者可能受到限制，因此後續應評估程度選擇、跳級或自由探索入口。</p>
+        <p class="intro" style="margin-top:16px">{content.ch03.conclusion}</p>
 
         <div class="sub">
-          <h3>三個內容階段</h3>
+          <h3>{content.ch03.stages.title}</h3>
           <ul class="facts">
-            <li><b>呼吸覺察</b>｜跟隨明確節奏與指令，建立第一次練習的入口</li>
-            <li><b>身體放鬆</b>｜將注意力延伸到身體感受與放鬆練習</li>
-            <li><b>內在觀察</b>｜減少外部指令，進行較開放的自我覺察</li>
+            {content.ch03.stages.items.map(s => (
+              <li><b>{s.title}</b>｜{s.desc}</li>
+            ))}
           </ul>
-          <p class="note">這是本次概念中的內容路徑，從指令較明確的練習逐步延伸到較開放的自我觀察；並非標準冥想課程分級，內容順序仍需由相關專業人員檢視。</p>
+          <p class="note">{content.ch03.stages.note}</p>
         </div>
 
         <div class="sub">
-          <h3>三個決策</h3>
+          <h3>{content.ch03.decisions.title}</h3>
           <div class="dcards">
-            <div class="dcard">
-              <span class="dph">開始</span>
-              <span class="dnum">決策 01</span>
-              <h4>分階段內容與解鎖</h4>
-              <span class="dsrc">依據 · 初學者不知道適合從哪個主題開始。</span>
-              <div class="dline dwin"><span class="k">設計選擇</span><span>先呈現目前內容組，完成後再開放下一組練習</span></div>
-              <div class="dline dlose"><span class="k">取捨</span><span>降低第一次選擇的數量，但限制有經驗使用者的自由度</span></div>
-            </div>
-            <div class="dcard">
-              <span class="dph">回顧</span>
-              <span class="dnum">決策 02</span>
-              <h4>練習目標與完成紀錄</h4>
-              <span class="dsrc">依據 · 使用者希望知道自己完成過哪些內容。</span>
-              <div class="dline dwin"><span class="k">設計選擇</span><span>顯示本週目標完成率、已完成次數、練習時間與內容紀錄</span></div>
-              <div class="dline dlose"><span class="k">取捨</span><span>新增目標設定與紀錄資訊，換取可理解的練習回顧</span></div>
-            </div>
-            <div class="dcard">
-              <span class="dph">紀錄</span>
-              <span class="dnum">決策 03</span>
-              <h4>心情紀錄可略過</h4>
-              <span class="dsrc">依據 · 部分使用者希望留下練習後的感受。</span>
-              <div class="dline dwin"><span class="k">設計選擇</span><span>練習完成後詢問是否記錄心情；使用者可以保存或略過</span></div>
-              <div class="dline dlose"><span class="k">取捨</span><span>多一個回顧入口，但不將填寫心情設為解鎖條件</span></div>
-            </div>
+            {content.ch03.decisions.items.map(d => (
+              <div class="dcard">
+                <span class="dph">{d.phase}</span>
+                <span class="dnum">{d.num}</span>
+                <h4>{d.title}</h4>
+                <span class="dsrc">{d.basis}</span>
+                <div class="dline dwin"><span class="k">設計選擇</span><span>{d.choice}</span></div>
+                <div class="dline dlose"><span class="k">取捨</span><span>{d.tradeoff}</span></div>
+              </div>
+            ))}
           </div>
         </div>
 
         <div class="sub">
-          <h3>延伸探索：好友分享</h3>
-          <p>部分 Persona 希望與朋友分享練習經驗，因此我探索好友邀請、練習分享與聊天。這項功能涉及通知、隱私與內容管理，不列為核心版本。</p>
+          <h3>{content.ch03.extension.title}</h3>
+          <p>{content.ch03.extension.body}</p>
         </div>
 
         <div class="sub">
-          <h3>功能架構與流程</h3>
-          <p>功能架構分為核心練習、帳號與設定，以及好友功能的延伸探索。流程從首次體驗開始：使用者可先完成第一個練習，需要保存紀錄時再登入；完成練習後接心情紀錄與目標進度更新。</p>
-          <div class="fig"><img src="/assets/images/project/UIUX/web/soulmap/functional-map-v2.svg" alt="Functional Map 功能架構" loading="lazy" /><div class="cap">Functional Map · 核心練習、帳號與設定，以及好友功能的延伸探索</div></div>
-          <div class="fig"><img src="/assets/images/project/UIUX/web/soulmap/userflow-v2.svg" alt="User Flow：首次體驗到保存紀錄" loading="lazy" /><div class="cap">User Flow · 從首次體驗、完成練習到保存紀錄與更新目標進度</div></div>
+          <h3>{content.ch03.architecture.title}</h3>
+          <p>{content.ch03.architecture.body}</p>
+          <div class="fig"><img src={content.ch03.architecture.functionalMap.src} alt={content.ch03.architecture.functionalMap.alt} loading="lazy" /><div class="cap">{content.ch03.architecture.functionalMap.caption}</div></div>
+          <div class="fig"><img src={content.ch03.architecture.userFlow.src} alt={content.ch03.architecture.userFlow.alt} loading="lazy" /><div class="cap">{content.ch03.architecture.userFlow.caption}</div></div>
         </div>
 
         <div class="sub">
-          <h3>Wireframe</h3>
-          <p>進入視覺設計前，我先以 Wireframe 串接首次體驗、內容選擇、練習播放、心情紀錄、完成進度與好友延伸，檢查登入時機、略過路徑與不同內容狀態。</p>
-          <div class="fig"><img src="/assets/images/project/UIUX/web/soulmap/wireframe.jpg" alt="Wireframe 畫面骨架" loading="lazy" /></div>
+          <h3>{content.ch03.wireframe.title}</h3>
+          <p>{content.ch03.wireframe.body}</p>
+          <div class="fig"><img src={content.ch03.wireframe.image.src} alt={content.ch03.wireframe.image.alt} loading="lazy" /></div>
         </div>
       </section>
 
@@ -187,82 +172,37 @@ import Base from '../../layouts/Base.astro';
   <section class="uilight" id="s4" data-sec>
     <div class="uhead">
       <span class="k">04</span>
-      <h2>介面設計</h2>
-      <p>介面以藍紫色、漸層與半透明卡片建立主要視覺，三組內容分別搭配角色與代表色，讓目前內容、完成狀態與下一步更容易辨識。</p>
+      <h2>{content.ch04.label}</h2>
+      <p>{content.ch04.intro}</p>
     </div>
 
     <div class="ui-sub">
-      <span class="k">UI Guidelines</span>
-      <h3>介面規範</h3>
-      <p>整理主要色彩、字級、按鈕、卡片、輸入欄位與狀態樣式，維持不同畫面的視覺一致性。</p>
+      <span class="k">{content.ch04.styleguide.k}</span>
+      <h3>{content.ch04.styleguide.title}</h3>
+      <p>{content.ch04.styleguide.body}</p>
     </div>
     <div class="wide">
-      <div class="sgbox"><img src="/assets/images/project/UIUX/web/soulmap/styleguide.jpg" alt="介面規範：色彩、字級與元件狀態" loading="lazy" /></div>
-      <div class="boxhint">↕ 框內可捲動查看完整介面規範</div>
+      <div class="sgbox"><img src={content.ch04.styleguide.image.src} alt={content.ch04.styleguide.image.alt} loading="lazy" /></div>
+      <div class="boxhint">{content.ch04.styleguide.hint}</div>
     </div>
 
     <div class="ui-sub">
-      <span class="k">Character</span>
-      <h3>角色設計</h3>
-      <p>三個角色分別對應不同內容組，並以鎖定、可開始與已完成狀態提示目前進度。角色動畫主要用於呼吸覺察的節奏提示，不代表冥想成效。</p>
+      <span class="k">{content.ch04.character.k}</span>
+      <h3>{content.ch04.character.title}</h3>
+      <p>{content.ch04.character.body}</p>
     </div>
-    <div class="wide"><img src="/assets/images/project/UIUX/web/soulmap/character.jpg" alt="三組內容的冥想角色設計" loading="lazy" /></div>
+    <div class="wide"><img src={content.ch04.character.image.src} alt={content.ch04.character.image.alt} loading="lazy" /></div>
 
-    <div class="ui-sub">
-      <span class="k">介面 01</span>
-      <h3>啟動與歡迎</h3>
-      <p>說明可先體驗，以及內容會依完成情況逐步開放。</p>
-    </div>
-    <div class="wide"><img src="/assets/images/project/UIUX/web/soulmap/ui-1.jpg" alt="啟動畫面與歡迎頁" loading="lazy" /></div>
-
-    <div class="ui-sub">
-      <span class="k">介面 02</span>
-      <h3>登入與註冊</h3>
-      <p>使用者可先體驗第一個練習；需要保存紀錄、設定每週目標或使用好友功能時，再登入或註冊。</p>
-    </div>
-    <div class="wide"><img src="/assets/images/project/UIUX/web/soulmap/ui-2.jpg" alt="登入與註冊" loading="lazy" /></div>
-
-    <div class="ui-sub">
-      <span class="k">介面 03</span>
-      <h3>分階段內容</h3>
-      <p>顯示目前可用、鎖定與已完成的內容組，對應決策 01。</p>
-    </div>
-    <div class="wide"><img src="/assets/images/project/UIUX/web/soulmap/ui-3.jpg" alt="分階段內容與解鎖狀態" loading="lazy" /></div>
-
-    <div class="ui-sub">
-      <span class="k">介面 04</span>
-      <h3>練習播放</h3>
-      <p>使用角色動畫、時間與播放控制提示練習節奏。</p>
-    </div>
-    <div class="wide"><img src="/assets/images/project/UIUX/web/soulmap/ui-4.jpg" alt="冥想引導動畫序列" loading="lazy" /></div>
-
-    <div class="ui-sub">
-      <span class="k">介面 05</span>
-      <h3>心情紀錄</h3>
-      <p>練習後可選擇保存感受，也可以略過，對應決策 03。</p>
-    </div>
-    <div class="wide"><img src="/assets/images/project/UIUX/web/soulmap/ui-5.jpg" alt="冥想後的心情回饋" loading="lazy" /></div>
-
-    <div class="ui-sub">
-      <span class="k">介面 06</span>
-      <h3>練習紀錄</h3>
-      <p>顯示本週練習目標完成率、已完成次數、練習時間與內容紀錄，對應決策 02。</p>
-    </div>
-    <div class="wide"><img src="/assets/images/project/UIUX/web/soulmap/ui-6.jpg" alt="練習追蹤與心情日記" loading="lazy" /></div>
-
-    <div class="ui-sub">
-      <span class="k">介面 07</span>
-      <h3>日曆回顧</h3>
-      <p>依日期查看完成內容與心情紀錄。</p>
-    </div>
-    <div class="wide"><img src="/assets/images/project/UIUX/web/soulmap/ui-7.jpg" alt="日曆選擇與回顧" loading="lazy" /></div>
-
-    <div class="ui-sub">
-      <span class="k">延伸探索</span>
-      <h3>好友分享</h3>
-      <p>好友邀請、練習分享與聊天屬於延伸探索，不是核心版本的必要功能。</p>
-    </div>
-    <div class="wide"><img src="/assets/images/project/UIUX/web/soulmap/ui-8.jpg" alt="好友分享與聊天（延伸探索）" loading="lazy" /></div>
+    {content.ch04.screens.map(s => (
+      <Fragment>
+        <div class="ui-sub">
+          <span class="k">{s.k}</span>
+          <h3>{s.title}</h3>
+          <p>{s.body}</p>
+        </div>
+        <div class="wide"><img src={s.image.src} alt={s.image.alt} loading="lazy" /></div>
+      </Fragment>
+    ))}
 
     <!-- <div class="ui-sub">
       <span class="k">Next Step</span>
@@ -273,8 +213,8 @@ import Base from '../../layouts/Base.astro';
 
   <section class="next">
     <div class="wrap">
-      <span class="eyebrow">Next project</span>
-      <a href="/work/chuu.html">chuu Redesign →</a>
+      <span class="eyebrow">{content.next.eyebrow}</span>
+      <a href={content.next.href}>{content.next.label}</a>
     </div>
   </section>
 </main>
@@ -282,20 +222,20 @@ import Base from '../../layouts/Base.astro';
 <footer>
   <div class="wrap foot-cols">
     <div class="fcol-links">
-      <span class="fk">( Menu )</span>
-      <a href="/#work">作品</a>
-      <a href="/about.html">關於我</a>
-      <a href="/#contact">聯絡我</a>
+      <span class="fk">{site.footerCase.menuLabel}</span>
+      {site.footerCase.menuLinks.map((l) => (
+        <a href={l.href}>{l.label}</a>
+      ))}
     </div>
     <div class="fcol-links">
-      <span class="fk">( Reach out )</span>
-      <a href="mailto:brynn06191@gmail.com">Email</a>
-      <a href="/assets/files/brynn-cv.pdf" download>CV</a>
+      <span class="fk">{site.footerCase.reachLabel}</span>
+      <a href={site.footerCase.email.href}>{site.footerCase.email.label}</a>
+      <a href={site.footerCase.cv.href} download>{site.footerCase.cv.label}</a>
     </div>
   </div>
   <div class="wrap foot">
-    <span>© 2026 Brynn Li</span>
-    <span>UI/UX Case Study</span>
+    <span>{site.footerCase.copyright}</span>
+    <span>{site.footerCase.tagline}</span>
   </div>
 </footer>
 

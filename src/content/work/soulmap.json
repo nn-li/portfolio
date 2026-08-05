@@ -1,0 +1,239 @@
+{
+  "seo": {
+    "title": "Soul Map｜冥想初學者的分階段練習 App 概念",
+    "description": "Soul Map 是一款面向冥想初學者的 App 概念設計。透過桌面研究、競品分析與 3 位訪談參與者的經驗整理，將大量冥想內容安排為分階段練習，並設計主題解鎖、練習目標、心情回顧與角色識別。"
+  },
+  "hero": {
+    "coverSrc": "/assets/images/project/UIUX/web/soulmap/cover.jpg",
+    "coverAlt": "Soul Map 主視覺",
+    "eyebrow": "UI/UX · Meditation App Concept · 2022",
+    "title": "Soul Map",
+    "lead": "以分階段內容降低冥想初學者第一次選擇時的負擔，並用角色、練習目標與心情紀錄串起練習與回顧。"
+  },
+  "meta": [
+    { "label": "專案年份", "value": "2022" },
+    { "label": "主要負責項目", "value": "桌面研究、競品分析、Persona、資訊架構、User Flow、Wireframe、UI Design、角色與視覺設計" },
+    { "label": "使用工具", "value": "Figma" },
+    { "label": "類型", "value": "0→1 App Concept · Meditation & Wellness" }
+  ],
+  "ch01": {
+    "label": "背景與目標",
+    "intro": "冥想 App 通常提供大量主題與自由選擇，但第一次接觸冥想的使用者不一定知道適合從哪裡開始，也不容易回顧自己完成過哪些內容。Soul Map 聚焦於入門引導與練習回顧，重新安排內容順序、完成進度與視覺提示。",
+    "goals": {
+      "title": "專案目標",
+      "items": [
+        "提供清楚的入門順序，減少第一次選擇內容時的負擔",
+        "依練習方式安排內容路徑，讓使用者知道目前階段與下一步",
+        "透過練習目標、完成紀錄與心情回顧，整理個人的使用歷程",
+        "以角色與代表色區分內容階段，建立一致的視覺辨識"
+      ],
+      "note": "本案聚焦在產品概念、內容架構、操作流程與介面設計；冥想內容的專業順序、引導文本與效果仍需由相關內容專業人員進一步檢視。"
+    }
+  },
+  "ch02": {
+    "label": "挑戰與洞察",
+    "intro": "研究以桌面資料與三款冥想 App 的比較為主，並參考 3 位訪談參與者的經驗，整理初學者如何選擇內容、如何回顧練習，以及是否需要社交功能。",
+    "phases": [
+      { "title": "桌面研究與競品分析", "detail": "Headspace、Calm、10% Happier" },
+      { "title": "使用者訪談 · 3 位", "detail": "補充不同冥想經驗與使用情境" },
+      { "title": "假設型 Persona", "detail": "交叉整理出三類需求方向" },
+      { "title": "Journey Map", "detail": "整理內容選擇、練習回顧與分享需求" }
+    ],
+    "research": {
+      "title": "競品分析",
+      "body": "本次比較聚焦在初次引導、內容選擇、完成進度與練習回顧。比較後，我將「初次進入時如何選擇內容」列為本次設計要進一步處理的問題。",
+      "image": {
+        "src": "/assets/images/project/UIUX/web/soulmap/research.jpg",
+        "alt": "競品比較：三款冥想 App 的初次引導與內容選擇",
+        "caption": "競品比較 · 初次引導、內容選擇、完成進度與練習回顧"
+      }
+    },
+    "persona": {
+      "title": "三類假設型 Persona",
+      "body": "我以桌面研究與競品分析為主要基礎，並參考 3 位訪談參與者的經驗，交叉整理出三類需求：不知道如何開始、希望回顧練習，以及希望分享練習經驗。",
+      "note": "本案以桌面研究與競品分析為主，並參考 3 位訪談參與者的經驗，交叉整理出三類假設型 Persona。這些 Persona 用來協助建立初步設計方向，不代表完整使用者分群，也尚未經更大樣本驗證。",
+      "image": {
+        "src": "/assets/images/project/UIUX/web/soulmap/persona.jpg",
+        "alt": "三類假設型 Persona：Camila、Kevin、Geoff",
+        "caption": "Persona 01 · Camila｜不知道如何選擇第一個冥想主題　Persona 02 · Kevin｜希望回顧練習並維持規律使用　Persona 03 · Geoff｜希望分享練習經驗"
+      }
+    },
+    "journey": {
+      "title": "旅程整理：主要問題",
+      "body1": "我將使用歷程整理為探索內容、開始練習與練習後回顧。主要問題集中在：初次進入時不知道如何選擇內容、完成後缺少可回顧的線索，以及部分使用者希望分享練習經驗。",
+      "body2": "本次核心範圍聚焦在入門引導、練習與回顧；好友分享保留為延伸探索，不列為第一階段的必要功能。",
+      "image": {
+        "src": "/assets/images/project/UIUX/web/soulmap/journey.jpg",
+        "alt": "Journey Map：使用歷程與主要問題",
+        "caption": "Journey Map · 探索內容、開始練習與練習後回顧的主要問題"
+      }
+    },
+    "directions": {
+      "title": "從研究整理出的設計方向",
+      "body": "前期資料整理出四個核心方向：分階段內容、練習播放、完成進度與心情回顧；好友分享則作為延伸探索。",
+      "image": {
+        "src": "/assets/images/project/UIUX/web/soulmap/pov.jpg",
+        "alt": "Point of View 與功能方向整理"
+      }
+    }
+  },
+  "ch03": {
+    "label": "設計決策",
+    "intro": "最重要的產品選擇，是內容應全部開放，還是依入門順序逐步解鎖。",
+    "versus": {
+      "lose": {
+        "tag": "方案 A",
+        "title": "全部開放",
+        "body": "熟悉使用者能自由選擇，但初學者需自行判斷起點"
+      },
+      "win": {
+        "tag": "最終選擇",
+        "title": "循序解鎖",
+        "body": "一次聚焦目前內容，完成後再開放下一組練習"
+      }
+    },
+    "conclusion": "我選擇循序解鎖，希望減少初學者同時面對的選項。代價是有經驗的使用者可能受到限制，因此後續應評估程度選擇、跳級或自由探索入口。",
+    "stages": {
+      "title": "三個內容階段",
+      "items": [
+        { "title": "呼吸覺察", "desc": "跟隨明確節奏與指令，建立第一次練習的入口" },
+        { "title": "身體放鬆", "desc": "將注意力延伸到身體感受與放鬆練習" },
+        { "title": "內在觀察", "desc": "減少外部指令，進行較開放的自我覺察" }
+      ],
+      "note": "這是本次概念中的內容路徑，從指令較明確的練習逐步延伸到較開放的自我觀察；並非標準冥想課程分級，內容順序仍需由相關專業人員檢視。"
+    },
+    "decisions": {
+      "title": "三個決策",
+      "items": [
+        {
+          "phase": "開始",
+          "num": "決策 01",
+          "title": "分階段內容與解鎖",
+          "basis": "依據 · 初學者不知道適合從哪個主題開始。",
+          "choice": "先呈現目前內容組，完成後再開放下一組練習",
+          "tradeoff": "降低第一次選擇的數量，但限制有經驗使用者的自由度"
+        },
+        {
+          "phase": "回顧",
+          "num": "決策 02",
+          "title": "練習目標與完成紀錄",
+          "basis": "依據 · 使用者希望知道自己完成過哪些內容。",
+          "choice": "顯示本週目標完成率、已完成次數、練習時間與內容紀錄",
+          "tradeoff": "新增目標設定與紀錄資訊，換取可理解的練習回顧"
+        },
+        {
+          "phase": "紀錄",
+          "num": "決策 03",
+          "title": "心情紀錄可略過",
+          "basis": "依據 · 部分使用者希望留下練習後的感受。",
+          "choice": "練習完成後詢問是否記錄心情；使用者可以保存或略過",
+          "tradeoff": "多一個回顧入口，但不將填寫心情設為解鎖條件"
+        }
+      ]
+    },
+    "extension": {
+      "title": "延伸探索：好友分享",
+      "body": "部分 Persona 希望與朋友分享練習經驗，因此我探索好友邀請、練習分享與聊天。這項功能涉及通知、隱私與內容管理，不列為核心版本。"
+    },
+    "architecture": {
+      "title": "功能架構與流程",
+      "body": "功能架構分為核心練習、帳號與設定，以及好友功能的延伸探索。流程從首次體驗開始：使用者可先完成第一個練習，需要保存紀錄時再登入；完成練習後接心情紀錄與目標進度更新。",
+      "functionalMap": {
+        "src": "/assets/images/project/UIUX/web/soulmap/functional-map-v2.svg",
+        "alt": "Functional Map 功能架構",
+        "caption": "Functional Map · 核心練習、帳號與設定，以及好友功能的延伸探索"
+      },
+      "userFlow": {
+        "src": "/assets/images/project/UIUX/web/soulmap/userflow-v2.svg",
+        "alt": "User Flow：首次體驗到保存紀錄",
+        "caption": "User Flow · 從首次體驗、完成練習到保存紀錄與更新目標進度"
+      }
+    },
+    "wireframe": {
+      "title": "Wireframe",
+      "body": "進入視覺設計前，我先以 Wireframe 串接首次體驗、內容選擇、練習播放、心情紀錄、完成進度與好友延伸，檢查登入時機、略過路徑與不同內容狀態。",
+      "image": {
+        "src": "/assets/images/project/UIUX/web/soulmap/wireframe.jpg",
+        "alt": "Wireframe 畫面骨架"
+      }
+    }
+  },
+  "ch04": {
+    "label": "介面設計",
+    "intro": "介面以藍紫色、漸層與半透明卡片建立主要視覺，三組內容分別搭配角色與代表色，讓目前內容、完成狀態與下一步更容易辨識。",
+    "styleguide": {
+      "k": "UI Guidelines",
+      "title": "介面規範",
+      "body": "整理主要色彩、字級、按鈕、卡片、輸入欄位與狀態樣式，維持不同畫面的視覺一致性。",
+      "image": {
+        "src": "/assets/images/project/UIUX/web/soulmap/styleguide.jpg",
+        "alt": "介面規範：色彩、字級與元件狀態"
+      },
+      "hint": "↕ 框內可捲動查看完整介面規範"
+    },
+    "character": {
+      "k": "Character",
+      "title": "角色設計",
+      "body": "三個角色分別對應不同內容組，並以鎖定、可開始與已完成狀態提示目前進度。角色動畫主要用於呼吸覺察的節奏提示，不代表冥想成效。",
+      "image": {
+        "src": "/assets/images/project/UIUX/web/soulmap/character.jpg",
+        "alt": "三組內容的冥想角色設計"
+      }
+    },
+    "screens": [
+      {
+        "k": "介面 01",
+        "title": "啟動與歡迎",
+        "body": "說明可先體驗，以及內容會依完成情況逐步開放。",
+        "image": { "src": "/assets/images/project/UIUX/web/soulmap/ui-1.jpg", "alt": "啟動畫面與歡迎頁" }
+      },
+      {
+        "k": "介面 02",
+        "title": "登入與註冊",
+        "body": "使用者可先體驗第一個練習；需要保存紀錄、設定每週目標或使用好友功能時，再登入或註冊。",
+        "image": { "src": "/assets/images/project/UIUX/web/soulmap/ui-2.jpg", "alt": "登入與註冊" }
+      },
+      {
+        "k": "介面 03",
+        "title": "分階段內容",
+        "body": "顯示目前可用、鎖定與已完成的內容組，對應決策 01。",
+        "image": { "src": "/assets/images/project/UIUX/web/soulmap/ui-3.jpg", "alt": "分階段內容與解鎖狀態" }
+      },
+      {
+        "k": "介面 04",
+        "title": "練習播放",
+        "body": "使用角色動畫、時間與播放控制提示練習節奏。",
+        "image": { "src": "/assets/images/project/UIUX/web/soulmap/ui-4.jpg", "alt": "冥想引導動畫序列" }
+      },
+      {
+        "k": "介面 05",
+        "title": "心情紀錄",
+        "body": "練習後可選擇保存感受，也可以略過，對應決策 03。",
+        "image": { "src": "/assets/images/project/UIUX/web/soulmap/ui-5.jpg", "alt": "冥想後的心情回饋" }
+      },
+      {
+        "k": "介面 06",
+        "title": "練習紀錄",
+        "body": "顯示本週練習目標完成率、已完成次數、練習時間與內容紀錄，對應決策 02。",
+        "image": { "src": "/assets/images/project/UIUX/web/soulmap/ui-6.jpg", "alt": "練習追蹤與心情日記" }
+      },
+      {
+        "k": "介面 07",
+        "title": "日曆回顧",
+        "body": "依日期查看完成內容與心情紀錄。",
+        "image": { "src": "/assets/images/project/UIUX/web/soulmap/ui-7.jpg", "alt": "日曆選擇與回顧" }
+      },
+      {
+        "k": "延伸探索",
+        "title": "好友分享",
+        "body": "好友邀請、練習分享與聊天屬於延伸探索，不是核心版本的必要功能。",
+        "image": { "src": "/assets/images/project/UIUX/web/soulmap/ui-8.jpg", "alt": "好友分享與聊天（延伸探索）" }
+      }
+    ]
+  },
+  "next": {
+    "eyebrow": "Next project",
+    "label": "chuu Redesign →",
+    "href": "/work/chuu.html"
+  }
+}

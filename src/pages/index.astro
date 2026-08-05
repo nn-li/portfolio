@@ -1,17 +1,19 @@
 ---
 import Base from '../layouts/Base.astro';
+import content from '../content/index.json';
+import site from '../content/site.json';
 ---
-<Base title='Brynn — portfolio' description='Brynn Li — UI/UX 設計師作品集。政府數位服務、App 與網站優化經驗，從研究與流程規劃到介面規格。'>
+<Base title={content.meta.title} description={content.meta.description}>
 
 <header id="hd">
   <div class="wrap nav">
     <a href="#top" class="brand">Brynn<span>.</span></a>
     <button class="nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false" aria-controls="siteNav"><span></span><span></span></button>
     <nav class="nav-links" id="siteNav">
-      <a href="#work">作品</a>
-      <a href="/about.html">關於我</a>
+      <a href="#work">{site.nav.work}</a>
+      <a href="/about.html">{site.nav.about}</a>
       <!-- <a href="/assets/files/brynn-cv.pdf" download>履歷</a> -->
-      <a href="#contact" class="nav-cta">聯絡我</a>
+      <a href="#contact" class="nav-cta">{site.nav.contact}</a>
     </nav>
   </div>
 </header>
@@ -23,22 +25,22 @@ import Base from '../layouts/Base.astro';
     <img class="hero-cover" src="/assets/images/cover.svg?v=2" alt="" aria-hidden="true" />
     <div class="wrap">
       <div class="status reveal in" style="animation-delay:.05s">
-        <span class="dot"></span> UI/UX Designer · Based in Taipei
+        <span class="dot"></span> {content.hero.status}
       </div>
-      <h1 class="display reveal in" style="animation-delay:.12s">Hi, I'm <em>Brynn</em>!</h1>
+      <h1 class="display reveal in" style="animation-delay:.12s"><Fragment set:html={content.hero.headingHtml} /></h1>
       <!-- <p class="hero-tag reveal in" style="animation-delay:.16s">把複雜需求，整理成清楚、可實作的產品體驗</p> -->
       <div class="hero-photo reveal in" style="animation-delay:.2s" id="heroCard" tabindex="0" role="button" aria-label="翻轉卡片">
         <div class="flip-inner">
           <div class="flip-front">
-            <img src="/assets/images/photo/portrait.jpg" alt="Brynn 的個人照片" />
+            <img src={content.hero.portrait.src} alt={content.hero.portrait.alt} />
           </div>
           <div class="flip-back" aria-hidden="true">
-            <span class="fb-hi">Scroll down —<br />get to know<br />me better</span>
+            <span class="fb-hi"><Fragment set:html={content.hero.flipBackHtml} /></span>
             <span class="fb-line">↓</span>
           </div>
         </div>
       </div>
-      <a class="hero-scroll reveal in" style="animation-delay:.3s" href="#work">查看作品 ↓</a>
+      <a class="hero-scroll reveal in" style="animation-delay:.3s" href="#work">{content.hero.scrollLabel}</a>
     </div>
   </section>
   <!-- 原 hero 文案，暫存待「關於我」改版時使用：
@@ -50,10 +52,8 @@ import Base from '../layouts/Base.astro';
   <!-- MARQUEE -->
   <div class="marquee">
     <div class="marquee-track">
-      <span>UX Research</span><span>Information Architecture</span><span>User Flow</span>
-      <span>Prototype</span><span>UI Design</span><span>Usability Testing</span>
-      <span>UX Research</span><span>Information Architecture</span><span>User Flow</span>
-      <span>Prototype</span><span>UI Design</span><span>Usability Testing</span>
+      {content.marquee.items.map((item) => <span>{item}</span>)}
+      {content.marquee.items.map((item) => <span>{item}</span>)}
     </div>
   </div>
 
@@ -61,49 +61,21 @@ import Base from '../layouts/Base.astro';
   <section class="work" id="work">
     <div class="wrap">
       <div class="sec-head obs">
-        <span class="num">01</span>
-        <h2 class="display">Selected&nbsp;Project</h2>
+        <span class="num">{content.work.num}</span>
+        <h2 class="display">{content.work.heading}</h2>
       </div>
 
-      <a class="project obs" href="/work/quake.html">
-        <div>
-          <h3>震時秒判</h3>
-          <p class="p-desc">把複雜的地震資訊，變成當下可執行的行動指引</p>
-          <div class="tags"><span class="win">金點概念設計獎</span><span class="win">金點新秀設計獎</span><span>UI/UX</span><span>防災</span></div>
-        </div>
-        <img class="p-preview" src="/assets/images/project/UIUX/covers/quake-cover.jpg" alt="" loading="lazy" />
-        <div class="p-right"><span class="year">2025</span><span class="arrow">→</span></div>
-      </a>
-
-      <a class="project obs" href="/work/tra.html">
-        <div>
-          <h3>台鐵 e訂通</h3>
-          <p class="p-desc">重整訂票流程，讓每一步都清楚、結果可預期</p>
-          <div class="tags"><span>UI/UX</span><span>App Redesign</span><span>iOS</span></div>
-        </div>
-        <img class="p-preview" src="/assets/images/project/UIUX/covers/tra-cover.jpg" alt="" loading="lazy" />
-        <div class="p-right"><span class="year">2023</span><span class="arrow">→</span></div>
-      </a>
-
-      <a class="project obs" href="/work/soulmap.html">
-        <div>
-          <h3>Soul Map</h3>
-          <p class="p-desc">以循序解鎖降低開始的門檻，並建立持續練習的習慣</p>
-          <div class="tags"><span>UI/UX</span><span>App</span><span>Wellness</span></div>
-        </div>
-        <img class="p-preview" src="/assets/images/project/UIUX/covers/soulmap-cover.jpg" alt="" loading="lazy" />
-        <div class="p-right"><span class="year">2022</span><span class="arrow">→</span></div>
-      </a>
-
-      <a class="project obs" href="/work/chuu.html">
-        <div>
-          <h3>chuu</h3>
-          <p class="p-desc">重整商品資訊層級與瀏覽節奏，把重點放回購物流程</p>
-          <div class="tags"><span>UI/UX</span><span>Web</span><span>E-commerce</span></div>
-        </div>
-        <img class="p-preview" src="/assets/images/project/UIUX/covers/chuu-cover.jpg" alt="" loading="lazy" />
-        <div class="p-right"><span class="year">2022</span><span class="arrow">→</span></div>
-      </a>
+      {content.work.projects.map((project) => (
+        <a class="project obs" href={project.href}>
+          <div>
+            <h3>{project.title}</h3>
+            <p class="p-desc">{project.description}</p>
+            <div class="tags">{project.tags.map((tag) => <span class={tag.win ? 'win' : null}>{tag.label}</span>)}</div>
+          </div>
+          <img class="p-preview" src={project.cover.src} alt={project.cover.alt} loading="lazy" />
+          <div class="p-right"><span class="year">{project.year}</span><span class="arrow">→</span></div>
+        </a>
+      ))}
     </div>
   </section>
 
@@ -111,15 +83,15 @@ import Base from '../layouts/Base.astro';
   <section class="about" id="about">
     <div class="wrap">
       <div class="sec-head obs">
-        <span class="num">02</span>
-        <h2 class="display">About</h2>
+        <span class="num">{content.about.num}</span>
+        <h2 class="display">{content.about.heading}</h2>
       </div>
       <div class="obs">
-        <p class="about-lead">從視覺、零售到 UX，我學會用<b>不同的角度</b>理解問題</p>
+        <p class="about-lead"><Fragment set:html={content.about.leadHtml} /></p>
         <div class="about-body">
-          <p>我的背景橫跨視覺傳達設計、品牌零售與 UX 顧問專案。視覺設計讓我重視資訊的組織與表達；第一線零售經驗，讓我理解人們如何接收資訊、比較選項與決定；到了 UX 顧問專案，我學會在使用者需求、專案目標與實作限制之間釐清問題，並把研究發現與討論結果整理成可執行的設計方案</p>
+          <p>{content.about.body}</p>
         </div>
-        <a class="about-more" href="/about.html">了解我的背景與經驗 →</a>
+        <a class="about-more" href="/about.html">{content.about.moreLabel}</a>
       </div>
     </div>
   </section>
@@ -128,25 +100,17 @@ import Base from '../layouts/Base.astro';
   <section class="caps" id="caps">
     <div class="wrap">
       <div class="sec-head obs">
-        <span class="num">03</span>
-        <h2 class="display">How&nbsp;I&nbsp;Work</h2>
+        <span class="num">{content.howIWork.num}</span>
+        <h2 class="display">{content.howIWork.heading}</h2>
       </div>
       <div class="caps-grid obs">
-        <div class="cap">
-          <span class="c-num">/01</span>
-          <h4>證據先於假設</h4>
-          <p>當訪談或測試結果與原先假設不一致時，我會回到使用情境與研究證據，重新檢視問題定義，而不是延續既有方向。在「震時秒判」中，研究發現使用者在地震發生當下能分配給閱讀與操作的注意力有限，因此我重新調整產品在震前、震時與震後的功能比重，將設計重點放在震前準備、警報判讀與震後聯繫，而非持續增加震時操作。</p>
-        </div>
-        <div class="cap">
-          <span class="c-num">/02</span>
-          <h4>每個決策都說得出取捨</h4>
-          <p>評估方案時，我不只比較操作步驟，也會綜合考量資訊理解、操作成本與結果的可預期性，並說明每項選擇帶來的效益與限制。在台鐵案例中，我保留部分必要步驟，以換取更清楚的資訊層級與較可預期的訂票流程；Soul Map 則透過循序解鎖降低新手的理解負擔，但同時也限制了熟悉使用者自由探索的彈性。</p>
-        </div>
-        <div class="cap">
-          <span class="c-num">/03</span>
-          <h4>讓測試結果推動設計迭代</h4>
-          <p>測試不只是確認設計是否可用，更重要的是找出原先未被察覺的理解落差與操作阻礙，並將結果轉化為具體修改。chuu 在原型測試後，重新調整商品輪播方式與評價機制；台鐵案例則邀請經常搭乘火車的使用者執行訂票任務，並依據實際發生停頓與誤解的位置，重新整理流程與資訊順序。</p>
-        </div>
+        {content.howIWork.cards.map((card) => (
+          <div class="cap">
+            <span class="c-num">{card.num}</span>
+            <h4>{card.title}</h4>
+            <p>{card.body}</p>
+          </div>
+        ))}
       </div>    </div>
   </section>
 
@@ -154,11 +118,11 @@ import Base from '../layouts/Base.astro';
   <section class="contact" id="contact">
     <div class="wrap">
       <!-- <span class="eyebrow obs">Contact</span> -->
-      <h2 class="display obs">Contact.</h2>
-      <div class="obs"><a class="mail" href="mailto:brynn06191@gmail.com">brynn06191@gmail.com</a></div>
+      <h2 class="display obs">{content.contact.heading}</h2>
+      <div class="obs"><a class="mail" href={`mailto:${content.contact.email}`}>{content.contact.email}</a></div>
       <div class="socials obs">
-        <a href="#work">查看作品 →</a>
-        <a href="/assets/files/brynn-cv.pdf" download>下載履歷 ↗</a>
+        <a href="#work">{content.contact.workLinkLabel}</a>
+        <a href="/assets/files/brynn-cv.pdf" download>{content.contact.cvLinkLabel}</a>
       </div>
     </div>
   </section>
@@ -167,8 +131,8 @@ import Base from '../layouts/Base.astro';
 
 <footer>
   <div class="wrap foot">
-    <span>© Copyright 2026 </span>
-    <span>Made by Brynn</span>
+    <span>{site.footerIndex.left}</span>
+    <span>{site.footerIndex.right}</span>
   </div>
 </footer>
 

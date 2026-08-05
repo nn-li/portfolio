@@ -1,45 +1,46 @@
 ---
 import Base from '../../layouts/Base.astro';
+import content from '../../content/work/tra.json';
+import site from '../../content/site.json';
 ---
-<Base title='台鐵 e訂通｜訂票流程與票券狀態 App Redesign' description='台鐵 e訂通 App redesign case study。透過公開評論盤點與 4 位使用者操作原 App 的相同任務，找出功能入口、任務銜接與票券狀態中的理解斷點，重新規劃 Functional Map、User Flow 與介面。'>
+<Base title={content.seo.title} description={content.seo.description}>
   <Fragment slot="head"><link rel="stylesheet" href="/assets/case.css" /></Fragment>
 
 <div class="topbar">
   <div class="wrap">
     <a class="brand" href="/">Brynn<span>.</span></a>
-    <a class="back" href="/#work">← All work</a>
+    <a class="back" href="/#work">{site.topbar.back}</a>
   </div>
 </div>
 
 <main>
   <!-- 滿版 hero -->
   <div class="cx-herobanner">
-    <img src="/assets/images/project/UIUX/web/tra/cover.jpg" alt="台鐵 e訂通 主視覺" />
+    <img src={content.hero.cover.src} alt={content.hero.cover.alt} />
   </div>
 
   <!-- 標題 -->
   <div class="cx-title">
-    <span class="eyebrow">UI/UX · App Redesign · 2023</span>
-    <h1 class="display">台鐵 e訂通</h1>
-    <p class="lead">重新梳理查詢、訂票、付款與票券管理流程，改善功能入口辨識、任務銜接與操作狀態回饋。</p>
+    <span class="eyebrow">{content.hero.eyebrow}</span>
+    <h1 class="display">{content.hero.title}</h1>
+    <p class="lead">{content.hero.lead}</p>
   </div>
 
   <!-- meta -->
   <dl class="cx-metarow">
-    <div><dt>專案時程</dt><dd>2023</dd></div>
-    <div><dt>主要負責項目</dt><dd>桌面研究、使用者訪談、任務操作觀察、資訊架構、User Flow、Wireframe、UI Design、Prototype</dd></div>
-    <div><dt>使用工具</dt><dd>Figma</dd></div>
-    <div><dt>類型</dt><dd>App Redesign · Transportation</dd></div>
+    {content.hero.meta.map((m) => (
+      <div><dt>{m.label}</dt><dd>{m.value}</dd></div>
+    ))}
   </dl>
 
   <!-- 左導覽 + 敘事 -->
   <div class="cx">
     <aside class="cx-nav">
       <ul>
-        <li><a href="#s1" class="active">背景與目標</a></li>
-        <li><a href="#s2">挑戰與洞察</a></li>
-        <li><a href="#s3">設計決策</a></li>
-        <li><a href="#s4">介面設計</a></li>
+        <li><a href="#s1" class="active">{content.ch01.title}</a></li>
+        <li><a href="#s2">{content.ch02.title}</a></li>
+        <li><a href="#s3">{content.ch03.title}</a></li>
+        <li><a href="#s4">{content.ch04.title}</a></li>
       </ul>
     </aside>
 
@@ -48,38 +49,29 @@ import Base from '../../layouts/Base.astro';
       <!-- 01 背景與目標 -->
       <section class="cx-sec" id="s1" data-sec>
         <span class="secnum">01</span>
-        <h2 class="lbl">背景與目標</h2>
-        <p class="intro" style="max-width:800px">台鐵 e訂通整合查詢、訂票、付款、取票與分票等任務，但主要入口分散，資訊層級、流程銜接與狀態提示不夠清楚，使用者容易在不同功能間反覆尋找，也不易確認操作結果與下一步。基於公開評論盤點與原 App 任務操作觀察，本次 redesign 聚焦於重整主要入口、串接訂票與票券管理流程，並補足班次、訂單與票券狀態及下一步提示。</p>
+        <h2 class="lbl">{content.ch01.title}</h2>
+        <p class="intro" style="max-width:800px">{content.ch01.intro}</p>
         <div class="sub" style="margin-top:60px">
-          <h3>前期研究概覽</h3>
+          <h3>{content.ch01.research.heading}</h3>
           <div class="fig" style="margin-top:20px">
             <div class="metrics four" style="margin:0">
-              <div class="metric" style="padding:20px 22px"><div class="big">2.3</div><div class="lbl">App Store 評分<br>2023 年研究時</div></div>
-              <div class="metric" style="padding:20px 22px"><div class="big">2.0</div><div class="lbl">Google Play 評分<br>2023 年研究時</div></div>
-              <div class="metric" style="padding:20px 22px"><div class="big">5類</div><div class="lbl">公開評論中<br>重複出現的問題</div></div>
-              <div class="metric" style="padding:20px 22px"><div class="big">4 位</div><div class="lbl">實際操作原 App<br>並完成相同任務</div></div>
+              {content.ch01.research.metrics.map((m) => (
+                <div class="metric" style="padding:20px 22px"><div class="big">{m.value}</div><div class="lbl"><Fragment set:html={m.label} /></div></div>
+              ))}
             </div>
-            <p style="font-size:12.5px;color:var(--ink-faint);margin-top:10px">商店評分用於說明研究當時的產品現況；具體問題則以公開評論內容與任務操作觀察作為判斷依據。</p>
+            <p style="font-size:12.5px;color:var(--ink-faint);margin-top:10px">{content.ch01.research.note}</p>
           </div>
         </div>
         <div class="sub" style="margin-top:60px">
-          <h3>問題範圍與改版方向</h3>
+          <h3>{content.ch01.scope.heading}</h3>
           <div class="phases" style="margin-top:20px">
-            <div class="ph">
-              <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.06em;color:var(--clay);margin-bottom:4px">入口不易辨識</span>
-              <span class="pht">重整主要任務入口</span>
-              <span class="phw">讓使用者更容易找到查詢、訂票與票券管理入口。</span>
-            </div>
-            <div class="ph">
-              <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.06em;color:var(--clay);margin-bottom:4px">任務銜接中斷</span>
-              <span class="pht">串接完整任務流程</span>
-              <span class="phw">連貫查詢、訂票、付款、取票與分票之間的操作。</span>
-            </div>
-            <div class="ph">
-              <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.06em;color:var(--clay);margin-bottom:4px">狀態與下一步不清楚</span>
-              <span class="pht">補足狀態回饋</span>
-              <span class="phw">明確呈現操作結果、票券狀態與下一步。</span>
-            </div>
+            {content.ch01.scope.cards.map((c) => (
+              <div class="ph">
+                <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.06em;color:var(--clay);margin-bottom:4px">{c.tag}</span>
+                <span class="pht">{c.title}</span>
+                <span class="phw">{c.text}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -87,72 +79,58 @@ import Base from '../../layouts/Base.astro';
       <!-- 02 挑戰與洞察 -->
       <section class="cx-sec" id="s2" data-sec>
         <span class="secnum">02</span>
-        <h2 class="lbl">挑戰與洞察</h2>
-        <p class="intro" style="max-width:800px">為確認個人使用經驗是否也出現在其他使用者的訂票情境中，我先整理 App Store 與 Google Play 的公開評論及原 App 功能流程，再邀請 4 位搭乘頻率與官方 App 使用習慣不同的參與者，了解其乘車與訂票經驗，並操作相同任務：查詢指定車次、完成訂票、選擇稍後付款與取票。桌面研究用於盤點問題方向；訪談與任務操作則用於理解這些問題如何出現在實際流程中。</p>
+        <h2 class="lbl">{content.ch02.title}</h2>
+        <p class="intro" style="max-width:800px">{content.ch02.intro}</p>
         <div class="phases">
-          <div class="ph"><span class="pht">桌面研究</span><span class="phw">整理商店評分、公開評論與原 App 功能流程</span></div>
-          <div class="ph"><span class="pht">使用者訪談</span><span class="phw">了解 4 位參與者的搭乘、訂票與官方 App 使用經驗</span></div>
-          <div class="ph"><span class="pht">任務操作觀察</span><span class="phw">4 位參與者操作相同任務，比較功能尋找、流程理解與結果確認方式</span></div>
+          {content.ch02.methods.map((m) => (
+            <div class="ph"><span class="pht">{m.title}</span><span class="phw">{m.text}</span></div>
+          ))}
         </div>
 
         <div class="sub">
-          <h3>公開評論中的問題方向</h3>
-          <p>我將 2023 年研究期間可見的公開評論依問題內容歸納為五類，作為後續訪談與任務操作的觀察方向。這項整理用於辨識問題範圍，未進行完整的評論抽樣與統計推論。</p>
+          <h3>{content.ch02.reviews.heading}</h3>
+          <p>{content.ch02.reviews.text}</p>
           <ul class="facts">
-            <li><b style="color:var(--ink)">查詢、訂票與付款之間銜接不連貫</b></li>
-            <li><b style="color:var(--ink)">列車資訊與訂單狀態不易掌握</b></li>
-            <li><b style="color:var(--ink)">訂票入口與查詢方式不夠清楚</b></li>
-            <li><b style="color:var(--ink)">取票、分票與乘車憑證之間的關係不易理解</b></li>
-            <li><b style="color:var(--ink)">部分票務需求仍需切換其他管道</b></li>
+            {content.ch02.reviews.items.map((item) => (
+              <li><b style="color:var(--ink)">{item}</b></li>
+            ))}
           </ul>
         </div>
 
         <div class="sub">
-          <h3>四位研究參與者的使用差異</h3>
-          <p>四位參與者皆完成相同任務，差異主要在搭乘頻率、訂票熟悉度與官方 App 使用習慣。這些背景用於理解不同的使用情境，後續分析仍以實際訪談與任務操作內容為主。</p>
+          <h3>{content.ch02.participants.heading}</h3>
+          <p>{content.ch02.participants.text}</p>
           <div class="phases p4">
-            <div class="ph">
-              <span class="pht">Alston</span>
-              <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.06em;color:var(--clay);margin-top:2px">每月 1–2 次</span>
-              <span class="phw">操作不熟，有時會搭錯車</span>
-            </div>
-            <div class="ph">
-              <span class="pht">Wendy</span>
-              <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.06em;color:var(--clay);margin-top:2px">半年搭一次</span>
-              <span class="phw">對訂票與搭乘程序較不熟悉</span>
-            </div>
-            <div class="ph">
-              <span class="pht">Sally</span>
-              <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.06em;color:var(--clay);margin-top:2px">每月 4 次以上</span>
-              <span class="phw">跨城常客，在意退票與分票</span>
-            </div>
-            <div class="ph">
-              <span class="pht">Cathy</span>
-              <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.06em;color:var(--clay);margin-top:2px">每天通勤</span>
-              <span class="phw">不以官方 App 作為主要時刻查詢工具</span>
-            </div>
+            {content.ch02.participants.cards.map((c) => (
+              <div class="ph">
+                <span class="pht">{c.name}</span>
+                <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.06em;color:var(--clay);margin-top:2px">{c.frequency}</span>
+                <span class="phw">{c.note}</span>
+              </div>
+            ))}
           </div>
-          <p style="font-size:12.5px;color:var(--ink-faint);margin-top:10px">參與者背景僅用於說明使用情境差異，研究分析以實際訪談與任務操作內容為主。</p>
+          <p style="font-size:12.5px;color:var(--ink-faint);margin-top:10px">{content.ch02.participants.note}</p>
         </div>
 
         <div class="sub">
-          <h3>相同任務中的操作與理解</h3>
-          <p>4 位參與者皆操作原 App 的相同任務：查詢指定車次、完成訂票、選擇稍後付款與取票。我將任務操作路徑與訪談內容整理為 Journey Map，比較參與者如何尋找功能、理解頁面資訊，以及確認訂單與票券狀態。</p>
+          <h3>{content.ch02.tasks.heading}</h3>
+          <p>{content.ch02.tasks.text}</p>
         </div>
 
         <div class="sub">
-          <h3>代表性任務歷程</h3>
-          <p>以 Alston 的任務歷程為例，我將台北至板橋的查詢、訂票、稍後付款與取票串成完整路徑，檢視不同任務階段的入口、資訊說明與下一步是否連貫。</p>
-          <p>其中，區間車無法於 App 內購票時，介面未同步說明適用票種與替代購票方式；完成訂票後，付款入口與後續操作也分散於不同位置。這些情況顯示，問題不只存在於單一畫面，也涉及不同任務之間的資訊與操作銜接。</p>
-          <div class="fig"><img class="raw" src="/assets/images/project/UIUX/web/tra/journey-alston.jpg" alt="Journey Map — Alston 的訂票與付款任務歷程" loading="lazy" /><div class="cap">Journey Map｜Alston 的訂票與付款任務歷程，用於檢視入口、流程銜接與狀態提示。</div></div>
+          <h3>{content.ch02.journey.heading}</h3>
+          {content.ch02.journey.paragraphs.map((p) => (
+            <p>{p}</p>
+          ))}
+          <div class="fig"><img class="raw" src={content.ch02.journey.image.src} alt={content.ch02.journey.image.alt} loading="lazy" /><div class="cap">{content.ch02.journey.caption}</div></div>
         </div>
 
         <div class="sub">
-          <h3>研究收斂：三個需要優先處理的問題</h3>
+          <h3>{content.ch02.findings.heading}</h3>
           <ul class="facts">
-            <li><b style="color:var(--clay)">入口不易辨識</b>｜公開評論與訪談內容皆涉及功能入口難找，以及入口名稱與位置不容易理解等問題</li>
-            <li><b style="color:var(--clay)">任務銜接中斷</b>｜查詢、訂票、付款、取票與分票分散於不同入口，使用者需要重新判斷接下來應前往哪個位置操作</li>
-            <li><b style="color:var(--clay)">狀態與下一步不清楚</b>｜完成訂票、付款或取票後，操作結果、票券狀態與後續入口沒有集中呈現</li>
+            {content.ch02.findings.items.map((item) => (
+              <li><b style="color:var(--clay)">{item.title}</b>｜{item.text}</li>
+            ))}
           </ul>
           <!-- <p>綜合桌面研究、訪談內容與原 App 任務流程，將後續設計聚焦於主要任務入口、完整任務流程與狀態回饋三個方向。</p> -->
           <!-- <p>研究結果將問題收斂為入口、流程與狀態三個層次。下一階段將進一步說明這些問題如何形成資訊架構、任務流程與介面狀態的設計決策。</p> -->
@@ -162,96 +140,73 @@ import Base from '../../layouts/Base.astro';
       <!-- 03 設計決策 -->
       <section class="cx-sec" id="s3" data-sec>
         <span class="secnum">03</span>
-        <h2 class="lbl">設計決策</h2>
-        <p class="intro" style="max-width:800px">前一階段將問題收斂為入口、流程與狀態三個層次，後續設計因此依序處理三件事：讓主要任務更容易找到、讓查詢至取票的流程更連貫，並在訂單與票券狀態改變時，清楚呈現操作結果與下一步。</p>
+        <h2 class="lbl">{content.ch03.title}</h2>
+        <p class="intro" style="max-width:800px">{content.ch03.intro}</p>
         <div class="sub">
-          <h3>核心取捨｜縮短流程，還是保留關鍵確認？</h3>
+          <h3>{content.ch03.tradeoff.heading}</h3>
           <div class="versus">
             <div class="vopt lose">
-              <span class="vtag">減少確認畫面</span>
-              <p>減少確認與結果畫面可以縮短流程，但使用者可能無法確認訂單、付款或票券是否成立，也較難判斷下一步</p>
+              <span class="vtag">{content.ch03.tradeoff.lose.tag}</span>
+              <p>{content.ch03.tradeoff.lose.text}</p>
             </div>
             <div class="vs" aria-hidden="true"></div>
             <div class="vopt win">
-              <span class="vtag">最終選擇</span>
-              <div class="vt">保留關鍵確認與狀態提示</div>
-              <p>僅在會改變訂單、付款或票券狀態的節點保留確認，並明確呈現操作結果與下一步</p>
+              <span class="vtag">{content.ch03.tradeoff.win.tag}</span>
+              <div class="vt">{content.ch03.tradeoff.win.title}</div>
+              <p>{content.ch03.tradeoff.win.text}</p>
             </div>
           </div>
-          <p style="margin-top:16px">部分流程因此增加確認或結果畫面，換取更明確的操作結果、票券狀態與後續操作。</p>
+          <p style="margin-top:16px">{content.ch03.tradeoff.note}</p>
         </div>
 
         <div class="sub">
-          <h3>四項關鍵設計決策</h3>
-          <p>以下四項決策分別回應入口、流程與狀態三個問題層次，並進一步定義首頁架構、訂票流程、取票與分票任務，以及票券狀態的呈現方式。</p>
+          <h3>{content.ch03.decisions.heading}</h3>
+          <p>{content.ch03.decisions.text}</p>
           <div class="dcards">
-            <div class="dcard">
-              <span class="dph">入口</span>
-              <span class="dnum">決策 01</span>
-              <h4>重整主要任務入口</h4>
-              <span class="dsrc">查詢、訂票與票券管理入口分散，使用者不易判斷應從哪裡開始</span>
-              <div class="dline dwin"><span class="k">設計選擇</span><span>將「我的車票、訂票、列車動態、旅遊資訊」設為底部導覽的四個主要入口，讓乘車相關任務能從固定位置進入</span></div>
-              <div class="dline dlose"><span class="k">取捨</span><span>第一層聚焦於主要任務，避免過多功能同時競爭使用者注意力</span></div>
-            </div>
-            <div class="dcard">
-              <span class="dph">流程</span>
-              <span class="dnum">決策 02</span>
-              <h4>串接查詢、訂票與付款</h4>
-              <span class="dsrc">車次查詢、訂票與付款分散於不同入口；完成訂票後，使用者仍需另外尋找付款位置</span>
-              <div class="dline dwin"><span class="k">設計選擇</span><span>將車次查詢、車次選擇、訂票確認、付款選擇與付款結果串接為連續流程，並在訂票完成後直接提供付款入口</span></div>
-              <div class="dline dlose"><span class="k">取捨</span><span>流程需要處理立即付款、稍後付款等不同狀態與分支，換取任務之間更連貫的操作路徑</span></div>
-            </div>
-            <div class="dcard">
-              <span class="dph">票券任務</span>
-              <span class="dnum">決策 03</span>
-              <h4>區分取票與分票任務</h4>
-              <span class="dsrc">取票與分票的目的、操作對象及所需資料不同，但原有入口與流程不易清楚區分兩項任務</span>
-              <div class="dline dwin"><span class="k">設計選擇</span><span>將取票與分票設為獨立任務節點；取票處理個人乘車憑證，分票則提供驗證碼領取與分享方式</span></div>
-              <div class="dline dlose"><span class="k">取捨</span><span>使用者需要先辨識目前要進行取票或分票，但能更清楚理解兩項操作的對象、資料與結果</span></div>
-            </div>
-            <div class="dcard">
-              <span class="dph">狀態</span>
-              <span class="dnum">決策 04</span>
-              <h4>補足確認、結果與票券狀態</h4>
-              <span class="dsrc">訂票、付款或取票完成後，操作結果、票券狀態與後續入口缺少集中呈現</span>
-              <div class="dline dwin"><span class="k">設計選擇</span><span>在訂票確認、訂票完成、付款選擇、付款結果與取票完成等節點呈現目前狀態與下一步；「我的車票」則依付款與取票狀態提供可執行的後續操作</span></div>
-              <div class="dline dlose"><span class="k">取捨</span><span>增加必要的確認與結果畫面，換取更明確的任務完成狀態、票券狀態與後續操作</span></div>
-            </div>
+            {content.ch03.decisions.cards.map((c) => (
+              <div class="dcard">
+                <span class="dph">{c.phase}</span>
+                <span class="dnum">{c.num}</span>
+                <h4>{c.title}</h4>
+                <span class="dsrc">{c.problem}</span>
+                <div class="dline dwin"><span class="k">設計選擇</span><span>{c.choice}</span></div>
+                <div class="dline dlose"><span class="k">取捨</span><span>{c.tradeoff}</span></div>
+              </div>
+            ))}
           </div>
         </div>
 
         <div class="sub">
-          <h3>以主要任務重整資訊架構</h3>
-          <p>將「我的車票、訂票、列車動態、旅遊資訊」整理為底部導覽的四個主要入口，讓使用者能依任務快速找到對應功能；並透過 Functional Map 重新梳理各入口下的功能層級與歸屬</p>
+          <h3>{content.ch03.ia.heading}</h3>
+          <p>{content.ch03.ia.text}</p>
           <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;align-items:center">
-            <span style="border:1.5px solid var(--accent);border-radius:100px;padding:5px 16px;font-size:14px">我的車票</span>
-            <span style="border:1.5px solid var(--accent);border-radius:100px;padding:5px 16px;font-size:14px">訂票</span>
-            <span style="border:1.5px solid var(--accent);border-radius:100px;padding:5px 16px;font-size:14px">列車動態</span>
-            <span style="border:1.5px solid var(--accent);border-radius:100px;padding:5px 16px;font-size:14px">旅遊資訊</span>
+            {content.ch03.ia.pills.map((pill) => (
+              <span style="border:1.5px solid var(--accent);border-radius:100px;padding:5px 16px;font-size:14px">{pill}</span>
+            ))}
           </div>
-          <p style="font-size:12.5px;color:var(--ink-faint);margin-top:10px">底部導覽以四項主要任務作為第一層入口</p>
+          <p style="font-size:12.5px;color:var(--ink-faint);margin-top:10px">{content.ch03.ia.note}</p>
           <details style="margin-top:16px">
-            <summary style="cursor:pointer;font-size:14.5px;color:var(--ink-soft)">查看完整 Functional Map</summary>
-            <div class="fig"><img class="raw" src="/assets/images/project/UIUX/web/tra/functional-map.jpg" alt="Functional Map 首頁功能架構" loading="lazy" /><div class="cap">Functional Map｜以四項主要乘車任務重整首頁第一層架構，低頻服務保留於次層。</div></div>
+            <summary style="cursor:pointer;font-size:14.5px;color:var(--ink-soft)">{content.ch03.ia.summary}</summary>
+            <div class="fig"><img class="raw" src={content.ch03.ia.image.src} alt={content.ch03.ia.image.alt} loading="lazy" /><div class="cap">{content.ch03.ia.caption}</div></div>
           </details>
         </div>
 
         <div class="sub">
-          <h3>以 User Flow 定義任務分支與票券狀態</h3>
-          <p>以 User Flow 串接訂票、付款、取票與分票的主要流程，並定義「是否立即付款」「是否立即取票」與「是否分票」等關鍵分支，同時整理未付款、待取票與已取票等票券狀態，以及各狀態下可執行的下一步</p>
-          <div class="fig"><img class="raw" src="/assets/images/project/UIUX/web/tra/userflow-full-v2.svg" alt="User Flow 訂票到分票的主要流程與票券狀態" loading="lazy" /><div class="cap">User Flow｜串接訂票、付款、取票與分票流程，並整理主要分支與票券狀態。</div></div>
+          <h3>{content.ch03.userflow.heading}</h3>
+          <p>{content.ch03.userflow.text}</p>
+          <div class="fig"><img class="raw" src={content.ch03.userflow.image.src} alt={content.ch03.userflow.image.alt} loading="lazy" /><div class="cap">{content.ch03.userflow.caption}</div></div>
         </div>
 
         <div class="sub">
-          <h3>Wireframe｜將設計決策落到完整任務流程</h3>
-          <p>Wireframe 串接查詢、訂票、付款、取票與分票的主要畫面，用於確認入口配置、流程銜接、狀態提示與下一步在不同任務節點的呈現方式。</p>
-          <div class="sgbox"><img src="/assets/images/project/UIUX/web/tra/wireframe.jpg" alt="Wireframe 全流程線框牆" loading="lazy" /></div>
-          <div class="boxhint">↕ 框內可捲動查看完整線框流程</div>
+          <h3>{content.ch03.wireframe.heading}</h3>
+          <p>{content.ch03.wireframe.text}</p>
+          <div class="sgbox"><img src={content.ch03.wireframe.image.src} alt={content.ch03.wireframe.image.alt} loading="lazy" /></div>
+          <div class="boxhint">{content.ch03.wireframe.hint}</div>
         </div>
 
         <div class="sub">
-          <h3>易用性測試</h3>
-          <p>我邀請 2 位經常搭乘台鐵的使用者，依序完成查詢指定車次、訂票、選擇稍後付款與取票，兩位皆完成任務，過程中未觀察到影響任務進行的明顯停頓或理解問題，並且兩位使用者皆表示新版比現行 App 更容易理解與操作，因此本輪未再調整主要流程。</p>
+          <h3>{content.ch03.testing.heading}</h3>
+          <p>{content.ch03.testing.text}</p>
         </div>
       </section>
 
@@ -262,75 +217,30 @@ import Base from '../../layouts/Base.astro';
   <section class="uilight" id="s4" data-sec>
     <div class="uhead">
       <span class="k">04</span>
-      <h2>介面設計</h2>
-      <p>介面以台鐵既有藍色識別為基礎，重新整理字級、色彩、按鈕、表單與票券狀態。以下畫面分別對應主要入口、訂票流程與狀態回饋。</p>
+      <h2>{content.ch04.title}</h2>
+      <p>{content.ch04.intro}</p>
     </div>
 
     <div class="ui-sub">
-      <span class="k">UI Guidelines</span>
-      <h3>介面規範</h3>
-      <p>整理主要色彩、字級、按鈕、輸入欄位與狀態元件，作為訂票、付款與票券管理畫面的共用規則。</p>
+      <span class="k">{content.ch04.styleguide.tag}</span>
+      <h3>{content.ch04.styleguide.title}</h3>
+      <p>{content.ch04.styleguide.text}</p>
     </div>
     <div class="wide">
-      <div class="sgbox"><img src="/assets/images/project/UIUX/web/tra/styleguide.jpg" alt="介面規範：色彩、字級與元件狀態" loading="lazy" /></div>
-      <div class="boxhint">↕ 框內可捲動查看完整介面規範</div>
+      <div class="sgbox"><img src={content.ch04.styleguide.image.src} alt={content.ch04.styleguide.image.alt} loading="lazy" /></div>
+      <div class="boxhint">{content.ch04.styleguide.hint}</div>
     </div>
 
-    <div class="ui-sub">
-      <span class="k">介面 01</span>
-      <h3>首頁與訂票</h3>
-      <p>底部導覽保留我的車票、訂票、列車動態與旅遊資訊四個主要任務；會員中心維持獨立入口。常用行程可以快速帶入訂票資訊。</p>
-    </div>
-    <div class="wide"><img class="raw" src="/assets/images/project/UIUX/web/tra/ui-1.jpg" alt="首頁與訂票功能" loading="lazy" /></div>
-
-    <div class="ui-sub">
-      <span class="k">介面 02</span>
-      <h3>訂票流程</h3>
-      <p>在同一流程完成訂票資訊、車次選擇、確認與訂票結果，並在成功後提示付款期限與下一步。</p>
-    </div>
-    <div class="wide"><img class="raw" src="/assets/images/project/UIUX/web/tra/ui-2.jpg" alt="訂票功能操作流程" loading="lazy" /></div>
-
-    <div class="ui-sub">
-      <span class="k">介面 03</span>
-      <h3>票證資訊</h3>
-      <p>依票券狀態優先顯示付款期限、乘車資訊與目前可執行的操作。</p>
-    </div>
-    <div class="wide"><img class="raw" src="/assets/images/project/UIUX/web/tra/ui-3.jpg" alt="票證資訊頁" loading="lazy" /></div>
-
-    <div class="ui-sub">
-      <span class="k">介面 04</span>
-      <h3>取票與分票</h3>
-      <p>將取票與分票拆為清楚的任務節點；分票提供驗證碼複製與分享，並在完成後顯示結果。</p>
-    </div>
-    <div class="wide"><img class="raw" src="/assets/images/project/UIUX/web/tra/ui-4.jpg" alt="取票與分票流程" loading="lazy" /></div>
-
-    <div class="ui-sub">
-      <span class="k">介面 05</span>
-      <h3>付款</h3>
-      <p>區分立即付款與稍後付款，清楚顯示訂單狀態、付款期限與返回付款的入口。</p>
-    </div>
-    <div class="wide"><img class="raw" src="/assets/images/project/UIUX/web/tra/ui-5.jpg" alt="付款功能" loading="lazy" /></div>
-
-    <div class="ui-sub">
-      <span class="k">介面 06</span>
-      <h3>我的車票</h3>
-      <p>依未付款、待取票、已取票與已分票整理票券，讓目前狀態與下一步操作容易辨識。</p>
-    </div>
-    <div class="wide"><img class="raw" src="/assets/images/project/UIUX/web/tra/ui-6.jpg" alt="車票管理" loading="lazy" /></div>
-
-    <div class="ui-sub">
-      <span class="k">介面 07</span>
-      <h3>列車動態</h3>
-      <p>以方向、車種、列車位置與更新時間呈現動態資訊。本案未串接真實列車資料，畫面為資訊呈現概念。</p>
-    </div>
-    <div class="wide"><img class="raw" src="/assets/images/project/UIUX/web/tra/ui-7.jpg" alt="列車動態" loading="lazy" /></div>
-
-    <div class="ui-sub">
-      <span class="k">延伸探索</span>
-      <h3>旅遊票券</h3>
-      <p>依旅遊票券與景點分類內容，並提供收藏與評價入口。這是既有服務的延伸探索，不是本次訂票流程改善的核心範圍。</p>
-    </div>
-    <div class="wide"><img class="raw" src="/assets/images/project/UIUX/web/tra/ui-8.jpg" alt="旅遊票券" loading="lazy" /></div>
+    {content.ch04.screens.map((s) => (
+      <Fragment>
+        <div class="ui-sub">
+          <span class="k">{s.tag}</span>
+          <h3>{s.title}</h3>
+          <p>{s.text}</p>
+        </div>
+        <div class="wide"><img class="raw" src={s.image.src} alt={s.image.alt} loading="lazy" /></div>
+      </Fragment>
+    ))}
 
     <!-- <div class="ui-sub">
       <span class="k">Scope</span>
@@ -341,8 +251,8 @@ import Base from '../../layouts/Base.astro';
 
   <section class="next">
     <div class="wrap">
-      <span class="eyebrow">Next project</span>
-      <a href="/work/soulmap.html">Soul Map →</a>
+      <span class="eyebrow">{content.next.eyebrow}</span>
+      <a href={content.next.href}>{content.next.label}</a>
     </div>
   </section>
 </main>
@@ -350,20 +260,20 @@ import Base from '../../layouts/Base.astro';
 <footer>
   <div class="wrap foot-cols">
     <div class="fcol-links">
-      <span class="fk">( Menu )</span>
-      <a href="/#work">作品</a>
-      <a href="/about.html">關於我</a>
-      <a href="/#contact">聯絡我</a>
+      <span class="fk">{site.footerCase.menuLabel}</span>
+      {site.footerCase.menuLinks.map((l) => (
+        <a href={l.href}>{l.label}</a>
+      ))}
     </div>
     <div class="fcol-links">
-      <span class="fk">( Reach out )</span>
-      <a href="mailto:brynn06191@gmail.com">Email</a>
-      <a href="/assets/files/brynn-cv.pdf" download>CV</a>
+      <span class="fk">{site.footerCase.reachLabel}</span>
+      <a href={site.footerCase.email.href}>{site.footerCase.email.label}</a>
+      <a href={site.footerCase.cv.href} download>{site.footerCase.cv.label}</a>
     </div>
   </div>
   <div class="wrap foot">
-    <span>© 2026 Brynn Li</span>
-    <span>UI/UX Case Study</span>
+    <span>{site.footerCase.copyright}</span>
+    <span>{site.footerCase.tagline}</span>
   </div>
 </footer>
 

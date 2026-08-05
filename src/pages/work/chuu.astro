@@ -1,45 +1,46 @@
 ---
 import Base from '../../layouts/Base.astro';
+import content from '../../content/work/chuu.json';
+import site from '../../content/site.json';
 ---
-<Base title='chuu｜服飾電商 Web Redesign 與前端切版' description='chuu 服飾電商網站 redesign case study。透過競品觀察、4 位使用者的購物經驗回饋與 Prototype 測試，調整商品瀏覽、評價、推薦與購物車資訊；並將首頁與熱銷商品列表製作為具基本 Responsive 調整的 HTML、CSS 與 JavaScript 靜態頁面。'>
+<Base title={content.title} description={content.description}>
   <Fragment slot="head"><link rel="stylesheet" href="/assets/case.css" /></Fragment>
 
 <div class="topbar">
   <div class="wrap">
     <a class="brand" href="/">Brynn<span>.</span></a>
-    <a class="back" href="/#work">← All work</a>
+    <a class="back" href="/#work">{site.topbar.back}</a>
   </div>
 </div>
 
 <main>
   <!-- 滿版 hero -->
   <div class="cx-herobanner">
-    <img src="/assets/images/project/UIUX/web/chuu/cover.jpg" alt="chuu 官網 Redesign 主視覺" />
+    <img src={content.hero.cover.src} alt={content.hero.cover.alt} />
   </div>
 
   <!-- 標題 -->
   <div class="cx-title">
-    <span class="eyebrow">UI/UX · Web Redesign Practice · 2022</span>
-    <h1 class="display">chuu</h1>
-    <p class="lead">以服飾電商 chuu 官網為題進行自主改版，重新設計商品探索、商品詳情、評價閱讀與購物車等關鍵頁面，並完成首頁與熱銷商品列表的靜態前端切版。</p>
+    <span class="eyebrow">{content.hero.eyebrow}</span>
+    <h1 class="display">{content.hero.heading}</h1>
+    <p class="lead">{content.hero.lead}</p>
   </div>
 
   <!-- meta -->
   <dl class="cx-metarow">
-    <div><dt>專案年份</dt><dd>2022</dd></div>
-    <div><dt>主要負責項目</dt><dd>競品分析、資訊架構、User Flow、Wireframe、UI Design、Prototype 測試、前端切版</dd></div>
-    <div><dt>使用工具</dt><dd>Figma · HTML · CSS · JavaScript</dd></div>
-    <div><dt>類型</dt><dd>E-commerce Web Redesign · Front-end Practice</dd></div>
+    {content.hero.meta.map((m) => (
+      <div><dt>{m.label}</dt><dd>{m.value}</dd></div>
+    ))}
   </dl>
 
   <!-- 左導覽 + 敘事 -->
   <div class="cx">
     <aside class="cx-nav">
       <ul>
-        <li><a href="#s1" class="active">背景與目標</a></li>
-        <li><a href="#s2">挑戰與洞察</a></li>
-        <li><a href="#s3">設計決策</a></li>
-        <li><a href="#s4">介面設計</a></li>
+        <li><a href="#s1" class="active">{content.ch01.title}</a></li>
+        <li><a href="#s2">{content.ch02.title}</a></li>
+        <li><a href="#s3">{content.ch03.title}</a></li>
+        <li><a href="#s4">{content.ch04.title}</a></li>
       </ul>
     </aside>
 
@@ -47,127 +48,113 @@ import Base from '../../layouts/Base.astro';
 
       <!-- 01 背景與目標 -->
       <section class="cx-sec" id="s1" data-sec>
-        <span class="secnum">01</span>
-        <h2 class="lbl">背景與目標</h2>
-        <p class="intro">原官網在首頁與商品頁中同時承載品牌活動、商品分類、推薦內容與購物資訊，商品重點與下一步操作不易快速辨識。本次改版因此聚焦於商品探索、詳情與評價閱讀及購物車三個關鍵環節，重新安排內容優先順序、頁面節奏與操作提示。</p>
+        <span class="secnum">{content.ch01.num}</span>
+        <h2 class="lbl">{content.ch01.title}</h2>
+        <p class="intro">{content.ch01.intro}</p>
         <div class="sub">
-          <h3>專案目標</h3>
+          <h3>{content.ch01.goals.title}</h3>
           <ul class="facts">
-            <li><b>整理商品探索</b>｜讓分類、活動與價格資訊更容易辨識與比較</li>
-            <li><b>補足購買判斷</b>｜增加評價中的尺寸、身形與穿著參考</li>
-            <li><b>前置購物提示</b>｜在購物車階段顯示免運門檻與目前差額</li>
+            {content.ch01.goals.items.map((item) => (
+              <li><b>{item.label}</b>｜{item.text}</li>
+            ))}
           </ul>
         </div>
         <div class="sub">
-          <h3>我的角色與交付</h3>
+          <h3>{content.ch01.role.title}</h3>
           <div class="phases">
-            <div class="ph"><span class="pht">研究與回饋</span><span class="phw">競品觀察、4 位使用者的購物經驗訪談、Prototype 測試</span></div>
-            <div class="ph"><span class="pht">UI 設計</span><span class="phw">首頁、商品列表、商品詳情與評價、購物車，以及跨裝置情境</span></div>
-            <div class="ph"><span class="pht">前端實作</span><span class="phw">首頁與熱銷商品列表的靜態頁面，含商品網格、導覽、Banner 輪播與基本 Responsive 調整</span></div>
+            {content.ch01.role.phases.map((p) => (
+              <div class="ph"><span class="pht">{p.title}</span><span class="phw">{p.text}</span></div>
+            ))}
           </div>
         </div>
-        <p class="note">* redesign 品牌名稱、文字與圖片素材僅作非商業作品展示，並非 chuu 官方委託。</p>
+        <p class="note">{content.ch01.note}</p>
       </section>
 
       <!-- 02 挑戰與洞察 -->
       <section class="cx-sec" id="s2" data-sec>
-        <span class="secnum">02</span>
-        <h2 class="lbl">挑戰與洞察</h2>
-        <p class="intro">先觀察服飾電商的分類、活動與商品呈現方式，再透過 4 位使用者的簡短訪談與購物經驗聊天，整理評價、輪播、收藏與結帳資訊中的需求。完成 Prototype 後，我再從操作反應與口頭回饋調整設計。</p>
+        <span class="secnum">{content.ch02.num}</span>
+        <h2 class="lbl">{content.ch02.title}</h2>
+        <p class="intro">{content.ch02.intro}</p>
 
         <div class="sub">
-          <h3>競品與介面觀察</h3>
-          <p>比較服飾電商的商品分類、活動版位與資訊密度，作為頁面整理的參考。圖中的位置是當時的設計觀察，不是量化市場研究或客觀排名。其中 Uniqlo 的分類與活動標示、Zara 的極簡陳列，是當時參考的方向；就 chuu 而言，觀察重點是活動與商品混用相同的輪播展示、同頁資訊密度偏高，這成為重整瀏覽節奏的起點。</p>
-          <div class="fig"><img src="/assets/images/project/UIUX/web/chuu/competitive.jpg" alt="五個服飾品牌的分類方式與介面資訊量觀察" loading="lazy" /><div class="cap">競品觀察 · 商品分類方式與介面資訊量</div></div>
+          <h3>{content.ch02.competitive.title}</h3>
+          <p>{content.ch02.competitive.body}</p>
+          <div class="fig"><img src={content.ch02.competitive.figure.src} alt={content.ch02.competitive.figure.alt} loading="lazy" /><div class="cap">{content.ch02.competitive.figure.caption}</div></div>
         </div>
 
         <div class="sub">
-          <h3>四位使用者的購物經驗整理</h3>
-          <p>透過簡短訪談與購物經驗聊天，整理 4 位使用者在服飾電商中的瀏覽習慣、評價需求、輪播看法與結帳困擾。回饋中反覆出現幾件事：評價是購買前的必看資訊；商品自動輪播有人覺得打斷閱讀、也有人覺得方便；免運條件到結帳才看到讓人困擾。這些資料用來建立初步設計方向，不代表完整使用者研究或正式分群。</p>
-          <div class="fig"><img src="/assets/images/project/UIUX/web/chuu/persona.jpg" alt="四位使用者的購物經驗整理" loading="lazy" /><div class="cap">User Feedback · 使用者 01 至 04 的購物經驗整理</div></div>
+          <h3>{content.ch02.userFeedback.title}</h3>
+          <p>{content.ch02.userFeedback.body}</p>
+          <div class="fig"><img src={content.ch02.userFeedback.figure.src} alt={content.ch02.userFeedback.figure.alt} loading="lazy" /><div class="cap">{content.ch02.userFeedback.figure.caption}</div></div>
         </div>
 
         <div class="sub">
-          <h3>初步購物旅程</h3>
-          <p>根據有限的購物經驗回饋，整理從瀏覽首頁、尋找商品、查看詳情與評價，到加入購物車的主要問題。這是用來協助梳理設計範圍的初步旅程，不代表完整顧客旅程研究。</p>
-          <div class="fig"><img src="/assets/images/project/UIUX/web/chuu/journey.jpg" alt="初步購物旅程整理" loading="lazy" /><div class="cap">初步購物旅程 · 從商品探索到加入購物車的主要問題</div></div>
+          <h3>{content.ch02.journey.title}</h3>
+          <p>{content.ch02.journey.body}</p>
+          <div class="fig"><img src={content.ch02.journey.figure.src} alt={content.ch02.journey.figure.alt} loading="lazy" /><div class="cap">{content.ch02.journey.figure.caption}</div></div>
         </div>
         <div class="sub">
-          <h3>問題收斂</h3>
+          <h3>{content.ch02.consensus.title}</h3>
           <div class="consensus">
-            <div class="citem"><span><b>商品探索</b>｜活動與商品內容混用相同展示方式，容易打斷商品閱讀與比較</span></div>
-            <div class="citem"><span><b>購買判斷</b>｜評價缺少尺寸、身形與穿著效果等具體參考</span></div>
-            <div class="citem"><span><b>購物車提示</b>｜免運門檻與目前差額若出現得太晚，使用者可能需要返回調整商品</span></div>
+            {content.ch02.consensus.items.map((item) => (
+              <div class="citem"><span><b>{item.label}</b>｜{item.text}</span></div>
+            ))}
           </div>
         </div>
 
         <div class="sub">
-          <h3>架構、流程與線框</h3>
-          <p>根據網站內容盤點與前期回饋，整理搜尋、商品瀏覽、購物車、會員與輔助功能，確認主要內容入口與頁面關係。</p>
-          <div class="fig"><img src="/assets/images/project/UIUX/web/chuu/functional-map.jpg" alt="Functional Map 功能架構" loading="lazy" /><div class="cap">Functional Map · 商品瀏覽、購物車、會員與輔助功能</div></div>
-          <p>User Flow 整理設計階段規劃的登入註冊，以及從商品瀏覽、查看詳情到加入購物車的主要路徑。這些流程屬於介面設計範圍，未全部納入前端切版</p>
-          <div class="fig"><img src="/assets/images/project/UIUX/web/chuu/userflow.jpg" alt="User Flow 登入與商品瀏覽流程" loading="lazy" /><div class="cap">User Flow · 登入與商品瀏覽流程；未全部納入前端切版</div></div>
-          <p>Wireframe 用來確認首頁、商品列表、商品詳情、評價與購物車的資訊順序，再製作可操作 Prototype</p>
-          <div class="fig"><img src="/assets/images/project/UIUX/web/chuu/wireframe.jpg" alt="Wireframe 桌面版線框" loading="lazy" /></div>
+          <h3>{content.ch02.structure.title}</h3>
+          <p>{content.ch02.structure.functionalMap.body}</p>
+          <div class="fig"><img src={content.ch02.structure.functionalMap.figure.src} alt={content.ch02.structure.functionalMap.figure.alt} loading="lazy" /><div class="cap">{content.ch02.structure.functionalMap.figure.caption}</div></div>
+          <p>{content.ch02.structure.userFlow.body}</p>
+          <div class="fig"><img src={content.ch02.structure.userFlow.figure.src} alt={content.ch02.structure.userFlow.figure.alt} loading="lazy" /><div class="cap">{content.ch02.structure.userFlow.figure.caption}</div></div>
+          <p>{content.ch02.structure.wireframe.body}</p>
+          <div class="fig"><img src={content.ch02.structure.wireframe.figure.src} alt={content.ch02.structure.wireframe.figure.alt} loading="lazy" /></div>
         </div>
 
         <div class="sub">
-          <h3>Prototype 測試</h3>
-          <p>讓使用者操作可點擊 Prototype，觀察他們對商品輪播、評價資訊與推薦內容的反應，並將意見整理為喜歡、可改善、疑問與新想法四類。這些質化回饋成為後續設計調整的參考。</p>
+          <h3>{content.ch02.prototype.title}</h3>
+          <p>{content.ch02.prototype.body}</p>
           <!-- <p class="note">本輪以質化操作回饋為主，未進行量化比較，因此不作完成率或成效推論。</p> -->
-          <div class="fig"><img src="/assets/images/project/UIUX/web/chuu/prototype-feedback-crop.png" alt="Prototype 測試四類回饋整理" loading="lazy" /><div class="cap">Prototype 測試 · 四象限回饋整理與代表性操作畫面</div></div>
+          <div class="fig"><img src={content.ch02.prototype.figure.src} alt={content.ch02.prototype.figure.alt} loading="lazy" /><div class="cap">{content.ch02.prototype.figure.caption}</div></div>
         </div>
 
         <div class="sub">
-          <h3>測試後調整方向</h3>
+          <h3>{content.ch02.adjustments.title}</h3>
           <ul class="facts">
-            <li><b>展示節奏</b>｜活動 Banner 保留輪播，商品內容改為固定排列或由使用者控制瀏覽</li>
-            <li><b>評價資訊</b>｜補充尺寸、身形、圖片與穿著效果等參考</li>
-            <li><b>推薦內容</b>｜收斂同時呈現的推薦數量，改以完整穿搭說明商品搭配</li>
+            {content.ch02.adjustments.items.map((item) => (
+              <li><b>{item.label}</b>｜{item.text}</li>
+            ))}
           </ul>
         </div>
       </section>
 
       <!-- 03 設計決策 -->
       <section class="cx-sec" id="s3" data-sec>
-        <span class="secnum">03</span>
-        <h2 class="lbl">設計決策</h2>
-        <p class="intro">我沒有直接照單全收所有回饋，而是區分前期意見、Prototype 操作反應與設計判斷，再決定哪些資訊應保留、前置或收斂。</p>
+        <span class="secnum">{content.ch03.num}</span>
+        <h2 class="lbl">{content.ch03.title}</h2>
+        <p class="intro">{content.ch03.intro}</p>
         <div class="dcard" style="margin-top:20px">
-          <span class="dnum">核心決策</span>
-          <h4>活動保留輪播，商品改為固定瀏覽</h4>
-          <div class="dline dfind"><span class="k">使用者回饋</span><span>使用者對商品自動輪播的接受程度不同，部分人認為自動切換會打斷閱讀；活動 Banner 則適合輪替呈現多個活動訊息</span></div>
-          <div class="dline dwin"><span class="k">設計決策</span><span>活動 Banner 保留輪播；新品、熱銷與穿搭內容改為固定排列，或由使用者主動控制瀏覽</span></div>
-          <div class="dline dlose"><span class="k">取捨</span><span>減少商品自動曝光，換取較穩定、可預期的閱讀與比較節奏</span></div>
+          <span class="dnum">{content.ch03.coreDecision.num}</span>
+          <h4>{content.ch03.coreDecision.title}</h4>
+          <div class="dline dfind"><span class="k">{content.ch03.coreDecision.findingLabel}</span><span>{content.ch03.coreDecision.finding}</span></div>
+          <div class="dline dwin"><span class="k">{content.ch03.coreDecision.decisionLabel}</span><span>{content.ch03.coreDecision.decision}</span></div>
+          <div class="dline dlose"><span class="k">{content.ch03.coreDecision.tradeoffLabel}</span><span>{content.ch03.coreDecision.tradeoff}</span></div>
         </div>
 
         <div class="sub">
-          <h3>三個延伸決策</h3>
+          <h3>{content.ch03.extensions.title}</h3>
           <div class="dcards three">
-            <div class="dcard">
-              <span class="dph">購物車</span>
-              <span class="dnum">決策 01</span>
-              <h4>提前顯示免運差額</h4>
-              <div class="dline dfind"><span class="k">判斷依據</span><span>前期回饋與購物流程檢視顯示，若免運條件到結帳階段才出現，使用者可能需要返回購物車重新調整商品</span></div>
-              <div class="dline dwin"><span class="k">設計決策</span><span>在購物車的合計金額附近，同步顯示免運門檻與目前差額</span></div>
-              <div class="dline dlose"><span class="k">取捨</span><span>增加購物車中的資訊量，換取使用者能在結帳前掌握運費條件</span></div>
-            </div>
-            <div class="dcard">
-              <span class="dph">評價</span>
-              <span class="dnum">決策 02</span>
-              <h4>補足評價的尺寸與穿著參考</h4>
-              <div class="dline dfind"><span class="k">判斷依據</span><span>前期訪談與 Prototype 回饋顯示，使用者閱讀評價時，除了文字內容，也需要尺寸、身形、圖片與實際穿著效果作為比較參考</span></div>
-              <div class="dline dwin"><span class="k">設計決策</span><span>在評價中加入購買者身形與圖片，並提供「是否有幫助」回饋，協助辨識較具參考價值的內容</span></div>
-              <div class="dline dlose"><span class="k">取捨</span><span>增加單則評價的資訊密度，換取更具體的尺寸與穿著參考</span></div>
-            </div>
-            <div class="dcard">
-              <span class="dph">推薦</span>
-              <span class="dnum">決策 03</span>
-              <h4>收斂推薦內容，強化搭配關係</h4>
-              <div class="dline dfind"><span class="k">判斷依據</span><span>Prototype 回饋顯示，推薦內容同時出現過多時，容易產生廣告感，也會分散使用者對單一搭配的注意力</span></div>
-              <div class="dline dwin"><span class="k">設計決策</span><span>以完整穿搭為單位組織推薦內容，並提供查看其中單品的入口</span></div>
-              <div class="dline dlose"><span class="k">取捨</span><span>減少同時曝光的商品數量，換取更聚焦的瀏覽，以及更清楚的商品搭配關係</span></div>
-            </div>
+            {content.ch03.extensions.cards.map((c) => (
+              <div class="dcard">
+                <span class="dph">{c.phase}</span>
+                <span class="dnum">{c.num}</span>
+                <h4>{c.title}</h4>
+                <div class="dline dfind"><span class="k">{c.findingLabel}</span><span>{c.finding}</span></div>
+                <div class="dline dwin"><span class="k">{c.decisionLabel}</span><span>{c.decision}</span></div>
+                <div class="dline dlose"><span class="k">{c.tradeoffLabel}</span><span>{c.tradeoff}</span></div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -178,99 +165,70 @@ import Base from '../../layouts/Base.astro';
   <!-- 04 介面設計（淺色展示區） -->
   <section class="uilight" id="s4" data-sec>
     <div class="uhead">
-      <span class="k">04</span>
-      <h2>介面設計</h2>
-      <p>介面設計聚焦商品分類、價格、活動、評價與購物車資訊，並依不同螢幕情境調整版面。以下先呈現核心購物流程，再展示穿搭推薦與客服等延伸頁面。</p>
+      <span class="k">{content.ch04.num}</span>
+      <h2>{content.ch04.title}</h2>
+      <p>{content.ch04.intro}</p>
     </div>
 
     <div class="ui-sub">
-      <span class="k">UI Guidelines</span>
-      <h3>介面規範</h3>
-      <p>整理主要色彩、字級、按鈕、價格、標籤、商品卡片與表單樣式，維持不同頁面的視覺一致性。</p>
+      <span class="k">{content.ch04.styleguide.eyebrow}</span>
+      <h3>{content.ch04.styleguide.title}</h3>
+      <p>{content.ch04.styleguide.body}</p>
     </div>
     <div class="wide">
-      <div class="sgbox"><img src="/assets/images/project/UIUX/web/chuu/styleguide.jpg" alt="介面規範：色彩、字級與元件樣式" loading="lazy" /></div>
-      <div class="boxhint">↕ 框內可捲動查看完整介面規範</div>
+      <div class="sgbox"><img src={content.ch04.styleguide.image.src} alt={content.ch04.styleguide.image.alt} loading="lazy" /></div>
+      <div class="boxhint">{content.ch04.styleguide.hint}</div>
     </div>
 
-    <div class="ui-sub">
-      <span class="k">介面 01</span>
-      <h3>首頁與活動</h3>
-      <p>活動 Banner 保留輪播；新品、熱銷與穿搭內容改為較穩定的排列，讓活動曝光與商品瀏覽使用不同節奏，對應核心決策。</p>
-    </div>
-    <div class="wide"><img src="/assets/images/project/UIUX/web/chuu/ui-1.jpg" alt="首頁與活動設計" loading="lazy" /></div>
+    {content.ch04.screens.map((s) => (
+      <>
+        <div class="ui-sub">
+          <span class="k">{s.eyebrow}</span>
+          <h3>{s.title}</h3>
+          <p>{s.body}</p>
+        </div>
+        <div class="wide"><img src={s.image.src} alt={s.image.alt} loading="lazy" /></div>
+      </>
+    ))}
 
     <div class="ui-sub">
-      <span class="k">介面 02</span>
-      <h3>商品列表</h3>
-      <p>以固定網格整理商品圖片、活動標籤、原價與優惠價，方便比較商品與價格。</p>
+      <span class="k">{content.ch04.responsive.eyebrow}</span>
+      <h3>{content.ch04.responsive.title}</h3>
+      <p>{content.ch04.responsive.body}</p>
     </div>
-    <div class="wide"><img src="/assets/images/project/UIUX/web/chuu/ui-3.jpg" alt="商品列表頁" loading="lazy" /></div>
+    <div class="wide"><img src={content.ch04.responsive.image.src} alt={content.ch04.responsive.image.alt} loading="lazy" /></div>
 
     <div class="ui-sub">
-      <span class="k">介面 03</span>
-      <h3>商品詳情與評價</h3>
-      <p>評價加入購買者身形、圖片與「是否有幫助」回饋，補充尺寸與穿著效果的判斷資訊，對應決策 02。</p>
+      <span class="k">{content.ch04.frontend.eyebrow}</span>
+      <h3>{content.ch04.frontend.title}</h3>
+      <p>{content.ch04.frontend.body1}</p>
+      <p>{content.ch04.frontend.body2}</p>
     </div>
-    <div class="wide"><img src="/assets/images/project/UIUX/web/chuu/ui-4.jpg" alt="商品詳情與評價" loading="lazy" /></div>
+    {content.ch04.frontend.figures.map((f) => (
+      <div class="wide">
+        <img src={f.src} alt={f.alt} loading="lazy" />
+        <div class="cap">{f.caption}</div>
+      </div>
+    ))}
 
-    <div class="ui-sub">
-      <span class="k">介面 04</span>
-      <h3>購物車</h3>
-      <p>在合計金額附近顯示免運門檻與目前差額，讓運費條件在結帳前被看見，對應決策 01。</p>
-    </div>
-    <div class="wide"><img src="/assets/images/project/UIUX/web/chuu/ui-5.jpg" alt="購物車頁" loading="lazy" /></div>
-
-    <div class="ui-sub">
-      <span class="k">Responsive</span>
-      <h3>跨裝置設計</h3>
-      <p>設計稿涵蓋桌機、平板與手機情境。我依螢幕寬度重新安排導覽、商品欄數、圖片比例、文字層級與操作區域，而不是將桌面版等比例縮小。</p>
-    </div>
-    <div class="wide"><img src="/assets/images/project/UIUX/web/chuu/rwd.jpg" alt="桌機、平板、手機三種螢幕情境的首頁設計稿" loading="lazy" /></div>
-
-    <div class="ui-sub">
-      <span class="k">Front-end</span>
-      <h3>靜態前端切版</h3>
-      <p>我將首頁與熱銷商品列表製作為靜態前端頁面，使用 HTML、CSS 與 JavaScript 實作商品網格、導覽、Banner 自動輪播與基本 Responsive 調整。以下為首頁與熱銷商品列表的實際切版畫面。</p>
-      <p>商品詳情、評價、購物車、會員、客服與付款僅完成介面設計，未實作資料、表單處理、登入狀態或後端流程。</p>
-    </div>
-    <div class="wide">
-      <img src="/assets/images/project/UIUX/web/chuu/frontend-index.jpg" alt="靜態切版成品：首頁桌機版完整頁面" loading="lazy" />
-      <div class="cap">切版成品 · 首頁（桌機），含 Banner 輪播與商品網格</div>
-    </div>
-    <div class="wide">
-      <img src="/assets/images/project/UIUX/web/chuu/frontend-page1.jpg" alt="靜態切版成品：熱銷商品列表桌機版完整頁面" loading="lazy" />
-      <div class="cap">切版成品 · 熱銷商品列表（桌機）</div>
-    </div>
-
-    <div class="ui-sub">
-      <span class="k">延伸介面</span>
-      <h3>活動 Banner 版型</h3>
-      <p>四款活動 Banner 共用同一套版式與色彩，瀏覽時的視覺節奏穩定。</p>
-    </div>
-    <div class="wide"><img src="/assets/images/project/UIUX/web/chuu/ui-2.jpg" alt="活動 Banner 版型" loading="lazy" /></div>
-
-    <div class="ui-sub">
-      <span class="k">延伸介面</span>
-      <h3>穿搭推薦</h3>
-      <p>以完整穿搭呈現商品搭配，並提供查看其中單品的入口，對應決策 03；這是商品探索的延伸內容。</p>
-    </div>
-    <div class="wide"><img src="/assets/images/project/UIUX/web/chuu/ui-6.jpg" alt="穿搭推薦頁" loading="lazy" /></div>
-
-    <div class="ui-sub">
-      <span class="k">延伸介面</span>
-      <h3>客服中心</h3>
-      <p>將常見問題、公告與聯絡客服分開整理，作為購物流程外的輔助資訊。</p>
-    </div>
-    <div class="wide"><img src="/assets/images/project/UIUX/web/chuu/ui-7.jpg" alt="客服中心頁" loading="lazy" /></div>
+    {content.ch04.extendedScreens.map((s) => (
+      <>
+        <div class="ui-sub">
+          <span class="k">{s.eyebrow}</span>
+          <h3>{s.title}</h3>
+          <p>{s.body}</p>
+        </div>
+        <div class="wide"><img src={s.image.src} alt={s.image.alt} loading="lazy" /></div>
+      </>
+    ))}
 
 
   </section>
 
   <section class="next">
     <div class="wrap">
-      <span class="eyebrow">Next project</span>
-      <a href="/work/quake.html">震時秒判 →</a>
+      <span class="eyebrow">{content.next.eyebrow}</span>
+      <a href={content.next.href}>{content.next.title} →</a>
     </div>
   </section>
 </main>
@@ -278,20 +236,20 @@ import Base from '../../layouts/Base.astro';
 <footer>
   <div class="wrap foot-cols">
     <div class="fcol-links">
-      <span class="fk">( Menu )</span>
-      <a href="/#work">作品</a>
-      <a href="/about.html">關於我</a>
-      <a href="/#contact">聯絡我</a>
+      <span class="fk">{site.footerCase.menuLabel}</span>
+      {site.footerCase.menuLinks.map((l) => (
+        <a href={l.href}>{l.label}</a>
+      ))}
     </div>
     <div class="fcol-links">
-      <span class="fk">( Reach out )</span>
-      <a href="mailto:brynn06191@gmail.com">Email</a>
-      <a href="/assets/files/brynn-cv.pdf" download>CV</a>
+      <span class="fk">{site.footerCase.reachLabel}</span>
+      <a href={site.footerCase.email.href}>{site.footerCase.email.label}</a>
+      <a href={site.footerCase.cv.href} download>{site.footerCase.cv.label}</a>
     </div>
   </div>
   <div class="wrap foot">
-    <span>© 2026 Brynn Li</span>
-    <span>UI/UX Case Study</span>
+    <span>{site.footerCase.copyright}</span>
+    <span>{site.footerCase.tagline}</span>
   </div>
 </footer>
 

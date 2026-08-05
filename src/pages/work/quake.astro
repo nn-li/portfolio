@@ -1,50 +1,52 @@
 ---
 import Base from '../../layouts/Base.astro';
+import content from '../../content/work/quake.json';
+import site from '../../content/site.json';
 ---
-<Base title='震時秒判｜地震應對 App 產品設計 · Case Study' description='震時秒判是一款涵蓋震前準備、震時應變與震後支援的地震應對 App。透過量化問卷調查、5 位使用者深度訪談、資訊架構、User Flow、介面與原型測試，將複雜防災資訊整理成可理解的流程與行動提示。作品獲金點概念設計獎與金點新秀設計獎。'>
+<Base title={content.title} description={content.description}>
   <Fragment slot="head"><link rel="stylesheet" href="/assets/case.css" /></Fragment>
 
 <div class="topbar">
   <div class="wrap">
     <a class="brand" href="/">Brynn<span>.</span></a>
-    <a class="back" href="/#work">← All work</a>
+    <a class="back" href="/#work">{site.topbar.back}</a>
   </div>
 </div>
 
 <main>
   <!-- 滿版 hero -->
   <div class="cx-herobanner">
-    <img src="/assets/images/project/UIUX/web/quake/cover.jpg?v=2" alt="震時秒判 主視覺" />
+    <img src={content.hero.cover.src} alt={content.hero.cover.alt} />
   </div>
 
   <!-- 標題 -->
   <div class="cx-title">
-    <span class="eyebrow">UI/UX · Disaster Preparedness App · 2025</span>
-    <h1 class="display">震時秒判</h1>
-    <p class="lead">將防災資訊依震前準備、震時應變與震後復原三個階段重新組織，並根據使用者所處情境，提供當下最必要的指引與下一步行動。</p>
+    <span class="eyebrow">{content.hero.eyebrow}</span>
+    <h1 class="display">{content.hero.title}</h1>
+    <p class="lead">{content.hero.lead}</p>
     <div class="awards">
-      <img class="award-img" src="/assets/images/awards/golden-pin-concept-2025.png" alt="金點概念設計獎 2025 標章 Golden Pin Concept Design Award" />
-      <span class="award">金點概念設計獎 <span class="en">Golden Pin Concept Design Award</span></span>
-      <span class="award">金點新秀設計獎 <span class="en">Young Pin Design Award</span></span>
+      <img class="award-img" src={content.hero.awardImage.src} alt={content.hero.awardImage.alt} />
+      {content.hero.awards.map((a) => (
+        <span class="award">{a.name} <span class="en">{a.en}</span></span>
+      ))}
     </div>
   </div>
 
   <!-- meta -->
   <dl class="cx-metarow">
-    <div><dt>專案年份</dt><dd>2025</dd></div>
-    <div><dt>主要負責項目</dt><dd>使用者研究、資訊架構、User Flow、UI Design、Prototype、聲音設計、易用性測試</dd></div>
-    <div><dt>使用工具</dt><dd>Figma</dd></div>
-    <div><dt>類型</dt><dd>Product Concept · Disaster Preparedness</dd></div>
+    {content.hero.meta.map((m) => (
+      <div><dt>{m.label}</dt><dd>{m.value}</dd></div>
+    ))}
   </dl>
 
   <!-- 左導覽 + 敘事 -->
   <div class="cx">
     <aside class="cx-nav">
       <ul>
-        <li><a href="#s1" class="active">背景與目標</a></li>
-        <li><a href="#s2">挑戰與洞察</a></li>
-        <li><a href="#s3">設計決策</a></li>
-        <li><a href="#s4">介面設計</a></li>
+        <li><a href="#s1" class="active">{content.ch01.label}</a></li>
+        <li><a href="#s2">{content.ch02.label}</a></li>
+        <li><a href="#s3">{content.ch03.label}</a></li>
+        <li><a href="#s4">{content.ch04.label}</a></li>
       </ul>
     </aside>
 
@@ -52,252 +54,204 @@ import Base from '../../layouts/Base.astro';
 
       <!-- 01 背景與目標 -->
       <section class="cx-sec" id="s1" data-sec>
-        <span class="secnum">01</span>
-        <h2 class="lbl">背景與目標</h2>
-        <p class="intro">台灣地震頻繁，警報能快速通知地震發生，但使用者仍需在有限時間內判斷如何保護自己、搖晃停止後是否移動、如何確認家人狀態，以及震後從哪裡取得支援。「震時秒判」因此將地震相關需求整理為震前準備、震時應變與震後支援三個階段，依不同情境提供相對應的資訊與行動入口。</p>
+        <span class="secnum">{content.ch01.num}</span>
+        <h2 class="lbl">{content.ch01.label}</h2>
+        <p class="intro">{content.ch01.intro}</p>
         <div class="sub">
-          <h3>專案目標</h3>
+          <h3>{content.ch01.goals.title}</h3>
           <ul class="facts">
-            <li>梳理震前準備、震時應變與震後支援的核心需求與功能範圍</li>
-            <li>定義各階段的資訊優先順序、系統狀態與主要行動</li>
-            <li>建立從警報、自我保護、避難、報平安到震後支援的核心流程，並透過原型測試檢查流程理解與操作銜接</li>
+            {content.ch01.goals.items.map((item) => (
+              <li>{item}</li>
+            ))}
           </ul>
         </div>
         <div class="sub">
-          <h3>警報響起後，使用者仍需要判斷下一步</h3>
-          <p>地震發生時，使用者不只需要理解警報資訊，也要依所在位置、周遭風險與自身狀態判斷如何保護自己，並在搖晃停止後決定是否避難、如何確認家人狀態。若將這些資訊集中在警報畫面，會增加高壓情境下的閱讀與判斷負擔；但若只提供震度等地震資訊，又不足以支持後續行動。因此，本案的核心設計問題是：<b style="color:var(--clay)">如何依震前、震時與震後的不同需求安排資訊優先順序，讓使用者在每個階段都能清楚知道當下該做什麼</b>。</p>
-          <div class="fig"><img src="/assets/images/project/UIUX/web/quake/bg-problem.jpg" alt="地震當下使用者的判斷與資訊需求" loading="lazy" /><div class="cap">地震發生時，使用者同時面對的判斷與資訊需求</div></div>
+          <h3>{content.ch01.problem.title}</h3>
+          <p><Fragment set:html={content.ch01.problem.bodyHtml} /></p>
+          <div class="fig"><img src={content.ch01.problem.figure.src} alt={content.ch01.problem.figure.alt} loading="lazy" /><div class="cap">{content.ch01.problem.figure.caption}</div></div>
         </div>
         <div class="sub">
-          <h3>結合問卷與訪談，理解功能偏好與行動限制</h3>
-          <p>我先透過問卷掌握使用者的地震應對行為、通知方式與功能偏好，再透過 5 位使用者訪談，比較不同居住環境、行動條件與地震經驗下的判斷與資訊限制。</p>
+          <h3>{content.ch01.research.title}</h3>
+          <p>{content.ch01.research.body}</p>
           <div class="phases" style="grid-template-columns:1fr 1fr">
-            <div class="ph"><span class="pht">問卷調查</span><span class="phw">掌握地震應對行為與功能偏好</span></div>
-            <div class="ph"><span class="pht">使用者訪談</span><span class="phw">理解不同情境下的判斷、行動與資訊限制</span></div>
+            {content.ch01.research.methods.map((m) => (
+              <div class="ph"><span class="pht">{m.title}</span><span class="phw">{m.desc}</span></div>
+            ))}
           </div>
         </div>
         <div class="sub">
-          <h3>問卷確認使用者優先關注的功能</h3>
-          <p>問卷結果顯示，使用者較重視即時警報、聲音通知、避難資訊與家人聯繫。這些結果協助我確認主要功能方向，但仍不足以說明使用者在地震當下如何判斷與採取行動。</p>
+          <h3>{content.ch01.survey.title}</h3>
+          <p>{content.ch01.survey.body}</p>
           <div class="fig" style="margin-top:14px">
             <div class="metrics four" style="margin:0 0 10px">
-              <div class="metric" style="padding:24px 22px"><div class="big">96%</div><div class="lbl">希望 App 提供地震即時警報</div></div>
-              <div class="metric" style="padding:24px 22px"><div class="big">85%</div><div class="lbl">認為聲音警報是有效的通知方式</div></div>
-              <div class="metric" style="padding:24px 22px"><div class="big">75%</div><div class="lbl">希望提供緊急避難路線導航</div></div>
-              <div class="metric" style="padding:24px 22px"><div class="big">73%</div><div class="lbl">希望提供家庭位置共享與聯絡功能</div></div>
+              {content.ch01.survey.metrics.map((m) => (
+                <div class="metric" style="padding:24px 22px"><div class="big">{m.value}</div><div class="lbl">{m.label}</div></div>
+              ))}
             </div>
-            <p style="font-size:12.5px;color:var(--ink-faint);margin:0 0 14px">問卷共回收 56 份，其中 55 份納入描述性整理。</p>
-            <p>問卷能確認哪些功能受到重視，卻無法解釋使用者為什麼在地震當下仍可能無法行動。因此，我再透過訪談比較不同情境下的限制與判斷方式。</p>
+            <p style="font-size:12.5px;color:var(--ink-faint);margin:0 0 14px">{content.ch01.survey.note}</p>
+            <p>{content.ch01.survey.closing}</p>
           </div>
         </div>
       </section>
 
       <!-- 02 挑戰與洞察 -->
       <section class="cx-sec" id="s2" data-sec>
-        <span class="secnum">02</span>
-        <h2 class="lbl">挑戰與洞察</h2>
-        <p class="intro">訪談結果修正了原先將多數資訊集中於震時介面的設計假設。地震當下的限制不僅來自資訊不足，也包括注意力被周遭風險占用、行動能力受限，以及網路或道路中斷。因此，我將資訊與行動指引依震前準備、震時應變與震後支援分階段配置，讓使用者在各階段優先取得與當下任務相關的內容。</p>
+        <span class="secnum">{content.ch02.num}</span>
+        <h2 class="lbl">{content.ch02.label}</h2>
+        <p class="intro">{content.ch02.intro}</p>
         <div class="phases">
-          <div class="ph">
-            <span class="pht">4 個月</span>
-            <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.08em;color:var(--clay);margin-top:2px">專案週期</span>
-            <span class="phw">完成使用者研究、資訊架構、流程設計、介面設計與多輪 Prototype 測試</span>
-          </div>
-          <div class="ph">
-            <span class="pht">多重情境</span>
-            <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.08em;color:var(--clay);margin-top:2px">需求差異</span>
-            <span class="phw">同一則警報在高樓、山區、移動途中與家庭照顧等情境下，可能面臨不同的行動與資訊限制</span>
-          </div>
-          <div class="ph">
-            <span class="pht">高壓操作</span>
-            <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.08em;color:var(--clay);margin-top:2px">資訊優先順序</span>
-            <span class="phw">使用者可能無法持續查看手機，需要快速辨識當下狀態與下一步行動</span>
-          </div>
+          {content.ch02.stats.map((s) => (
+            <div class="ph">
+              <span class="pht">{s.title}</span>
+              <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.08em;color:var(--clay);margin-top:2px">{s.tag}</span>
+              <span class="phw">{s.desc}</span>
+            </div>
+          ))}
         </div>
 
         <div class="sub">
-          <h3>以不同情境比較地震中的行動限制</h3>
-          <p>地震中的資訊與行動需求，會受到居住環境、行動能力、家庭責任與既有經驗影響。因此，我先選擇 3 位情境差異較大的受訪者進行深入比較，再加入 2 位不同生活與工作背景的受訪者，檢查前期出現的問題是否重複發生，並補充震前準備與震後恢復等情境</p>
+          <h3>{content.ch02.sampling.title}</h3>
+          <p>{content.ch02.sampling.body}</p>
           <div class="smap">
             <div class="sgroup">
-              <div class="glabel">代表情境 · 3 位<span>比較不同環境、行動條件與地震經驗</span></div>
-              <div class="srow"><b>Gill</b><span class="st">孕期行動限制</span><span class="st">家庭照護</span><span class="sd">孕期使移動與避難判斷受到限制，同時還需兼顧幼兒安全</span></div>
-              <div class="srow"><b>Nora</b><span class="st">山區土石流</span><span class="st">就地避難</span><span class="sd">網路、道路與外部資訊都可能暫時中斷</span></div>
-              <div class="srow"><b>Carter</b><span class="st">強震經驗</span><span class="st">主動疏散</span><span class="st hot">強震親歷</span><span class="sd">曾在強震中參與疏散，並協助周遭人員移動</span></div>
+              <div class="glabel">{content.ch02.sampling.groupMain.label}<span>{content.ch02.sampling.groupMain.sub}</span></div>
+              {content.ch02.sampling.groupMain.rows.map((r) => (
+                <div class="srow"><b>{r.name}</b>{r.tags.map((t) => <span class={t.hot ? 'st hot' : 'st'}>{t.text}</span>)}<span class="sd">{r.desc}</span></div>
+              ))}
             </div>
             <div class="sgroup check">
-              <div class="glabel">延伸訪談 · 2 位<span>檢查需求是否重複出現，並補充其他階段</span></div>
-              <div class="srow"><b>Henry</b><span class="st">一般防災認知</span><span class="st">震前演練</span><span class="sd">補充使用者如何理解防災原則，以及如何套用到不同場所</span></div>
-              <div class="srow"><b>Arnold</b><span class="st">公共服務</span><span class="st">震後恢復</span><span class="sd">補充停水、停電、道路與公共服務恢復等震後資訊需求</span></div>
+              <div class="glabel">{content.ch02.sampling.groupCheck.label}<span>{content.ch02.sampling.groupCheck.sub}</span></div>
+              {content.ch02.sampling.groupCheck.rows.map((r) => (
+                <div class="srow"><b>{r.name}</b>{r.tags.map((t) => <span class={t.hot ? 'st hot' : 'st'}>{t.text}</span>)}<span class="sd">{r.desc}</span></div>
+              ))}
             </div>
           </div>
-          <p>其中，Carter 的強震疏散經驗修正了我對震時操作的假設：<b style="color:var(--clay)">危機發生時，使用者會優先注意掉落物、逃生方向與周遭風險，不一定能持續查看或操作手機</b>。其他訪談則進一步補充了行動受限、山區斷網、家庭照顧、震前演練與震後恢復等需求</p>
+          <p><Fragment set:html={content.ch02.sampling.closingHtml} /></p>
         </div>
         <div class="sub">
-          <h3>同一則警報，在不同情境下可能失效</h3>
-          <p>比較三個差異較大的使用情境後，我發現問題不只在於使用者有沒有收到警報，而是警報內容能否在當下被理解，並指向可執行的下一步。</p>
+          <h3>{content.ch02.failure.title}</h3>
+          <p>{content.ch02.failure.body}</p>
           <div class="phases">
-            <div class="ph">
-              <span class="pht" style="font-size:15.5px;color:var(--clay)">高樓住宅與家庭照顧</span>
-              <span class="phw">使用者需要同時判斷自身安全、幼兒狀態與移動時機，難以長時間閱讀資訊，也無法只考慮自己的避難行動</span>
-            </div>
-            <div class="ph">
-              <span class="pht" style="font-size:15.5px;color:var(--clay)">山區環境與連線限制</span>
-              <span class="phw">使用者除了需要理解警報，也可能面臨網路、道路與聯外資訊中斷，導致後續避難與支援資訊無法取得</span>
-            </div>
-            <div class="ph">
-              <span class="pht" style="font-size:15.5px;color:var(--clay)">強震經驗與主動疏散</span>
-              <span class="phw">危機發生時，使用者會優先注意掉落物、逃生方向與周遭風險，不一定能持續查看或操作手機</span>
-            </div>
+            {content.ch02.failure.phases.map((p) => (
+              <div class="ph">
+                <span class="pht" style="font-size:15.5px;color:var(--clay)">{p.title}</span>
+                <span class="phw">{p.desc}</span>
+              </div>
+            ))}
           </div>
         </div>
 
         <div class="sub">
-          <h3>三個代表情境的 Journey Map</h3>
-          <p>我將三個情境放進警報前後的行動歷程中比較，確認限制發生在哪個時點，以及使用者在收到資訊後，為什麼仍無法完成下一步行動。</p>
-          <div class="fig"><img src="/assets/images/project/UIUX/web/quake/journey-integrated.jpg" alt="三個代表情境的行動歷程整合" loading="lazy" /><div class="cap">三個代表情境的行動歷程：警報接收、當下判斷與後續行動限制</div></div>
-          <p>三個情境顯示，警報失效的原因並不相同：有人需要同時處理自身安全與照顧責任，有人受限於聯外中斷，也有人在危機當下不會持續查看手機。</p>
+          <h3>{content.ch02.journey.title}</h3>
+          <p>{content.ch02.journey.body}</p>
+          <div class="fig"><img src={content.ch02.journey.figure.src} alt={content.ch02.journey.figure.alt} loading="lazy" /><div class="cap">{content.ch02.journey.figure.caption}</div></div>
+          <p>{content.ch02.journey.closing}</p>
         </div>
 
         <div class="sub">
-          <h3>洞察收斂：警報都響了，為什麼還是失敗</h3>
+          <h3>{content.ch02.insightTable.title}</h3>
           <table class="mtable">
             <thead>
-              <tr><th>情境</th><th>主要限制</th><th>對應的設計</th></tr>
+              <tr><th>{content.ch02.insightTable.headers.scenario}</th><th>{content.ch02.insightTable.headers.limitation}</th><th>{content.ch02.insightTable.headers.design}</th></tr>
             </thead>
             <tbody>
-              <tr><td>高樓住宅與家庭照顧</td><td>需同時照顧幼兒，難以閱讀大量資訊</td><td>短指令、放大主要操作</td></tr>
-              <tr><td>山區環境與連線限制</td><td>文字警報不易快速辨識，且山區可能斷網</td><td>圖示辨識、離線準備</td></tr>
-              <tr><td>強震經驗與主動疏散</td><td>強震當下不一定查看手機</td><td>聲音提示先觸達</td></tr>
+              {content.ch02.insightTable.rows.map((r) => (
+                <tr><td>{r.scenario}</td><td>{r.limitation}</td><td>{r.design}</td></tr>
+              ))}
             </tbody>
           </table>
-          <p>警報是否有效，不只取決於有沒有送達，也取決於使用者當下是否有注意力、行動條件與資訊管道可以理解並採取行動。因此，震時設計不能假設使用者會持續閱讀或操作手機。</p>
+          <p>{content.ch02.insightTable.closing}</p>
         </div>
 
         <div class="sub">
-          <h3>跨情境收斂出的關鍵需求</h3>
-          <p>警報失效只是研究發現的一部分。再結合另外兩位受訪者對震前演練與震後恢復的回饋後，我將五種情境放在一起比較，整理出四類橫跨震時與震後的關鍵需求。</p>
+          <h3>{content.ch02.needs.title}</h3>
+          <p>{content.ch02.needs.body}</p>
           <div class="consensus">
-            <div class="citem stacked">
-              <span class="phase-tag">震時</span>
-              <b>行動判斷</b>
-              <span class="desc">收到警報後，仍需判斷應先就地保護、移動或避難。</span>
-            </div>
-            <div class="citem stacked">
-              <span class="phase-tag">震時・震後</span>
-              <b>資訊可及性</b>
-              <span class="desc">在斷網、注意力受限或無法持續查看螢幕時，仍需取得關鍵資訊。</span>
-            </div>
-            <div class="citem stacked">
-              <span class="phase-tag">震時・震後</span>
-              <b>家人狀態</b>
-              <span class="desc">需要快速確認家人狀態，並回報自身位置與平安資訊。</span>
-            </div>
-            <div class="citem stacked">
-              <span class="phase-tag">震後</span>
-              <b>震後支援</b>
-              <span class="desc">需要取得避難、物資、官方公告與災後恢復資訊。</span>
-            </div>
+            {content.ch02.needs.items.map((c) => (
+              <div class="citem stacked">
+                <span class="phase-tag">{c.phase}</span>
+                <b>{c.title}</b>
+                <span class="desc">{c.desc}</span>
+              </div>
+            ))}
           </div>
-          <p>這些需求顯示，地震中的使用者任務不只發生在警報當下，也延續至家人聯繫、避難與震後恢復，成為後續功能排序、資訊層級與階段配置的依據。</p>
+          <p>{content.ch02.needs.closing}</p>
         </div>
 
         <div class="sub">
-          <h3>被研究修正的假設</h3>
+          <h3>{content.ch02.assumption.title}</h3>
           <div class="dcard" style="margin-top:16px">
-            <h4>從集中資訊，轉為分階段支援</h4>
-            <div class="dline dfind"><span class="k">原先假設</span><span>地震發生時，應在震時介面提供較完整的警報、避難與支援資訊</span></div>
-            <div class="dline dsee"><span class="k">研究發現</span><span>地震當下的注意力可能被周遭風險占用，使用者也可能面臨行動、連線與閱讀限制。過多資訊不一定能幫助判斷，反而可能增加負擔</span></div>
-            <div class="dline dwin"><span class="k">調整方向</span><span>震時只保留與當下安全直接相關的狀態與行動指令，其餘資訊分別配置於震前準備與震後支援</span></div>
+            <h4>{content.ch02.assumption.cardTitle}</h4>
+            <div class="dline dfind"><span class="k">{content.ch02.assumption.before.label}</span><span>{content.ch02.assumption.before.text}</span></div>
+            <div class="dline dsee"><span class="k">{content.ch02.assumption.finding.label}</span><span>{content.ch02.assumption.finding.text}</span></div>
+            <div class="dline dwin"><span class="k">{content.ch02.assumption.adjust.label}</span><span>{content.ch02.assumption.adjust.text}</span></div>
           </div>
-          <p style="margin-top:16px">研究結果讓設計重點從集中提供資訊，轉為依不同階段與使用情境安排內容。接下來，我將這些洞察整理成資訊架構、功能流程與震時介面的具體設計決策。</p>
+          <p style="margin-top:16px">{content.ch02.assumption.closing}</p>
         </div>
 
       </section>
 
       <!-- 03 設計決策 -->
       <section class="cx-sec" id="s3" data-sec>
-        <span class="secnum">03</span>
-        <h2 class="lbl">設計決策</h2>
-        <p class="intro">研究結果顯示，使用者的任務橫跨震前、震時與震後，而震時又受到注意力、行動與連線條件限制。因此，我先重新分配三個階段的功能，再進一步決定震時第一層的資訊量、系統觸發條件與後續操作。</p>
+        <span class="secnum">{content.ch03.num}</span>
+        <h2 class="lbl">{content.ch03.label}</h2>
+        <p class="intro">{content.ch03.intro}</p>
         <div class="sub">
-          <h3>依地震階段重新分配任務</h3>
-          <p>我將準備與演練安排在震前，震時集中支援當下保護與判斷，避難、聯繫與恢復資訊則在搖晃停止後展開。</p>
+          <h3>{content.ch03.reallocation.title}</h3>
+          <p>{content.ch03.reallocation.body}</p>
           <div class="phases">
             <div class="ph">
-              <span class="pht">震前</span>
-              <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.08em;color:var(--clay);margin-top:2px">建立準備與情境判斷</span>
-              <span class="phw">防災包、家具檢查、情境演練</span>
+              <span class="pht">{content.ch03.reallocation.phases.pre.title}</span>
+              <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.08em;color:var(--clay);margin-top:2px">{content.ch03.reallocation.phases.pre.tag}</span>
+              <span class="phw">{content.ch03.reallocation.phases.pre.desc}</span>
             </div>
             <div class="ph hot">
-              <span class="pht">震時</span>
-              <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.08em;color:var(--clay);margin-top:2px">支援當下保護與行動</span>
-              <span class="phw" style="color:var(--ink-soft);font-weight:400">地震警報、自我保護指令、搖晃停止後銜接報平安</span>
+              <span class="pht">{content.ch03.reallocation.phases.during.title}</span>
+              <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.08em;color:var(--clay);margin-top:2px">{content.ch03.reallocation.phases.during.tag}</span>
+              <span class="phw" style="color:var(--ink-soft);font-weight:400">{content.ch03.reallocation.phases.during.desc}</span>
             </div>
             <div class="ph">
-              <span class="pht">震後</span>
-              <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.08em;color:var(--clay);margin-top:2px">協助避難與恢復判斷</span>
-              <span class="phw">避難資訊、物資、官方公告、建物損傷紀錄</span>
+              <span class="pht">{content.ch03.reallocation.phases.post.title}</span>
+              <span style="display:block;font-size:11.5px;font-weight:600;letter-spacing:.08em;color:var(--clay);margin-top:2px">{content.ch03.reallocation.phases.post.tag}</span>
+              <span class="phw">{content.ch03.reallocation.phases.post.desc}</span>
             </div>
           </div>
-          <div class="fig"><img src="/assets/images/project/UIUX/web/quake/system-overview.jpg" alt="功能系統概述：震前準備 / 震時應變 / 震後復原" loading="lazy" /></div>
-          <p style="margin-top:14px">三階段架構不只用來分類功能，也定義各階段的資訊優先順序與後續操作，其中最關鍵的取捨，是震時第一層應提供多少資訊。</p>
+          <div class="fig"><img src={content.ch03.reallocation.figure.src} alt={content.ch03.reallocation.figure.alt} loading="lazy" /></div>
+          <p style="margin-top:14px">{content.ch03.reallocation.closing}</p>
         </div>
 
         <div class="sub">
-          <h3>震時第一層，優先行動還是完整資訊</h3>
+          <h3>{content.ch03.versus.title}</h3>
           <div class="versus">
             <div class="vopt lose">
-              <span class="vtag">未採用方向</span>
-              <div class="vt">第一層集中呈現完整資訊</div>
-              <p>同時呈現震度、建物資訊、避難建議與地震說明，資訊較完整，但使用者需要在高壓情境下閱讀與判斷多項內容</p>
+              <span class="vtag">{content.ch03.versus.lose.tag}</span>
+              <div class="vt">{content.ch03.versus.lose.title}</div>
+              <p>{content.ch03.versus.lose.body}</p>
             </div>
             <div class="vs">vs</div>
             <div class="vopt win">
-              <span class="vtag">最終決策</span>
-              <div class="vt">第一層只保留必要狀態與指引</div>
-              <p>優先呈現地震狀態、自我保護與立即行動；其他資訊待搖晃停止或進入下一步後再展開</p>
+              <span class="vtag">{content.ch03.versus.win.tag}</span>
+              <div class="vt">{content.ch03.versus.win.title}</div>
+              <p>{content.ch03.versus.win.body}</p>
             </div>
           </div>
-          <p style="margin-top:16px">這項取捨降低了第一時間可見的資訊量，但換取更清楚的閱讀順序與行動優先級，被延後的內容並未刪除，而是依地震狀態與使用者操作分段呈現。</p>
+          <p style="margin-top:16px">{content.ch03.versus.closing}</p>
         </div>
 
         <div class="sub">
-          <h3>將研究洞察轉化為四項關鍵決策</h3>
-          <p>在三階段架構與震時資訊層級確定後，再針對情境演練、警報呈現、報平安與震後支援做出以下取捨。</p>
+          <h3>{content.ch03.decisions.title}</h3>
+          <p>{content.ch03.decisions.body}</p>
           <div class="dcards">
-            <div class="dcard">
-              <span class="dph">震前</span>
-              <span class="dnum">決策 01</span>
-              <h4>情境演練優先於知識堆疊</h4>
-              <span class="dsrc">受訪者知道一般防災原則，卻不確定如何套用到自己的住家、樓層與當下情境</span>
-              <div class="dline dwin"><span class="k">選擇</span><span>依地區、建築與使用情境安排演練，讓使用者預先熟悉相應的避難行動</span></div>
-              <div class="dline dlose"><span class="k">取捨</span><span>不建立大而全的防災知識庫，先聚焦常見且影響行動判斷的情境</span></div>
-            </div>
-            <div class="dcard">
-              <span class="dph">震時</span>
-              <span class="dnum">決策 02</span>
-              <h4>圖示與短指引優先</h4>
-              <span class="dsrc">純文字警報不易在高壓情境下快速辨識，使用者也可能無法持續查看螢幕</span>
-              <div class="dline dwin"><span class="k">選擇</span><span>第一層以短指引、圖示與清楚層級呈現當下最重要的資訊，詳細說明延後至後續頁面</span></div>
-              <div class="dline dlose"><span class="k">取捨</span><span>降低第一層資訊完整度，換取更快的辨識與行動</span></div>
-            </div>
-            <div class="dcard">
-              <span class="dph">震時・震後</span>
-              <span class="dnum">決策 03</span>
-              <h4>結構化報平安</h4>
-              <span class="dsrc">使用者需要快速回報安全、位置與集合狀態，而不是完整聊天訊息</span>
-              <div class="dline dwin"><span class="k">選擇</span><span>以預設欄位組成簡短訊息，減少輸入與確認文字的負擔</span></div>
-              <div class="dline dlose"><span class="k">取捨</span><span>不在此流程加入完整即時聊天，避免增加操作步驟與連線依賴</span></div>
-            </div>
-            <div class="dcard">
-              <span class="dph">震後</span>
-              <span class="dnum">決策 04</span>
-              <h4>整合官方恢復資訊</h4>
-              <span class="dsrc">補充訪談顯示，使用者也需要確認停水、停電、道路、避難所與支援申請等震後資訊</span>
-              <div class="dline dwin"><span class="k">選擇</span><span>集中呈現政府與公用事業公告、物資、恢復進度與支援申請入口</span></div>
-              <div class="dline dlose"><span class="k">取捨</span><span>心理支持在訪談中未形成明確的優先需求，因此本次設計先聚焦官方恢復進度與實際支援資訊</span></div>
-            </div>
+            {content.ch03.decisions.cards.map((d) => (
+              <div class="dcard">
+                <span class="dph">{d.phase}</span>
+                <span class="dnum">{d.num}</span>
+                <h4>{d.title}</h4>
+                <span class="dsrc">{d.source}</span>
+                <div class="dline dwin"><span class="k">{d.win.label}</span><span>{d.win.text}</span></div>
+                <div class="dline dlose"><span class="k">{d.lose.label}</span><span>{d.lose.text}</span></div>
+              </div>
+            ))}
           </div>
         </div>
         <!-- Functional Map（暫時隱藏）
@@ -308,11 +262,11 @@ import Base from '../../layouts/Base.astro';
         </div>
         -->
         <div class="sub">
-          <h3>以使用者流程確認觸發、分支與狀態</h3>
-          <p>以流程分別檢查震前準備與演練、震時警報與自我保護，以及震後避難與支援，並標示系統主動觸發、使用者確認與主要分支，確認不同狀態下應呈現的資訊與下一步。</p>
-          <div class="fig"><img src="/assets/images/project/UIUX/web/quake/userflow-1-v4.svg" alt="使用者流程一 · 震時警報、自我保護與後續避難" loading="lazy" /><div class="cap">流程一｜震時警報、自我保護與後續避難</div><div class="cap">系統主動觸發警報 → 搖晃進行中只呈現必要指引 → 搖晃停止後銜接避難與報平安</div></div>
-          <div class="fig"><img src="/assets/images/project/UIUX/web/quake/userflow-2-v4.svg" alt="使用者流程二 · 震前準備、檢查與情境演練" loading="lazy" /><div class="cap">流程二｜震前準備、檢查與情境演練</div><div class="cap">依住家與生活情境完成設定與檢查 → 系統依選擇產生演練情境 → 完成後顯示結果與待補項目</div></div>
-          <div class="fig"><img src="/assets/images/project/UIUX/web/quake/userflow-3-v4.svg" alt="使用者流程三 · 震後返家判斷、災損紀錄與補助申請" loading="lazy" /><div class="cap">流程三｜震後返家判斷、災損紀錄與補助申請</div><div class="cap">透過 AI 建築風險檢測記錄可見損傷並取得初步風險提示 → 依結果持續留意，或暫緩進入並尋求專業檢查 → 確認可進入後完成災損盤點、補助比對與申請流程</div></div>
+          <h3>{content.ch03.flows.title}</h3>
+          <p>{content.ch03.flows.body}</p>
+          {content.ch03.flows.figures.map((f) => (
+            <div class="fig"><img src={f.src} alt={f.alt} loading="lazy" /><div class="cap">{f.cap1}</div><div class="cap">{f.cap2}</div></div>
+          ))}
         </div>
       </section>
 
@@ -322,57 +276,58 @@ import Base from '../../layouts/Base.astro';
   <!-- 04 介面設計（深色霓虹展示區） -->
   <section class="uidark" id="s4" data-sec>
     <div class="uidark-inner">
-      <span class="k">04</span>
-      <h2>介面設計</h2>
-      <p class="lede">介面以深色背景與高亮重點色建立警報層級，並搭配文字、圖示與聲音提示。第一層只顯示立即需要的指令，詳細資訊則依震前、震時與震後狀態在後續畫面展開。</p>
+      <span class="k">{content.ch04.num}</span>
+      <h2>{content.ch04.label}</h2>
+      <p class="lede">{content.ch04.lede}</p>
 
       <div class="uvideo">
-        <video controls playsinline preload="none" poster="/assets/images/project/UIUX/web/quake/intro-poster.jpg">
-          <source src="/assets/images/project/UIUX/web/quake/intro.mp4" type="video/mp4" />
+        <video controls playsinline preload="none" poster={content.ch04.introVideo.poster}>
+          <source src={content.ch04.introVideo.src} type="video/mp4" />
         </video>
-        <div class="cap">產品介紹影片</div>
+        <div class="cap">{content.ch04.introVideo.caption}</div>
       </div>
 
       <!-- Style Guide -->
       <div class="uphase">
-        <span class="pk">UI Guidelines</span>
-        <h3>介面規範</h3>
-        <p>整理主要色彩、字級、按鈕、圖示與狀態樣式，統一警報、流程與支援資訊在不同畫面中的層級。</p>
-        <div class="styleguide"><img src="/assets/images/project/UIUX/web/quake/styleguide.jpg?v=2" alt="介面規範：色彩、字級與元件狀態" loading="lazy" /></div>
-        <div class="sg-hint">↕ 框內可捲動查看完整介面規範</div>
+        <span class="pk">{content.ch04.styleguide.pk}</span>
+        <h3>{content.ch04.styleguide.title}</h3>
+        <p>{content.ch04.styleguide.body}</p>
+        <div class="styleguide"><img src={content.ch04.styleguide.image.src} alt={content.ch04.styleguide.image.alt} loading="lazy" /></div>
+        <div class="sg-hint">{content.ch04.styleguide.hint}</div>
       </div>
 
       <!-- 震時 -->
       <div class="uphase">
-        <span class="pk">情境一 · 震時</span>
-        <h3>震時應變</h3>
-        <p>地震發生時，系統先主動顯示自我保護指令；搖晃停止後，再依使用者所在情境銜接避難資訊、報平安與後續支援。</p>
-        <div class="uwide"><img src="/assets/images/project/UIUX/web/quake/ui-response-1.jpg" alt="震時應變 · 客製化警報與震度分級判斷" loading="lazy" /></div>
-        <div class="uwide"><img src="/assets/images/project/UIUX/web/quake/ui-response-2.jpg" alt="震時應變 · 避難導引與親友安全確認" loading="lazy" /></div>
+        <span class="pk">{content.ch04.response.pk}</span>
+        <h3>{content.ch04.response.title}</h3>
+        <p>{content.ch04.response.body}</p>
+        {content.ch04.response.images.map((img) => (
+          <div class="uwide"><img src={img.src} alt={img.alt} loading="lazy" /></div>
+        ))}
 
         <!-- 警報聲設計 -->
         <div class="uphase" style="margin-top:44px">
-          <span class="pk">Sound Design</span>
-          <h3>警報聲</h3>
-          <p>現有警報常以相近的高頻聲響呈現，不同程度都容易造成驚嚇，也不容易只靠聲音理解急迫程度。我將提示聲分成三個層級，透過節奏、音高與語音內容區分下一步；使用者沒有查看螢幕時，也能先從聲音知道需要留意、準備或立即行動。這是產品內的通知急迫程度，不等同中央氣象署的官方震度分級。</p>
+          <span class="pk">{content.ch04.sound.pk}</span>
+          <h3>{content.ch04.sound.title}</h3>
+          <p>{content.ch04.sound.body}</p>
           <div class="usounds">
             <div class="usound">
-              <span class="lv">提醒級</span>
-              <h4>輕微提示</h4>
-              <p>較和緩的提示音，提醒使用者留意警報資訊。</p>
-              <audio controls preload="none" src="/assets/images/project/UIUX/web/quake/alarm-low.m4a"></audio>
+              <span class="lv">{content.ch04.sound.levels.low.level}</span>
+              <h4>{content.ch04.sound.levels.low.title}</h4>
+              <p>{content.ch04.sound.levels.low.desc}</p>
+              <audio controls preload="none" src={content.ch04.sound.levels.low.audio}></audio>
             </div>
             <div class="usound mid">
-              <span class="lv">警戒級</span>
-              <h4>中等警示</h4>
-              <p>節奏加快並搭配語音，提醒使用者準備採取保護行動。</p>
-              <audio controls preload="none" src="/assets/images/project/UIUX/web/quake/alarm-medium.m4a"></audio>
+              <span class="lv">{content.ch04.sound.levels.mid.level}</span>
+              <h4>{content.ch04.sound.levels.mid.title}</h4>
+              <p>{content.ch04.sound.levels.mid.desc}</p>
+              <audio controls preload="none" src={content.ch04.sound.levels.mid.audio}></audio>
             </div>
             <div class="usound high">
-              <span class="lv">緊急級</span>
-              <h4>緊急警報</h4>
-              <p>急促明確的警示與語音指令，提醒使用者立即採取保護行動。</p>
-              <audio controls preload="none" src="/assets/images/project/UIUX/web/quake/alarm-high.m4a"></audio>
+              <span class="lv">{content.ch04.sound.levels.high.level}</span>
+              <h4>{content.ch04.sound.levels.high.title}</h4>
+              <p>{content.ch04.sound.levels.high.desc}</p>
+              <audio controls preload="none" src={content.ch04.sound.levels.high.audio}></audio>
             </div>
           </div>
         </div>
@@ -380,82 +335,65 @@ import Base from '../../layouts/Base.astro';
 
       <!-- 震前 -->
       <div class="uphase">
-        <span class="pk">情境二 · 震前</span>
-        <h3>震前準備</h3>
-        <p>將防災包檢查、家具固定與情境演練放在平時完成，讓震時畫面不需要重新解釋大量知識。</p>
-        <div class="uwide"><img src="/assets/images/project/UIUX/web/quake/ui-prepare-1.jpg" alt="震前準備 · 防災包準備與家具固定自檢" loading="lazy" /></div>
-        <div class="uwide"><img src="/assets/images/project/UIUX/web/quake/ui-prepare-2.jpg" alt="震前準備 · 互動式模擬演練" loading="lazy" /></div>
+        <span class="pk">{content.ch04.prepare.pk}</span>
+        <h3>{content.ch04.prepare.title}</h3>
+        <p>{content.ch04.prepare.body}</p>
+        {content.ch04.prepare.images.map((img) => (
+          <div class="uwide"><img src={img.src} alt={img.alt} loading="lazy" /></div>
+        ))}
       </div>
 
       <!-- 震後 -->
       <div class="uphase">
-        <span class="pk">情境三 · 震後</span>
-        <h3>震後支援</h3>
-        <p>整理官方支援資訊、社區互助與 AI 輔助裂痕辨識。使用者拍攝牆面裂痕後，系統提供初步提示，協助判斷是否需要進一步尋求專業檢查，減少因無法判斷而反覆擔心。</p>
-        <p class="note">此功能為概念原型，提供是否建議尋求專業檢查的初步提示，不判定建物結構安全，也不取代結構技師或其他專業鑑定。</p>
-        <div class="uwide"><img src="/assets/images/project/UIUX/web/quake/ui-recover-1.jpg" alt="震後支援 · AI 輔助裂痕辨識與政府資源整合" loading="lazy" /></div>
-        <div class="uwide"><img src="/assets/images/project/UIUX/web/quake/ui-recover-2.jpg" alt="震後支援 · 社群互助打卡" loading="lazy" /></div>
+        <span class="pk">{content.ch04.recover.pk}</span>
+        <h3>{content.ch04.recover.title}</h3>
+        <p>{content.ch04.recover.body}</p>
+        <p class="note">{content.ch04.recover.note}</p>
+        {content.ch04.recover.images.map((img) => (
+          <div class="uwide"><img src={img.src} alt={img.alt} loading="lazy" /></div>
+        ))}
       </div>
 
       <!-- Prototype 互動展示 -->
       <div class="uphase">
-        <span class="pk">Prototype</span>
-        <h3>互動原型</h3>
-        <p>互動原型涵蓋情境設定、分級警報、自我保護、避難導航、通知家人、震前準備與演練、模擬情境，以及震後裂痕辨識與支援資訊，用來檢查三個階段之間的流程與狀態轉換。</p>
+        <span class="pk">{content.ch04.prototype.pk}</span>
+        <h3>{content.ch04.prototype.title}</h3>
+        <p>{content.ch04.prototype.body}</p>
         <div class="uclips">
-          <div class="uclip"><video class="uclipv" muted loop playsinline preload="metadata" poster="/assets/images/project/UIUX/web/quake/proto-0-custom-poster.jpg"><source src="/assets/images/project/UIUX/web/quake/proto-0-custom.mp4" type="video/mp4" /></video><div class="cap">客製化設定</div></div>
-          <div class="uclip"><video class="uclipv" muted loop playsinline preload="metadata" poster="/assets/images/project/UIUX/web/quake/proto-1-alert-poster.jpg"><source src="/assets/images/project/UIUX/web/quake/proto-1-alert.mp4" type="video/mp4" /></video><div class="cap">警示通知</div></div>
-          <div class="uclip"><video class="uclipv" muted loop playsinline preload="metadata" poster="/assets/images/project/UIUX/web/quake/proto-2-nav-poster.jpg"><source src="/assets/images/project/UIUX/web/quake/proto-2-nav.mp4" type="video/mp4" /></video><div class="cap">避難路線導航</div></div>
-          <div class="uclip"><video class="uclipv" muted loop playsinline preload="metadata" poster="/assets/images/project/UIUX/web/quake/proto-3-furniture-poster.jpg"><source src="/assets/images/project/UIUX/web/quake/proto-3-furniture.mp4" type="video/mp4" /></video><div class="cap">家具固定教學</div></div>
-          <div class="uclip"><video class="uclipv" muted loop playsinline preload="metadata" poster="/assets/images/project/UIUX/web/quake/proto-4-drill-select-poster.jpg"><source src="/assets/images/project/UIUX/web/quake/proto-4-drill-select.mp4" type="video/mp4" /></video><div class="cap">避難演練・模式選擇</div></div>
-          <div class="uclip"><video class="uclipv" muted loop playsinline preload="metadata" poster="/assets/images/project/UIUX/web/quake/proto-5-drill-building-poster.jpg"><source src="/assets/images/project/UIUX/web/quake/proto-5-drill-building.mp4" type="video/mp4" /></video><div class="cap">避難演練・隨機情境</div></div>
-          <div class="uclip"><video class="uclipv" muted loop playsinline preload="metadata" poster="/assets/images/project/UIUX/web/quake/proto-6-marquee-poster.jpg"><source src="/assets/images/project/UIUX/web/quake/proto-6-marquee.mp4" type="video/mp4" /></video><div class="cap">模擬地震跑馬燈</div></div>
-          <div class="uclip"><video class="uclipv" muted loop playsinline preload="metadata" poster="/assets/images/project/UIUX/web/quake/proto-7-aiscan-poster.jpg"><source src="/assets/images/project/UIUX/web/quake/proto-7-aiscan.mp4" type="video/mp4" /></video><div class="cap">AI 輔助裂痕辨識</div></div>
+          {content.ch04.prototype.clips.map((c) => (
+            <div class="uclip"><video class="uclipv" muted loop playsinline preload="metadata" poster={c.poster}><source src={c.src} type="video/mp4" /></video><div class="cap">{c.caption}</div></div>
+          ))}
         </div>
       </div>
 
       <!-- 易用性測試 -->
       <div class="uphase">
-        <span class="pk">驗證</span>
-        <h3>易用性測試</h3>
-        <p>設計過程中，我以原型進行多次檢查與調整。其中一輪情境式測試邀請 5 位使用者，觀察他們能否理解警報資訊、找到主要操作，並順利從震時應變銜接至避難、報平安與震後任務。測試涵蓋日間與低光環境，但未模擬真實地震的搖晃與心理壓力，因此結果主要用於檢查資訊辨識、操作方式與流程銜接。</p>
+        <span class="pk">{content.ch04.usability.pk}</span>
+        <h3>{content.ch04.usability.title}</h3>
+        <p>{content.ch04.usability.body}</p>
 
         <div class="ufindings">
-          <p class="fnote">測試中，使用者的停頓主要集中在警報後的避難銜接、警報資訊層級、主要操作的觸控範圍，以及家人狀態回報。依據觀察，我做了以下調整：</p>
-          <div class="ffind">
-            <h4>補齊避難流程</h4>
-            <p>將警報後狀態、避難所選擇、交通方式、導航、抵達與報平安串成連續流程，減少使用者在不同任務之間尋找下一步。</p>
-          </div>
-          <div class="ffind">
-            <h4>調整警報層級與提示方式</h4>
-            <p>以聲音先提醒使用者，再由畫面呈現短指令與主要行動，降低第一時間需要閱讀與判斷的資訊量。</p>
-          </div>
-          <div class="ffind">
-            <h4>放大主要操作並延後次要資訊</h4>
-            <p>擴大主要按鈕的觸控範圍，並將當下行動移至更醒目的位置；次要資訊則延後至後續頁面展開。</p>
-          </div>
-          <div class="ffind">
-            <h4>簡化家人狀態回報</h4>
-            <p>以預設欄位整理安全狀態、所在位置與集合資訊，減少輸入與確認步驟。</p>
-          </div>
-          <div class="ffind">
-            <h4>加入 AI 輔助裂痕辨識與專業協助入口</h4>
-            <p>受測者提到，家中既有裂痕會增加震後返家時的不確定感。基於這項回饋，我加入「AI 建築風險檢測」，讓使用者拍攝並記錄可見裂痕、取得初步風險提示，並銜接專業檢查與政府資源入口。此功能協助使用者辨識疑似異常，並了解是否需要尋求專業協助，不取代正式的建物安全鑑定。</p>
-          </div>
+          <p class="fnote">{content.ch04.usability.findingsNote}</p>
+          {content.ch04.usability.findings.map((f) => (
+            <div class="ffind">
+              <h4>{f.title}</h4>
+              <p>{f.body}</p>
+            </div>
+          ))}
         </div>
 
         <div class="uvideo">
-          <video controls playsinline preload="none" poster="/assets/images/project/UIUX/web/quake/usability-poster.jpg">
-            <source src="/assets/images/project/UIUX/web/quake/usability.mp4" type="video/mp4" />
+          <video controls playsinline preload="none" poster={content.ch04.usability.video.poster}>
+            <source src={content.ch04.usability.video.src} type="video/mp4" />
           </video>
-          <div class="cap">易用性測試操作實錄</div>
+          <div class="cap">{content.ch04.usability.video.caption}</div>
         </div>
       </div>
 
       <div class="uphase">
-        <span class="pk">Concept Feedback</span>
-        <h3>新一代設計展的展場回饋</h3>
-        <p>在新一代設計展介紹產品時，我也詢問參觀者對各階段功能的看法。展場交流中，有參觀者表示家具固定檢查與情境演練有助於理解震前準備，以及如何將一般防災原則套用到住家情境；另有多位參觀者提到，看到家中既有裂痕時，會希望先了解是否需要尋求專業檢查。這些意見為此產品提供了方向性支持。</p>
+        <span class="pk">{content.ch04.feedback.pk}</span>
+        <h3>{content.ch04.feedback.title}</h3>
+        <p>{content.ch04.feedback.body}</p>
       </div>
 <!-- 
       <div class="uphase">
@@ -469,8 +407,8 @@ import Base from '../../layouts/Base.astro';
 
   <section class="next">
     <div class="wrap">
-      <span class="eyebrow">Next project</span>
-      <a href="/work/tra.html">台鐵 e訂通 →</a>
+      <span class="eyebrow">{content.next.eyebrow}</span>
+      <a href={content.next.href}>{content.next.label}</a>
     </div>
   </section>
 </main>
@@ -478,20 +416,20 @@ import Base from '../../layouts/Base.astro';
 <footer>
   <div class="wrap foot-cols">
     <div class="fcol-links">
-      <span class="fk">( Menu )</span>
-      <a href="/#work">作品</a>
-      <a href="/about.html">關於我</a>
-      <a href="/#contact">聯絡我</a>
+      <span class="fk">{site.footerCase.menuLabel}</span>
+      {site.footerCase.menuLinks.map((l) => (
+        <a href={l.href}>{l.label}</a>
+      ))}
     </div>
     <div class="fcol-links">
-      <span class="fk">( Reach out )</span>
-      <a href="mailto:brynn06191@gmail.com">Email</a>
-      <a href="/assets/files/brynn-cv.pdf" download>CV</a>
+      <span class="fk">{site.footerCase.reachLabel}</span>
+      <a href={site.footerCase.email.href}>{site.footerCase.email.label}</a>
+      <a href={site.footerCase.cv.href} download>{site.footerCase.cv.label}</a>
     </div>
   </div>
   <div class="wrap foot">
-    <span>© 2026 Brynn Li</span>
-    <span>UI/UX Case Study</span>
+    <span>{site.footerCase.copyright}</span>
+    <span>{site.footerCase.tagline}</span>
   </div>
 </footer>
 

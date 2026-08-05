@@ -1,0 +1,212 @@
+{
+  "meta": {
+    "title": "關於我 — Brynn · UI/UX Designer",
+    "description": "Brynn Li 的背景橫跨視覺傳達設計、品牌零售與 UX 顧問專案，工作經驗涵蓋政府數位服務、App 與網站優化。"
+  },
+  "hero": {
+    "headingLine1": "Hello, I'm <span style=\"color:var(--clay)\">Brynn</span>!",
+    "headingLine2": "UI/UX Designer",
+    "intro": "我參與過政府數位服務、App 與網站優化專案，工作橫跨使用者研究、流程規劃與介面設計。面對尚待釐清的需求、多方意見與既有系統限制，我會先整理問題與優先順序，再依研究結果提出清楚、可執行的設計方案",
+    "profile": {
+      "name": "Brynn 李薏如",
+      "role": "UI/UX Designer",
+      "location": "Taipei, Taiwan",
+      "photo": {
+        "src": "/assets/images/photo/portrait.jpg",
+        "alt": "Brynn Li 的個人照片"
+      },
+      "emailButton": {
+        "label": "Email ↗",
+        "href": "mailto:brynn06191@gmail.com"
+      },
+      "resumeButton": {
+        "label": "下載履歷 ↗",
+        "href": "/assets/files/brynn-cv.pdf"
+      }
+    }
+  },
+  "background": {
+    "number": "02",
+    "title": "經歷與背景",
+    "experience": {
+      "heading": "Experience",
+      "items": [
+        {
+          "title": "使用者體驗研究員（UI/UX Design）",
+          "meta": "UX 顧問公司｜2025.06－至今",
+          "body": "參與政府數位服務、App 與網站優化，工作涵蓋使用者研究、資訊架構、User Flow、Prototype、介面與規格整理。並依據專案需求，與機關窗口、專案成員及工程師確認功能流程、畫面狀態與實作限制，減少設計與開發之間的理解落差。"
+        },
+        {
+          "title": "品牌專櫃銷售",
+          "meta": "日系服飾品牌｜近 4 年",
+          "body": "從第一線服務中理解顧客如何表達需求、比較選項與做出購買決定，並負責商品推薦、異議處理、視覺陳列與銷售策略執行。這段經驗也讓我建立對使用者情境、品牌溝通與商業目標的理解。"
+        }
+      ]
+    },
+    "education": {
+      "heading": "Education",
+      "items": [
+        {
+          "title": "視覺傳達設計",
+          "meta": "國立台灣藝術大學｜2025"
+        }
+      ]
+    },
+    "tools": {
+      "heading": "Tools & Technical",
+      "items": [
+        {
+          "title": "Design",
+          "body": "Figma・FigJam・Illustrator・Photoshop"
+        },
+        {
+          "title": "Technical foundation",
+          "body": "HTML・CSS"
+        }
+      ]
+    },
+    "recognition": {
+      "heading": "Recognition",
+      "items": [
+        {
+          "title": "金點概念設計獎",
+          "linkLabel": "防災 App「震時秒判」 →",
+          "linkHref": "/work/quake.html"
+        },
+        {
+          "title": "金點新秀設計獎",
+          "linkLabel": "防災 App「震時秒判」 →",
+          "linkHref": "/work/quake.html"
+        }
+      ]
+    }
+  },
+  "careerPath": {
+    "number": "03",
+    "title": "我的職涯路徑",
+    "lead": "從品牌零售、視覺傳達到 UX，三段經歷逐步形成我現在處理問題的方式：理解人如何選擇、組織資訊的層級與呈現，並把尚未明確的需求收斂成可以討論、測試與實作的設計方案",
+    "cards": [
+      {
+        "label": "起點",
+        "title": "品牌專櫃銷售｜近 4 年",
+        "body": "長期在第一線與顧客互動，我觀察人們如何描述需求、比較選項、提出疑慮，以及最後如何決定。實際的選擇往往發生在資訊不完整、時間有限或帶有情緒的情境中，因此我開始在意：提供的資訊是否足以支持判斷，使用者是否知道下一步該怎麼做。"
+      },
+      {
+        "label": "轉折",
+        "title": "視覺傳達設計",
+        "body": "在視覺傳達的訓練裡，我養成對資訊層級、版面結構、視覺敘事與細節的敏感度。我習慣從閱讀順序與資訊重點出發，檢查重要內容是否容易辨識與理解，並能引導後續行動。"
+      },
+      {
+        "label": "現在",
+        "title": "UX 顧問專案",
+        "body": "我把過去對使用者選擇與資訊表達的觀察，帶入政府數位服務、App 與網站優化專案。專案中，我先以研究、資料整理與需求討論釐清問題，再產出資訊架構、操作流程、原型、介面與規格，作為設計討論與開發協作的依據。"
+      }
+    ]
+  },
+  "responsibilities": {
+    "number": "04",
+    "title": "我實際負責什麼",
+    "lead": "不同專案的參與階段與深度不盡相同，我的工作主要涵蓋研究與需求釐清、產品結構與原型、介面設計與交付，以及 AI 輔助工作流程",
+    "cards": [
+      {
+        "label": "Research & Synthesis",
+        "title": "研究與整理",
+        "paragraphs": [
+          "規劃並執行使用者訪談、易用性測試與認知走查，從訪談內容、操作行為與測試紀錄中整理問題、需求與設計依據",
+          "研究結果不只停留在報告中，也會進一步轉化為流程調整、資訊層級與介面設計的方向"
+        ],
+        "tags": [
+          "User Interview",
+          "Usability Testing",
+          "Cognitive Walkthrough",
+          "Research Synthesis"
+        ]
+      },
+      {
+        "label": "Product Structure",
+        "title": "架構與原型",
+        "paragraphs": [
+          "將研究發現與需求整理為資訊架構、User Flow、Wireframe 與 Prototype，讓團隊能以具體方案確認方向、比較選項並討論取捨",
+          "在進入介面設計與開發前，我也會檢查流程是否完整、資訊順序是否合理，以及不同狀態與例外情境是否被納入"
+        ],
+        "tags": [
+          "Information Architecture",
+          "User Flow",
+          "Wireframe",
+          "Prototype"
+        ]
+      },
+      {
+        "label": "UI & Delivery",
+        "title": "介面與交付",
+        "paragraphs": [
+          "根據流程與使用情境設計介面，並整理畫面狀態、互動規則、元件使用方式與設計規格",
+          "遇到資料條件、功能邏輯或實作限制時，我會在設計階段與工程師確認，降低設計稿與實際成果之間的落差"
+        ],
+        "tags": [
+          "UI Design",
+          "Interaction States",
+          "Components",
+          "Design Specification",
+          "Engineering Collaboration"
+        ]
+      }
+    ],
+    "aiNote": {
+      "eyebrow": "AI Workflow",
+      "title": "用 AI 加快探索與實作，也更早看見技術限制",
+      "paragraphs": [
+        "我使用 AI 處理研究資料整理、概念探索、互動原型及前端展示，但設計判斷仍會回到原始資料、使用者證據、專案目標與實際操作結果。製作前端原型的過程，也讓我更具體理解元件結構、響應式版面、互動狀態與技術限制，並在與工程師討論時，提供更明確的流程與規格。",
+        "這個作品集也採用相同的工作方式：網站的資訊架構、內容策略、視覺方向與驗收標準由我主導制定，並透過 AI 協助前端實作與加速開發流程；每一輪成果則由我負責檢查版面一致性、響應式表現、互動細節與內容準確性，確保最終輸出符合設計與使用情境的要求。"
+      ]
+    }
+  },
+  "collaboration": {
+    "number": "05",
+    "title": "我的協作方式",
+    "lead": "我會把每一輪討論整理成可確認的內容，寫明哪些還沒有結論、由誰負責、下一步是什麼，減少資訊在成員之間傳遞時的落差",
+    "cards": [
+      {
+        "title": "將口頭需求寫成具體文件",
+        "body": "當需求仍停留在口頭描述時，我會先整理成 User Flow、畫面狀態、方案比較或待確認事項，讓工程師、機關窗口與專案成員針對同一份內容確認理解與方向。"
+      },
+      {
+        "title": "提前確認實作條件",
+        "body": "設計過程中，我會與工程師確認資料來源、更新方式、使用權限、功能邏輯與例外情境，把技術條件納入方案評估，避免設計定案後才發現需要大幅調整。"
+      },
+      {
+        "title": "區分證據、判斷與待驗證事項",
+        "body": "整理研究或提出方案時，我會區分哪些發現來自使用者證據、哪些是基於專案條件的設計判斷、哪些仍需要驗證，讓團隊理解每項結論的依據與確定程度。"
+      },
+      {
+        "title": "清楚呈現方案取捨",
+        "body": "當方案無法同時滿足所有需求時，我會比較各選項的效益、限制與尚未解決的問題，提出我的判斷與建議，再與團隊確認優先順序及後續方向。"
+      }
+    ]
+  },
+  "beyondWork": {
+    "number": "06",
+    "title": "工作之外",
+    "body": "工作之外，我持續進行互動音像與陶藝創作，也喜歡透過展覽接觸不同的媒材與表達方式。這些興趣讓我在數位介面之外，繼續觀察聲音、材料、節奏與空間之間的關係"
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "查看完整案例、下載履歷，或透過 Email 與我聯絡。",
+    "workButton": {
+      "label": "查看作品 →",
+      "href": "index.html#work"
+    },
+    "resumeButton": {
+      "label": "下載履歷 ↗",
+      "href": "/assets/files/brynn-cv.pdf"
+    },
+    "emailButton": {
+      "label": "Email ↗",
+      "href": "mailto:brynn06191@gmail.com"
+    },
+    "email": {
+      "text": "brynn06191@gmail.com",
+      "href": "mailto:brynn06191@gmail.com"
+    }
+  }
+}

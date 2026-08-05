@@ -31,3 +31,6 @@ dist/
 
 # wrangler 本機狀態
 .wrangler/
+
+# Keystatic GitHub App 金鑰（本機環境變數，不上傳）
+.env
