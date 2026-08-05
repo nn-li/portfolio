@@ -2,24 +2,29 @@
 
 # ── 原始設計大檔不上傳 GitHub ──
 # 網站只使用轉檔後的 web 版；原始檔留在本機。
-# 要更換或新增內容：把原始檔放進 assets/images/project/ 對應資料夾，請 Claude 轉檔即可。
-assets/images/project/*
-!assets/images/project/UIUX
-assets/images/project/UIUX/*
-!assets/images/project/UIUX/web
-!assets/images/project/UIUX/covers
-!assets/images/project/UIUX/chuu-redesign.jpg
-!assets/images/project/UIUX/empty-soul-map.jpg
+# 要更換或新增內容：把原始檔放進 public/assets/images/project/ 對應資料夾，請 Claude 轉檔即可。
+public/assets/images/project/*
+!public/assets/images/project/UIUX
+public/assets/images/project/UIUX/*
+!public/assets/images/project/UIUX/web
+!public/assets/images/project/UIUX/covers
+!public/assets/images/project/UIUX/chuu-redesign.jpg
+!public/assets/images/project/UIUX/empty-soul-map.jpg
 
 # suggest/ 整個資料夾都是內部參考資料，不上傳 GitHub
 suggest/
 
 # 個人照片原始檔不上傳（網站只用轉檔後的 portrait.jpg）
-assets/images/photo/*
-!assets/images/photo/portrait.jpg
+public/assets/images/photo/*
+!public/assets/images/photo/portrait.jpg
 
 # 內部參考（Nelly 檔案）不上傳
 作品集參考/
 
 # 修改前備份（本機安全網，不上傳）
 _backup/
+
+# Astro
+node_modules/
+dist/
+.astro/

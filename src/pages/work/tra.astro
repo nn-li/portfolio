@@ -1,34 +1,20 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>台鐵 e訂通｜訂票流程與票券狀態 App Redesign</title>
-<meta name="description" content="台鐵 e訂通 App redesign case study。透過公開評論盤點與 4 位使用者操作原 App 的相同任務，找出功能入口、任務銜接與票券狀態中的理解斷點，重新規劃 Functional Map、User Flow 與介面。" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/theme.css" />
-<link rel="stylesheet" href="../assets/case.css" />
-<style>
-  /* 本頁參與者卡：桌面四欄，行動版單欄 */
-  .phases.p4 { grid-template-columns: repeat(4, 1fr); }
-  @media (max-width: 720px) { .phases.p4 { grid-template-columns: 1fr; } }
-</style>
-</head>
-<body>
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title='台鐵 e訂通｜訂票流程與票券狀態 App Redesign' description='台鐵 e訂通 App redesign case study。透過公開評論盤點與 4 位使用者操作原 App 的相同任務，找出功能入口、任務銜接與票券狀態中的理解斷點，重新規劃 Functional Map、User Flow 與介面。'>
+  <Fragment slot="head"><link rel="stylesheet" href="/assets/case.css" /></Fragment>
 
 <div class="topbar">
   <div class="wrap">
-    <a class="brand" href="../index.html">Brynn<span>.</span></a>
-    <a class="back" href="../index.html#work">← All work</a>
+    <a class="brand" href="/">Brynn<span>.</span></a>
+    <a class="back" href="/#work">← All work</a>
   </div>
 </div>
 
 <main>
   <!-- 滿版 hero -->
   <div class="cx-herobanner">
-    <img src="../assets/images/project/UIUX/web/tra/cover.jpg" alt="台鐵 e訂通 主視覺" />
+    <img src="/assets/images/project/UIUX/web/tra/cover.jpg" alt="台鐵 e訂通 主視覺" />
   </div>
 
   <!-- 標題 -->
@@ -158,7 +144,7 @@
           <h3>代表性任務歷程</h3>
           <p>以 Alston 的任務歷程為例，我將台北至板橋的查詢、訂票、稍後付款與取票串成完整路徑，檢視不同任務階段的入口、資訊說明與下一步是否連貫。</p>
           <p>其中，區間車無法於 App 內購票時，介面未同步說明適用票種與替代購票方式；完成訂票後，付款入口與後續操作也分散於不同位置。這些情況顯示，問題不只存在於單一畫面，也涉及不同任務之間的資訊與操作銜接。</p>
-          <div class="fig"><img class="raw" src="../assets/images/project/UIUX/web/tra/journey-alston.jpg" alt="Journey Map — Alston 的訂票與付款任務歷程" loading="lazy" /><div class="cap">Journey Map｜Alston 的訂票與付款任務歷程，用於檢視入口、流程銜接與狀態提示。</div></div>
+          <div class="fig"><img class="raw" src="/assets/images/project/UIUX/web/tra/journey-alston.jpg" alt="Journey Map — Alston 的訂票與付款任務歷程" loading="lazy" /><div class="cap">Journey Map｜Alston 的訂票與付款任務歷程，用於檢視入口、流程銜接與狀態提示。</div></div>
         </div>
 
         <div class="sub">
@@ -246,20 +232,20 @@
           <p style="font-size:12.5px;color:var(--ink-faint);margin-top:10px">底部導覽以四項主要任務作為第一層入口</p>
           <details style="margin-top:16px">
             <summary style="cursor:pointer;font-size:14.5px;color:var(--ink-soft)">查看完整 Functional Map</summary>
-            <div class="fig"><img class="raw" src="../assets/images/project/UIUX/web/tra/functional-map.jpg" alt="Functional Map 首頁功能架構" loading="lazy" /><div class="cap">Functional Map｜以四項主要乘車任務重整首頁第一層架構，低頻服務保留於次層。</div></div>
+            <div class="fig"><img class="raw" src="/assets/images/project/UIUX/web/tra/functional-map.jpg" alt="Functional Map 首頁功能架構" loading="lazy" /><div class="cap">Functional Map｜以四項主要乘車任務重整首頁第一層架構，低頻服務保留於次層。</div></div>
           </details>
         </div>
 
         <div class="sub">
           <h3>以 User Flow 定義任務分支與票券狀態</h3>
           <p>以 User Flow 串接訂票、付款、取票與分票的主要流程，並定義「是否立即付款」「是否立即取票」與「是否分票」等關鍵分支，同時整理未付款、待取票與已取票等票券狀態，以及各狀態下可執行的下一步</p>
-          <div class="fig"><img class="raw" src="../assets/images/project/UIUX/web/tra/userflow-full-v2.svg" alt="User Flow 訂票到分票的主要流程與票券狀態" loading="lazy" /><div class="cap">User Flow｜串接訂票、付款、取票與分票流程，並整理主要分支與票券狀態。</div></div>
+          <div class="fig"><img class="raw" src="/assets/images/project/UIUX/web/tra/userflow-full-v2.svg" alt="User Flow 訂票到分票的主要流程與票券狀態" loading="lazy" /><div class="cap">User Flow｜串接訂票、付款、取票與分票流程，並整理主要分支與票券狀態。</div></div>
         </div>
 
         <div class="sub">
           <h3>Wireframe｜將設計決策落到完整任務流程</h3>
           <p>Wireframe 串接查詢、訂票、付款、取票與分票的主要畫面，用於確認入口配置、流程銜接、狀態提示與下一步在不同任務節點的呈現方式。</p>
-          <div class="sgbox"><img src="../assets/images/project/UIUX/web/tra/wireframe.jpg" alt="Wireframe 全流程線框牆" loading="lazy" /></div>
+          <div class="sgbox"><img src="/assets/images/project/UIUX/web/tra/wireframe.jpg" alt="Wireframe 全流程線框牆" loading="lazy" /></div>
           <div class="boxhint">↕ 框內可捲動查看完整線框流程</div>
         </div>
 
@@ -286,7 +272,7 @@
       <p>整理主要色彩、字級、按鈕、輸入欄位與狀態元件，作為訂票、付款與票券管理畫面的共用規則。</p>
     </div>
     <div class="wide">
-      <div class="sgbox"><img src="../assets/images/project/UIUX/web/tra/styleguide.jpg" alt="介面規範：色彩、字級與元件狀態" loading="lazy" /></div>
+      <div class="sgbox"><img src="/assets/images/project/UIUX/web/tra/styleguide.jpg" alt="介面規範：色彩、字級與元件狀態" loading="lazy" /></div>
       <div class="boxhint">↕ 框內可捲動查看完整介面規範</div>
     </div>
 
@@ -295,56 +281,56 @@
       <h3>首頁與訂票</h3>
       <p>底部導覽保留我的車票、訂票、列車動態與旅遊資訊四個主要任務；會員中心維持獨立入口。常用行程可以快速帶入訂票資訊。</p>
     </div>
-    <div class="wide"><img class="raw" src="../assets/images/project/UIUX/web/tra/ui-1.jpg" alt="首頁與訂票功能" loading="lazy" /></div>
+    <div class="wide"><img class="raw" src="/assets/images/project/UIUX/web/tra/ui-1.jpg" alt="首頁與訂票功能" loading="lazy" /></div>
 
     <div class="ui-sub">
       <span class="k">介面 02</span>
       <h3>訂票流程</h3>
       <p>在同一流程完成訂票資訊、車次選擇、確認與訂票結果，並在成功後提示付款期限與下一步。</p>
     </div>
-    <div class="wide"><img class="raw" src="../assets/images/project/UIUX/web/tra/ui-2.jpg" alt="訂票功能操作流程" loading="lazy" /></div>
+    <div class="wide"><img class="raw" src="/assets/images/project/UIUX/web/tra/ui-2.jpg" alt="訂票功能操作流程" loading="lazy" /></div>
 
     <div class="ui-sub">
       <span class="k">介面 03</span>
       <h3>票證資訊</h3>
       <p>依票券狀態優先顯示付款期限、乘車資訊與目前可執行的操作。</p>
     </div>
-    <div class="wide"><img class="raw" src="../assets/images/project/UIUX/web/tra/ui-3.jpg" alt="票證資訊頁" loading="lazy" /></div>
+    <div class="wide"><img class="raw" src="/assets/images/project/UIUX/web/tra/ui-3.jpg" alt="票證資訊頁" loading="lazy" /></div>
 
     <div class="ui-sub">
       <span class="k">介面 04</span>
       <h3>取票與分票</h3>
       <p>將取票與分票拆為清楚的任務節點；分票提供驗證碼複製與分享，並在完成後顯示結果。</p>
     </div>
-    <div class="wide"><img class="raw" src="../assets/images/project/UIUX/web/tra/ui-4.jpg" alt="取票與分票流程" loading="lazy" /></div>
+    <div class="wide"><img class="raw" src="/assets/images/project/UIUX/web/tra/ui-4.jpg" alt="取票與分票流程" loading="lazy" /></div>
 
     <div class="ui-sub">
       <span class="k">介面 05</span>
       <h3>付款</h3>
       <p>區分立即付款與稍後付款，清楚顯示訂單狀態、付款期限與返回付款的入口。</p>
     </div>
-    <div class="wide"><img class="raw" src="../assets/images/project/UIUX/web/tra/ui-5.jpg" alt="付款功能" loading="lazy" /></div>
+    <div class="wide"><img class="raw" src="/assets/images/project/UIUX/web/tra/ui-5.jpg" alt="付款功能" loading="lazy" /></div>
 
     <div class="ui-sub">
       <span class="k">介面 06</span>
       <h3>我的車票</h3>
       <p>依未付款、待取票、已取票與已分票整理票券，讓目前狀態與下一步操作容易辨識。</p>
     </div>
-    <div class="wide"><img class="raw" src="../assets/images/project/UIUX/web/tra/ui-6.jpg" alt="車票管理" loading="lazy" /></div>
+    <div class="wide"><img class="raw" src="/assets/images/project/UIUX/web/tra/ui-6.jpg" alt="車票管理" loading="lazy" /></div>
 
     <div class="ui-sub">
       <span class="k">介面 07</span>
       <h3>列車動態</h3>
       <p>以方向、車種、列車位置與更新時間呈現動態資訊。本案未串接真實列車資料，畫面為資訊呈現概念。</p>
     </div>
-    <div class="wide"><img class="raw" src="../assets/images/project/UIUX/web/tra/ui-7.jpg" alt="列車動態" loading="lazy" /></div>
+    <div class="wide"><img class="raw" src="/assets/images/project/UIUX/web/tra/ui-7.jpg" alt="列車動態" loading="lazy" /></div>
 
     <div class="ui-sub">
       <span class="k">延伸探索</span>
       <h3>旅遊票券</h3>
       <p>依旅遊票券與景點分類內容，並提供收藏與評價入口。這是既有服務的延伸探索，不是本次訂票流程改善的核心範圍。</p>
     </div>
-    <div class="wide"><img class="raw" src="../assets/images/project/UIUX/web/tra/ui-8.jpg" alt="旅遊票券" loading="lazy" /></div>
+    <div class="wide"><img class="raw" src="/assets/images/project/UIUX/web/tra/ui-8.jpg" alt="旅遊票券" loading="lazy" /></div>
 
     <!-- <div class="ui-sub">
       <span class="k">Scope</span>
@@ -356,7 +342,7 @@
   <section class="next">
     <div class="wrap">
       <span class="eyebrow">Next project</span>
-      <a href="soulmap.html">Soul Map →</a>
+      <a href="/work/soulmap.html">Soul Map →</a>
     </div>
   </section>
 </main>
@@ -365,14 +351,14 @@
   <div class="wrap foot-cols">
     <div class="fcol-links">
       <span class="fk">( Menu )</span>
-      <a href="../index.html#work">作品</a>
-      <a href="../about.html">關於我</a>
-      <a href="../index.html#contact">聯絡我</a>
+      <a href="/#work">作品</a>
+      <a href="/about.html">關於我</a>
+      <a href="/#contact">聯絡我</a>
     </div>
     <div class="fcol-links">
       <span class="fk">( Reach out )</span>
       <a href="mailto:brynn06191@gmail.com">Email</a>
-      <a href="../assets/files/brynn-cv.pdf" download>CV</a>
+      <a href="/assets/files/brynn-cv.pdf" download>CV</a>
     </div>
   </div>
   <div class="wrap foot">
@@ -381,7 +367,7 @@
   </div>
 </footer>
 
-<script>
+<script is:inline>
   // 左側章節錨點：捲動高亮
   const links = [...document.querySelectorAll('.cx-nav a')];
   const map = {}; links.forEach(a => map[a.getAttribute('href')] = a);
@@ -397,6 +383,11 @@
   document.querySelectorAll('[data-sec]').forEach(s => io.observe(s));
 </script>
 
-<script src="../assets/zoom.js" defer></script>
-</body>
-</html>
+<script is:inline src="/assets/zoom.js" defer></script>
+
+</Base>
+<style is:global>
+  /* 本頁參與者卡：桌面四欄，行動版單欄 */
+  .phases.p4 { grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 720px) { .phases.p4 { grid-template-columns: 1fr; } }
+</style>

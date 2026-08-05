@@ -1,40 +1,20 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>震時秒判｜地震應對 App 產品設計 · Case Study</title>
-<meta name="description" content="震時秒判是一款涵蓋震前準備、震時應變與震後支援的地震應對 App。透過量化問卷調查、5 位使用者深度訪談、資訊架構、User Flow、介面與原型測試，將複雜防災資訊整理成可理解的流程與行動提示。作品獲金點概念設計獎與金點新秀設計獎。" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/theme.css" />
-<link rel="stylesheet" href="../assets/case.css" />
-<style>
-  /* 本頁取樣表：兩組同為中性框線，情境標籤優先於姓名 */
-  .smap .srow b { font-family: "Hanken Grotesk", system-ui, sans-serif; font-size: 12.5px; font-weight: 600; color: var(--ink-faint); }
-  .smap .st { font-size: 13px; font-weight: 600; color: var(--ink); }
-  .smap .st.hot { color: var(--clay); border-color: var(--clay); }
-  /* 需求卡：階段 pill 在左上，標題與說明分層 */
-  .consensus .citem.stacked { flex-direction: column; align-items: flex-start; gap: 5px; padding: 13px 16px; }
-  .consensus .citem.stacked .phase-tag { font-size: 10.5px; font-weight: 600; letter-spacing: .06em; color: var(--ink-soft); background: var(--paper-2); border: 1px solid var(--line); border-radius: 100px; padding: 1.5px 9px; }
-  .consensus .citem.stacked b { font-size: 14.5px; }
-  .consensus .citem.stacked .desc { font-size: 13px; color: var(--ink-soft); line-height: 1.55; }
-</style>
-</head>
-<body>
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title='震時秒判｜地震應對 App 產品設計 · Case Study' description='震時秒判是一款涵蓋震前準備、震時應變與震後支援的地震應對 App。透過量化問卷調查、5 位使用者深度訪談、資訊架構、User Flow、介面與原型測試，將複雜防災資訊整理成可理解的流程與行動提示。作品獲金點概念設計獎與金點新秀設計獎。'>
+  <Fragment slot="head"><link rel="stylesheet" href="/assets/case.css" /></Fragment>
 
 <div class="topbar">
   <div class="wrap">
-    <a class="brand" href="../index.html">Brynn<span>.</span></a>
-    <a class="back" href="../index.html#work">← All work</a>
+    <a class="brand" href="/">Brynn<span>.</span></a>
+    <a class="back" href="/#work">← All work</a>
   </div>
 </div>
 
 <main>
   <!-- 滿版 hero -->
   <div class="cx-herobanner">
-    <img src="../assets/images/project/UIUX/web/quake/cover.jpg?v=2" alt="震時秒判 主視覺" />
+    <img src="/assets/images/project/UIUX/web/quake/cover.jpg?v=2" alt="震時秒判 主視覺" />
   </div>
 
   <!-- 標題 -->
@@ -43,7 +23,7 @@
     <h1 class="display">震時秒判</h1>
     <p class="lead">將防災資訊依震前準備、震時應變與震後復原三個階段重新組織，並根據使用者所處情境，提供當下最必要的指引與下一步行動。</p>
     <div class="awards">
-      <img class="award-img" src="../assets/images/awards/golden-pin-concept-2025.png" alt="金點概念設計獎 2025 標章 Golden Pin Concept Design Award" />
+      <img class="award-img" src="/assets/images/awards/golden-pin-concept-2025.png" alt="金點概念設計獎 2025 標章 Golden Pin Concept Design Award" />
       <span class="award">金點概念設計獎 <span class="en">Golden Pin Concept Design Award</span></span>
       <span class="award">金點新秀設計獎 <span class="en">Young Pin Design Award</span></span>
     </div>
@@ -86,7 +66,7 @@
         <div class="sub">
           <h3>警報響起後，使用者仍需要判斷下一步</h3>
           <p>地震發生時，使用者不只需要理解警報資訊，也要依所在位置、周遭風險與自身狀態判斷如何保護自己，並在搖晃停止後決定是否避難、如何確認家人狀態。若將這些資訊集中在警報畫面，會增加高壓情境下的閱讀與判斷負擔；但若只提供震度等地震資訊，又不足以支持後續行動。因此，本案的核心設計問題是：<b style="color:var(--clay)">如何依震前、震時與震後的不同需求安排資訊優先順序，讓使用者在每個階段都能清楚知道當下該做什麼</b>。</p>
-          <div class="fig"><img src="../assets/images/project/UIUX/web/quake/bg-problem.jpg" alt="地震當下使用者的判斷與資訊需求" loading="lazy" /><div class="cap">地震發生時，使用者同時面對的判斷與資訊需求</div></div>
+          <div class="fig"><img src="/assets/images/project/UIUX/web/quake/bg-problem.jpg" alt="地震當下使用者的判斷與資訊需求" loading="lazy" /><div class="cap">地震發生時，使用者同時面對的判斷與資訊需求</div></div>
         </div>
         <div class="sub">
           <h3>結合問卷與訪談，理解功能偏好與行動限制</h3>
@@ -175,7 +155,7 @@
         <div class="sub">
           <h3>三個代表情境的 Journey Map</h3>
           <p>我將三個情境放進警報前後的行動歷程中比較，確認限制發生在哪個時點，以及使用者在收到資訊後，為什麼仍無法完成下一步行動。</p>
-          <div class="fig"><img src="../assets/images/project/UIUX/web/quake/journey-integrated.jpg" alt="三個代表情境的行動歷程整合" loading="lazy" /><div class="cap">三個代表情境的行動歷程：警報接收、當下判斷與後續行動限制</div></div>
+          <div class="fig"><img src="/assets/images/project/UIUX/web/quake/journey-integrated.jpg" alt="三個代表情境的行動歷程整合" loading="lazy" /><div class="cap">三個代表情境的行動歷程：警報接收、當下判斷與後續行動限制</div></div>
           <p>三個情境顯示，警報失效的原因並不相同：有人需要同時處理自身安全與照顧責任，有人受限於聯外中斷，也有人在危機當下不會持續查看手機。</p>
         </div>
 
@@ -260,7 +240,7 @@
               <span class="phw">避難資訊、物資、官方公告、建物損傷紀錄</span>
             </div>
           </div>
-          <div class="fig"><img src="../assets/images/project/UIUX/web/quake/system-overview.jpg" alt="功能系統概述：震前準備 / 震時應變 / 震後復原" loading="lazy" /></div>
+          <div class="fig"><img src="/assets/images/project/UIUX/web/quake/system-overview.jpg" alt="功能系統概述：震前準備 / 震時應變 / 震後復原" loading="lazy" /></div>
           <p style="margin-top:14px">三階段架構不只用來分類功能，也定義各階段的資訊優先順序與後續操作，其中最關鍵的取捨，是震時第一層應提供多少資訊。</p>
         </div>
 
@@ -324,15 +304,15 @@
         <div class="sub">
           <h3>Functional Map</h3>
           <p>從三階段展開的完整功能地圖，作為介面設計的藍圖。</p>
-          <div class="fig"><img src="../assets/images/project/UIUX/web/quake/functional-map.jpg" alt="Functional Map 完整功能地圖" loading="lazy" /></div>
+          <div class="fig"><img src="/assets/images/project/UIUX/web/quake/functional-map.jpg" alt="Functional Map 完整功能地圖" loading="lazy" /></div>
         </div>
         -->
         <div class="sub">
           <h3>以使用者流程確認觸發、分支與狀態</h3>
           <p>以流程分別檢查震前準備與演練、震時警報與自我保護，以及震後避難與支援，並標示系統主動觸發、使用者確認與主要分支，確認不同狀態下應呈現的資訊與下一步。</p>
-          <div class="fig"><img src="../assets/images/project/UIUX/web/quake/userflow-1-v4.svg" alt="使用者流程一 · 震時警報、自我保護與後續避難" loading="lazy" /><div class="cap">流程一｜震時警報、自我保護與後續避難</div><div class="cap">系統主動觸發警報 → 搖晃進行中只呈現必要指引 → 搖晃停止後銜接避難與報平安</div></div>
-          <div class="fig"><img src="../assets/images/project/UIUX/web/quake/userflow-2-v4.svg" alt="使用者流程二 · 震前準備、檢查與情境演練" loading="lazy" /><div class="cap">流程二｜震前準備、檢查與情境演練</div><div class="cap">依住家與生活情境完成設定與檢查 → 系統依選擇產生演練情境 → 完成後顯示結果與待補項目</div></div>
-          <div class="fig"><img src="../assets/images/project/UIUX/web/quake/userflow-3-v4.svg" alt="使用者流程三 · 震後返家判斷、災損紀錄與補助申請" loading="lazy" /><div class="cap">流程三｜震後返家判斷、災損紀錄與補助申請</div><div class="cap">透過 AI 建築風險檢測記錄可見損傷並取得初步風險提示 → 依結果持續留意，或暫緩進入並尋求專業檢查 → 確認可進入後完成災損盤點、補助比對與申請流程</div></div>
+          <div class="fig"><img src="/assets/images/project/UIUX/web/quake/userflow-1-v4.svg" alt="使用者流程一 · 震時警報、自我保護與後續避難" loading="lazy" /><div class="cap">流程一｜震時警報、自我保護與後續避難</div><div class="cap">系統主動觸發警報 → 搖晃進行中只呈現必要指引 → 搖晃停止後銜接避難與報平安</div></div>
+          <div class="fig"><img src="/assets/images/project/UIUX/web/quake/userflow-2-v4.svg" alt="使用者流程二 · 震前準備、檢查與情境演練" loading="lazy" /><div class="cap">流程二｜震前準備、檢查與情境演練</div><div class="cap">依住家與生活情境完成設定與檢查 → 系統依選擇產生演練情境 → 完成後顯示結果與待補項目</div></div>
+          <div class="fig"><img src="/assets/images/project/UIUX/web/quake/userflow-3-v4.svg" alt="使用者流程三 · 震後返家判斷、災損紀錄與補助申請" loading="lazy" /><div class="cap">流程三｜震後返家判斷、災損紀錄與補助申請</div><div class="cap">透過 AI 建築風險檢測記錄可見損傷並取得初步風險提示 → 依結果持續留意，或暫緩進入並尋求專業檢查 → 確認可進入後完成災損盤點、補助比對與申請流程</div></div>
         </div>
       </section>
 
@@ -347,8 +327,8 @@
       <p class="lede">介面以深色背景與高亮重點色建立警報層級，並搭配文字、圖示與聲音提示。第一層只顯示立即需要的指令，詳細資訊則依震前、震時與震後狀態在後續畫面展開。</p>
 
       <div class="uvideo">
-        <video controls playsinline preload="none" poster="../assets/images/project/UIUX/web/quake/intro-poster.jpg">
-          <source src="../assets/images/project/UIUX/web/quake/intro.mp4" type="video/mp4" />
+        <video controls playsinline preload="none" poster="/assets/images/project/UIUX/web/quake/intro-poster.jpg">
+          <source src="/assets/images/project/UIUX/web/quake/intro.mp4" type="video/mp4" />
         </video>
         <div class="cap">產品介紹影片</div>
       </div>
@@ -358,7 +338,7 @@
         <span class="pk">UI Guidelines</span>
         <h3>介面規範</h3>
         <p>整理主要色彩、字級、按鈕、圖示與狀態樣式，統一警報、流程與支援資訊在不同畫面中的層級。</p>
-        <div class="styleguide"><img src="../assets/images/project/UIUX/web/quake/styleguide.jpg?v=2" alt="介面規範：色彩、字級與元件狀態" loading="lazy" /></div>
+        <div class="styleguide"><img src="/assets/images/project/UIUX/web/quake/styleguide.jpg?v=2" alt="介面規範：色彩、字級與元件狀態" loading="lazy" /></div>
         <div class="sg-hint">↕ 框內可捲動查看完整介面規範</div>
       </div>
 
@@ -367,8 +347,8 @@
         <span class="pk">情境一 · 震時</span>
         <h3>震時應變</h3>
         <p>地震發生時，系統先主動顯示自我保護指令；搖晃停止後，再依使用者所在情境銜接避難資訊、報平安與後續支援。</p>
-        <div class="uwide"><img src="../assets/images/project/UIUX/web/quake/ui-response-1.jpg" alt="震時應變 · 客製化警報與震度分級判斷" loading="lazy" /></div>
-        <div class="uwide"><img src="../assets/images/project/UIUX/web/quake/ui-response-2.jpg" alt="震時應變 · 避難導引與親友安全確認" loading="lazy" /></div>
+        <div class="uwide"><img src="/assets/images/project/UIUX/web/quake/ui-response-1.jpg" alt="震時應變 · 客製化警報與震度分級判斷" loading="lazy" /></div>
+        <div class="uwide"><img src="/assets/images/project/UIUX/web/quake/ui-response-2.jpg" alt="震時應變 · 避難導引與親友安全確認" loading="lazy" /></div>
 
         <!-- 警報聲設計 -->
         <div class="uphase" style="margin-top:44px">
@@ -380,19 +360,19 @@
               <span class="lv">提醒級</span>
               <h4>輕微提示</h4>
               <p>較和緩的提示音，提醒使用者留意警報資訊。</p>
-              <audio controls preload="none" src="../assets/images/project/UIUX/web/quake/alarm-low.m4a"></audio>
+              <audio controls preload="none" src="/assets/images/project/UIUX/web/quake/alarm-low.m4a"></audio>
             </div>
             <div class="usound mid">
               <span class="lv">警戒級</span>
               <h4>中等警示</h4>
               <p>節奏加快並搭配語音，提醒使用者準備採取保護行動。</p>
-              <audio controls preload="none" src="../assets/images/project/UIUX/web/quake/alarm-medium.m4a"></audio>
+              <audio controls preload="none" src="/assets/images/project/UIUX/web/quake/alarm-medium.m4a"></audio>
             </div>
             <div class="usound high">
               <span class="lv">緊急級</span>
               <h4>緊急警報</h4>
               <p>急促明確的警示與語音指令，提醒使用者立即採取保護行動。</p>
-              <audio controls preload="none" src="../assets/images/project/UIUX/web/quake/alarm-high.m4a"></audio>
+              <audio controls preload="none" src="/assets/images/project/UIUX/web/quake/alarm-high.m4a"></audio>
             </div>
           </div>
         </div>
@@ -403,8 +383,8 @@
         <span class="pk">情境二 · 震前</span>
         <h3>震前準備</h3>
         <p>將防災包檢查、家具固定與情境演練放在平時完成，讓震時畫面不需要重新解釋大量知識。</p>
-        <div class="uwide"><img src="../assets/images/project/UIUX/web/quake/ui-prepare-1.jpg" alt="震前準備 · 防災包準備與家具固定自檢" loading="lazy" /></div>
-        <div class="uwide"><img src="../assets/images/project/UIUX/web/quake/ui-prepare-2.jpg" alt="震前準備 · 互動式模擬演練" loading="lazy" /></div>
+        <div class="uwide"><img src="/assets/images/project/UIUX/web/quake/ui-prepare-1.jpg" alt="震前準備 · 防災包準備與家具固定自檢" loading="lazy" /></div>
+        <div class="uwide"><img src="/assets/images/project/UIUX/web/quake/ui-prepare-2.jpg" alt="震前準備 · 互動式模擬演練" loading="lazy" /></div>
       </div>
 
       <!-- 震後 -->
@@ -413,8 +393,8 @@
         <h3>震後支援</h3>
         <p>整理官方支援資訊、社區互助與 AI 輔助裂痕辨識。使用者拍攝牆面裂痕後，系統提供初步提示，協助判斷是否需要進一步尋求專業檢查，減少因無法判斷而反覆擔心。</p>
         <p class="note">此功能為概念原型，提供是否建議尋求專業檢查的初步提示，不判定建物結構安全，也不取代結構技師或其他專業鑑定。</p>
-        <div class="uwide"><img src="../assets/images/project/UIUX/web/quake/ui-recover-1.jpg" alt="震後支援 · AI 輔助裂痕辨識與政府資源整合" loading="lazy" /></div>
-        <div class="uwide"><img src="../assets/images/project/UIUX/web/quake/ui-recover-2.jpg" alt="震後支援 · 社群互助打卡" loading="lazy" /></div>
+        <div class="uwide"><img src="/assets/images/project/UIUX/web/quake/ui-recover-1.jpg" alt="震後支援 · AI 輔助裂痕辨識與政府資源整合" loading="lazy" /></div>
+        <div class="uwide"><img src="/assets/images/project/UIUX/web/quake/ui-recover-2.jpg" alt="震後支援 · 社群互助打卡" loading="lazy" /></div>
       </div>
 
       <!-- Prototype 互動展示 -->
@@ -423,14 +403,14 @@
         <h3>互動原型</h3>
         <p>互動原型涵蓋情境設定、分級警報、自我保護、避難導航、通知家人、震前準備與演練、模擬情境，以及震後裂痕辨識與支援資訊，用來檢查三個階段之間的流程與狀態轉換。</p>
         <div class="uclips">
-          <div class="uclip"><video class="uclipv" muted loop playsinline preload="metadata" poster="../assets/images/project/UIUX/web/quake/proto-0-custom-poster.jpg"><source src="../assets/images/project/UIUX/web/quake/proto-0-custom.mp4" type="video/mp4" /></video><div class="cap">客製化設定</div></div>
-          <div class="uclip"><video class="uclipv" muted loop playsinline preload="metadata" poster="../assets/images/project/UIUX/web/quake/proto-1-alert-poster.jpg"><source src="../assets/images/project/UIUX/web/quake/proto-1-alert.mp4" type="video/mp4" /></video><div class="cap">警示通知</div></div>
-          <div class="uclip"><video class="uclipv" muted loop playsinline preload="metadata" poster="../assets/images/project/UIUX/web/quake/proto-2-nav-poster.jpg"><source src="../assets/images/project/UIUX/web/quake/proto-2-nav.mp4" type="video/mp4" /></video><div class="cap">避難路線導航</div></div>
-          <div class="uclip"><video class="uclipv" muted loop playsinline preload="metadata" poster="../assets/images/project/UIUX/web/quake/proto-3-furniture-poster.jpg"><source src="../assets/images/project/UIUX/web/quake/proto-3-furniture.mp4" type="video/mp4" /></video><div class="cap">家具固定教學</div></div>
-          <div class="uclip"><video class="uclipv" muted loop playsinline preload="metadata" poster="../assets/images/project/UIUX/web/quake/proto-4-drill-select-poster.jpg"><source src="../assets/images/project/UIUX/web/quake/proto-4-drill-select.mp4" type="video/mp4" /></video><div class="cap">避難演練・模式選擇</div></div>
-          <div class="uclip"><video class="uclipv" muted loop playsinline preload="metadata" poster="../assets/images/project/UIUX/web/quake/proto-5-drill-building-poster.jpg"><source src="../assets/images/project/UIUX/web/quake/proto-5-drill-building.mp4" type="video/mp4" /></video><div class="cap">避難演練・隨機情境</div></div>
-          <div class="uclip"><video class="uclipv" muted loop playsinline preload="metadata" poster="../assets/images/project/UIUX/web/quake/proto-6-marquee-poster.jpg"><source src="../assets/images/project/UIUX/web/quake/proto-6-marquee.mp4" type="video/mp4" /></video><div class="cap">模擬地震跑馬燈</div></div>
-          <div class="uclip"><video class="uclipv" muted loop playsinline preload="metadata" poster="../assets/images/project/UIUX/web/quake/proto-7-aiscan-poster.jpg"><source src="../assets/images/project/UIUX/web/quake/proto-7-aiscan.mp4" type="video/mp4" /></video><div class="cap">AI 輔助裂痕辨識</div></div>
+          <div class="uclip"><video class="uclipv" muted loop playsinline preload="metadata" poster="/assets/images/project/UIUX/web/quake/proto-0-custom-poster.jpg"><source src="/assets/images/project/UIUX/web/quake/proto-0-custom.mp4" type="video/mp4" /></video><div class="cap">客製化設定</div></div>
+          <div class="uclip"><video class="uclipv" muted loop playsinline preload="metadata" poster="/assets/images/project/UIUX/web/quake/proto-1-alert-poster.jpg"><source src="/assets/images/project/UIUX/web/quake/proto-1-alert.mp4" type="video/mp4" /></video><div class="cap">警示通知</div></div>
+          <div class="uclip"><video class="uclipv" muted loop playsinline preload="metadata" poster="/assets/images/project/UIUX/web/quake/proto-2-nav-poster.jpg"><source src="/assets/images/project/UIUX/web/quake/proto-2-nav.mp4" type="video/mp4" /></video><div class="cap">避難路線導航</div></div>
+          <div class="uclip"><video class="uclipv" muted loop playsinline preload="metadata" poster="/assets/images/project/UIUX/web/quake/proto-3-furniture-poster.jpg"><source src="/assets/images/project/UIUX/web/quake/proto-3-furniture.mp4" type="video/mp4" /></video><div class="cap">家具固定教學</div></div>
+          <div class="uclip"><video class="uclipv" muted loop playsinline preload="metadata" poster="/assets/images/project/UIUX/web/quake/proto-4-drill-select-poster.jpg"><source src="/assets/images/project/UIUX/web/quake/proto-4-drill-select.mp4" type="video/mp4" /></video><div class="cap">避難演練・模式選擇</div></div>
+          <div class="uclip"><video class="uclipv" muted loop playsinline preload="metadata" poster="/assets/images/project/UIUX/web/quake/proto-5-drill-building-poster.jpg"><source src="/assets/images/project/UIUX/web/quake/proto-5-drill-building.mp4" type="video/mp4" /></video><div class="cap">避難演練・隨機情境</div></div>
+          <div class="uclip"><video class="uclipv" muted loop playsinline preload="metadata" poster="/assets/images/project/UIUX/web/quake/proto-6-marquee-poster.jpg"><source src="/assets/images/project/UIUX/web/quake/proto-6-marquee.mp4" type="video/mp4" /></video><div class="cap">模擬地震跑馬燈</div></div>
+          <div class="uclip"><video class="uclipv" muted loop playsinline preload="metadata" poster="/assets/images/project/UIUX/web/quake/proto-7-aiscan-poster.jpg"><source src="/assets/images/project/UIUX/web/quake/proto-7-aiscan.mp4" type="video/mp4" /></video><div class="cap">AI 輔助裂痕辨識</div></div>
         </div>
       </div>
 
@@ -465,8 +445,8 @@
         </div>
 
         <div class="uvideo">
-          <video controls playsinline preload="none" poster="../assets/images/project/UIUX/web/quake/usability-poster.jpg">
-            <source src="../assets/images/project/UIUX/web/quake/usability.mp4" type="video/mp4" />
+          <video controls playsinline preload="none" poster="/assets/images/project/UIUX/web/quake/usability-poster.jpg">
+            <source src="/assets/images/project/UIUX/web/quake/usability.mp4" type="video/mp4" />
           </video>
           <div class="cap">易用性測試操作實錄</div>
         </div>
@@ -484,12 +464,13 @@
         <p>本案完成至可操作的概念原型，現階段主要驗證資訊理解、操作方式與流程銜接，尚未串接官方地震警報、即時導航、政府公告與專業建物檢查服務。因此，現有測試結果不能代表系統在真實地震、斷網與高壓情境下的實際表現。</p>
       </div>
     </div> -->
+    </div>
   </section>
 
   <section class="next">
     <div class="wrap">
       <span class="eyebrow">Next project</span>
-      <a href="tra.html">台鐵 e訂通 →</a>
+      <a href="/work/tra.html">台鐵 e訂通 →</a>
     </div>
   </section>
 </main>
@@ -498,14 +479,14 @@
   <div class="wrap foot-cols">
     <div class="fcol-links">
       <span class="fk">( Menu )</span>
-      <a href="../index.html#work">作品</a>
-      <a href="../about.html">關於我</a>
-      <a href="../index.html#contact">聯絡我</a>
+      <a href="/#work">作品</a>
+      <a href="/about.html">關於我</a>
+      <a href="/#contact">聯絡我</a>
     </div>
     <div class="fcol-links">
       <span class="fk">( Reach out )</span>
       <a href="mailto:brynn06191@gmail.com">Email</a>
-      <a href="../assets/files/brynn-cv.pdf" download>CV</a>
+      <a href="/assets/files/brynn-cv.pdf" download>CV</a>
     </div>
   </div>
   <div class="wrap foot">
@@ -514,7 +495,7 @@
   </div>
 </footer>
 
-<script>
+<script is:inline>
   // 左側章節錨點：捲動高亮
   const links = [...document.querySelectorAll('.cx-nav a')];
   const map = {}; links.forEach(a => map[a.getAttribute('href')] = a);
@@ -540,6 +521,17 @@
   document.querySelectorAll('.uclipv').forEach(v => cio.observe(v));
 </script>
 
-<script src="../assets/zoom.js" defer></script>
-</body>
-</html>
+<script is:inline src="/assets/zoom.js" defer></script>
+
+</Base>
+<style is:global>
+  /* 本頁取樣表：兩組同為中性框線，情境標籤優先於姓名 */
+  .smap .srow b { font-family: "Hanken Grotesk", system-ui, sans-serif; font-size: 12.5px; font-weight: 600; color: var(--ink-faint); }
+  .smap .st { font-size: 13px; font-weight: 600; color: var(--ink); }
+  .smap .st.hot { color: var(--clay); border-color: var(--clay); }
+  /* 需求卡：階段 pill 在左上，標題與說明分層 */
+  .consensus .citem.stacked { flex-direction: column; align-items: flex-start; gap: 5px; padding: 13px 16px; }
+  .consensus .citem.stacked .phase-tag { font-size: 10.5px; font-weight: 600; letter-spacing: .06em; color: var(--ink-soft); background: var(--paper-2); border: 1px solid var(--line); border-radius: 100px; padding: 1.5px 9px; }
+  .consensus .citem.stacked b { font-size: 14.5px; }
+  .consensus .citem.stacked .desc { font-size: 13px; color: var(--ink-soft); line-height: 1.55; }
+</style>
