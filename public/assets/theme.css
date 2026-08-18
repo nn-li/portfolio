@@ -1,7 +1,7 @@
 /* Shared design tokens — white canvas, electric-blue identity and cyan block accents (from cover.svg).
    Loaded before per-page styles; pages may override (e.g. case.css --max). */
 :root {
-  --paper: #FDFDFD;      /* near-white canvas (cover.svg base) */
+  --paper: #FFFFFF;      /* pure white canvas — crisp, product/UI-forward */
   --paper-2: #F2FAFC;    /* faint cyan-tinted panel */
   --ink: #141414;
   --ink-soft: #4A4A4A;

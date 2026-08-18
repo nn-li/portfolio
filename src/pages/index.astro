@@ -27,7 +27,7 @@ import site from '../content/site.json';
       <div class="status reveal in" style="animation-delay:.05s">
         <span class="dot"></span> {content.hero.status}
       </div>
-      <h1 class="display reveal in" style="animation-delay:.12s"><Fragment set:html={content.hero.headingHtml} /></h1>
+      <h1 class="display hero-title" id="heroTitle"><Fragment set:html={content.hero.headingHtml} /></h1>
       <!-- <p class="hero-tag reveal in" style="animation-delay:.16s">把複雜需求，整理成清楚、可實作的產品體驗</p> -->
       <div class="hero-photo reveal in" style="animation-delay:.2s" id="heroCard" tabindex="0" role="button" aria-label="翻轉卡片">
         <div class="flip-inner">
@@ -65,17 +65,21 @@ import site from '../content/site.json';
         <h2 class="display">{content.work.heading}</h2>
       </div>
 
-      {content.work.projects.map((project) => (
-        <a class="project obs" href={project.href}>
-          <div>
-            <h3>{project.title}</h3>
-            <p class="p-desc">{project.description}</p>
-            <div class="tags">{project.tags.map((tag) => <span class={tag.win ? 'win' : null}>{tag.label}</span>)}</div>
-          </div>
-          <img class="p-preview" src={project.cover.src} alt={project.cover.alt} loading="lazy" />
-          <div class="p-right"><span class="year">{project.year}</span><span class="arrow">→</span></div>
-        </a>
-      ))}
+      <div class="work-list">
+        {content.work.projects.map((project) => (
+          <a class="project obs" href={project.href}>
+            <div class="p-body">
+              <h3 class="p-name g-title display">{project.title}</h3>
+              <p class="p-desc">{project.description}</p>
+              <div class="tags">
+                {project.tags.map((tag) => <span class={tag.win ? 'win' : null}>{tag.label}</span>)}
+              </div>
+            </div>
+            <img class="p-preview" src={project.cover.src} alt={project.cover.alt} loading="lazy" />
+            <div class="p-right"><span class="year">{project.year}</span><span class="arrow">→</span></div>
+          </a>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -168,6 +172,55 @@ import site from '../content/site.json';
   }
 
 
+  // split text into per-char masks for a staggered rise; --i drives the stagger
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const splitChars = (el) => {
+    let i = 0;
+    const walk = (node) => {
+      [...node.childNodes].forEach((child) => {
+        if (child.nodeType === 3) { // text node → wrap each visible char
+          const frag = document.createDocumentFragment();
+          for (const ch of child.textContent) {
+            if (ch === ' ') { frag.appendChild(document.createTextNode(' ')); continue; }
+            const mask = document.createElement('span');
+            mask.className = 'char-mask';
+            const inner = document.createElement('span');
+            inner.className = 'char';
+            inner.style.setProperty('--i', i++);
+            inner.textContent = ch;
+            mask.appendChild(inner);
+            frag.appendChild(mask);
+          }
+          child.replaceWith(frag);
+        } else if (child.nodeType === 1) { // keep <em> etc., recurse inside
+          walk(child);
+        }
+      });
+    };
+    walk(el);
+    el.classList.add('split');
+  };
+
+  if (!reduceMotion) {
+    // hero title plays immediately on load
+    const heroTitle = document.getElementById('heroTitle');
+    if (heroTitle) { splitChars(heroTitle); heroTitle.classList.add('play'); }
+
+    // section + work titles play when each scrolls into view (ultracombos-style scroll reveal)
+    const titles = [
+      ...document.querySelectorAll('.sec-head h2'),
+      ...document.querySelectorAll('.g-title'),
+      ...document.querySelectorAll('.contact h2'),
+    ];
+    titles.forEach((t) => splitChars(t));
+    const titleIO = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('play'); titleIO.unobserve(e.target); }
+      });
+    }, { threshold: 0.35, rootMargin: '0px 0px -12% 0px' });
+    titles.forEach((t) => titleIO.observe(t));
+  }
+
   // scroll reveal
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
@@ -237,7 +290,7 @@ import site from '../content/site.json';
     border-bottom: 1px solid transparent;
   }
   header.scrolled {
-    background: rgba(253,253,253,.94);
+    background: rgba(255,255,255,.94);
     border-bottom: 1px solid var(--line);
   }
   .nav {
@@ -305,6 +358,32 @@ import site from '../content/site.json';
     font-style: italic;
     color: var(--clay);
     font-weight: 340;
+  }
+
+  /* per-char staggered rise — hero plays on load, section titles on scroll */
+  .js .hero-title { opacity: 0; }              /* hide until split, avoid flash */
+  .hero-title.split { opacity: 1; }
+  .char-mask {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    /* breathing room so descenders/punctuation aren't clipped by the mask */
+    padding: 0.14em 0 0.06em;
+    margin: -0.14em 0 -0.06em;
+  }
+  .char {
+    display: inline-block;
+    transform: translateY(115%);           /* pre-reveal state, hidden by mask */
+  }
+  /* refined settle: quick, smooth deceleration; only runs once .play is set */
+  .split.play .char {
+    animation: charRise .58s cubic-bezier(.22, 1, .36, 1) both;
+    animation-delay: calc(var(--i) * .016s + .05s);
+  }
+  @keyframes charRise {
+    0%   { transform: translateY(115%); opacity: 0; filter: blur(6px); }
+    45%  { opacity: 1; filter: blur(0); }
+    100% { transform: translateY(0); opacity: 1; filter: blur(0); }
   }
 
   /* cover.svg key visual running behind the photo */
@@ -428,46 +507,51 @@ import site from '../content/site.json';
   .sec-head h2 { font-size: clamp(32px, 5vw, 58px); }
   .sec-head h2::after { content: ""; display: inline-block; width: 13px; height: 13px; margin-left: 16px; margin-bottom: 4px; background: var(--cyan); box-shadow: 9px -9px 0 -2.5px var(--paper), 9px -9px 0 -1px var(--cyan); }
 
-  /* WORK */
-  .work { padding: 110px 0; }
+  /* WORK — words-first index: name + value-prop sentence, thumbnail as support */
+  .work { padding: 120px 0 140px; }
+  .work-list { display: block; }
+
   .project {
     display: grid;
-    grid-template-columns: 1fr 220px auto;
-    gap: 32px;
+    grid-template-columns: 1fr 260px auto;
+    gap: 40px;
     align-items: center;
-    padding: 38px 0;
+    padding: clamp(40px, 4vw, 52px) 0;
     border-top: 1px solid var(--line);
     position: relative;
   }
   .project:last-child { border-bottom: 1px solid var(--line); }
 
-
-  /* project thumbnail — always visible; hover animates the arrow only */
-  .p-preview {
-    width: 220px; height: 142px;
-    object-fit: cover;
-    border-radius: 10px;
-    border: 1px solid var(--line);
-    box-shadow: 0 14px 34px -20px rgba(22,21,19,.35);
+  .p-name {
+    font-weight: 500; font-size: 19px; line-height: 1.2;
+    letter-spacing: -.005em; color: var(--ink-soft);
   }
-  .project h3 {
-    font-family: "Fraunces", serif; font-weight: 500;
-    font-size: 20px; line-height: 1.2;
-    letter-spacing: -.005em;
-    color: var(--ink-soft);
+  .p-desc {
+    margin-top: 10px;
+    font-family: "Fraunces", Georgia, serif; font-weight: 400;
+    font-size: clamp(24px, 2.4vw, 32px); color: var(--ink);
+    line-height: 1.3; letter-spacing: -.01em; max-width: 22em;
   }
-  .project .p-desc { margin-top: 8px; font-family: "Fraunces", Georgia, serif; font-weight: 400; font-size: 32px; color: var(--ink); line-height: 1.3; letter-spacing: -.01em; max-width: 22em; }
-  .project .tags { margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .project .tags { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; }
   .project .tags span {
     font-size: 12.5px; color: var(--ink-soft);
     border: 1px solid var(--line); border-radius: 100px; padding: 4px 12px;
   }
-  .project .tags span.win {
-    color: var(--clay); border-color: var(--clay); font-weight: 600;
-  }
+  .project .tags span.win { color: var(--clay); border-color: var(--clay); font-weight: 600; }
   .project .tags span.win::before { content: "* "; font-size: 13px; }
-  .project .p-right { text-align: right; display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
-  .project .year { font-family:"Fraunces",serif; font-size: 22px; }
+
+  .p-preview {
+    width: 260px; aspect-ratio: 1200 / 708;
+    object-fit: cover; display: block;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    box-shadow: 0 14px 34px -20px rgba(22,21,19,.3);
+    transition: transform .5s var(--ease);
+  }
+  .project:hover .p-preview { transform: scale(1.02); }
+
+  .p-right { text-align: right; display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+  .p-right .year { font-family:"Fraunces",serif; font-size: 22px; }
   .project .arrow {
     width: 46px; height: 46px; border-radius: 50%;
     border: 1px solid var(--line);
@@ -479,18 +563,17 @@ import site from '../content/site.json';
 
   /* ABOUT */
   .about { padding: 110px 0 130px; border-top: 1px solid var(--line); }
-  .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px; }
   .about-lead {
     font-family: "Fraunces", serif;
     font-size: clamp(24px, 3vw, 34px);
-    line-height: 1.32; font-weight: 350;
+    line-height: 1.42; font-weight: 350;
     letter-spacing: -.01em;
-    max-width: 21em;
+    max-width: 20em;
   }
   .about-lead b { color: var(--clay); font-weight: 400; font-style: italic; }
-  .about-body { color: var(--ink-soft); margin-top: 28px; max-width: 576px; }
+  .about-body { color: var(--ink-soft); margin-top: 36px; max-width: 40em; line-height: 1.9; }
   .about-more {
-    display: inline-block; margin-top: 30px;
+    display: inline-block; margin-top: 36px;
     font-size: 15.5px; color: var(--ink);
     border-bottom: 2px solid var(--clay); padding-bottom: 3px;
     transition: opacity .3s;
@@ -507,12 +590,12 @@ import site from '../content/site.json';
 
   /* EXPERIENCE / CAPABILITIES */
   .caps { padding: 110px 0; border-top: 1px solid var(--line); }
-  .caps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--line); border: 1px solid var(--line); }
-  .cap { background: var(--paper); padding: 40px 34px; transition: background .4s; }
+  .caps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .cap { background: var(--paper); padding: 48px 40px; transition: background .4s; }
   .cap:hover { background: var(--paper-2); }
   .cap .c-num { font-family:"Fraunces",serif; color: var(--accent); font-size: 15px; }
-  .cap h4 { font-family:"Fraunces",serif; font-weight: 500; font-size: 23px; margin: 14px 0 12px; }
-  .cap p { font-size: 15px; color: var(--ink-soft); }
+  .cap h4 { font-family:"Fraunces",serif; font-weight: 500; font-size: 23px; margin: 18px 0 18px; line-height: 1.32; }
+  .cap p { font-size: 14.5px; color: var(--ink-soft); line-height: 1.95; }
 
   /* CONTACT — inverted dark block, flows into footer */
   .contact {
@@ -567,7 +650,7 @@ import site from '../content/site.json';
   .nav-toggle[aria-expanded="true"] span:first-child { transform: translateY(3.2px) rotate(45deg); }
   .nav-toggle[aria-expanded="true"] span:last-child { transform: translateY(-3.3px) rotate(-45deg); }
   header.menu-open {
-    background: rgba(253,253,253,.97);
+    background: rgba(255,255,255,.97);
     border-bottom: 1px solid var(--line);
   }
   @media (max-width: 860px) {
@@ -575,7 +658,7 @@ import site from '../content/site.json';
     .nav-links {
       display: flex; position: fixed; top: 76px; left: 0; right: 0;
       flex-direction: column; gap: 0; padding: 6px 22px 20px;
-      background: rgba(253,253,253,.98);
+      background: rgba(255,255,255,.98);
       border-bottom: 1px solid var(--line);
       opacity: 0; transform: translateY(-8px); visibility: hidden; pointer-events: none;
       transition: opacity .3s var(--ease), transform .3s var(--ease), visibility .3s;
@@ -590,6 +673,8 @@ import site from '../content/site.json';
   @media (prefers-reduced-motion: reduce) {
     .reveal, .obs { opacity: 1 !important; transform: none !important; animation: none !important; transition: none !important; }
     .dot::after, .marquee-track { animation: none !important; }
+    .js .hero-title { opacity: 1 !important; }
+    .char { transform: none !important; animation: none !important; }
     html { scroll-behavior: auto; }
   }
 
@@ -603,14 +688,12 @@ import site from '../content/site.json';
     .hero-photo { width: min(240px, 66vw); margin-top: 20px; }
     .hero-scroll { margin-top: 24px; }
     br.mbr { display: inline; }
-    .about-grid { grid-template-columns: 1fr; gap: 46px; }
     .caps-grid { grid-template-columns: 1fr; }
-    .project { grid-template-columns: 1fr; }
-    .project .p-desc { font-size: 24px; }
-    .p-preview {
-      width: 100%; height: auto; grid-column: 1;
-      margin: 8px 0 2px;
-    }
-    .project .p-right { grid-column: 1; flex-direction: row; align-items: center; justify-content: space-between; text-align: left; margin-top: 4px; }
+    .cap { padding: 36px 26px; }
+    .work { padding: 90px 0 110px; }
+    .project { grid-template-columns: 1fr; gap: 18px; padding: 34px 0; }
+    .p-preview { width: 100%; grid-column: 1; margin: 6px 0 2px; }
+    .p-right { grid-column: 1; flex-direction: row; align-items: center; justify-content: space-between; text-align: left; }
+    .p-desc { font-size: 22px; }
   }
 </style>
