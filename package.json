@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "postbuild": "node scripts/patch-wrangler.mjs",
     "preview": "astro preview",
-    "deploy": "astro build && wrangler deploy --config dist/server/wrangler.json"
+    "deploy": "npm run build && wrangler deploy --config dist/server/wrangler.json"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^14.1.7",

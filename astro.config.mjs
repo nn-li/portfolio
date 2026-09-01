@@ -3,6 +3,12 @@ import react from '@astrojs/react';
 import keystatic from '@keystatic/astro';
 import cloudflare from '@astrojs/cloudflare';
 
+// Keystatic 後台登入需要 GitHub App 的 slug，會在 build 時經 import.meta.env
+// .PUBLIC_KEYSTATIC_GITHUB_APP_SLUG 烤進前端 bundle。寫死一個預設值，讓每次打包
+//（本機 npm run build、Cloudflare 自動 build）都自動帶上，不必另外設環境變數；
+// 若外部已設同名環境變數則以外部為準。少了它線上後台會登不進去。
+process.env.PUBLIC_KEYSTATIC_GITHUB_APP_SLUG ||= 'brynn-portfolio-cms';
+
 export default defineConfig({
   // 保留與原靜態站相同的 URL 結構（/about.html、/work/quake.html）
   build: { format: 'file' },
