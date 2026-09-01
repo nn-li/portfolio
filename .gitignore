@@ -11,6 +11,12 @@ public/assets/images/project/UIUX/*
 !public/assets/images/project/UIUX/chuu-redesign.jpg
 !public/assets/images/project/UIUX/empty-soul-map.jpg
 
+# Graphic Design 作品的轉檔後圖片（原始大檔一樣留本機）
+!public/assets/images/project/graphic
+public/assets/images/project/graphic/*
+!public/assets/images/project/graphic/covers
+!public/assets/images/project/graphic/secret-dimension
+
 # suggest/ 整個資料夾都是內部參考資料，不上傳 GitHub
 suggest/
 
@@ -23,6 +29,10 @@ public/assets/images/photo/*
 
 # 修改前備份（本機安全網，不上傳）
 _backup/
+
+# 作品原始大檔（含 PSD、未轉檔匯出）只留本機，不上傳也不打包上線。
+# 新專案原檔放這裡，Claude 轉成 web 版再放進 public/assets/images/project/。
+_src-graphic/
 
 # Astro
 node_modules/

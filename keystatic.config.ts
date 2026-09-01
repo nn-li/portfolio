@@ -6,6 +6,7 @@ import { quake } from './src/keystatic/quake';
 import { tra } from './src/keystatic/tra';
 import { soulmap } from './src/keystatic/soulmap';
 import { chuu } from './src/keystatic/chuu';
+import { secretDimension } from './src/keystatic/secret-dimension';
 
 export default config({
   // GitHub 模式：編輯後直接 commit 到 repo。
@@ -22,5 +23,6 @@ export default config({
     tra,
     soulmap,
     chuu,
+    secretDimension,
   },
 });
