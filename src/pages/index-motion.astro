@@ -26,6 +26,7 @@ const capsDesc = [
 
 <!-- 開場載入 000% → 100% -->
 <div class="loader" id="loader" aria-hidden="true">
+  <canvas id="loaderCanvas"></canvas>
   <span class="loader-name">BRYNN</span>
   <span class="loader-count" id="loaderCount">000%</span>
 </div>
@@ -78,8 +79,11 @@ const capsDesc = [
   <section class="ec-sec ec-work" id="work">
     <div class="ec-wrap">
       <div class="work-top">
-        <p class="work-kicker">A FEW SELECTED<br />PROJECTS.</p>
-        <h2 class="section-title">SELECTED<br />WORK</h2>
+        <div class="work-lead">
+          <img class="work-bg" src="/assets/bg/bg-material-1.svg" alt="" aria-hidden="true" />
+          <p class="work-kicker">A FEW SELECTED<br />PROJECTS.</p>
+        </div>
+        <h2 class="section-title work-title">SELECTED<br />WORK</h2>
       </div>
 
       <div class="view-tabs" role="tablist" aria-label="作品顯示方式">
@@ -162,7 +166,7 @@ const capsDesc = [
         <img src={content.hero.portrait.src} alt={content.hero.portrait.alt} />
         <figcaption>
           <span class="ap-hello">-- { `{ "HELLO WORLD" }` }</span>
-          <span class="ap-name">I&apos;M <mark>BRYNN</mark></span>
+          <span class="ap-name">I&apos;M <mark class="scramble" data-final="BRYNN">BRYNN</mark></span>
         </figcaption>
       </figure>
       <div class="about-statement reveal">
@@ -177,7 +181,7 @@ const capsDesc = [
   <section class="ec-contact-sec dark-section" id="contact">
     <div class="ec-wrap">
       <p class="kicker reveal">[LET&apos;S TALK]</p>
-      <h2 class="contact-title">LET&apos;S MAKE<br />IT CLEAR.</h2>
+      <h2 class="contact-title">CONTACT<br />ME</h2>
       <a class="contact-mail" href={`mailto:${content.contact.email}`}>{content.contact.email} ↗</a>
       <div class="contact-links reveal">
         <a href="#work">+ {content.contact.workLinkLabel}</a>
@@ -188,9 +192,8 @@ const capsDesc = [
 
 </main>
 
-<footer class="ec-footer dark-section">
+<footer class="ec-footer">
   <div class="ec-wrap ec-foot">
-    <p class="foot-clock">◎ TPE&nbsp;&nbsp;<span class="clock">--:--</span></p>
     <p>{site.footerIndex.left}</p>
     <p>©2025</p>
   </div>
@@ -213,6 +216,36 @@ const capsDesc = [
       if (n >= 100) clearInterval(iv);
     }, 45);
     setTimeout(() => { countEl.textContent = '100%'; loader.classList.add('done'); setTimeout(() => loader.remove(), 620); }, 1300);
+  })();
+
+  // 開場載入的蠟筆互動（把 footer 那種效果放到 onboarding）
+  (function () {
+    const lc = document.getElementById('loaderCanvas');
+    if (!lc || reduceMotion) return;
+    const ctx = lc.getContext('2d');
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const resize = () => { lc.width = innerWidth * dpr; lc.height = innerHeight * dpr; lc.style.width = innerWidth + 'px'; lc.style.height = innerHeight + 'px'; };
+    resize(); window.addEventListener('resize', resize);
+    ctx.lineCap = 'round';
+    let last = null;
+    window.addEventListener('pointermove', (e) => {
+      if (!document.getElementById('loader')) return;
+      const x = e.clientX * dpr, y = e.clientY * dpr;
+      if (last) {
+        const dx = x - last.x, dy = y - last.y, dist = Math.hypot(dx, dy) || 1;
+        const steps = Math.max(1, Math.floor(dist / (3 * dpr)));
+        for (let s = 0; s <= steps; s++) {
+          const t = s / steps, px = last.x + dx * t, py = last.y + dy * t;
+          for (let k = 0; k < 5; k++) {
+            const jx = (Math.random() - 0.5) * 10 * dpr, jy = (Math.random() - 0.5) * 10 * dpr, a = Math.random() * Math.PI, len = (2 + Math.random() * 5) * dpr;
+            ctx.globalAlpha = 0.05 + Math.random() * 0.16; ctx.strokeStyle = 'rgb(23,232,255)'; ctx.lineWidth = (1 + Math.random() * 2.2) * dpr;
+            ctx.beginPath(); ctx.moveTo(px + jx - Math.cos(a) * len, py + jy - Math.sin(a) * len); ctx.lineTo(px + jx + Math.cos(a) * len, py + jy + Math.sin(a) * len); ctx.stroke();
+          }
+        }
+        ctx.globalAlpha = 1;
+      }
+      last = { x, y };
+    }, { passive: true });
   })();
 
   (function () {
@@ -346,50 +379,30 @@ const capsDesc = [
         else if (ch.nodeType === 1) units.push({ t: 'html', v: ch.outerHTML });
       });
       el.innerHTML = '';
-      return { el, units, done: false };
+      return { el, units, token: 0 };
     });
     const typeOne = (rec) => {
-      if (rec.done) return; rec.done = true;
+      const token = ++rec.token;
+      rec.el.innerHTML = '';
       const caret = document.createElement('span'); caret.className = 'tw-caret';
       rec.el.appendChild(caret);
       let i = 0;
       const step = () => {
-        if (i >= rec.units.length) { setTimeout(() => caret.remove(), 700); return; }
+        if (token !== rec.token) return;   // 被新一輪取代
+        if (i >= rec.units.length) { setTimeout(() => { if (token === rec.token) caret.remove(); }, 700); return; }
         const u = rec.units[i++];
         if (u.t === 'char') { const s = document.createElement('span'); s.textContent = u.v; rec.el.insertBefore(s, caret); }
         else if (u.t === 'br') rec.el.insertBefore(document.createElement('br'), caret);
         else { const tp = document.createElement('template'); tp.innerHTML = u.v; rec.el.insertBefore(tp.content, caret); }
-        setTimeout(step, u.t === 'char' ? 52 : 14);
+        setTimeout(step, u.t === 'char' ? 48 : 14);
       };
       step();
     };
-    const tio = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { const r = prep.find((p) => p.el === e.target); if (r) typeOne(r); tio.unobserve(e.target); } }), { threshold: 0.5 });
+    // 每次滑進畫面就重播（不 unobserve）
+    const tio = new IntersectionObserver((es) => es.forEach((e) => { const r = prep.find((p) => p.el === e.target); if (r && e.isIntersecting) typeOne(r); }), { threshold: 0.55 });
     prep.forEach((r) => tio.observe(r.el));
   }
 
-  // 大標水平漂移（scroll parallax，慢速平滑跟隨）— 借自 eric-cole
-  if (!reduceMotion) {
-    const titles = [...document.querySelectorAll('.section-title, .contact-title')];
-    const st = titles.map(() => ({ cur: 0, target: 0 }));
-    const compute = () => {
-      const vh = window.innerHeight;
-      titles.forEach((t, i) => {
-        const r = t.getBoundingClientRect();
-        const p = (r.top + r.height / 2 - vh / 2) / vh;
-        st[i].target = -p * 64;
-      });
-    };
-    const raf = () => {
-      titles.forEach((t, i) => {
-        st[i].cur += (st[i].target - st[i].cur) * 0.05;
-        t.style.transform = 'translateX(' + st[i].cur.toFixed(2) + 'px)';
-      });
-      requestAnimationFrame(raf);
-    };
-    compute(); raf();
-    window.addEventListener('scroll', compute, { passive: true });
-    window.addEventListener('resize', compute, { passive: true });
-  }
 
   // HOW I WORK 卡片：下滑時往上推移（scroll parallax，平滑）
   if (!reduceMotion) {
@@ -548,8 +561,11 @@ const capsDesc = [
 
   /* ===== WORK ===== */
   .ec-work { padding: 7rem 0 7.5rem; }
-  .work-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; margin-bottom: 2.4rem; flex-wrap: wrap; }
+  .work-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap; }
+  .work-lead { flex: 0 0 auto; }
+  .work-bg { width: 150px; height: 150px; object-fit: cover; display: block; margin-bottom: 1.3rem; filter: contrast(1.05); }
   .work-kicker { font-size: .82rem; color: var(--ec-muted); line-height: 1.6; }
+  .work-title { text-align: right; }
   .view-tabs { display: flex; gap: 1.2rem; margin-bottom: 1.4rem; font-size: .8rem; }
   .view-tabs button { border: 0; padding: .15rem .1rem; color: var(--ec-muted); background: transparent; cursor: pointer; font-family: var(--mono); text-transform: uppercase; letter-spacing: .05em; transition: color .2s; }
   .view-tabs button.active { color: var(--ec-paper); background: var(--ec-ink); padding: .15rem .5rem; }
@@ -567,9 +583,12 @@ const capsDesc = [
   .project-preview img { width: 100%; aspect-ratio: 1200/708; object-fit: cover; filter: contrast(.98) saturate(.9); animation: image-snap .62s var(--ease) both; border: 0; }
   @keyframes image-snap { from { opacity: 0; transform: translateY(.7rem) scale(1.015); } to { opacity: 1; transform: none; } }
   .project-preview figcaption { display: flex; justify-content: space-between; gap: 1rem; padding-top: .75rem; color: #666; font-family: var(--mono); font-size: .74rem; text-transform: uppercase; }
-  .ec-work.is-list .work-grid { grid-template-columns: 1fr; }
-  .ec-work.is-list .project-list { padding-top: 0; }
-  .ec-work.is-list .project-preview { position: relative; top: auto; width: min(46rem, 100%); margin-left: auto; }
+  .ec-work.is-list .work-grid { display: flex; flex-direction: column-reverse; gap: 2.5rem; }
+  .ec-work.is-list .project-list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 3rem; padding-top: 0; }
+  .ec-work.is-list .plink { grid-template-columns: 3.4rem 1fr; }
+  .ec-work.is-list .plink .pl-name { font-size: clamp(1.6rem, 3vw, 2.6rem); }
+  .ec-work.is-list .plink .pl-live { display: none; }
+  .ec-work.is-list .project-preview { position: relative; top: auto; width: min(40rem, 100%); margin: 0 auto; }
   .available { width: fit-content; margin: 5.5rem auto 0; text-align: center; font-size: .82rem; }
   .available p { margin-bottom: .8rem; color: var(--ec-muted); }
   .available a { position: relative; }
@@ -631,7 +650,7 @@ const capsDesc = [
   .contact-links a:hover { color: var(--ec-accent); }
 
   /* ===== FOOTER ===== */
-  .ec-footer { padding: 2.6rem 0 2rem; }
+  .ec-footer { padding: 2.6rem 0 2rem; background: #000; color: #eee; }
   .ec-foot { display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid var(--ec-dark-line); padding-top: 1.4rem; font-size: .74rem; color: var(--ec-dark-line); flex-wrap: wrap; gap: 1rem; }
   .foot-clock .clock { color: #eee; }
 
@@ -643,6 +662,8 @@ const capsDesc = [
   .loader.done { opacity: 0; transform: scale(1.015); pointer-events: none; }
   .loader-name { font-family: var(--title); font-weight: 500; font-size: clamp(3rem, 9vw, 8rem); letter-spacing: -.01em; }
   .loader-count { font-family: var(--mono); font-size: clamp(1rem, 3vw, 1.6rem); }
+  #loaderCanvas { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+  .loader-name, .loader-count { position: relative; z-index: 1; }
 
   /* ===== 手機 ===== */
   @media (max-width: 900px) {
