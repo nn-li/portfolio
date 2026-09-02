@@ -30,5 +30,12 @@ export default defineConfig({
         'set-cookie-parser',
       ],
     },
+    server: {
+      watch: {
+        // 忽略本機參考／原檔資料夾（含第三方 node_modules），否則 dev server 會監看
+        // 巨大檔案樹、反覆整頁重載，甚至不穩定當掉。
+        ignored: ['**/_ref/**', '**/_src-graphic/**', '**/_backup/**'],
+      },
+    },
   },
 });

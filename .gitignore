@@ -34,6 +34,9 @@ _backup/
 # 新專案原檔放這裡，Claude 轉成 web 版再放進 public/assets/images/project/。
 _src-graphic/
 
+# 參考網站的復刻檔（第三方，僅供本機分析動態，不上傳不上線）
+_ref/
+
 # Astro
 node_modules/
 dist/
