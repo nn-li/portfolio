@@ -97,7 +97,13 @@ const capsDesc = [
             <a class={`plink ${i === 0 ? 'active' : ''}`} href={project.href} data-i={i}
                data-img={project.cover.src} data-name={project.title} data-meta={project.year}>
               <span class="pl-num">{String(i + 1).padStart(3, '0')}</span>
-              <span class="pl-name">{project.title}</span>
+              <div class="pl-main">
+                <span class="pl-name">{project.title}</span>
+                <p class="pl-desc">{project.description}</p>
+                <div class="pl-tags">{project.tags.map((t) => <span class={t.win ? 'win' : null}>{t.label}</span>)}</div>
+              </div>
+              <img class="pl-cover" src={project.cover.src} alt={project.cover.alt} loading="lazy" />
+              <div class="pl-end"><span class="pl-year">{project.year}</span><span class="pl-arrow">↗</span></div>
               <span class="pl-live">VIEW LIVE ↗</span>
             </a>
           ))}
@@ -158,20 +164,12 @@ const capsDesc = [
     </div>
   </section>
 
-  <!-- ABOUT（置中肖像） -->
+  <!-- ABOUT（首頁精簡預告，完整介紹在 /about.html） -->
   <section class="ec-sec ec-about" id="about">
     <div class="ec-wrap">
       <h2 class="section-title about-title">ABOUT</h2>
-      <figure class="about-portrait reveal">
-        <img src={content.hero.portrait.src} alt={content.hero.portrait.alt} />
-        <figcaption>
-          <span class="ap-hello">-- { `{ "HELLO WORLD" }` }</span>
-          <span class="ap-name">I&apos;M <mark class="scramble" data-final="BRYNN">BRYNN</mark></span>
-        </figcaption>
-      </figure>
       <div class="about-statement reveal">
         <p class="about-lead"><Fragment set:html={content.about.leadHtml} /></p>
-        <p class="about-body">{content.about.body}</p>
         <a class="about-more" href="/about.html">{content.about.moreLabel}</a>
       </div>
     </div>
@@ -192,7 +190,7 @@ const capsDesc = [
 
 </main>
 
-<footer class="ec-footer">
+<footer class="ec-footer dark-section">
   <div class="ec-wrap ec-foot">
     <p>{site.footerIndex.left}</p>
     <p>©2025</p>
@@ -572,6 +570,8 @@ const capsDesc = [
   .work-grid { display: grid; grid-template-columns: minmax(17rem, 26rem) 1fr; gap: 3rem; align-items: start; }
   .project-list { padding-top: 1rem; }
   .plink { display: grid; grid-template-columns: 3.4rem 1fr auto; align-items: center; min-height: 3.4rem; padding: .3rem 0; border-bottom: 1px solid var(--ec-line); color: #9a9a9a; transition: color .18s, border-color .18s, transform .18s, padding-left .18s; }
+  /* COLUMN 模式：只顯示編號+名稱，其餘隱藏（LIST 才顯示） */
+  .pl-desc, .pl-tags, .pl-cover, .pl-end { display: none; }
   .pl-live { font-family: var(--mono); font-size: .68rem; letter-spacing: .05em; color: var(--ec-accent); opacity: 0; transform: translateX(-6px); transition: opacity .2s, transform .2s; white-space: nowrap; }
   .plink.active .pl-live, .plink:hover .pl-live { opacity: 1; transform: none; }
   .plink:first-child { border-top: 1px solid var(--ec-line); }
@@ -583,12 +583,25 @@ const capsDesc = [
   .project-preview img { width: 100%; aspect-ratio: 1200/708; object-fit: cover; filter: contrast(.98) saturate(.9); animation: image-snap .62s var(--ease) both; border: 0; }
   @keyframes image-snap { from { opacity: 0; transform: translateY(.7rem) scale(1.015); } to { opacity: 1; transform: none; } }
   .project-preview figcaption { display: flex; justify-content: space-between; gap: 1rem; padding-top: .75rem; color: #666; font-family: var(--mono); font-size: .74rem; text-transform: uppercase; }
-  .ec-work.is-list .work-grid { display: flex; flex-direction: column-reverse; gap: 2.5rem; }
-  .ec-work.is-list .project-list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 3rem; padding-top: 0; }
-  .ec-work.is-list .plink { grid-template-columns: 3.4rem 1fr; }
-  .ec-work.is-list .plink .pl-name { font-size: clamp(1.6rem, 3vw, 2.6rem); }
-  .ec-work.is-list .plink .pl-live { display: none; }
-  .ec-work.is-list .project-preview { position: relative; top: auto; width: min(40rem, 100%); margin: 0 auto; }
+  /* LIST 模式：Brynn 原本的作品索引排版（名稱+大描述+標籤+封面+年份），封面 hover 才出現 */
+  .ec-work.is-list .work-grid { display: block; }
+  .ec-work.is-list .project-preview { display: none; }
+  .ec-work.is-list .project-list { display: block; padding-top: 0; }
+  .ec-work.is-list .plink { grid-template-columns: 2.6rem 1fr 240px auto; gap: 2rem; align-items: center; min-height: 0; padding: 2.2rem 0; }
+  .ec-work.is-list .plink:hover { transform: none; padding-left: 0; color: inherit; }
+  .ec-work.is-list .pl-num { align-self: start; padding-top: .4rem; }
+  .ec-work.is-list .pl-name { font-family: var(--mono); text-transform: uppercase; font-size: .82rem; letter-spacing: .05em; color: var(--ec-muted); }
+  .ec-work.is-list .pl-desc { display: block; font-family: var(--display); font-size: clamp(1.3rem, 2.2vw, 1.9rem); line-height: 1.3; letter-spacing: -.01em; color: var(--ec-ink); margin: .5rem 0 .9rem; max-width: 22em; }
+  .ec-work.is-list .pl-tags { display: flex; gap: .55rem; flex-wrap: wrap; }
+  .ec-work.is-list .pl-tags span { font-family: var(--mono); font-size: .66rem; text-transform: uppercase; letter-spacing: .04em; color: var(--ec-muted); border: 1px solid var(--ec-line); border-radius: 100px; padding: .22rem .7rem; }
+  .ec-work.is-list .pl-tags span.win { color: var(--ec-accent); border-color: var(--ec-accent); }
+  .ec-work.is-list .pl-cover { display: block; width: 240px; aspect-ratio: 1200/708; object-fit: cover; opacity: 0; transform: scale(.98); transition: opacity .35s var(--ease), transform .35s var(--ease); }
+  .ec-work.is-list .plink:hover .pl-cover, .ec-work.is-list .plink:focus-visible .pl-cover { opacity: 1; transform: none; }
+  .ec-work.is-list .pl-end { display: flex; flex-direction: column; align-items: flex-end; gap: .7rem; }
+  .ec-work.is-list .pl-year { font-family: var(--display); font-size: 1.3rem; color: var(--ec-ink); }
+  .ec-work.is-list .pl-arrow { width: 2.4rem; height: 2.4rem; border: 1px solid var(--ec-line); border-radius: 50%; display: grid; place-items: center; font-size: .95rem; transition: background .3s, color .3s, border-color .3s, transform .3s; }
+  .ec-work.is-list .plink:hover .pl-arrow { background: var(--ec-accent); color: #fff; border-color: var(--ec-accent); transform: rotate(45deg); }
+  .ec-work.is-list .pl-live { display: none; }
   .available { width: fit-content; margin: 5.5rem auto 0; text-align: center; font-size: .82rem; }
   .available p { margin-bottom: .8rem; color: var(--ec-muted); }
   .available a { position: relative; }
@@ -639,7 +652,8 @@ const capsDesc = [
   .about-more { display: inline-block; margin-top: 1.8rem; font-family: var(--mono); font-size: .8rem; text-transform: uppercase; border-bottom: 1px solid var(--ec-accent); padding-bottom: 3px; }
 
   /* ===== CONTACT（深色） ===== */
-  .ec-contact-sec { padding: 8.5rem 0 7rem; text-align: center; }
+  .ec-contact-sec { padding: 8.5rem 0 7rem; text-align: center; background: #000; }
+  .ec-contact-sec::before { display: none; }
   .kicker { font-size: .8rem; color: var(--ec-dark-line); margin-bottom: 1.8rem; }
   .contact-title { font-family: var(--title); font-weight: 500; font-size: clamp(3rem, 9vw, 7.4rem); line-height: .96; text-transform: uppercase; letter-spacing: -.02em; }
   .contact-mail { display: inline-block; margin-top: 2.2rem; font-family: var(--display); font-style: italic; font-size: clamp(1.3rem, 3vw, 2.1rem); color: #eee; position: relative; }
@@ -650,7 +664,7 @@ const capsDesc = [
   .contact-links a:hover { color: var(--ec-accent); }
 
   /* ===== FOOTER ===== */
-  .ec-footer { padding: 2.6rem 0 2rem; background: #000; color: #eee; }
+  .ec-footer { padding: 2.6rem 0 2rem; }
   .ec-foot { display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid var(--ec-dark-line); padding-top: 1.4rem; font-size: .74rem; color: var(--ec-dark-line); flex-wrap: wrap; gap: 1rem; }
   .foot-clock .clock { color: #eee; }
 
@@ -660,7 +674,7 @@ const capsDesc = [
   /* ===== 開場載入 ===== */
   .loader { position: fixed; inset: 0; z-index: 999; background: var(--ec-ink); color: var(--ec-paper); display: flex; align-items: flex-end; justify-content: space-between; padding: 8vw; transition: opacity .55s var(--ease), transform .55s var(--ease); }
   .loader.done { opacity: 0; transform: scale(1.015); pointer-events: none; }
-  .loader-name { font-family: var(--title); font-weight: 500; font-size: clamp(3rem, 9vw, 8rem); letter-spacing: -.01em; }
+  .loader-name { font-family: var(--mono); font-weight: 600; font-size: clamp(3rem, 9vw, 8rem); letter-spacing: .06em; }
   .loader-count { font-family: var(--mono); font-size: clamp(1rem, 3vw, 1.6rem); }
   #loaderCanvas { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
   .loader-name, .loader-count { position: relative; z-index: 1; }
