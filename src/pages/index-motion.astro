@@ -9,10 +9,19 @@ import site from '../content/site.json';
 
 const introLine = 'UI/UX DESIGNER — TURNING RESEARCH AND MESSY REQUIREMENTS INTO CLEAR, BUILDABLE PRODUCT EXPERIENCES.';
 const claimLine = 'I CARE ABOUT PRODUCTS THAT ARE CLEAR TO UNDERSTAND, HONEST ABOUT TRADE-OFFS, AND EASY TO USE.';
+// CAPABILITIES 各能力的一句說明（草稿，可再改）
+const capsDesc = [
+  '透過訪談、觀察與競品分析，把使用者的真實需求與痛點整理成設計依據。',
+  '規劃內容結構與導覽邏輯，讓資訊好找、關係清楚。',
+  '梳理任務流程與決策點，讓每一步都清楚、結果可預期。',
+  '用可操作的原型及早驗證想法，發現問題再修正。',
+  '設計清楚一致的介面與元件，兼顧美感與可用性。',
+  '邀請真實使用者操作，依實際卡點迭代設計。',
+];
 ---
 <Base title={content.meta.title} description={content.meta.description}>
   <Fragment slot="head">
-    <link href="https://fonts.googleapis.com/css2?family=Inspiration&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
   </Fragment>
 
 <!-- 開場載入 000% → 100% -->
@@ -23,7 +32,7 @@ const claimLine = 'I CARE ABOUT PRODUCTS THAT ARE CLEAR TO UNDERSTAND, HONEST AB
 
 <!-- NAV：置中 grid + mix-blend 反白 -->
 <header id="hd" class="ec-header">
-  <a href="#top" class="ec-logo">BR<span class="script">y</span>NN</a>
+  <a href="#top" class="ec-logo">BRYNN</a>
   <nav class="ec-nav" id="siteNav" aria-label="Primary navigation">
     <a href="#work">+ WORK</a>
     <a href="#caps">+ CAPABILITIES</a>
@@ -54,7 +63,6 @@ const claimLine = 'I CARE ABOUT PRODUCTS THAT ARE CLEAR TO UNDERSTAND, HONEST AB
           </div>
         </div>
       </div>
-      <a class="hero-scroll reveal in" style="animation-delay:.3s" href="#work">{content.hero.scrollLabel}</a>
     </div>
   </section>
 
@@ -71,7 +79,7 @@ const claimLine = 'I CARE ABOUT PRODUCTS THAT ARE CLEAR TO UNDERSTAND, HONEST AB
     <div class="ec-wrap">
       <div class="work-top">
         <p class="work-kicker">A FEW SELECTED<br />PROJECTS.</p>
-        <h2 class="section-title reveal">SELECT<span class="script">e</span>D<br />W<span class="script">o</span>RK</h2>
+        <h2 class="section-title">SELECTED<br />WORK</h2>
       </div>
 
       <div class="view-tabs" role="tablist" aria-label="作品顯示方式">
@@ -86,6 +94,7 @@ const claimLine = 'I CARE ABOUT PRODUCTS THAT ARE CLEAR TO UNDERSTAND, HONEST AB
                data-img={project.cover.src} data-name={project.title} data-meta={project.year}>
               <span class="pl-num">{String(i + 1).padStart(3, '0')}</span>
               <span class="pl-name">{project.title}</span>
+              <span class="pl-live">VIEW LIVE ↗</span>
             </a>
           ))}
         </div>
@@ -105,53 +114,60 @@ const claimLine = 'I CARE ABOUT PRODUCTS THAT ARE CLEAR TO UNDERSTAND, HONEST AB
     </div>
   </section>
 
-  <!-- APPROACH（= How I Work） -->
+  <!-- APPROACH（= How I Work）：左標題（固定）+ 右直排卡片 -->
   <section class="ec-sec ec-approach" id="approach">
-    <div class="ec-wrap">
-      <h2 class="section-title reveal">HOW I&nbsp;W<span class="script">o</span>RK</h2>
-      <div class="approach-board">
-        {content.howIWork.cards.map((card, i) => (
-          <article class={`note-card reveal ${i === 1 ? 'delay-1' : i === 2 ? 'delay-2' : ''}`}>
-            <span class="nc-num">{String(i + 1).padStart(3, '0')}</span>
-            <h3 class="scramble" data-final={card.title}>{card.title}</h3>
-            <p>{card.body}</p>
-          </article>
-        ))}
+    <div class="ec-wrap approach-layout">
+      <div class="approach-left"><h2 class="section-title">HOW I&nbsp;WORK</h2></div>
+      <div class="approach-right">
+        <div class="note-stack">
+          {content.howIWork.cards.map((card, i) => (
+            <article class="note-card">
+              <span class="nc-num">{String(i + 1).padStart(3, '0')}</span>
+              <h3 class="scramble" data-final={card.title}>{card.title}</h3>
+              <p>{card.body}</p>
+            </article>
+          ))}
+        </div>
+        <p class="approach-claim reveal">{claimLine}</p>
       </div>
-      <p class="approach-claim reveal">{claimLine}</p>
     </div>
   </section>
 
-  <!-- CAPABILITIES（深色，= 技能） -->
+  <!-- CAPABILITIES（純黑，= 技能） -->
   <section class="ec-caps dark-section" id="caps">
-    <div class="ruler" aria-hidden="true">{Array.from({ length: 11 }).map((_, i) => <i>{i}</i>)}</div>
     <div class="ec-wrap">
-      <h2 class="section-title reveal">CAPA<span class="script">b</span>ILITIES <span class="st-tag">[WHAT I DO]</span></h2>
-      <p class="caps-statement reveal">從研究與流程規劃切入，把發現轉化為資訊架構、User Flow、Prototype 與介面規格。</p>
+      <h2 class="section-title">CAPABILITIES <span class="st-tag">[WHAT I DO]</span></h2>
+      <p class="caps-statement reveal">我從研究與流程規劃切入，把發現轉化為資訊架構、User Flow、Prototype 與介面規格。</p>
       <div class="cap-table reveal">
         {content.marquee.items.map((item, i) => (
           <article>
             <span class="ct-num">{String(i + 1).padStart(3, '0')}</span>
             <h3>{item}</h3>
+            <p class="ct-desc">{capsDesc[i]}</p>
           </article>
         ))}
+      </div>
+      <div class="caps-cta reveal">
+        <p>有專案想聊聊嗎？</p>
+        <a href="#contact">LET&apos;S CHAT ↗</a>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- ABOUT（置中肖像） -->
   <section class="ec-sec ec-about" id="about">
     <div class="ec-wrap">
-      <h2 class="section-title reveal">AB<span class="script">ou</span>T</h2>
-      <div class="about-card reveal">
-        <div class="about-label">
-          <p>// { `{ "HELLO" }` }</p>
-          <h3><Fragment set:html={content.about.leadHtml} /></h3>
-        </div>
+      <h2 class="section-title about-title">ABOUT</h2>
+      <figure class="about-portrait reveal">
         <img src={content.hero.portrait.src} alt={content.hero.portrait.alt} />
-      </div>
-      <div class="about-facts reveal">
-        <p>{content.about.body}</p>
+        <figcaption>
+          <span class="ap-hello">-- { `{ "HELLO WORLD" }` }</span>
+          <span class="ap-name">I&apos;M <mark>BRYNN</mark></span>
+        </figcaption>
+      </figure>
+      <div class="about-statement reveal">
+        <p class="about-lead"><Fragment set:html={content.about.leadHtml} /></p>
+        <p class="about-body">{content.about.body}</p>
         <a class="about-more" href="/about.html">{content.about.moreLabel}</a>
       </div>
     </div>
@@ -161,7 +177,7 @@ const claimLine = 'I CARE ABOUT PRODUCTS THAT ARE CLEAR TO UNDERSTAND, HONEST AB
   <section class="ec-contact-sec dark-section" id="contact">
     <div class="ec-wrap">
       <p class="kicker reveal">[LET&apos;S TALK]</p>
-      <h2 class="contact-title reveal">LET&apos;S MAKE<br />IT CL<span class="script">ea</span>R.</h2>
+      <h2 class="contact-title">LET&apos;S MAKE<br />IT CLEAR.</h2>
       <a class="contact-mail" href={`mailto:${content.contact.email}`}>{content.contact.email} ↗</a>
       <div class="contact-links reveal">
         <a href="#work">+ {content.contact.workLinkLabel}</a>
@@ -180,7 +196,7 @@ const claimLine = 'I CARE ABOUT PRODUCTS THAT ARE CLEAR TO UNDERSTAND, HONEST AB
   </div>
 </footer>
 
-<div id="cursorGlow" aria-hidden="true"></div>
+<canvas id="cursorCanvas" aria-hidden="true"></canvas>
 
 <script is:inline>
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -195,8 +211,8 @@ const claimLine = 'I CARE ABOUT PRODUCTS THAT ARE CLEAR TO UNDERSTAND, HONEST AB
       n = Math.min(100, n + Math.ceil(Math.random() * 11));
       countEl.textContent = String(n).padStart(3, '0') + '%';
       if (n >= 100) clearInterval(iv);
-    }, 90);
-    setTimeout(() => { countEl.textContent = '100%'; loader.classList.add('done'); setTimeout(() => loader.remove(), 620); }, 1900);
+    }, 45);
+    setTimeout(() => { countEl.textContent = '100%'; loader.classList.add('done'); setTimeout(() => loader.remove(), 620); }, 1300);
   })();
 
   (function () {
@@ -218,6 +234,24 @@ const claimLine = 'I CARE ABOUT PRODUCTS THAT ARE CLEAR TO UNDERSTAND, HONEST AB
     tog.addEventListener('click', () => setOpen(!hd.classList.contains('menu-open')));
     navEl.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+  }
+
+  // nav 文字 hover 亂碼解析（借自 eric-cole）
+  if (!reduceMotion) {
+    const NCH = '@#%&+*<>=/';
+    const navScramble = (el) => {
+      const base = el.dataset.final || el.textContent;
+      el.dataset.final = base;
+      let f = 0; const tot = 34;
+      const tk = () => {
+        const p = Math.max(0, f / tot - 0.18);   // 先維持一段亂碼再慢慢解析
+        el.textContent = base.split('').map((c, i) => (c === ' ' || c === '+') ? c : (i / base.length < p ? c : NCH[Math.floor(Math.random() * NCH.length)])).join('');
+        f++;
+        if (f <= tot) requestAnimationFrame(tk); else el.textContent = base;
+      };
+      tk();
+    };
+    document.querySelectorAll('.ec-nav a, .ec-contact').forEach((a) => a.addEventListener('mouseenter', () => navScramble(a)));
   }
 
   const card = document.getElementById('heroCard');
@@ -255,7 +289,7 @@ const claimLine = 'I CARE ABOUT PRODUCTS THAT ARE CLEAR TO UNDERSTAND, HONEST AB
     const CH = '!<>-_\\/[]{}=+*^?#________';
     const run = (el) => {
       const final = el.getAttribute('data-final') || el.textContent;
-      let frame = 0; const total = 26;
+      let frame = 0; const total = 48;
       const tick = () => {
         const p = frame / total;
         el.textContent = final.split('').map((c, i) => {
@@ -301,17 +335,124 @@ const claimLine = 'I CARE ABOUT PRODUCTS THAT ARE CLEAR TO UNDERSTAND, HONEST AB
   const io = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
   document.querySelectorAll('.reveal, .obs').forEach((el) => io.observe(el));
 
-  const glow = document.getElementById('cursorGlow');
-  if (glow && !reduceMotion && matchMedia('(hover: hover)').matches) {
-    let ticking = false;
-    window.addEventListener('pointermove', (e) => {
-      if (ticking) return; ticking = true;
-      requestAnimationFrame(() => {
-        document.documentElement.style.setProperty('--cursor-x', e.clientX + 'px');
-        document.documentElement.style.setProperty('--cursor-y', e.clientY + 'px');
-        glow.classList.add('on'); ticking = false;
+  // section 標題打字機效果（進場逐字打出，帶游標）
+  if (!reduceMotion) {
+    const titleEls = [...document.querySelectorAll('.section-title, .contact-title')];
+    const prep = titleEls.map((el) => {
+      const units = [];
+      el.childNodes.forEach((ch) => {
+        if (ch.nodeType === 3) { for (const c of ch.textContent) units.push({ t: 'char', v: c }); }
+        else if (ch.nodeName === 'BR') units.push({ t: 'br' });
+        else if (ch.nodeType === 1) units.push({ t: 'html', v: ch.outerHTML });
       });
+      el.innerHTML = '';
+      return { el, units, done: false };
+    });
+    const typeOne = (rec) => {
+      if (rec.done) return; rec.done = true;
+      const caret = document.createElement('span'); caret.className = 'tw-caret';
+      rec.el.appendChild(caret);
+      let i = 0;
+      const step = () => {
+        if (i >= rec.units.length) { setTimeout(() => caret.remove(), 700); return; }
+        const u = rec.units[i++];
+        if (u.t === 'char') { const s = document.createElement('span'); s.textContent = u.v; rec.el.insertBefore(s, caret); }
+        else if (u.t === 'br') rec.el.insertBefore(document.createElement('br'), caret);
+        else { const tp = document.createElement('template'); tp.innerHTML = u.v; rec.el.insertBefore(tp.content, caret); }
+        setTimeout(step, u.t === 'char' ? 52 : 14);
+      };
+      step();
+    };
+    const tio = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { const r = prep.find((p) => p.el === e.target); if (r) typeOne(r); tio.unobserve(e.target); } }), { threshold: 0.5 });
+    prep.forEach((r) => tio.observe(r.el));
+  }
+
+  // 大標水平漂移（scroll parallax，慢速平滑跟隨）— 借自 eric-cole
+  if (!reduceMotion) {
+    const titles = [...document.querySelectorAll('.section-title, .contact-title')];
+    const st = titles.map(() => ({ cur: 0, target: 0 }));
+    const compute = () => {
+      const vh = window.innerHeight;
+      titles.forEach((t, i) => {
+        const r = t.getBoundingClientRect();
+        const p = (r.top + r.height / 2 - vh / 2) / vh;
+        st[i].target = -p * 64;
+      });
+    };
+    const raf = () => {
+      titles.forEach((t, i) => {
+        st[i].cur += (st[i].target - st[i].cur) * 0.05;
+        t.style.transform = 'translateX(' + st[i].cur.toFixed(2) + 'px)';
+      });
+      requestAnimationFrame(raf);
+    };
+    compute(); raf();
+    window.addEventListener('scroll', compute, { passive: true });
+    window.addEventListener('resize', compute, { passive: true });
+  }
+
+  // HOW I WORK 卡片：下滑時往上推移（scroll parallax，平滑）
+  if (!reduceMotion) {
+    const cards = [...document.querySelectorAll('.note-card')];
+    if (cards.length) {
+      const cs = cards.map(() => ({ cur: 0, target: 0 }));
+      const compC = () => {
+        const vh = innerHeight;
+        cards.forEach((c, i) => {
+          const r = c.getBoundingClientRect();
+          cs[i].target = ((r.top - vh / 2) / vh) * -52;
+        });
+      };
+      const rafC = () => {
+        cards.forEach((c, i) => { cs[i].cur += (cs[i].target - cs[i].cur) * 0.07; c.style.transform = 'translateY(' + cs[i].cur.toFixed(2) + 'px)'; });
+        requestAnimationFrame(rafC);
+      };
+      compC(); rafC();
+      window.addEventListener('scroll', compC, { passive: true });
+      window.addEventListener('resize', compC, { passive: true });
+    }
+  }
+
+  // 蠟筆游標軌跡（canvas）— 青/藍筆觸，跟 hero 背景同調，移動留痕、慢慢淡去
+  const cvs = document.getElementById('cursorCanvas');
+  if (cvs && !reduceMotion && matchMedia('(hover: hover)').matches) {
+    const ctx = cvs.getContext('2d');
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    let W = 0, H = 0;
+    const resize = () => { W = cvs.width = innerWidth * dpr; H = cvs.height = innerHeight * dpr; cvs.style.width = innerWidth + 'px'; cvs.style.height = innerHeight + 'px'; };
+    resize(); window.addEventListener('resize', resize);
+    ctx.lineCap = 'round';
+    let last = null;
+    window.addEventListener('pointermove', (e) => {
+      const x = e.clientX * dpr, y = e.clientY * dpr;
+      if (last) {
+        const dx = x - last.x, dy = y - last.y;
+        const dist = Math.hypot(dx, dy) || 1;
+        const steps = Math.max(1, Math.floor(dist / (3 * dpr)));
+        for (let s = 0; s <= steps; s++) {
+          const t = s / steps;
+          const px = last.x + dx * t, py = last.y + dy * t;
+          // 蠟筆顆粒：沿路徑疊多筆短的、隨機透明度/角度的小筆觸
+          for (let k = 0; k < 5; k++) {
+            const jx = (Math.random() - 0.5) * 10 * dpr;
+            const jy = (Math.random() - 0.5) * 10 * dpr;
+            const a = Math.random() * Math.PI;
+            const len = (2 + Math.random() * 5) * dpr;
+            ctx.globalAlpha = 0.05 + Math.random() * 0.16;
+            ctx.strokeStyle = 'rgb(23,232,255)';
+            ctx.lineWidth = (1 + Math.random() * 2.2) * dpr;
+            ctx.beginPath();
+            ctx.moveTo(px + jx - Math.cos(a) * len, py + jy - Math.sin(a) * len);
+            ctx.lineTo(px + jx + Math.cos(a) * len, py + jy + Math.sin(a) * len);
+            ctx.stroke();
+          }
+        }
+        ctx.globalAlpha = 1;
+      }
+      last = { x, y };
     }, { passive: true });
+    const fade = () => { ctx.globalCompositeOperation = 'destination-out'; ctx.fillStyle = 'rgba(0,0,0,.04)'; ctx.fillRect(0, 0, W, H); ctx.globalCompositeOperation = 'source-over'; requestAnimationFrame(fade); };
+    fade();
   }
 </script>
 
@@ -319,12 +460,14 @@ const claimLine = 'I CARE ABOUT PRODUCTS THAT ARE CLEAR TO UNDERSTAND, HONEST AB
 
 <style is:global>
   :root {
-    --ec-paper: #f1f1ef; --ec-paper-soft: #e7e7e4;
-    --ec-ink: #242424; --ec-muted: #777777; --ec-line: rgba(36,36,36,.32);
-    --ec-dark: #111111; --ec-dark-soft: #191919; --ec-dark-line: rgba(255,255,255,.24);
-    --ec-accent: #d66d38;
-    --mono: "Roboto Mono", "SFMono-Regular", "Courier New", monospace;
-    --helv: "Helvetica Neue", Arial, "Hanken Grotesk", sans-serif;
+    --ec-paper: #ffffff; --ec-paper-soft: #f4f4f4;
+    --ec-ink: #141414; --ec-muted: #8a8a8a; --ec-line: rgba(20,20,20,.14);
+    --ec-dark: #161616; --ec-dark-soft: #1e1e1e; --ec-dark-line: rgba(255,255,255,.22);
+    --ec-accent: #0900ff; --ec-cyan: #17e8ff;
+    --display: "Fraunces", Georgia, serif;
+    --title: "Space Grotesk", "Hanken Grotesk", sans-serif;
+    --mono: "Hanken Grotesk", system-ui, sans-serif;
+    --helv: "Hanken Grotesk", system-ui, sans-serif;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -348,11 +491,10 @@ const claimLine = 'I CARE ABOUT PRODUCTS THAT ARE CLEAR TO UNDERSTAND, HONEST AB
   /* ===== NAV：置中 grid + 反白 + 底線擦出 ===== */
   .ec-header { position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: grid; grid-template-columns: 12rem 1fr 12rem; align-items: center; padding: 1.4rem 5vw; font-family: var(--mono); font-size: .8rem; letter-spacing: .04em; text-transform: uppercase; mix-blend-mode: difference; color: #fff; }
   .ec-header a { color: #fff; }
-  .ec-logo { font-family: var(--helv); font-size: 1.3rem; font-weight: 600; letter-spacing: -.01em; }
-  .ec-logo .script { color: #fff; font-size: 1.1em; }
+  .ec-logo { font-family: var(--mono); font-size: 1.1rem; font-weight: 600; letter-spacing: .12em; }
   .ec-nav { display: flex; justify-content: center; gap: 1.4rem; }
   .ec-nav a, .ec-contact { position: relative; }
-  .ec-nav a::after, .ec-contact::after { content: ""; position: absolute; left: 0; right: 0; bottom: -.18rem; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .22s ease; }
+  .ec-nav a::after, .ec-contact::after { content: ""; position: absolute; left: 0; right: 0; bottom: -.2rem; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .4s var(--ease); }
   .ec-nav a:hover::after, .ec-contact:hover::after { transform: scaleX(1); transform-origin: left; }
   .ec-contact { justify-self: end; }
   .ec-menu { display: none; justify-self: end; background: none; border: 0; cursor: pointer; width: 2.4rem; height: 2.4rem; }
@@ -364,7 +506,7 @@ const claimLine = 'I CARE ABOUT PRODUCTS THAT ARE CLEAR TO UNDERSTAND, HONEST AB
   .hero .status { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 12px; font-size: 13.5px; color: var(--ink-soft); letter-spacing: .04em; }
   .hero .status::before { content: "("; } .hero .status::after { content: ")"; }
   .dot { display: none; }
-  .hero h1 { font-size: clamp(36px, 4.6vw, 60px); line-height: 1.1; position: relative; z-index: 3; color: var(--ink); }
+  .hero h1 { font-family: var(--display); font-weight: 400; font-size: clamp(36px, 4.6vw, 60px); line-height: 1.1; letter-spacing: -.015em; position: relative; z-index: 3; color: var(--ink); }
   .hero h1 em { font-style: italic; color: var(--clay); font-weight: 340; }
   .js .hero-title { opacity: 0; } .hero-title.split { opacity: 1; }
   .char-mask { display: inline-block; overflow: hidden; vertical-align: bottom; padding: .14em 0 .06em; margin: -.14em 0 -.06em; }
@@ -386,14 +528,16 @@ const claimLine = 'I CARE ABOUT PRODUCTS THAT ARE CLEAR TO UNDERSTAND, HONEST AB
   @keyframes rise { to { opacity: 1; transform: none; } }
 
   /* ===== 通用大標 / 小標籤 ===== */
-  .section-title { position: relative; font-family: var(--helv); font-weight: 500; font-size: clamp(3.4rem, 8.4vw, 7.2rem); line-height: .92; letter-spacing: 0; text-transform: uppercase; }
+  .section-title { position: relative; font-family: var(--title); font-weight: 500; font-size: clamp(3.4rem, 8.4vw, 7.2rem); line-height: .92; letter-spacing: -.02em; text-transform: uppercase; }
   .section-title .script, .contact-title .script { font-size: .82em; }
   .st-tag { font-family: var(--mono); font-size: .8rem; letter-spacing: .12em; color: var(--ec-muted); vertical-align: super; }
   .dark-section .st-tag { color: var(--ec-dark-line); }
+  .tw-caret { display: inline-block; width: 0; height: .78em; border-right: .09em solid var(--ec-accent); margin-left: .06em; vertical-align: -.06em; animation: caret-blink .85s steps(1) infinite; }
+  @keyframes caret-blink { 50% { opacity: 0; } }
   .code-note, .work-kicker, .view-tabs, .pl-num, .available, .kicker, .st-tag, .about-label p, .ct-num, .ec-foot, .contact-links { font-family: var(--mono); text-transform: uppercase; letter-spacing: .05em; }
 
   /* ===== scroll reveal ===== */
-  .reveal:not(.in) { opacity: 0; transform: translateY(2.2rem); filter: blur(4px); transition: opacity .85s var(--ease), transform .85s var(--ease), filter .85s var(--ease); }
+  .reveal:not(.in) { opacity: 0; transform: translateY(2.2rem); filter: blur(5px); transition: opacity 1.2s var(--ease), transform 1.2s var(--ease), filter 1.2s var(--ease); }
   .reveal:not(.in).show { opacity: 1; transform: none; filter: none; }
   .reveal.delay-1 { transition-delay: .1s; } .reveal.delay-2 { transition-delay: .2s; }
 
@@ -411,14 +555,16 @@ const claimLine = 'I CARE ABOUT PRODUCTS THAT ARE CLEAR TO UNDERSTAND, HONEST AB
   .view-tabs button.active { color: var(--ec-paper); background: var(--ec-ink); padding: .15rem .5rem; }
   .work-grid { display: grid; grid-template-columns: minmax(17rem, 26rem) 1fr; gap: 3rem; align-items: start; }
   .project-list { padding-top: 1rem; }
-  .plink { display: grid; grid-template-columns: 3.4rem 1fr; align-items: center; min-height: 3.4rem; padding: .3rem 0; border-bottom: 1px solid var(--ec-line); color: #9a9a9a; transition: color .18s, border-color .18s, transform .18s, padding-left .18s; }
+  .plink { display: grid; grid-template-columns: 3.4rem 1fr auto; align-items: center; min-height: 3.4rem; padding: .3rem 0; border-bottom: 1px solid var(--ec-line); color: #9a9a9a; transition: color .18s, border-color .18s, transform .18s, padding-left .18s; }
+  .pl-live { font-family: var(--mono); font-size: .68rem; letter-spacing: .05em; color: var(--ec-accent); opacity: 0; transform: translateX(-6px); transition: opacity .2s, transform .2s; white-space: nowrap; }
+  .plink.active .pl-live, .plink:hover .pl-live { opacity: 1; transform: none; }
   .plink:first-child { border-top: 1px solid var(--ec-line); }
   .plink .pl-num { font-size: .8rem; color: var(--ec-muted); }
-  .plink .pl-name { font-family: var(--helv); text-transform: uppercase; font-size: clamp(1.3rem, 2.2vw, 2rem); line-height: 1.05; letter-spacing: -.01em; }
+  .plink .pl-name { font-family: "Space Grotesk", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif; font-size: clamp(1.4rem, 2.4vw, 2.1rem); line-height: 1.15; letter-spacing: -.01em; }
   .plink.active, .plink:hover, .plink:focus-visible { color: var(--ec-ink); border-color: var(--ec-ink); transform: translateX(.18rem); }
   .plink.active .pl-name { color: var(--ec-accent); }
   .project-preview { position: sticky; top: 8rem; overflow: hidden; }
-  .project-preview img { width: 100%; aspect-ratio: 1.35/1; object-fit: cover; filter: contrast(.98) saturate(.9); animation: image-snap .42s ease both; border: 1px solid var(--ec-line); }
+  .project-preview img { width: 100%; aspect-ratio: 1200/708; object-fit: cover; filter: contrast(.98) saturate(.9); animation: image-snap .62s var(--ease) both; border: 0; }
   @keyframes image-snap { from { opacity: 0; transform: translateY(.7rem) scale(1.015); } to { opacity: 1; transform: none; } }
   .project-preview figcaption { display: flex; justify-content: space-between; gap: 1rem; padding-top: .75rem; color: #666; font-family: var(--mono); font-size: .74rem; text-transform: uppercase; }
   .ec-work.is-list .work-grid { grid-template-columns: 1fr; }
@@ -430,46 +576,54 @@ const claimLine = 'I CARE ABOUT PRODUCTS THAT ARE CLEAR TO UNDERSTAND, HONEST AB
   .available a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -.18rem; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .22s ease; }
   .available a:hover::after { transform: scaleX(1); transform-origin: left; }
 
-  /* ===== APPROACH ===== */
-  .ec-approach { padding: 6.5rem 0 7rem; }
-  .ec-approach .section-title { margin-bottom: 3.2rem; }
-  .approach-board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
-  .note-card { border: 1px solid var(--ec-line); padding: 2rem 1.8rem; background: rgba(255,255,255,.35); transition: background .3s, transform .5s var(--ease), opacity .7s var(--ease), filter .7s var(--ease); }
-  .note-card:nth-child(2) { transform: translateY(1.6rem); }
-  .note-card:hover { background: rgba(255,255,255,.7); }
-  .note-card .nc-num { font-family: var(--mono); color: var(--ec-accent); font-size: .82rem; }
-  .note-card h3 { font-family: var(--helv); text-transform: uppercase; font-weight: 500; font-size: 1.25rem; margin: 1rem 0 .8rem; letter-spacing: -.01em; line-height: 1.25; }
-  .note-card p { font-size: 14.5px; color: #4a4a48; line-height: 1.8; }
-  .approach-claim { margin-top: 3.4rem; font-family: var(--helv); text-transform: uppercase; font-size: clamp(1.4rem, 3vw, 2.4rem); line-height: 1.32; letter-spacing: -.01em; max-width: 26ch; }
+  /* ===== APPROACH（左標題固定 + 右直排卡片） ===== */
+  .ec-approach { padding: 6.5rem 0 7.5rem; }
+  .approach-layout { display: grid; grid-template-columns: 1fr 1.15fr; gap: 3.5rem; align-items: start; }
+  .approach-left { position: sticky; top: 16vh; }
+  .note-stack { display: flex; flex-direction: column; gap: 1.6rem; }
+  .note-card { border: 1px solid var(--ec-line); padding: 2.4rem 2.6rem; background: transparent; transition: background .3s, border-color .3s, opacity .8s var(--ease), transform .8s var(--ease), filter .8s var(--ease); }
+  .note-card:hover { background: rgba(9,0,255,.03); border-color: var(--ec-ink); }
+  .note-card .nc-num { font-family: var(--mono); color: var(--ec-accent); font-size: .9rem; letter-spacing: .1em; }
+  .note-card h3 { font-family: var(--display); font-weight: 400; font-size: clamp(1.6rem, 2.4vw, 2.2rem); margin: 1.1rem 0 1rem; letter-spacing: -.01em; line-height: 1.2; }
+  .note-card p { font-size: 15.5px; color: #4a4a48; line-height: 1.85; max-width: 42ch; }
+  .approach-claim { margin: 4rem 0 0; font-family: var(--display); font-size: clamp(1.6rem, 3.4vw, 2.8rem); line-height: 1.3; letter-spacing: -.01em; color: var(--ec-muted); text-align: right; }
 
-  /* ===== CAPABILITIES（深色） ===== */
-  .ec-caps { padding: 7rem 0; overflow: hidden; }
-  .ec-caps .ruler { position: absolute; top: 2.5rem; right: 5vw; display: flex; flex-direction: column; gap: 1.3rem; color: var(--ec-dark-line); font-family: var(--mono); font-size: .7rem; z-index: 1; }
-  .caps-statement { margin: 2.4rem 0 3.4rem; font-family: var(--helv); text-transform: uppercase; font-size: clamp(1.3rem, 2.6vw, 2.1rem); line-height: 1.42; color: #eee; max-width: 30ch; }
+  /* ===== CAPABILITIES（純黑） ===== */
+  .ec-caps { padding: 7rem 0; overflow: hidden; background: #000; }
+  .ec-caps::before { display: none; }
+  .caps-statement { margin: 2.6rem 0 4rem auto; font-family: var(--helv); font-size: clamp(1.4rem, 2.8vw, 2.2rem); line-height: 1.5; color: #eee; max-width: 32ch; text-align: right; }
   .cap-table { border-top: 1px solid var(--ec-dark-line); }
-  .cap-table article { display: grid; grid-template-columns: 5rem 1fr; gap: 1.2rem; align-items: center; padding: 1.5rem 0; border-bottom: 1px solid var(--ec-dark-line); transition: padding-left .3s var(--ease); }
+  .cap-table article { display: grid; grid-template-columns: 4.2rem 1.1fr 1.5fr; gap: 1.4rem; align-items: center; padding: 1.7rem 0; border-bottom: 1px solid var(--ec-dark-line); transition: padding-left .3s var(--ease); }
   .cap-table article:hover { padding-left: .9rem; }
-  .cap-table .ct-num { font-size: .78rem; color: var(--ec-dark-line); }
-  .cap-table h3 { font-family: var(--helv); text-transform: uppercase; font-weight: 400; font-size: clamp(1.4rem, 2.6vw, 2.2rem); letter-spacing: -.01em; }
+  .cap-table .ct-num { font-family: var(--mono); font-size: .78rem; color: var(--ec-dark-line); }
+  .cap-table h3 { font-family: var(--title); text-transform: uppercase; font-weight: 500; font-size: clamp(1.3rem, 2.4vw, 2rem); letter-spacing: -.01em; }
   .cap-table article:hover h3 { color: var(--ec-accent); }
+  .ct-desc { font-size: 13px; color: #8a8a8a; line-height: 1.6; }
+  .caps-cta { text-align: center; margin-top: 4.5rem; }
+  .caps-cta p { font-family: var(--mono); font-size: .78rem; color: var(--ec-dark-line); text-transform: uppercase; letter-spacing: .1em; margin-bottom: .9rem; }
+  .caps-cta a { font-family: var(--title); text-transform: uppercase; font-weight: 500; font-size: clamp(1.6rem, 3vw, 2.6rem); color: #eee; transition: color .3s; }
+  .caps-cta a:hover { color: var(--ec-cyan); }
 
-  /* ===== ABOUT ===== */
-  .ec-about { padding: 7rem 0; }
-  .ec-about .section-title { margin-bottom: 3rem; }
-  .about-card { display: grid; grid-template-columns: 1fr 280px; gap: 3rem; align-items: end; }
-  .about-label p { font-size: .78rem; color: var(--ec-muted); margin-bottom: 1.2rem; }
-  .about-label h3 { font-family: var(--helv); text-transform: uppercase; font-weight: 400; font-size: clamp(1.4rem, 3vw, 2.6rem); line-height: 1.34; letter-spacing: -.01em; }
-  .about-label h3 b { color: var(--ec-accent); font-weight: 500; }
-  .about-card img { width: 100%; filter: contrast(.98) saturate(.85) grayscale(.15); }
-  .about-facts { margin-top: 3rem; max-width: 46em; }
-  .about-facts p { color: #4a4a48; line-height: 1.9; }
+  /* ===== ABOUT（置中肖像） ===== */
+  .ec-about { padding: 8rem 0; text-align: center; }
+  .about-title { text-align: center; }
+  .about-portrait { position: relative; width: min(360px, 78vw); margin: 3rem auto 0; }
+  .about-portrait img { width: 100%; display: block; filter: contrast(.98) saturate(.82) grayscale(.15); }
+  .about-portrait figcaption { position: absolute; left: -1.4rem; bottom: 1.6rem; text-align: left; }
+  .ap-hello { display: block; font-family: var(--mono); font-size: .72rem; color: var(--ec-muted); margin-bottom: .35rem; }
+  .ap-name { font-family: var(--title); text-transform: uppercase; font-weight: 500; font-size: 1.3rem; color: var(--ec-ink); }
+  .ap-name mark { background: var(--ec-ink); color: #fff; padding: 0 .34rem; }
+  .about-statement { max-width: 42ch; margin: 3.6rem auto 0; text-align: center; }
+  .about-lead { font-family: var(--helv); font-size: clamp(1.3rem, 2.4vw, 1.9rem); line-height: 1.45; letter-spacing: -.005em; }
+  .about-lead b { color: var(--ec-accent); font-weight: 600; }
+  .about-body { margin-top: 1.4rem; color: #4a4a48; line-height: 1.9; }
   .about-more { display: inline-block; margin-top: 1.8rem; font-family: var(--mono); font-size: .8rem; text-transform: uppercase; border-bottom: 1px solid var(--ec-accent); padding-bottom: 3px; }
 
   /* ===== CONTACT（深色） ===== */
   .ec-contact-sec { padding: 8.5rem 0 7rem; text-align: center; }
   .kicker { font-size: .8rem; color: var(--ec-dark-line); margin-bottom: 1.8rem; }
-  .contact-title { font-family: var(--helv); font-weight: 500; font-size: clamp(3rem, 9vw, 7.4rem); line-height: .96; text-transform: uppercase; letter-spacing: -.01em; }
-  .contact-mail { display: inline-block; margin-top: 2.2rem; font-family: var(--helv); text-transform: uppercase; font-size: clamp(1.2rem, 3vw, 2rem); color: #eee; position: relative; }
+  .contact-title { font-family: var(--title); font-weight: 500; font-size: clamp(3rem, 9vw, 7.4rem); line-height: .96; text-transform: uppercase; letter-spacing: -.02em; }
+  .contact-mail { display: inline-block; margin-top: 2.2rem; font-family: var(--display); font-style: italic; font-size: clamp(1.3rem, 3vw, 2.1rem); color: #eee; position: relative; }
   .contact-mail::after { content: ""; position: absolute; left: 0; right: 0; bottom: -.2rem; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .3s ease; }
   .contact-mail:hover::after { transform: scaleX(1); transform-origin: left; }
   .contact-links { margin-top: 2.8rem; display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; font-size: .78rem; }
@@ -482,20 +636,20 @@ const claimLine = 'I CARE ABOUT PRODUCTS THAT ARE CLEAR TO UNDERSTAND, HONEST AB
   .foot-clock .clock { color: #eee; }
 
   /* ===== 游標光暈 ===== */
-  #cursorGlow { position: fixed; inset: 0; z-index: 3; pointer-events: none; opacity: 0; transition: opacity .5s var(--ease); mix-blend-mode: multiply; background: radial-gradient(circle 15rem at var(--cursor-x, 50vw) var(--cursor-y, 50vh), rgba(214,109,56,.08), transparent 72%); }
-  #cursorGlow.on { opacity: 1; }
+  #cursorCanvas { position: fixed; inset: 0; z-index: 3; pointer-events: none; }
 
   /* ===== 開場載入 ===== */
   .loader { position: fixed; inset: 0; z-index: 999; background: var(--ec-ink); color: var(--ec-paper); display: flex; align-items: flex-end; justify-content: space-between; padding: 8vw; transition: opacity .55s var(--ease), transform .55s var(--ease); }
   .loader.done { opacity: 0; transform: scale(1.015); pointer-events: none; }
-  .loader-name { font-family: var(--helv); font-weight: 600; font-size: clamp(3rem, 9vw, 8rem); letter-spacing: -.01em; }
+  .loader-name { font-family: var(--title); font-weight: 500; font-size: clamp(3rem, 9vw, 8rem); letter-spacing: -.01em; }
   .loader-count { font-family: var(--mono); font-size: clamp(1rem, 3vw, 1.6rem); }
 
   /* ===== 手機 ===== */
   @media (max-width: 900px) {
-    .work-grid, .approach-board, .about-card { grid-template-columns: 1fr; }
+    .work-grid, .approach-layout, .about-card { grid-template-columns: 1fr; }
     .project-preview { display: none; }
-    .note-card:nth-child(2) { transform: none; }
+    .approach-left { position: static; }
+    .approach-claim { text-align: left; }
   }
   @media (max-width: 720px) {
     .ec-header { grid-template-columns: 1fr auto; }
