@@ -26,12 +26,12 @@ import site from '../content/site.json';
   <!-- 01 HERO -->
   <section class="ec-sec ec-abouthero">
     <div class="ec-wrap">
-      <span class="ec-kick">-- { `{ "HELLO WORLD" }` }</span>
+      <span class="ec-kick">-- { `{ "HELLO" }` }</span>
       <h1 class="section-title">ABOUT</h1>
       <div class="ah-grid">
         <div class="ah-lead reveal">
           <p class="ah-heading">
-            <Fragment set:html={content.hero.headingLine1} /> {content.hero.headingLine2}
+            <Fragment set:html={content.hero.headingLine1} />
           </p>
           <div class="ah-intro"><p>{content.hero.intro}</p></div>
         </div>
@@ -39,7 +39,7 @@ import site from '../content/site.json';
           <figure class="ah-portrait">
             <img src={content.hero.profile.photo.src} alt={content.hero.profile.photo.alt} />
             <figcaption>
-              <span class="ap-hello">-- { `{ "HELLO WORLD" }` }</span>
+              <span class="ap-hello">-- { `{ "HELLO" }` }</span>
               <span class="ap-name">I&apos;M <mark>{content.hero.profile.name}</mark></span>
             </figcaption>
           </figure>
@@ -60,19 +60,33 @@ import site from '../content/site.json';
   <section class="ec-sec">
     <div class="ec-wrap">
       <div class="ec-sechead"><span class="ec-num">{content.background.number}</span><h2 class="ec-h2">{content.background.title}</h2></div>
-      <div class="facts-grid reveal">
-        <div class="fcol">
-          <h3>{content.background.experience.heading}</h3>
-          {content.background.experience.items.map((item) => (
-            <div class="fitem"><h4>{item.title}</h4><div class="meta">{item.meta}</div><p>{item.body}</p></div>
-          ))}
+      <!-- 經歷：整寬時間軸表 -->
+      <div class="xp reveal">
+        <div class="xp-head">
+          <span>( Work Experience )</span>
         </div>
+        {content.background.experience.items.map((item) => {
+          const parts = item.meta.split('｜');
+          return (
+            <div class="xp-row">
+              <div class="xp-role"><h4>{item.title}</h4><span>{parts[0]}</span></div>
+              <p class="xp-body">{item.body}</p>
+              <span class="xp-year">{parts[1]}</span>
+            </div>
+          );
+        })}
+      </div>
+
+      <!-- 學歷 / 工具 / 獲獎 -->
+      <div class="facts-grid facts-sub reveal">
         <div class="fcol">
           <h3>{content.background.education.heading}</h3>
           {content.background.education.items.map((item) => (
             <div class="fitem"><h4>{item.title}</h4><div class="meta">{item.meta}</div></div>
           ))}
-          <h3 class="mt">{content.background.tools.heading}</h3>
+        </div>
+        <div class="fcol">
+          <h3>{content.background.tools.heading}</h3>
           {content.background.tools.items.map((item) => (
             <div class="fitem"><h4 class="sm">{item.title}</h4><p>{item.body}</p></div>
           ))}
@@ -332,8 +346,7 @@ import site from '../content/site.json';
   section { position: relative; z-index: 2; }
   .ec-sec { padding: 7rem 0; }
   .ec-sechead { display: flex; align-items: baseline; gap: 1.2rem; margin-bottom: 3rem; }
-  .ec-num { font-family: var(--mono); font-size: .8rem; color: var(--ec-accent); }
-  .ec-num::before { content: "( "; } .ec-num::after { content: " )"; }
+  .ec-num { display: none; }
   .ec-h2 { font-family: var(--title); font-weight: 500; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -.02em; line-height: 1; }
   .ec-fore { color: var(--ec-muted); margin-bottom: 2.6rem; max-width: 46em; }
 
@@ -361,16 +374,29 @@ import site from '../content/site.json';
 
   /* 02 經歷 facts */
   .facts-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 3.5rem; }
-  .fcol h3 { font-family: var(--mono); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ec-muted); border-top: 2px solid var(--ec-ink); padding-top: 1rem; margin-bottom: 1.2rem; }
+  .fcol h3 { font-family: var(--mono); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ec-muted); margin-bottom: 1.2rem; }
+  .fcol h3::before { content: "( "; }
+  .fcol h3::after { content: " )"; }
   .fcol h3.mt { margin-top: 2.2rem; }
-  .fitem { padding-bottom: 1.2rem; margin-bottom: 1.2rem; border-bottom: 1px solid var(--ec-line); }
-  .fitem:last-child { border-bottom: 0; }
+  .fitem { margin-bottom: 1.4rem; }
+  .fitem:last-child { margin-bottom: 0; }
   .fitem h4 { font-family: var(--display); font-weight: 500; font-size: 18px; }
   .fitem h4.sm { font-size: 15.5px; }
   .fitem .meta { font-family: var(--mono); font-size: .78rem; color: var(--ec-muted); margin: .3rem 0 .6rem; }
   .fitem p { font-size: 14.5px; color: #4a4a48; }
   .flink { border-bottom: 1px solid var(--ec-line); transition: color .3s, border-color .3s; }
   .flink:hover { color: var(--ec-accent); border-color: var(--ec-accent); }
+
+  /* 經歷時間軸表 */
+  .xp-head { padding: 0 0 1rem; font-family: var(--mono); font-size: .76rem; text-transform: uppercase; letter-spacing: .08em; color: var(--ec-muted); }
+  .xp-head a { color: var(--ec-ink); }
+  .xp-head a:hover { color: var(--ec-accent); }
+  .xp-row { display: grid; grid-template-columns: 1.1fr 1.6fr auto; gap: 2.5rem; align-items: start; padding: 1.9rem 0; border-bottom: 1px solid var(--ec-line); }
+  .xp-role h4 { font-family: var(--display); font-weight: 500; font-size: clamp(1.15rem, 1.9vw, 1.55rem); line-height: 1.25; }
+  .xp-role span { display: block; font-family: var(--mono); font-size: .76rem; color: var(--ec-muted); margin-top: .45rem; }
+  .xp-body { font-size: 14.5px; color: #4a4a48; line-height: 1.75; }
+  .xp-year { font-family: var(--mono); font-size: .8rem; color: var(--ec-muted); white-space: nowrap; text-align: right; }
+  .facts-sub { margin-top: 4.5rem; }
 
   /* 卡片 */
   .cards3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--ec-line); border: 1px solid var(--ec-line); }
@@ -429,6 +455,8 @@ import site from '../content/site.json';
     .ec-header.menu-open .ec-nav { display: flex; position: fixed; top: 4.6rem; left: 0; right: 0; flex-direction: column; gap: 0; padding: .6rem 5vw 1.4rem; background: var(--ec-ink); }
     .ec-header.menu-open .ec-nav a { padding: .9rem 0; border-bottom: 1px solid var(--ec-dark-line); }
     .facts-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .xp-row { grid-template-columns: 1fr; gap: .8rem; }
+    .xp-year { text-align: left; }
   }
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1 !important; transform: none !important; filter: none !important; transition: none !important; }

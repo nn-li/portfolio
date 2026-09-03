@@ -1,0 +1,50 @@
+---
+// 共用：eric-cole 風導覽列（給作品頁等使用）。連結指向新版 index-motion / about-motion。
+---
+<header id="hd" class="ecn">
+  <a href="/index-motion.html" class="ecn-logo">BRYNN</a>
+  <nav class="ecn-nav" id="siteNav" aria-label="Primary navigation">
+    <a href="/index-motion.html#work">+ WORK</a>
+    <a href="/about-motion.html">+ ABOUT</a>
+    <a href="/index-motion.html#contact">+ CONTACT</a>
+  </nav>
+  <a class="ecn-contact" href="mailto:brynn06191@gmail.com">CONTACT ↗</a>
+  <button class="ecn-menu" id="navToggle" type="button" aria-label="開啟選單" aria-expanded="false" aria-controls="siteNav"><span></span><span></span></button>
+</header>
+<style>
+  .ecn { position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: grid; grid-template-columns: 12rem 1fr 12rem; align-items: center; padding: 1.4rem 5vw; font-family: "Hanken Grotesk", system-ui, sans-serif; font-size: .8rem; letter-spacing: .04em; text-transform: uppercase; color: #141414; background: rgba(255,255,255,.68); backdrop-filter: blur(14px) saturate(1.4); -webkit-backdrop-filter: blur(14px) saturate(1.4); border-bottom: 1px solid rgba(0,0,0,.06); }
+  .ecn a { color: #141414; }
+  .ecn-logo { font-size: 1.1rem; font-weight: 600; letter-spacing: .12em; }
+  .ecn-nav { display: flex; justify-content: center; gap: 1.4rem; }
+  .ecn-nav a, .ecn-contact { position: relative; }
+  .ecn-nav a::after, .ecn-contact::after { content: ""; position: absolute; left: 0; right: 0; bottom: -.2rem; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .4s cubic-bezier(.16,1,.3,1); }
+  .ecn-nav a:hover::after, .ecn-contact:hover::after { transform: scaleX(1); transform-origin: left; }
+  .ecn-contact { justify-self: end; }
+  .ecn-menu { display: none; justify-self: end; background: none; border: 0; cursor: pointer; width: 2.4rem; height: 2.4rem; }
+  .ecn-menu span { display: block; width: 22px; height: 1.5px; background: #141414; margin: 5px auto; }
+  @media (max-width: 720px) {
+    .ecn { grid-template-columns: 1fr auto; }
+    .ecn-nav, .ecn-contact { display: none; }
+    .ecn-menu { display: block; }
+    .ecn.menu-open { background: rgba(255,255,255,.97); }
+    .ecn.menu-open .ecn-nav { display: flex; position: fixed; top: 4.6rem; left: 0; right: 0; flex-direction: column; gap: 0; padding: .6rem 5vw 1.4rem; background: rgba(255,255,255,.97); }
+    .ecn.menu-open .ecn-nav a { padding: .9rem 0; border-bottom: 1px solid rgba(0,0,0,.1); }
+  }
+</style>
+<script is:inline>
+  (function () {
+    const hd = document.getElementById('hd'); if (!hd) return;
+    const tog = document.getElementById('navToggle'), nav = document.getElementById('siteNav');
+    if (tog && nav) {
+      const setOpen = (o) => { hd.classList.toggle('menu-open', o); tog.setAttribute('aria-expanded', o); };
+      tog.addEventListener('click', () => setOpen(!hd.classList.contains('menu-open')));
+      nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+    }
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const CH = '@#%&+*<>=/';
+      const scr = (el) => { const base = el.dataset.final || el.textContent; el.dataset.final = base; let f = 0; const tot = 34; const tk = () => { const p = Math.max(0, f / tot - 0.18); el.textContent = base.split('').map((c, i) => (c === ' ' || c === '+') ? c : (i / base.length < p ? c : CH[Math.floor(Math.random() * CH.length)])).join(''); f++; if (f <= tot) requestAnimationFrame(tk); else el.textContent = base; }; tk(); };
+      document.querySelectorAll('.ecn-nav a, .ecn-contact').forEach((a) => a.addEventListener('mouseenter', () => scr(a)));
+    }
+  })();
+</script>

@@ -1,0 +1,14 @@
+---
+// 共用：eric-cole 風深色頁尾
+import site from '../content/site.json';
+---
+<footer class="ecf">
+  <div class="ecf-in">
+    <p>{site.footerCase.copyright}</p>
+    <p>{site.footerCase.tagline}</p>
+  </div>
+</footer>
+<style>
+  .ecf { background: #161616; color: #eee; padding: 2.6rem 0 2rem; position: relative; z-index: 2; }
+  .ecf-in { max-width: 1280px; margin: 0 auto; padding: 1.4rem 5vw 0; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,.22); font-family: "Hanken Grotesk", system-ui, sans-serif; font-size: .74rem; letter-spacing: .05em; color: rgba(255,255,255,.55); flex-wrap: wrap; gap: 1rem; }
+</style>

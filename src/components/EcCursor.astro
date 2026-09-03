@@ -1,0 +1,33 @@
+---
+// 共用：游標蠟筆軌跡（青色筆觸，與新版首頁/關於頁一致）
+---
+<canvas id="cursorCanvas" aria-hidden="true"></canvas>
+<style>
+  #cursorCanvas { position: fixed; inset: 0; z-index: 3; pointer-events: none; }
+</style>
+<script is:inline>
+  (function () {
+    const cvs = document.getElementById('cursorCanvas');
+    if (!cvs || matchMedia('(prefers-reduced-motion: reduce)').matches || !matchMedia('(hover: hover)').matches) return;
+    const ctx = cvs.getContext('2d'); const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const resize = () => { cvs.width = innerWidth * dpr; cvs.height = innerHeight * dpr; cvs.style.width = innerWidth + 'px'; cvs.style.height = innerHeight + 'px'; };
+    resize(); window.addEventListener('resize', resize); ctx.lineCap = 'round'; let last = null;
+    window.addEventListener('pointermove', (e) => {
+      const x = e.clientX * dpr, y = e.clientY * dpr;
+      if (last) {
+        const dx = x - last.x, dy = y - last.y, dist = Math.hypot(dx, dy) || 1, steps = Math.max(1, Math.floor(dist / (3 * dpr)));
+        for (let s = 0; s <= steps; s++) {
+          const t = s / steps, px = last.x + dx * t, py = last.y + dy * t;
+          for (let k = 0; k < 5; k++) {
+            const jx = (Math.random() - .5) * 10 * dpr, jy = (Math.random() - .5) * 10 * dpr, a = Math.random() * Math.PI, len = (2 + Math.random() * 5) * dpr;
+            ctx.globalAlpha = .05 + Math.random() * .16; ctx.strokeStyle = 'rgb(23,232,255)'; ctx.lineWidth = (1 + Math.random() * 2.2) * dpr;
+            ctx.beginPath(); ctx.moveTo(px + jx - Math.cos(a) * len, py + jy - Math.sin(a) * len); ctx.lineTo(px + jx + Math.cos(a) * len, py + jy + Math.sin(a) * len); ctx.stroke();
+          }
+        }
+        ctx.globalAlpha = 1;
+      }
+      last = { x, y };
+    }, { passive: true });
+    const fade = () => { ctx.globalCompositeOperation = 'destination-out'; ctx.fillStyle = 'rgba(0,0,0,.04)'; ctx.fillRect(0, 0, cvs.width, cvs.height); ctx.globalCompositeOperation = 'source-over'; requestAnimationFrame(fade); }; fade();
+  })();
+</script>
