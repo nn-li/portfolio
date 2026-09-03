@@ -164,13 +164,16 @@ const capsDesc = [
     </div>
   </section>
 
-  <!-- ABOUT（首頁精簡預告，完整介紹在 /about.html） -->
+  <!-- ABOUT（首頁預告：兩欄，完整介紹在 /about.html） -->
   <section class="ec-sec ec-about" id="about">
     <div class="ec-wrap">
       <h2 class="section-title about-title">ABOUT</h2>
-      <div class="about-statement reveal">
+      <div class="about-grid reveal">
         <p class="about-lead"><Fragment set:html={content.about.leadHtml} /></p>
-        <a class="about-more" href="/about.html">{content.about.moreLabel}</a>
+        <aside class="about-side">
+          <p class="about-body">{content.about.body}</p>
+          <a class="about-more" href="/about.html">{content.about.moreLabel}</a>
+        </aside>
       </div>
     </div>
   </section>
@@ -636,20 +639,14 @@ const capsDesc = [
   .caps-cta a { font-family: var(--title); text-transform: uppercase; font-weight: 500; font-size: clamp(1.6rem, 3vw, 2.6rem); color: #eee; transition: color .3s; }
   .caps-cta a:hover { color: var(--ec-cyan); }
 
-  /* ===== ABOUT（置中肖像） ===== */
-  .ec-about { padding: 8rem 0; text-align: center; }
-  .about-title { text-align: center; }
-  .about-portrait { position: relative; width: min(360px, 78vw); margin: 3rem auto 0; }
-  .about-portrait img { width: 100%; display: block; filter: contrast(.98) saturate(.82) grayscale(.15); }
-  .about-portrait figcaption { position: absolute; left: -1.4rem; bottom: 1.6rem; text-align: left; }
-  .ap-hello { display: block; font-family: var(--mono); font-size: .72rem; color: var(--ec-muted); margin-bottom: .35rem; }
-  .ap-name { font-family: var(--title); text-transform: uppercase; font-weight: 500; font-size: 1.3rem; color: var(--ec-ink); }
-  .ap-name mark { background: var(--ec-ink); color: #fff; padding: 0 .34rem; }
-  .about-statement { max-width: 42ch; margin: 3.6rem auto 0; text-align: center; }
-  .about-lead { font-family: var(--helv); font-size: clamp(1.3rem, 2.4vw, 1.9rem); line-height: 1.45; letter-spacing: -.005em; }
-  .about-lead b { color: var(--ec-accent); font-weight: 600; }
-  .about-body { margin-top: 1.4rem; color: #4a4a48; line-height: 1.9; }
-  .about-more { display: inline-block; margin-top: 1.8rem; font-family: var(--mono); font-size: .8rem; text-transform: uppercase; border-bottom: 1px solid var(--ec-accent); padding-bottom: 3px; }
+  /* ===== ABOUT（首頁預告：兩欄） ===== */
+  .ec-about { padding: 8rem 0; }
+  .about-grid { display: grid; grid-template-columns: 1.5fr .9fr; gap: 3.5rem; align-items: start; margin-top: 2.2rem; }
+  .about-lead { font-family: var(--display); font-size: clamp(1.5rem, 3.2vw, 2.6rem); line-height: 1.35; letter-spacing: -.01em; color: var(--ec-ink); }
+  .about-lead b { color: var(--ec-accent); font-weight: 500; font-style: italic; }
+  .about-side { display: flex; flex-direction: column; gap: 1.6rem; padding-top: 1.2rem; border-top: 1px solid var(--ec-line); }
+  .about-body { color: #4a4a48; line-height: 1.95; font-size: 15px; }
+  .about-more { display: inline-block; font-family: var(--mono); font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; border-bottom: 1px solid var(--ec-accent); padding-bottom: 3px; width: fit-content; }
 
   /* ===== CONTACT（深色） ===== */
   .ec-contact-sec { padding: 8.5rem 0 7rem; text-align: center; background: #000; }
@@ -681,7 +678,7 @@ const capsDesc = [
 
   /* ===== 手機 ===== */
   @media (max-width: 900px) {
-    .work-grid, .approach-layout, .about-card { grid-template-columns: 1fr; }
+    .work-grid, .approach-layout, .about-grid { grid-template-columns: 1fr; }
     .project-preview { display: none; }
     .approach-left { position: static; }
     .approach-claim { text-align: left; }

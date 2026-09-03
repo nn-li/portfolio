@@ -1,0 +1,438 @@
+---
+// About 頁 eric-cole 風預覽（about-motion）。保留 about.json 全部內容，換上與
+// index-motion 一致的視覺系統。正式 about.astro 不動。
+import Base from '../layouts/Base.astro';
+import content from '../content/about.json';
+import site from '../content/site.json';
+---
+<Base title={content.meta.title} description={content.meta.description}>
+  <Fragment slot="head">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  </Fragment>
+
+<header id="hd" class="ec-header">
+  <a href="/" class="ec-logo">BRYNN</a>
+  <nav class="ec-nav" id="siteNav" aria-label="Primary navigation">
+    <a href="/#work">+ WORK</a>
+    <a href="/about-motion.html">+ ABOUT</a>
+    <a href="#contact">+ CONTACT</a>
+  </nav>
+  <a class="ec-contact" href="mailto:brynn06191@gmail.com">CONTACT ↗</a>
+  <button class="ec-menu" id="navToggle" type="button" aria-label="開啟選單" aria-expanded="false" aria-controls="siteNav"><span></span><span></span></button>
+</header>
+
+<main id="top">
+
+  <!-- 01 HERO -->
+  <section class="ec-sec ec-abouthero">
+    <div class="ec-wrap">
+      <span class="ec-kick">-- { `{ "HELLO WORLD" }` }</span>
+      <h1 class="section-title">ABOUT</h1>
+      <div class="ah-grid">
+        <div class="ah-lead reveal">
+          <p class="ah-heading">
+            <Fragment set:html={content.hero.headingLine1} /> {content.hero.headingLine2}
+          </p>
+          <div class="ah-intro"><p>{content.hero.intro}</p></div>
+        </div>
+        <aside class="ah-card reveal">
+          <figure class="ah-portrait">
+            <img src={content.hero.profile.photo.src} alt={content.hero.profile.photo.alt} />
+            <figcaption>
+              <span class="ap-hello">-- { `{ "HELLO WORLD" }` }</span>
+              <span class="ap-name">I&apos;M <mark>{content.hero.profile.name}</mark></span>
+            </figcaption>
+          </figure>
+          <div class="ah-meta">
+            <span>{content.hero.profile.role}</span>
+            <span>{content.hero.profile.location}</span>
+          </div>
+          <div class="ah-cta">
+            <a class="ec-btn" href={content.hero.profile.emailButton.href}>{content.hero.profile.emailButton.label}</a>
+            <a class="ec-btn ghost" href={content.hero.profile.resumeButton.href} download>{content.hero.profile.resumeButton.label}</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 經歷與背景 -->
+  <section class="ec-sec">
+    <div class="ec-wrap">
+      <div class="ec-sechead"><span class="ec-num">{content.background.number}</span><h2 class="ec-h2">{content.background.title}</h2></div>
+      <div class="facts-grid reveal">
+        <div class="fcol">
+          <h3>{content.background.experience.heading}</h3>
+          {content.background.experience.items.map((item) => (
+            <div class="fitem"><h4>{item.title}</h4><div class="meta">{item.meta}</div><p>{item.body}</p></div>
+          ))}
+        </div>
+        <div class="fcol">
+          <h3>{content.background.education.heading}</h3>
+          {content.background.education.items.map((item) => (
+            <div class="fitem"><h4>{item.title}</h4><div class="meta">{item.meta}</div></div>
+          ))}
+          <h3 class="mt">{content.background.tools.heading}</h3>
+          {content.background.tools.items.map((item) => (
+            <div class="fitem"><h4 class="sm">{item.title}</h4><p>{item.body}</p></div>
+          ))}
+        </div>
+        <div class="fcol">
+          <h3>Awards</h3>
+          {content.background.recognition.items.map((item) => (
+            <div class="fitem"><h4>{item.title}</h4><div class="meta">2025</div><p><a class="flink" href={item.linkHref}>{item.linkLabel}</a></p></div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 職涯路徑 -->
+  <section class="ec-sec">
+    <div class="ec-wrap">
+      <div class="ec-sechead"><span class="ec-num">{content.careerPath.number}</span><h2 class="ec-h2">{content.careerPath.title}</h2></div>
+      <p class="ec-fore reveal">{content.careerPath.lead}</p>
+      <div class="cards3 reveal">
+        {content.careerPath.cards.map((card) => (
+          <article class="ec-card"><span class="k">{card.label}</span><h3>{card.title}</h3><p>{card.body}</p></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 我實際負責什麼 -->
+  <section class="ec-sec">
+    <div class="ec-wrap">
+      <div class="ec-sechead"><span class="ec-num">{content.responsibilities.number}</span><h2 class="ec-h2">{content.responsibilities.title}</h2></div>
+      <p class="ec-fore reveal">{content.responsibilities.lead}</p>
+      <div class="cards3 reveal">
+        {content.responsibilities.cards.map((card) => (
+          <article class="ec-card">
+            <span class="k">{card.label}</span><h3>{card.title}</h3>
+            {card.paragraphs.map((p) => <p>{p}</p>)}
+            <div class="ctags">{card.tags.map((t) => <span>{t}</span>)}</div>
+          </article>
+        ))}
+      </div>
+      <div class="ai-note reveal">
+        <span class="ec-kick">{content.responsibilities.aiNote.eyebrow}</span>
+        <h4>{content.responsibilities.aiNote.title}</h4>
+        {content.responsibilities.aiNote.paragraphs.map((p) => <p>{p}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 我如何和團隊合作 -->
+  <section class="ec-sec">
+    <div class="ec-wrap">
+      <div class="ec-sechead"><span class="ec-num">{content.collaboration.number}</span><h2 class="ec-h2">{content.collaboration.title}</h2></div>
+      <p class="ec-fore reveal">{content.collaboration.lead}</p>
+      <div class="cards2 reveal">
+        {content.collaboration.cards.map((card) => (
+          <article class="ec-card"><h3>{card.title}</h3><p>{card.body}</p></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 工作之外 -->
+  <section class="ec-sec">
+    <div class="ec-wrap">
+      <div class="ec-sechead"><span class="ec-num">{content.beyondWork.number}</span><h2 class="ec-h2">{content.beyondWork.title}</h2></div>
+      <div class="aside-note reveal"><p>{content.beyondWork.body}</p></div>
+    </div>
+  </section>
+
+  <!-- 07 Contact -->
+  <section class="ec-contact-sec dark-section" id="contact">
+    <div class="ec-wrap">
+      <p class="kicker reveal">[LET&apos;S TALK]</p>
+      <h2 class="contact-title">{content.contact.title}</h2>
+      <p class="ec-cfore reveal">{content.contact.lead}</p>
+      <div class="ctas reveal">
+        <a class="ec-btn dk" href={content.contact.workButton.href}>{content.contact.workButton.label}</a>
+        <a class="ec-btn dk ghost" href={content.contact.resumeButton.href} download>{content.contact.resumeButton.label}</a>
+      </div>
+      <div class="mailrow reveal">
+        <a class="contact-mail" href={content.contact.email.href}>{content.contact.email.text}</a>
+        <button class="copybtn" id="copymail" type="button" aria-label="複製 Email 地址">複製 Email</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ec-footer dark-section">
+  <div class="ec-wrap ec-foot">
+    <p>{site.footerAbout.left}</p>
+    <p>{site.footerAbout.right}</p>
+  </div>
+</footer>
+
+<canvas id="cursorCanvas" aria-hidden="true"></canvas>
+
+<script is:inline>
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const hd = document.getElementById('hd');
+  const onScroll = () => hd.classList.toggle('scrolled', window.scrollY > 40);
+  onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+
+  const tog = document.getElementById('navToggle');
+  const navEl = document.getElementById('siteNav');
+  if (tog && navEl) {
+    const setOpen = (o) => { hd.classList.toggle('menu-open', o); tog.setAttribute('aria-expanded', o); };
+    tog.addEventListener('click', () => setOpen(!hd.classList.contains('menu-open')));
+    navEl.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+  }
+
+  // nav hover 亂碼
+  if (!reduceMotion) {
+    const NCH = '@#%&+*<>=/';
+    const navScramble = (el) => {
+      const base = el.dataset.final || el.textContent; el.dataset.final = base;
+      let f = 0; const tot = 34;
+      const tk = () => {
+        const p = Math.max(0, f / tot - 0.18);
+        el.textContent = base.split('').map((c, i) => (c === ' ' || c === '+') ? c : (i / base.length < p ? c : NCH[Math.floor(Math.random() * NCH.length)])).join('');
+        f++; if (f <= tot) requestAnimationFrame(tk); else el.textContent = base;
+      };
+      tk();
+    };
+    document.querySelectorAll('.ec-nav a, .ec-contact').forEach((a) => a.addEventListener('mouseenter', () => navScramble(a)));
+  }
+
+  // 標題打字機（進場逐字、每次滑到重播）
+  if (!reduceMotion) {
+    const titleEls = [...document.querySelectorAll('.section-title, .contact-title, .ec-h2')];
+    const prep = titleEls.map((el) => {
+      const units = [];
+      el.childNodes.forEach((ch) => {
+        if (ch.nodeType === 3) { for (const c of ch.textContent) units.push({ t: 'char', v: c }); }
+        else if (ch.nodeName === 'BR') units.push({ t: 'br' });
+        else if (ch.nodeType === 1) units.push({ t: 'html', v: ch.outerHTML });
+      });
+      el.innerHTML = '';
+      return { el, units, token: 0 };
+    });
+    const typeOne = (rec) => {
+      const token = ++rec.token; rec.el.innerHTML = '';
+      const caret = document.createElement('span'); caret.className = 'tw-caret'; rec.el.appendChild(caret);
+      let i = 0;
+      const step = () => {
+        if (token !== rec.token) return;
+        if (i >= rec.units.length) { setTimeout(() => { if (token === rec.token) caret.remove(); }, 700); return; }
+        const u = rec.units[i++];
+        if (u.t === 'char') { const s = document.createElement('span'); s.textContent = u.v; rec.el.insertBefore(s, caret); }
+        else if (u.t === 'br') rec.el.insertBefore(document.createElement('br'), caret);
+        else { const tp = document.createElement('template'); tp.innerHTML = u.v; rec.el.insertBefore(tp.content, caret); }
+        setTimeout(step, u.t === 'char' ? 46 : 14);
+      };
+      step();
+    };
+    const tio = new IntersectionObserver((es) => es.forEach((e) => { const r = prep.find((p) => p.el === e.target); if (r && e.isIntersecting) typeOne(r); }), { threshold: 0.5 });
+    prep.forEach((r) => tio.observe(r.el));
+  }
+
+  // scroll reveal
+  const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } }), { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  // email 複製
+  const cb = document.getElementById('copymail');
+  if (cb) cb.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText('brynn06191@gmail.com'); cb.textContent = '已複製 ✓'; cb.classList.add('done'); setTimeout(() => { cb.textContent = '複製 Email'; cb.classList.remove('done'); }, 2000); }
+    catch (e) { cb.textContent = '請手動複製'; }
+  });
+
+  // 游標蠟筆
+  const cvs = document.getElementById('cursorCanvas');
+  if (cvs && !reduceMotion && matchMedia('(hover: hover)').matches) {
+    const ctx = cvs.getContext('2d');
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const resize = () => { cvs.width = innerWidth * dpr; cvs.height = innerHeight * dpr; cvs.style.width = innerWidth + 'px'; cvs.style.height = innerHeight + 'px'; };
+    resize(); window.addEventListener('resize', resize);
+    ctx.lineCap = 'round';
+    let last = null;
+    window.addEventListener('pointermove', (e) => {
+      const x = e.clientX * dpr, y = e.clientY * dpr;
+      if (last) {
+        const dx = x - last.x, dy = y - last.y, dist = Math.hypot(dx, dy) || 1;
+        const steps = Math.max(1, Math.floor(dist / (3 * dpr)));
+        for (let s = 0; s <= steps; s++) {
+          const t = s / steps, px = last.x + dx * t, py = last.y + dy * t;
+          for (let k = 0; k < 5; k++) {
+            const jx = (Math.random() - 0.5) * 10 * dpr, jy = (Math.random() - 0.5) * 10 * dpr, a = Math.random() * Math.PI, len = (2 + Math.random() * 5) * dpr;
+            ctx.globalAlpha = 0.05 + Math.random() * 0.16; ctx.strokeStyle = 'rgb(23,232,255)'; ctx.lineWidth = (1 + Math.random() * 2.2) * dpr;
+            ctx.beginPath(); ctx.moveTo(px + jx - Math.cos(a) * len, py + jy - Math.sin(a) * len); ctx.lineTo(px + jx + Math.cos(a) * len, py + jy + Math.sin(a) * len); ctx.stroke();
+          }
+        }
+        ctx.globalAlpha = 1;
+      }
+      last = { x, y };
+    }, { passive: true });
+    const fade = () => { ctx.globalCompositeOperation = 'destination-out'; ctx.fillStyle = 'rgba(0,0,0,.04)'; ctx.fillRect(0, 0, cvs.width, cvs.height); ctx.globalCompositeOperation = 'source-over'; requestAnimationFrame(fade); };
+    fade();
+  }
+</script>
+
+</Base>
+
+<style is:global>
+  :root {
+    --ec-paper: #ffffff; --ec-paper-soft: #f4f4f4;
+    --ec-ink: #141414; --ec-muted: #8a8a8a; --ec-line: rgba(20,20,20,.14);
+    --ec-dark: #161616; --ec-dark-soft: #1e1e1e; --ec-dark-line: rgba(255,255,255,.22);
+    --ec-accent: #0900ff; --ec-cyan: #17e8ff;
+    --display: "Fraunces", Georgia, serif;
+    --title: "Space Grotesk", "PingFang TC", "Noto Sans TC", sans-serif;
+    --mono: "Hanken Grotesk", system-ui, sans-serif;
+    --helv: "Hanken Grotesk", system-ui, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body { background: var(--ec-paper); color: var(--ec-ink); font-family: var(--helv); font-size: 17px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  ::selection { background: var(--ec-ink); color: var(--ec-paper); }
+  .ec-wrap { max-width: 1280px; margin: 0 auto; padding: 0 5vw; }
+
+  /* 掃描線 */
+  .ec-sec { position: relative; background: linear-gradient(180deg, var(--ec-paper), var(--ec-paper-soft)); }
+  .ec-sec::before, .dark-section::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .55; background: repeating-linear-gradient(90deg, rgba(0,0,0,.035) 0, rgba(0,0,0,.035) 1px, transparent 1px, transparent 7px); }
+  .dark-section { position: relative; background: #000; color: #eee; }
+  .dark-section::before { opacity: .4; background: repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0, rgba(255,255,255,.05) 1px, transparent 1px, transparent 7px); }
+  .ec-sec > *, .dark-section > * { position: relative; z-index: 1; }
+
+  /* NAV */
+  .ec-header { position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: grid; grid-template-columns: 12rem 1fr 12rem; align-items: center; padding: 1.4rem 5vw; font-family: var(--mono); font-size: .8rem; letter-spacing: .04em; text-transform: uppercase; mix-blend-mode: difference; color: #fff; }
+  .ec-header a { color: #fff; }
+  .ec-logo { font-family: var(--mono); font-size: 1.1rem; font-weight: 600; letter-spacing: .12em; }
+  .ec-nav { display: flex; justify-content: center; gap: 1.4rem; }
+  .ec-nav a, .ec-contact { position: relative; }
+  .ec-nav a::after, .ec-contact::after { content: ""; position: absolute; left: 0; right: 0; bottom: -.2rem; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .4s var(--ease); }
+  .ec-nav a:hover::after, .ec-contact:hover::after { transform: scaleX(1); transform-origin: left; }
+  .ec-contact { justify-self: end; }
+  .ec-menu { display: none; justify-self: end; background: none; border: 0; cursor: pointer; width: 2.4rem; height: 2.4rem; }
+  .ec-menu span { display: block; width: 22px; height: 1.5px; background: #fff; margin: 5px auto; }
+
+  /* 大標 + 打字機 */
+  .section-title { position: relative; font-family: var(--title); font-weight: 500; font-size: clamp(3.4rem, 8.4vw, 7.2rem); line-height: .92; letter-spacing: -.02em; text-transform: uppercase; }
+  .contact-title { font-family: var(--title); font-weight: 500; font-size: clamp(2.6rem, 7vw, 6rem); line-height: .96; letter-spacing: -.02em; }
+  .tw-caret { display: inline-block; width: 0; height: .78em; border-right: .09em solid var(--ec-accent); margin-left: .06em; vertical-align: -.06em; animation: caret-blink .85s steps(1) infinite; }
+  @keyframes caret-blink { 50% { opacity: 0; } }
+  .ec-kick { display: inline-block; font-family: var(--mono); font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ec-muted); }
+
+  /* reveal */
+  .reveal { opacity: 0; transform: translateY(2.2rem); filter: blur(5px); transition: opacity 1.1s var(--ease), transform 1.1s var(--ease), filter 1.1s var(--ease); }
+  .reveal.show { opacity: 1; transform: none; filter: none; }
+
+  /* section head（內文區） */
+  section { position: relative; z-index: 2; }
+  .ec-sec { padding: 7rem 0; }
+  .ec-sechead { display: flex; align-items: baseline; gap: 1.2rem; margin-bottom: 3rem; }
+  .ec-num { font-family: var(--mono); font-size: .8rem; color: var(--ec-accent); }
+  .ec-num::before { content: "( "; } .ec-num::after { content: " )"; }
+  .ec-h2 { font-family: var(--title); font-weight: 500; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: -.02em; line-height: 1; }
+  .ec-fore { color: var(--ec-muted); margin-bottom: 2.6rem; max-width: 46em; }
+
+  /* 01 HERO */
+  .ec-abouthero { padding: 9rem 0 7rem; }
+  .ec-abouthero .ec-kick { margin-bottom: 1rem; }
+  .ah-grid { display: grid; grid-template-columns: 1.4fr .9fr; gap: 4rem; align-items: start; margin-top: 2.4rem; }
+  .ah-heading { font-family: var(--display); font-size: clamp(1.8rem, 3.6vw, 3rem); line-height: 1.28; letter-spacing: -.01em; }
+  .ah-heading b { color: var(--ec-accent); font-style: italic; font-weight: 400; }
+  .ah-intro { margin-top: 1.8rem; color: #4a4a48; max-width: 34em; line-height: 1.9; }
+  .ah-card { padding-top: .5rem; }
+  .ah-portrait { position: relative; width: min(300px, 100%); margin: 0 0 0 1.5rem; }
+  .ah-portrait img { width: 100%; aspect-ratio: 4/5; object-fit: cover; filter: contrast(.98) saturate(.85) grayscale(.1); }
+  .ah-portrait figcaption { position: absolute; left: -1.5rem; bottom: 1.4rem; }
+  .ap-hello { display: block; font-family: var(--mono); font-size: .72rem; color: var(--ec-muted); margin-bottom: .35rem; }
+  .ap-name { font-family: var(--title); text-transform: uppercase; font-weight: 500; font-size: 1.2rem; }
+  .ap-name mark { background: var(--ec-ink); color: #fff; padding: 0 .32rem; }
+  .ah-meta { margin-top: 2rem; line-height: 1.7; }
+  .ah-meta span { display: block; font-family: var(--mono); font-size: .82rem; color: var(--ec-muted); }
+  .ah-cta { margin-top: 1.4rem; display: flex; gap: .8rem; flex-wrap: wrap; }
+  .ec-btn { display: inline-block; font-family: var(--mono); font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; border: 1px solid var(--ec-ink); padding: .6rem 1.2rem; transition: background .3s, color .3s; }
+  .ec-btn:hover { background: var(--ec-ink); color: #fff; }
+  .ec-btn.ghost { border-color: var(--ec-line); color: var(--ec-muted); }
+  .ec-btn.ghost:hover { border-color: var(--ec-ink); background: var(--ec-ink); color: #fff; }
+
+  /* 02 經歷 facts */
+  .facts-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 3.5rem; }
+  .fcol h3 { font-family: var(--mono); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ec-muted); border-top: 2px solid var(--ec-ink); padding-top: 1rem; margin-bottom: 1.2rem; }
+  .fcol h3.mt { margin-top: 2.2rem; }
+  .fitem { padding-bottom: 1.2rem; margin-bottom: 1.2rem; border-bottom: 1px solid var(--ec-line); }
+  .fitem:last-child { border-bottom: 0; }
+  .fitem h4 { font-family: var(--display); font-weight: 500; font-size: 18px; }
+  .fitem h4.sm { font-size: 15.5px; }
+  .fitem .meta { font-family: var(--mono); font-size: .78rem; color: var(--ec-muted); margin: .3rem 0 .6rem; }
+  .fitem p { font-size: 14.5px; color: #4a4a48; }
+  .flink { border-bottom: 1px solid var(--ec-line); transition: color .3s, border-color .3s; }
+  .flink:hover { color: var(--ec-accent); border-color: var(--ec-accent); }
+
+  /* 卡片 */
+  .cards3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--ec-line); border: 1px solid var(--ec-line); }
+  .cards2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--ec-line); border: 1px solid var(--ec-line); }
+  .ec-card { background: var(--ec-paper); padding: 2.2rem 1.9rem; transition: background .3s; }
+  .ec-card:hover { background: var(--ec-paper-soft); }
+  .ec-card .k { font-family: var(--mono); color: var(--ec-accent); font-size: .74rem; letter-spacing: .04em; }
+  .ec-card h3 { font-family: var(--display); font-weight: 500; font-size: 21px; margin: .8rem 0 .8rem; }
+  .ec-card p { font-size: 15px; color: #4a4a48; }
+  .ec-card p + p { margin-top: .7rem; }
+  .ctags { margin-top: 1rem; display: flex; gap: .5rem; flex-wrap: wrap; }
+  .ctags span { font-family: var(--mono); font-size: .68rem; text-transform: uppercase; color: var(--ec-muted); border: 1px solid var(--ec-line); border-radius: 100px; padding: .2rem .7rem; }
+  .ai-note { border: 1px solid var(--ec-line); border-top: 0; padding: 2rem 1.9rem; position: relative; background: var(--ec-paper); }
+  .ai-note::before { content: ""; position: absolute; top: -6px; left: -6px; width: 12px; height: 12px; background: var(--ec-cyan); }
+  .ai-note h4 { font-family: var(--display); font-weight: 500; font-size: 20px; margin: .6rem 0 .8rem; }
+  .ai-note p { font-size: 15px; color: #4a4a48; }
+  .ai-note p + p { margin-top: .7rem; }
+  .aside-note { max-width: 40em; }
+  .aside-note p { font-size: 15.5px; color: #4a4a48; line-height: 1.95; }
+
+  /* 07 Contact（純黑） */
+  .ec-contact-sec { padding: 8rem 0 6rem; text-align: center; }
+  .ec-contact-sec::before { display: none; }
+  .kicker { font-family: var(--mono); font-size: .8rem; letter-spacing: .18em; color: var(--ec-dark-line); margin-bottom: 1.6rem; text-transform: uppercase; }
+  .ec-cfore { color: var(--ec-dark-line); margin-top: 1.4rem; }
+  .ctas { margin-top: 2rem; display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; }
+  .ec-btn.dk { border-color: #eee; color: #eee; }
+  .ec-btn.dk:hover { background: #eee; color: #000; }
+  .ec-btn.dk.ghost { border-color: var(--ec-dark-line); color: var(--ec-dark-line); }
+  .ec-btn.dk.ghost:hover { border-color: #eee; background: #eee; color: #000; }
+  .mailrow { margin-top: 2.4rem; display: inline-flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .contact-mail { font-family: var(--display); font-style: italic; font-size: clamp(1.2rem, 3vw, 1.8rem); color: #eee; border-bottom: 1.5px solid var(--ec-dark-line); transition: border-color .3s; }
+  .contact-mail:hover { border-color: #eee; }
+  .copybtn { font-family: var(--mono); font-size: .74rem; color: var(--ec-dark-line); background: none; border: 1px solid var(--ec-dark-line); padding: .4rem .9rem; cursor: pointer; text-transform: uppercase; transition: border-color .3s, color .3s; }
+  .copybtn:hover { border-color: #eee; color: #eee; }
+  .copybtn.done { border-color: var(--ec-cyan); color: var(--ec-cyan); }
+
+  /* FOOTER */
+  .ec-footer { padding: 2.6rem 0 2rem; }
+  .ec-foot { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--ec-dark-line); padding-top: 1.4rem; font-family: var(--mono); font-size: .74rem; color: var(--ec-dark-line); flex-wrap: wrap; gap: 1rem; }
+
+  /* 游標 */
+  #cursorCanvas { position: fixed; inset: 0; z-index: 3; pointer-events: none; }
+
+  @media (max-width: 960px) {
+    .ah-grid { grid-template-columns: 1fr; }
+    .facts-grid { grid-template-columns: 1fr 1fr; }
+    .cards3 { grid-template-columns: 1fr; }
+    .cards2 { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 720px) {
+    .ec-header { grid-template-columns: 1fr auto; }
+    .ec-nav, .ec-contact { display: none; }
+    .ec-menu { display: block; }
+    .ec-header.menu-open { mix-blend-mode: normal; background: var(--ec-ink); }
+    .ec-header.menu-open .ec-nav { display: flex; position: fixed; top: 4.6rem; left: 0; right: 0; flex-direction: column; gap: 0; padding: .6rem 5vw 1.4rem; background: var(--ec-ink); }
+    .ec-header.menu-open .ec-nav a { padding: .9rem 0; border-bottom: 1px solid var(--ec-dark-line); }
+    .facts-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1 !important; transform: none !important; filter: none !important; transition: none !important; }
+    #cursorCanvas { display: none !important; }
+    html { scroll-behavior: auto; }
+  }
+</style>
