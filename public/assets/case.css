@@ -18,7 +18,9 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
-  background: var(--paper);
+  /* 與首頁 index-motion 一致的網格／掃描線紋理 */
+  background-color: var(--paper);
+  background-image: repeating-linear-gradient(90deg, rgba(0,0,0,.04) 0, rgba(0,0,0,.04) 1px, transparent 1px, transparent 7px);
   color: var(--ink);
   font-family: "Hanken Grotesk", system-ui, sans-serif;
   font-size: 17px;

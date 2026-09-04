@@ -1,5 +1,6 @@
 ---
 // 共用：eric-cole 風導覽列（給作品頁等使用）。連結指向新版 index-motion / about-motion。
+import VersionSwitch from './VersionSwitch.astro';
 ---
 <header id="hd" class="ecn">
   <a href="/index-motion.html" class="ecn-logo">BRYNN</a>
@@ -8,7 +9,7 @@
     <a href="/about-motion.html">+ ABOUT</a>
     <a href="/index-motion.html#contact">+ CONTACT</a>
   </nav>
-  <a class="ecn-contact" href="mailto:brynn06191@gmail.com">CONTACT ↗</a>
+  <VersionSwitch here="motion" to="/" klass="ecn-contact" label="CLASSIC ↗" autoRedirect={false} />
   <button class="ecn-menu" id="navToggle" type="button" aria-label="開啟選單" aria-expanded="false" aria-controls="siteNav"><span></span><span></span></button>
 </header>
 <style>

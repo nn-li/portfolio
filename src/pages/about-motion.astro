@@ -2,6 +2,7 @@
 // About 頁 eric-cole 風預覽（about-motion）。保留 about.json 全部內容，換上與
 // index-motion 一致的視覺系統。正式 about.astro 不動。
 import Base from '../layouts/Base.astro';
+import VersionSwitch from '../components/VersionSwitch.astro';
 import content from '../content/about.json';
 import site from '../content/site.json';
 ---
@@ -13,11 +14,11 @@ import site from '../content/site.json';
 <header id="hd" class="ec-header">
   <a href="/" class="ec-logo">BRYNN</a>
   <nav class="ec-nav" id="siteNav" aria-label="Primary navigation">
-    <a href="/#work">+ WORK</a>
+    <a href="/index-motion.html#work">+ WORK</a>
     <a href="/about-motion.html">+ ABOUT</a>
     <a href="#contact">+ CONTACT</a>
   </nav>
-  <a class="ec-contact" href="mailto:brynn06191@gmail.com">CONTACT ↗</a>
+  <VersionSwitch here="motion" to="/about.html" klass="ec-contact" label="CLASSIC ↗" />
   <button class="ec-menu" id="navToggle" type="button" aria-label="開啟選單" aria-expanded="false" aria-controls="siteNav"><span></span><span></span></button>
 </header>
 

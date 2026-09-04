@@ -1,0 +1,58 @@
+---
+// 版本切換入口（放在原本 CONTACT 的右側按鈕位置）。
+// - here：這個頁面屬於哪個版本（'motion' = eric-cole 新版 / 'classic' = 原版）
+// - to：切到另一版時要去的網址（對應頁）
+// - klass：沿用各 nav 既有樣式的 class
+// - label：按鈕文字
+// - autoRedirect：進頁面時若記憶的版本與 here 不同，是否自動導到對應頁
+//   （首頁/關於我這種成對頁開啟；作品頁沒有原版對應頁，關閉以免把人彈走）
+const {
+  here,
+  to,
+  klass = "",
+  label,
+  autoRedirect = true,
+} = Astro.props;
+const other = here === "motion" ? "classic" : "motion";
+---
+<a
+  class={klass}
+  data-vswitch
+  data-here={here}
+  data-other={other}
+  data-auto={autoRedirect ? "1" : "0"}
+  href={to}>{label}</a>
+<script is:inline>
+  (function () {
+    // 同一頁可能有多個切換入口（桌機右側／手機選單內），只初始化一次。
+    if (window.__vswitchInit) return;
+    window.__vswitchInit = true;
+    var KEY = "siteVersion";
+    var pref = null;
+    try { pref = localStorage.getItem(KEY); } catch (e) {}
+    // 立即依記憶的版本自動導向（用當前這支 script 的前一個節點判斷即可，各實例條件相同）
+    var self = document.currentScript && document.currentScript.previousElementSibling;
+    if (
+      self && self.getAttribute && self.getAttribute("data-vswitch") !== null &&
+      pref && self.getAttribute("data-auto") === "1" &&
+      self.getAttribute("data-here") !== pref && self.getAttribute("href")
+    ) {
+      location.replace(self.getAttribute("href"));
+      return;
+    }
+    function bind() {
+      var nodes = document.querySelectorAll("[data-vswitch]");
+      for (var i = 0; i < nodes.length; i++) {
+        (function (n) {
+          if (n.__vb) return;
+          n.__vb = 1;
+          n.addEventListener("click", function () {
+            try { localStorage.setItem(KEY, n.getAttribute("data-other")); } catch (e) {}
+          });
+        })(nodes[i]);
+      }
+    }
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", bind);
+    else bind();
+  })();
+</script>

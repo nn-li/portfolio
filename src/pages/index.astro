@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import VersionSwitch from '../components/VersionSwitch.astro';
 import content from '../content/index.json';
 import site from '../content/site.json';
 ---
@@ -8,13 +9,17 @@ import site from '../content/site.json';
 <header id="hd">
   <div class="wrap nav">
     <a href="#top" class="brand">Brynn<span>.</span></a>
-    <button class="nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false" aria-controls="siteNav"><span></span><span></span></button>
     <nav class="nav-links" id="siteNav">
       <a href="#work">{site.nav.work}</a>
       <a href="/about.html">{site.nav.about}</a>
       <!-- <a href="/assets/files/brynn-cv.pdf" download>履歷</a> -->
       <a href="#contact" class="nav-cta">{site.nav.contact}</a>
+      <VersionSwitch here="classic" to="/index-motion.html" klass="nav-switch-m" label="MOTION ↗" />
     </nav>
+    <div class="nav-right">
+      <VersionSwitch here="classic" to="/index-motion.html" klass="nav-switch" label="MOTION ↗" />
+      <button class="nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false" aria-controls="siteNav"><span></span><span></span></button>
+    </div>
   </div>
 </header>
 
@@ -48,14 +53,6 @@ import site from '../content/site.json';
     p：UI/UX 設計師，具政府數位服務、App 與網站優化經驗。我從研究與流程規劃切入，將發現轉化為資訊架構、User Flow、Prototype 與介面規格，並與工程師釐清功能邏輯及實作限制。
   -->
 
-
-  <!-- MARQUEE -->
-  <div class="marquee">
-    <div class="marquee-track">
-      {content.marquee.items.map((item) => <span>{item}</span>)}
-      {content.marquee.items.map((item) => <span>{item}</span>)}
-    </div>
-  </div>
 
   <!-- WORK -->
   <section class="work" id="work">
@@ -294,11 +291,34 @@ import site from '../content/site.json';
     border-bottom: 1px solid var(--line);
   }
   .nav {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    justify-content: space-between;
     height: 76px;
   }
+  .nav-links { justify-self: center; }
+  .nav-right {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .nav-switch {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    letter-spacing: .02em;
+    position: relative;
+    transition: color .3s;
+  }
+  .nav-switch::after {
+    content: "";
+    position: absolute; left: 0; bottom: -5px;
+    width: 0; height: 1.5px; background: var(--cyan);
+    transition: width .35s var(--ease);
+  }
+  .nav-switch:hover { color: var(--ink); }
+  .nav-switch:hover::after { width: 100%; }
+  .nav-switch-m { display: none; }
   .brand {
     font-family: "Fraunces", serif;
     font-size: 21px;
@@ -472,29 +492,6 @@ import site from '../content/site.json';
   .in { animation: rise .55s var(--ease) forwards; }
   @keyframes rise { to { opacity: 1; transform: none; } }
 
-  /* ---------- MARQUEE ---------- */
-  .marquee {
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 22px 0;
-    position: relative; z-index: 2;
-    background: var(--paper-2);
-  }
-  .marquee-track {
-    display: inline-flex; gap: 48px;
-    animation: slide 32s linear infinite;
-    will-change: transform;
-  }
-  .marquee-track span {
-    font-family: "Fraunces", serif;
-    font-size: 26px; font-style: italic;
-    color: var(--ink-soft);
-  }
-  .marquee-track span::before { content: ""; display: inline-block; width: 11px; height: 11px; background: var(--cyan); margin-right: 48px; vertical-align: middle; }
-  @keyframes slide { to { transform: translateX(-50%); } }
-
   /* ---------- SECTIONS ---------- */
   section { position: relative; z-index: 2; }
   .sec-head {
@@ -654,6 +651,9 @@ import site from '../content/site.json';
     border-bottom: 1px solid var(--line);
   }
   @media (max-width: 860px) {
+    .nav { display: flex; justify-content: space-between; }
+    .nav-right .nav-switch { display: none; }
+    .nav-switch-m { display: block; }
     .nav-toggle { display: block; }
     .nav-links {
       display: flex; position: fixed; top: 76px; left: 0; right: 0;
@@ -672,7 +672,7 @@ import site from '../content/site.json';
 
   @media (prefers-reduced-motion: reduce) {
     .reveal, .obs { opacity: 1 !important; transform: none !important; animation: none !important; transition: none !important; }
-    .dot::after, .marquee-track { animation: none !important; }
+    .dot::after { animation: none !important; }
     .js .hero-title { opacity: 1 !important; }
     .char { transform: none !important; animation: none !important; }
     html { scroll-behavior: auto; }

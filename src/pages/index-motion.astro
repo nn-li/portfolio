@@ -4,6 +4,7 @@
 //       暖白 #f1f1ef／墨 #242424／燒橙 #d66d38｜掃描線紋理｜nav 置中 grid + 底線擦出。
 // HERO 保留原本（先不動）。原 index.astro 不動。
 import Base from '../layouts/Base.astro';
+import VersionSwitch from '../components/VersionSwitch.astro';
 import content from '../content/index.json';
 import site from '../content/site.json';
 
@@ -36,10 +37,10 @@ const capsDesc = [
   <a href="#top" class="ec-logo">BRYNN</a>
   <nav class="ec-nav" id="siteNav" aria-label="Primary navigation">
     <a href="#work">+ WORK</a>
-    <a href="#caps">+ CAPABILITIES</a>
     <a href="#about">+ ABOUT</a>
+    <a href="#contact">+ CONTACT</a>
   </nav>
-  <a class="ec-contact" href="#contact">CONTACT ↗</a>
+  <VersionSwitch here="motion" to="/" klass="ec-contact" label="CLASSIC ↗" />
   <button class="ec-menu" id="navToggle" type="button" aria-label="開啟選單" aria-expanded="false" aria-controls="siteNav"><span></span><span></span></button>
 </header>
 
