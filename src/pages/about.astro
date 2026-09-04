@@ -479,18 +479,30 @@ import site from '../content/site.json';
     .nav-switch-m { display: block; }
     .nav-toggle { display: block; }
     .nav-links {
-      display: flex; position: fixed; top: 76px; left: 0; right: 0;
-      flex-direction: column; gap: 0; padding: 6px 22px 20px;
+      display: flex; position: fixed; top: 76px; left: 0; right: 0; width: 100%;
+      flex-direction: column; gap: 0; padding: 4px 0 12px;
       background: rgba(255,255,255,.98);
       border-bottom: 1px solid var(--line);
       opacity: 0; transform: translateY(-8px); visibility: hidden; pointer-events: none;
       transition: opacity .3s var(--ease), transform .3s var(--ease), visibility .3s;
     }
     .nav-links.open { opacity: 1; transform: none; visibility: visible; pointer-events: auto; }
-    .nav-links a { padding: 14px 0; font-size: 16px; border-bottom: 1px solid var(--line); width: 100%; }
+    /* 每一項左對齊；文字對齊 logo(22px)，底線滿版到左右邊緣 */
+    .nav-links a { padding: 15px 22px; font-size: 16px; border-bottom: 1px solid var(--line); width: 100%; text-align: left; }
     .nav-links a::after { display: none; }
-    .nav-links .nav-cta, .nav-links a:last-child { border-bottom: 0; }
-    .nav-links .nav-cta { margin-top: 14px; text-align: center; padding: 12px 18px !important; }
+    .nav-links a:last-child { border-bottom: 0; }
+    /* 聯絡我改成一般列（非置中膠囊） */
+    .nav-links .nav-cta {
+      border: 0; border-radius: 0; border-bottom: 1px solid var(--line);
+      margin-top: 0; text-align: left; padding: 15px 22px !important; color: var(--ink) !important;
+    }
+    .nav-links .nav-cta:hover { background: none; color: var(--ink) !important; }
+    /* MOTION 切換：一般列，稍低調＋大寫 */
+    .nav-links .nav-switch-m {
+      padding: 15px 22px; border-bottom: 0; text-align: left;
+      font-size: 13.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-soft);
+    }
+    .nav-links .nav-switch-m::after { display: none; }
   }
 
   @media (prefers-reduced-motion: reduce) {
