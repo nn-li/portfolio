@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "find public -name '.DS_Store' -delete",
     "build": "astro build",
     "postbuild": "node scripts/patch-wrangler.mjs",
     "preview": "astro preview",
