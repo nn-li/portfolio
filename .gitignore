@@ -16,6 +16,11 @@ public/assets/images/project/UIUX/*
 public/assets/images/project/graphic/*
 !public/assets/images/project/graphic/covers
 !public/assets/images/project/graphic/secret-dimension
+!public/assets/images/project/graphic/love
+!public/assets/images/project/graphic/ai-wu-neng
+!public/assets/images/project/graphic/not-human
+!public/assets/images/project/graphic/meng-po-tang
+!public/assets/images/project/graphic/dimension
 
 # suggest/ 整個資料夾都是內部參考資料，不上傳 GitHub
 suggest/
