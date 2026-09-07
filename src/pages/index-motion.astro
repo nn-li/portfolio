@@ -7,6 +7,7 @@ import Base from '../layouts/Base.astro';
 import VersionSwitch from '../components/VersionSwitch.astro';
 import content from '../content/index.json';
 import site from '../content/site.json';
+import graphic from '../content/work/secret-dimension.json';
 
 const introLine = 'UI/UX DESIGNER — TURNING RESEARCH AND MESSY REQUIREMENTS INTO CLEAR, BUILDABLE PRODUCT EXPERIENCES.';
 const claimLine = 'I CARE ABOUT PRODUCTS THAT ARE CLEAR TO UNDERSTAND, HONEST ABOUT TRADE-OFFS, AND EASY TO USE.';
@@ -176,6 +177,23 @@ const capsDesc = [
           <a class="about-more" href="/about-motion.html">{content.about.moreLabel}</a>
         </aside>
       </div>
+    </div>
+  </section>
+
+  <!-- GRAPHIC（平面／視覺創作預告，完整在 /work/secret-dimension.html） -->
+  <section class="ec-sec ec-graphic" id="graphic">
+    <div class="ec-wrap">
+      <h2 class="section-title">GRAPHIC <span class="st-tag">[VISUAL WORK]</span></h2>
+      <p class="gfx-lead reveal">平面與視覺創作 —— 海報、書冊、品牌與解構實驗。</p>
+      <div class="gfx-grid reveal">
+        {graphic.projects.map((pr) => (
+          <a class="gfx-card" href="/work/secret-dimension.html" aria-label={pr.title}>
+            <img src={pr.cover} alt={pr.title} loading="lazy" />
+            <span class="gfx-name">{pr.title}</span>
+          </a>
+        ))}
+      </div>
+      <a class="gfx-all reveal" href="/work/secret-dimension.html">VIEW ALL ↗</a>
     </div>
   </section>
 
@@ -649,6 +667,16 @@ const capsDesc = [
   .about-body { color: #4a4a48; line-height: 1.95; font-size: 15px; }
   .about-more { display: inline-block; font-family: var(--mono); font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; border-bottom: 1px solid var(--ec-accent); padding-bottom: 3px; width: fit-content; }
 
+  /* ===== GRAPHIC（預告） ===== */
+  .ec-graphic { padding: 7rem 0 8rem; }
+  .gfx-lead { margin-top: 1.4rem; max-width: 40em; color: #4a4a48; line-height: 1.9; font-size: 15.5px; }
+  .gfx-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-top: 2.6rem; }
+  .gfx-card { position: relative; display: block; overflow: hidden; aspect-ratio: 3 / 4; background: #0b0b0b; border-radius: 2px; }
+  .gfx-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.16,1,.3,1); }
+  .gfx-card:hover img { transform: scale(1.06); }
+  .gfx-name { position: absolute; left: .55rem; bottom: .5rem; font-family: var(--mono); font-size: .68rem; letter-spacing: .04em; color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,.7); }
+  .gfx-all { display: inline-block; margin-top: 1.9rem; font-family: var(--mono); font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; border-bottom: 1px solid var(--ec-accent); padding-bottom: 3px; }
+
   /* ===== CONTACT（深色） ===== */
   .ec-contact-sec { padding: 8.5rem 0 7rem; text-align: center; background: #000; }
   .ec-contact-sec::before { display: none; }
@@ -683,6 +711,10 @@ const capsDesc = [
     .project-preview { display: none; }
     .approach-left { position: static; }
     .approach-claim { text-align: left; }
+    .gfx-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .gfx-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 720px) {
     .ec-header { grid-template-columns: 1fr auto; }
