@@ -131,21 +131,24 @@ const capsDesc = [
     <div class="ec-wrap">
       <h2 class="section-title">AI WORKFLOW <span class="st-tag">[&amp; INTERACTION]</span></h2>
       <p class="ai-statement reveal">將 AI 應用於真實 UX 專案的研究、知識管理與快速原型，同時持續探索互動、視覺與 AI 在數位體驗中的可能性。</p>
-      <div class="ai-cards reveal">
-        <article class="ai-card">
+      <div class="ai-cards">
+        <article class="ai-card reveal" tabindex="0" role="button">
           <span class="ct-num">001</span>
           <h3>AI-assisted UX Workflow</h3>
           <p class="ai-tag">桃園卡 / 軟協 / 商發署</p>
+          <span class="ai-more">查看案例</span>
         </article>
-        <article class="ai-card">
+        <article class="ai-card reveal delay-1" tabindex="0" role="button">
           <span class="ct-num">002</span>
           <h3>AI Learning Product</h3>
           <p class="ai-tag">英文學習產品</p>
+          <span class="ai-more">查看案例</span>
         </article>
-        <article class="ai-card">
+        <article class="ai-card reveal delay-2" tabindex="0" role="button">
           <span class="ct-num">003</span>
           <h3>Audiovisual Experiments</h3>
           <p class="ai-tag">互動／視覺實驗</p>
+          <span class="ai-more">查看案例</span>
         </article>
       </div>
     </div>
@@ -646,11 +649,17 @@ const capsDesc = [
   /* ===== AI WORKFLOW & INTERACTION（純黑，3 卡） ===== */
   .ai-statement { margin-top: 2rem; max-width: 46ch; font-family: var(--helv); font-size: clamp(1.1rem, 2.2vw, 1.55rem); line-height: 1.6; color: #ddd; }
   .ai-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 3.4rem; }
-  .ai-card { display: flex; flex-direction: column; gap: .7rem; min-height: 12rem; padding: 1.8rem 1.6rem; border: 1px solid var(--ec-dark-line); border-radius: 3px; transition: border-color .3s var(--ease), transform .3s var(--ease); }
-  .ai-card:hover { border-color: var(--ec-accent); transform: translateY(-4px); }
+  .ai-card { position: relative; display: flex; flex-direction: column; gap: .7rem; min-height: 13rem; padding: 1.8rem 1.6rem 1.5rem; border: 1px solid var(--ec-dark-line); border-radius: 3px; cursor: pointer; transition: border-color .35s var(--ease), transform .35s var(--ease), background .35s var(--ease); }
+  .ai-card::after { content: "↗"; position: absolute; top: 1.35rem; right: 1.4rem; font-family: var(--mono); font-size: 1rem; color: var(--ec-dark-line); transition: color .3s, transform .3s; }
+  .ai-card:hover, .ai-card:focus-visible { border-color: var(--ec-accent); transform: translateY(-5px); background: rgba(255,255,255,.03); outline: none; }
+  .ai-card:hover::after, .ai-card:focus-visible::after { color: var(--ec-accent); transform: translate(2px,-2px); }
   .ai-card .ct-num { font-family: var(--mono); font-size: .78rem; color: var(--ec-dark-line); }
-  .ai-card h3 { font-family: var(--title); text-transform: uppercase; font-weight: 500; font-size: clamp(1.15rem, 1.9vw, 1.5rem); letter-spacing: -.01em; line-height: 1.15; margin-top: .3rem; color: #f4f4f4; }
+  .ai-card h3 { font-family: var(--title); text-transform: uppercase; font-weight: 500; font-size: clamp(1.15rem, 1.9vw, 1.5rem); letter-spacing: -.01em; line-height: 1.15; margin-top: .3rem; color: #f4f4f4; padding-right: 1.4rem; }
   .ai-card .ai-tag { font-size: 13.5px; color: #9a9a9a; margin-top: auto; line-height: 1.6; }
+  .ai-more { margin-top: .9rem; font-family: var(--mono); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ec-dark-line); opacity: 0; transform: translateY(6px); transition: opacity .35s var(--ease), transform .35s var(--ease), color .35s; }
+  .ai-card:hover .ai-more, .ai-card:focus-visible .ai-more { opacity: 1; transform: none; color: #cfcfcf; }
+  /* 逐張交錯進場（沿用 reveal） */
+  .ai-card.reveal:not(.in).show { transition-duration: .9s; }
 
   /* ===== ABOUT（首頁預告：兩欄） ===== */
   .ec-about { padding: 8rem 0; }
