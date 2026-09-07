@@ -42,6 +42,9 @@ _src-graphic/
 # 參考網站的復刻檔（第三方，僅供本機分析動態，不上傳不上線）
 _ref/
 
+# AI 案原始素材（含政府 NDA 專案 repo，機密）只留本機，絕不上傳
+_src-ai/
+
 # Astro
 node_modules/
 dist/
