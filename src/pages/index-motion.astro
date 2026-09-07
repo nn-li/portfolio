@@ -126,42 +126,27 @@ const capsDesc = [
     </div>
   </section>
 
-  <!-- APPROACH（= How I Work）：左標題（固定）+ 右直排卡片 -->
-  <section class="ec-sec ec-approach" id="approach">
-    <div class="ec-wrap approach-layout">
-      <div class="approach-left"><h2 class="section-title">HOW I&nbsp;WORK</h2></div>
-      <div class="approach-right">
-        <div class="note-stack">
-          {content.howIWork.cards.map((card, i) => (
-            <article class="note-card">
-              <span class="nc-num">{String(i + 1).padStart(3, '0')}</span>
-              <h3 class="scramble" data-final={card.title}>{card.title}</h3>
-              <p>{card.body}</p>
-            </article>
-          ))}
-        </div>
-        <p class="approach-claim reveal">{claimLine}</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CAPABILITIES（純黑，= 技能） -->
-  <section class="ec-caps dark-section" id="caps">
+  <!-- AI WORKFLOW & INTERACTION（純黑，取代原 HOW I WORK / CAPABILITIES） -->
+  <section class="ec-caps dark-section" id="ai">
     <div class="ec-wrap">
-      <h2 class="section-title">CAPABILITIES <span class="st-tag">[WHAT I DO]</span></h2>
-      <p class="caps-statement reveal">我從研究與流程規劃切入，把發現轉化為資訊架構、User Flow、Prototype 與介面規格。</p>
-      <div class="cap-table reveal">
-        {content.marquee.items.map((item, i) => (
-          <article>
-            <span class="ct-num">{String(i + 1).padStart(3, '0')}</span>
-            <h3>{item}</h3>
-            <p class="ct-desc">{capsDesc[i]}</p>
-          </article>
-        ))}
-      </div>
-      <div class="caps-cta reveal">
-        <p>有專案想聊聊嗎？</p>
-        <a href="#contact">LET&apos;S CHAT ↗</a>
+      <h2 class="section-title">AI WORKFLOW <span class="st-tag">[&amp; INTERACTION]</span></h2>
+      <p class="ai-statement reveal">將 AI 應用於真實 UX 專案的研究、知識管理與快速原型，同時持續探索互動、視覺與 AI 在數位體驗中的可能性。</p>
+      <div class="ai-cards reveal">
+        <article class="ai-card">
+          <span class="ct-num">001</span>
+          <h3>AI-assisted UX Workflow</h3>
+          <p class="ai-tag">桃園卡 / 軟協 / 商發署</p>
+        </article>
+        <article class="ai-card">
+          <span class="ct-num">002</span>
+          <h3>AI Learning Product</h3>
+          <p class="ai-tag">英文學習產品</p>
+        </article>
+        <article class="ai-card">
+          <span class="ct-num">003</span>
+          <h3>Audiovisual Experiments</h3>
+          <p class="ai-tag">互動／視覺實驗</p>
+        </article>
       </div>
     </div>
   </section>
@@ -658,6 +643,15 @@ const capsDesc = [
   .caps-cta a { font-family: var(--title); text-transform: uppercase; font-weight: 500; font-size: clamp(1.6rem, 3vw, 2.6rem); color: #eee; transition: color .3s; }
   .caps-cta a:hover { color: var(--ec-cyan); }
 
+  /* ===== AI WORKFLOW & INTERACTION（純黑，3 卡） ===== */
+  .ai-statement { margin-top: 2rem; max-width: 46ch; font-family: var(--helv); font-size: clamp(1.1rem, 2.2vw, 1.55rem); line-height: 1.6; color: #ddd; }
+  .ai-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 3.4rem; }
+  .ai-card { display: flex; flex-direction: column; gap: .7rem; min-height: 12rem; padding: 1.8rem 1.6rem; border: 1px solid var(--ec-dark-line); border-radius: 3px; transition: border-color .3s var(--ease), transform .3s var(--ease); }
+  .ai-card:hover { border-color: var(--ec-accent); transform: translateY(-4px); }
+  .ai-card .ct-num { font-family: var(--mono); font-size: .78rem; color: var(--ec-dark-line); }
+  .ai-card h3 { font-family: var(--title); text-transform: uppercase; font-weight: 500; font-size: clamp(1.15rem, 1.9vw, 1.5rem); letter-spacing: -.01em; line-height: 1.15; margin-top: .3rem; color: #f4f4f4; }
+  .ai-card .ai-tag { font-size: 13.5px; color: #9a9a9a; margin-top: auto; line-height: 1.6; }
+
   /* ===== ABOUT（首頁預告：兩欄） ===== */
   .ec-about { padding: 8rem 0; }
   .about-grid { display: grid; grid-template-columns: 1.5fr .9fr; gap: 3.5rem; align-items: start; margin-top: 2.2rem; }
@@ -712,6 +706,7 @@ const capsDesc = [
     .approach-left { position: static; }
     .approach-claim { text-align: left; }
     .gfx-grid { grid-template-columns: repeat(3, 1fr); }
+    .ai-cards { grid-template-columns: 1fr; }
   }
   @media (max-width: 560px) {
     .gfx-grid { grid-template-columns: repeat(2, 1fr); }
