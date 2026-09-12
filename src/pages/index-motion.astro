@@ -735,4 +735,17 @@ const capsDesc = [
     #cursorGlow { display: none !important; }
     html { scroll-behavior: auto; }
   }
+
+  /* ── 修正：AI WORKFLOW 卡片改白底、footer 純黑、CONTACT 連結改白 ── */
+  .ai-card { background: #fff; border-color: #e4e4e0; border-radius: 6px; transition: border-color .35s var(--ease), transform .35s var(--ease), box-shadow .35s var(--ease); }
+  .ai-card::after { color: #b8b8b6; }
+  .ai-card:hover, .ai-card:focus-visible { background: #fff; border-color: var(--ec-accent); box-shadow: 0 18px 40px -24px rgba(0,0,0,.28); }
+  .ai-card .ct-num { color: #9a9a9a; }
+  .ai-card h3 { color: #141414; }
+  .ai-card .ai-tag { color: #6a6a6a; }
+  .ai-more { color: #8a8a8a; }
+  .ai-card:hover .ai-more, .ai-card:focus-visible .ai-more { color: var(--ec-accent); }
+  .ec-footer { background: #000; }
+  .ec-footer::before { display: none; }
+  .contact-links a { color: #eee; }
 </style>
