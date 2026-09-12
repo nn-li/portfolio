@@ -736,16 +736,18 @@ const capsDesc = [
     html { scroll-behavior: auto; }
   }
 
-  /* ── 修正：AI WORKFLOW 卡片改白底、footer 純黑、CONTACT 連結改白 ── */
-  .ai-card { background: #fff; border-color: #e4e4e0; border-radius: 6px; transition: border-color .35s var(--ease), transform .35s var(--ease), box-shadow .35s var(--ease); }
-  .ai-card::after { color: #b8b8b6; }
-  .ai-card:hover, .ai-card:focus-visible { background: #fff; border-color: var(--ec-accent); box-shadow: 0 18px 40px -24px rgba(0,0,0,.28); }
-  .ai-card .ct-num { color: #9a9a9a; }
-  .ai-card h3 { color: #141414; }
-  .ai-card .ai-tag { color: #6a6a6a; }
-  .ai-more { color: #8a8a8a; }
+  /* ── AI WORKFLOW 卡片：白底改良 · footer 純黑 · CONTACT 連結淺藍 ── */
+  .ai-cards { gap: 1.4rem; }
+  .ai-card { background: #fff; border: 1px solid #e6e6e2; border-radius: 12px; padding: 1.75rem 1.65rem 1.35rem; min-height: 14.5rem; transition: border-color .35s var(--ease), transform .35s var(--ease), box-shadow .35s var(--ease); }
+  .ai-card::after { color: #c6c6c2; }
+  .ai-card:hover, .ai-card:focus-visible { background: #fff; border-color: var(--ec-accent); transform: translateY(-6px); box-shadow: 0 22px 48px -26px rgba(0,0,0,.30); }
+  .ai-card .ct-num { color: #a6a6a2; font-size: .8rem; letter-spacing: .1em; }
+  .ai-card h3 { color: #161616; margin-top: .55rem; }
+  .ai-card .ai-tag { color: #6a6a6a; margin-top: .5rem; }
+  .ai-more { opacity: 1 !important; transform: none !important; margin-top: auto; padding-top: .95rem; border-top: 1px solid #ededed; color: #5a5a5a; letter-spacing: .05em; }
   .ai-card:hover .ai-more, .ai-card:focus-visible .ai-more { color: var(--ec-accent); }
   .ec-footer { background: #000; }
   .ec-footer::before { display: none; }
-  .contact-links a { color: #eee; }
+  .contact-links a { color: #9db4ff; }
+  .contact-links a:hover { color: #c3d2ff; }
 </style>
